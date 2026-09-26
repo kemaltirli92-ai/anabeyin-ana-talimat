@@ -1928,3 +1928,1130 @@ Yeni araç eklenirse:
 bu belge/manifest yapısına işlenir.
 
 **Bir sonraki hedef: bu MASTER planı D:'ye taşıyan ve etap etap bütün araçları tek seferde hazırlayan güvenli, tekrar çalıştırılabilir toplu kurucuyu üretmek ve çalıştırmak.**
+
+
+---
+
+# 49. ENTER'A BAS → UZUN SÜRELİ OTONOM GELİŞTİRME MOTORU
+
+## HEDEF
+
+AnaBeyin geliştirme sistemi yalnız kısa bir “ajan görevi” olmayacaktır.
+
+Kullanıcı bir ana hedef verdiğinde örneğin:
+
+> Ana sayfayı, Profili, VIP Kiralama'yı, Shop'u, İlan'ı ve bütün alt kategorileri bu kitap/spec dosyalarına göre tamamla.
+
+sistem:
+1. hedefi kalıcı göreve çevirir,
+2. gereksinimleri çıkarır,
+3. gerekiyorsa referans araştırması yapar,
+4. MD/PageSpec üretir,
+5. işi alt görevlere böler,
+6. uygun modeli/ajanı seçer,
+7. kodlar,
+8. test eder,
+9. bağımsız denetir,
+10. eksik bulursa görevi yeniden açar,
+11. checkpoint alır,
+12. bilgisayar/servis yeniden başladıktan sonra kaldığı yerden devam eder,
+13. gerçek tamamlanma kriterine kadar kullanıcıdan her küçük adımda komut beklemez.
+
+Bu iş saatler, günler veya haftalar sürebilir. Amaç tek bir Enter ile başlatılan büyük hedefin güvenli biçimde uzun süre yürüyebilmesidir.
+
+## NOW-ACTIVE / NOW-PASSIVE ARAÇLAR
+
+### **Temporal Server + Temporal CLI + Temporal TypeScript SDK**
+**Durum:** NOW-PASSIVE, otonom büyük geliştirme başladığında ACTIVE.  
+**İş:** Günler/haftalar/aylar süren görevlerin kalıcı durumunu tutmak, crash/reboot/network failure sonrası tam kaldığı yerden devam etmek, human-approval adımlarında beklemek, retry ve timeout yönetmek.
+
+### **BullMQ**
+**Durum:** NOW-ACTIVE.  
+**İş:** saniye/dakika/saat sınıfı kısa iş kuyrukları: test, screenshot, medya işlemi, crawling parçaları, lint, build, küçük ajan işleri.
+
+### **Prefect**
+**Durum:** REFERENCE-ONLY / NOW-PASSIVE.  
+**İş:** Python ağırlıklı veri/crawl/ML pipeline'larında Temporal'a alternatif veya yardımcı batch orchestration.
+
+### **OpenHands + OpenHands Agent SDK / Agent Server**
+**Durum:** NOW-PASSIVE.  
+**İş:** bağımsız coding agent, repo içinde kod okuma/yazma/terminal/browser; Cline/Kimi/OpenCode dışı ikinci uygulayıcı ve karşılaştırma ajanı.
+
+### **SWE-agent + mini-SWE-agent**
+**Durum:** NOW-PASSIVE.  
+**İş:** belirli issue/bug görevlerini bağımsız çözme ve ana kod ajanın çözümünü kıyaslama/denetleme.
+
+### ÖZEL ANA BEYİN SERVİSLERİ
+- `anabeyin-supervisor`
+- `anabeyin-goal-engine`
+- `anabeyin-task-planner`
+- `anabeyin-resume-daemon`
+- `anabeyin-agent-dispatcher`
+- `anabeyin-independent-reviewer`
+- `anabeyin-resource-governor`
+- `anabeyin-evidence-ledger`
+
+## KALICI DURUM
+PostgreSQL'de en az:
+- goal
+- epic
+- task
+- subtask
+- dependency
+- owner-agent
+- model
+- status
+- retries
+- checkpoint
+- git commit/worktree
+- test evidence
+- review evidence
+- browser research evidence
+- reason blocked
+- human approval state
+- last heartbeat
+- resume token
+saklanır.
+
+## REBOOT / KESİNTİ DAYANIKLILIĞI
+- Windows açılış → WSL tetikle.
+- WSL systemd → gerekli AnaBeyin supervisor servislerini kaldır.
+- Temporal/BullMQ/PostgreSQL health kontrolü.
+- RUNNING olup heartbeat'i kesilmiş işler “lost” sayılmaz; son güvenli checkpoint'ten yeniden değerlendirilir.
+- Git working tree ve DB migration durumu doğrulanmadan devam edilmez.
+- Her büyük görev sonunda otomatik git checkpoint.
+- Her gece/önemli checkpoint'te yerel backup.
+- Aynı dosyaya iki ajan eşzamanlı yazamaz; worktree/lease/file-lock uygulanır.
+- 16 GB RAM / 4 GB VRAM makinede concurrency dinamik olarak sınırlandırılır.
+- RAM/disk sınırı aşılırsa yeni ağır görev başlatılmaz; mevcut iş güvenli şekilde bekletilir.
+
+## İNSAN ONAYI GEREKTİREN KRİTİK İŞLER
+Uzun otonom çalışma “sınırsız yetki” değildir. Aşağıdakiler human gate ister:
+- geri döndürülemez veri silme,
+- D: / backup silme,
+- gerçek ödeme/iade,
+- gerçek SMS/e-posta toplu gönderimi,
+- production DNS/sertifika/hesap devri,
+- gerçek reklam bütçesi harcama,
+- secret değiştirme,
+- büyük dış servis faturası doğuracak işlem.
+
+---
+
+# 50. MD / PAGESPEC FABRİKASI — HER KATEGORİ BİR GERÇEK ÜRÜN DOSYASI
+
+Kullanıcı “Ana sayfa böyle, Profil böyle, VIP Kiralama böyle” dediğinde bu bilgi chat içinde kaybolmayacak.
+
+Her kullanıcı ekranı / ana kategori / alt kategori için bir **PageSpec** oluşturulur.
+
+Örnek:
+
+```text
+/srv/anabeyin/docs/pages/
+├─ ANA-SAYFA.md
+├─ PROFIL.md
+├─ VIP-KIRALAMA.md
+├─ SHOP.md
+├─ ILAN.md
+├─ EMLAK.md
+├─ ARAC.md
+├─ IKINCI-EL.md
+├─ VIDEO.md
+├─ REELS.md
+└─ ...
+```
+
+Büyük kategoriler:
+
+```text
+docs/products/arac/
+├─ 00-URUN.md
+├─ 01-KATEGORI-AGACI.md
+├─ 02-SAYFALAR.md
+├─ 03-VERI-MODELI.md
+├─ 04-API.md
+├─ 05-FILTRELER.md
+├─ 06-TASARIM.md
+├─ 07-YONETIM.md
+├─ 08-MODERASYON.md
+├─ 09-SEO.md
+├─ 10-ANALITIK.md
+└─ 11-TEST.md
+```
+
+## HER PAGESPEC ZORUNLU ALANLARI
+- ürün/kategori adı
+- amaç
+- kullanıcı rolleri
+- user stories
+- referans URL'ler
+- referans ekran görüntüleri/video timestamp'leri
+- **referanstan çıkarılan özellikler**
+- **kopyalanmayacak marka/tasarım/asset bilgisi**
+- route'lar
+- kategori ağacı
+- breadcrumbs
+- filtreler
+- sıralamalar
+- formlar
+- empty/loading/error states
+- responsive davranış
+- mobile davranış
+- tablet davranış
+- desktop davranış
+- TV davranış
+- erişilebilirlik
+- entity/data model
+- API endpoint ihtiyacı
+- worker/queue ihtiyacı
+- cache
+- search
+- recommendation
+- media
+- notifications
+- messaging
+- payment varsa akış
+- ads placement varsa alan
+- admin/yönetim dijital ikizi
+- moderation
+- security/privacy
+- audit
+- SEO/schema
+- analytics events
+- test matrix
+- “DONE kanıtı”
+
+## PAGE GENERATOR
+Patron AI PageSpec'i okuyarak:
+1. tasarım konsepti çıkarır,
+2. Design System komponentlerini seçer/üretir,
+3. frontend,
+4. backend,
+5. DB,
+6. admin,
+7. test
+katmanlarını üretir.
+
+PageSpec'te olmayan kritik bir ihtiyaç bulunursa kendi kendine “discovered requirement” olarak belgeye ekler; sessizce unutmaz.
+
+---
+
+# 51. ANA BEYİN ÖZELLİK SİCİLİ / CAPABILITY LEDGER
+
+Tek tek sayfa dosyalarının üstünde merkezi bir özellik sicili bulunur:
+
+`/srv/anabeyin/docs/CAPABILITY-LEDGER.yaml`
+
+Her capability için:
+- stable capability_id
+- ürün
+- kategori
+- alt kategori
+- açıklama
+- kaynak/referans
+- ilişkili PageSpec
+- frontend durumu
+- backend durumu
+- DB durumu
+- worker/queue durumu
+- auth/policy durumu
+- admin durumu
+- moderation durumu
+- test durumu
+- mobile/tablet/desktop/TV durumu
+- done evidence
+- last audit
+tutulur.
+
+**Kural:** “component var”, “tablo var”, “MD var”, “ajan tamam dedi” = COMPLETED değildir.
+
+---
+
+# 52. REFERANS WEB ZEKA / SITE RESEARCH FACTORY
+
+Amaç:
+Kullanıcı bir web sitesi verdiğinde ajan yalnız ana sayfaya bakmayacaktır.
+
+Örnek komut:
+
+> Sahibinden'in herkese açık Vasıta kategori yapısını referans al; son alt kategorilere kadar kategori/filtre/özellik haritasını çıkar. Tasarımı ve metinleri kopyalama; AnaBeyin için özgün ürün spec üret.
+
+veya:
+
+> Amazon'ın erişilebilir public alışveriş akışını ve kategori/ürün/filter/checkout davranışlarını araştır; eksiksiz özellik envanteri çıkar ve AnaBeyin Shop PageSpec'lerine uygula.
+
+## NOW-ACTIVE ARAÇLAR
+
+### **Playwright**
+- gerçek Chromium/Firefox/WebKit
+- DOM
+- screenshot
+- accessibility tree
+- network/HAR
+- form/navigation
+- infinite-scroll/load-more
+- JS-heavy site analizi
+- responsive viewport araştırması
+
+### **Crawlee JS + Crawlee Python**
+- RequestQueue
+- breadth/depth crawl
+- sitemap/link discovery
+- PlaywrightCrawler
+- HTTP crawler
+- persistent session/cookie
+- structured dataset
+- WARC desteği
+- throttling/concurrency
+
+### **Crawl4AI**
+- LLM-friendly clean Markdown
+- CSS/XPath extraction
+- structured extraction
+- dynamic pages
+- browser hooks
+- RAG-ready site snapshots
+
+### **Scrapy**
+- büyük ve deterministik site ağacı taraması
+- structured extraction
+- pagination
+- sitemap spider
+- feed export
+- hızlı HTTP crawling
+
+### **Firecrawl OSS self-hosted**
+- scrape/crawl/map/extract katmanı
+- Docker Compose ile yerel self-host
+- LLM-ready content
+- local MCP/CLI bağlantısı
+
+### **firecrawl/web-agent**
+- açık kaynak web research agent foundation
+- search/scrape/interact
+- skill/subagent
+- structured output
+
+### **Browser Use**
+- doğal dil ile gerçek tarayıcıyı kullanan AI agent
+- local browser + seçilen LLM
+- dinamik menü, popup, state, gezinme araştırması
+- ekranı görerek workflow çıkarma
+
+### **ArchiveBox**
+- public referans sayfalarını HTML/PDF/PNG/TXT/JSON/WARC gibi kalıcı formatlarda yerel arşivleme
+- referansın daha sonra değişmesi halinde kanıt/snapshot
+
+### **HTTrack**
+- özellikle statik/public site referansını offline inceleme
+- link ağacı/sayfa hiyerarşisi araştırma
+- WARC/offline mirror referansı
+
+### **wget / WARC**
+- düşük seviyeli, basit public snapshot
+
+### PARSER / EXTRACTION
+- BeautifulSoup4
+- lxml
+- selectolax
+- Cheerio
+- trafilatura
+- Readability
+- extruct — JSON-LD/microdata/RDFa
+- sitemap parser
+- warcio
+- pywb — WARC replay gerektiğinde
+
+## WEB RESEARCH PIPELINE
+
+```text
+Seed URL
+ ↓
+robots/sitemap/public erişim kontrolü
+ ↓
+URL frontier / RequestQueue
+ ↓
+page type classification
+ ↓
+DOM + accessibility tree + screenshot + network metadata
+ ↓
+link/category/filter/form discovery
+ ↓
+pagination/load-more/infinite-scroll
+ ↓
+structured taxonomy
+ ↓
+feature/capability extraction
+ ↓
+design-pattern extraction
+ ↓
+data/entity inference
+ ↓
+PageSpec + Capability Ledger
+ ↓
+independent browser verification
+```
+
+## KATEGORİ AĞACI ÇIKARMA
+Örneğin:
+
+```text
+Vasıta
+└─ Otomobil
+   └─ Ford
+      └─ Model ailesi
+         └─ varyant / filtre alanları
+```
+
+gibi bir public hierarchy varsa:
+- category_id (AnaBeyin iç)
+- parent_id
+- slug
+- display name
+- attribute schema
+- filter type
+- possible values
+- page type
+- breadcrumb
+olarak çıkarılır.
+
+Bu veri AnaBeyin'e körlemesine HTML kopyası olarak alınmaz; özgün taxonomy/schema'ya dönüştürülür.
+
+## REFERANS ARAŞTIRMASI İÇİN KURAL
+- yalnız kullanıcının erişmeye yetkili olduğu veya herkese açık içerik;
+- robots.txt, rate limit ve site kullanım şartları gözetilir;
+- login/paywall/CAPTCHA/anti-bot korumasını gizlice aşma yapılmaz;
+- üçüncü taraf kaynak kodu, logo, fotoğraf, metin kataloğu veya telifli asset birebir klonlanmaz;
+- referansın **fonksiyon, bilgi mimarisi, kategori/filtre ve UX paterni** çıkarılır ve AnaBeyin markasıyla özgün uygulanır;
+- kullanıcı kendi sitesi/kodu için izin verirse tam migration ayrı süreçtir.
+
+---
+
+# 53. REFERANS SITE “SON SAYFAYA KADAR” KEŞİF MOTORU
+
+Her site için `ReferenceProject` kaydı oluşturulur:
+
+- name
+- root domain
+- seed URLs
+- allowed domains
+- crawl purpose
+- crawl limits
+- public/authenticated status
+- robots policy
+- max depth
+- max pages
+- max concurrency
+- rate limit
+- discovered sitemaps
+- URL patterns
+- page types
+- crawl checkpoint
+- last URL
+- failure queue
+- final taxonomy
+- final capability report
+
+## ÖZELLİKLER
+- resume after crash
+- deduplicate URL canonicalization
+- query-param policy
+- pagination detection
+- “next page”
+- infinite scroll
+- “load more”
+- tabs/accordions
+- mega-menu extraction
+- faceted navigation
+- filters
+- sort options
+- forms
+- breadcrumbs
+- schema.org extraction
+- API/GraphQL request observation (yalnız browser'ın public UI çağrıları)
+- screenshots
+- mobile/tablet/desktop variants
+- diff against previous crawl
+- coverage report
+
+## ÇIKTI
+`docs/references/<site>/`
+altında:
+- SITE-MAP.md
+- CATEGORY-TREE.json
+- PAGE-TYPES.md
+- FEATURES.md
+- FILTERS.md
+- USER-FLOWS.md
+- DESIGN-PATTERNS.md
+- SCREENSHOTS/
+- EVIDENCE.jsonl
+- CRAWL-COVERAGE.md
+
+---
+
+# 54. VIDEO / EKRAN KAYDI / REFERANS GÖRSEL ZEKA FABRİKASI
+
+Kullanıcı bir video, ekran kaydı veya public demo verdiğinde sistem yalnız transcription yapmayacak; video içindeki UI akışını da analiz edecek.
+
+## NOW-ACTIVE
+- **FFmpeg / ffprobe**
+- **PySceneDetect**
+- **OpenCV**
+- **PyAV**
+- **faster-whisper**
+- **Whisper**
+- **OCR: Tesseract / PaddleOCR**
+- **OpenTimelineIO**
+- **imagehash / pHash**
+- **Playwright screenshot comparator**
+- **remote multimodal AI adapter** — NVIDIA/Kimi/uygun vision model
+
+## OPSİYONEL
+- **yt-dlp** — yalnız kullanıcının indirmeye yetkili olduğu veya kullanım koşullarının izin verdiği public/owned medya için; korumalı/telifli içeriği hukuka aykırı indirme amacıyla kullanılmaz.
+
+## VIDEO ANALYSIS PIPELINE
+```text
+Video
+ ↓
+ffprobe metadata
+ ↓
+scene detection
+ ↓
+temsilci keyframe'ler
+ ↓
+OCR
+ ↓
+speech-to-text
+ ↓
+UI/object/layout/gesture analysis
+ ↓
+timeline event list
+ ↓
+user flow
+ ↓
+feature requirements
+ ↓
+PageSpec / DesignSpec
+```
+
+Çıktı:
+- transcript
+- scene list
+- keyframes
+- OCR text
+- UI states
+- actions
+- transitions
+- errors/notices
+- inferred functionality
+- responsive/device clue
+- reusable design/UX patterns
+- exact evidence timestamps
+
+---
+
+# 55. REFERANS → ÖZGÜN TASARIM / ÜRÜN DÖNÜŞTÜRME MOTORU
+
+Referans araştırması sonucu AnaBeyin üçüncü taraf siteyi “giydirmez”.
+
+Aşağıdaki ayrı katmanlar üretilir:
+
+1. **Functional Inventory** — ne yapıyor?
+2. **Information Architecture** — sayfa/kategori ilişkisi ne?
+3. **Entity Model** — hangi veri var?
+4. **User Flow** — kullanıcı ne sırayla ne yapıyor?
+5. **Filter/Facet Model**
+6. **Interaction Patterns**
+7. **Accessibility Patterns**
+8. **SEO/Structured Data**
+9. **Admin/Operations Needs**
+10. **AnaBeyin Original Design Translation**
+
+Son adımda:
+- #E30A17 marka sistemi,
+- AnaBeyin Design Tokens,
+- özgün grid,
+- özgün komponent,
+- özgün iconography,
+- özgün typography,
+- özgün motion
+uygulanır.
+
+---
+
+# 56. ANA BEYİN SOFTWARE FACTORY — YENİ UYGULAMA ÜRETME PLATFORMU
+
+AnaBeyin yalnız kendi ana sitesini yapmakla sınırlı değildir.
+
+Aynı yerel AI fabrikası:
+- muhasebe yazılımı,
+- tarım yazılımı,
+- tütün yazılımı,
+- stok/POS,
+- CRM,
+- belge takip,
+- rezervasyon,
+- lojistik,
+- sektör portalı
+gibi bağımsız uygulamalar üretebilir.
+
+Kullanıcı:
+
+> Türkiye ve dünyadaki şu muhasebe programlarını incele. Ortak eksiksiz çekirdeği çıkar. Tarım için sektör paketi oluştur.
+
+dediğinde ayrı bir **SoftwareProject** açılır.
+
+## SOFTWAREPROJECT DOSYA ŞABLONU
+```text
+docs/software/<slug>/
+├─ 00-GOAL.md
+├─ 01-REFERENCES.md
+├─ 02-CAPABILITY-MATRIX.md
+├─ 03-USERS-ROLES.md
+├─ 04-DATA-MODEL.md
+├─ 05-WORKFLOWS.md
+├─ 06-PAGES.md
+├─ 07-API.md
+├─ 08-REPORTS.md
+├─ 09-INTEGRATIONS.md
+├─ 10-SECURITY.md
+├─ 11-ADMIN.md
+├─ 12-TEST.md
+└─ 13-DONE-EVIDENCE.md
+```
+
+Aynı tasarım/güvenlik/test/AI altyapısı tekrar kullanılabilir; ürünün kendi kod sınırı ayrı tutulur.
+
+---
+
+# 57. ORTAK MUHASEBE / ERP ÇEKİRDEĞİ
+
+Geçmiş karara göre hedef tek sektörlük bir muhasebe değil:
+**ortak muhasebe çekirdeği + sektör modülleri + entegrasyon katmanı**.
+
+## ANA ÇEKİRDEK
+- tenant/company
+- fiscal periods
+- chart of accounts
+- general ledger
+- journal entries
+- double-entry validation
+- cash
+- bank
+- current accounts / cari
+- customers
+- suppliers
+- receivables/payables
+- invoices
+- payments
+- expenses
+- revenues
+- cost centers
+- projects
+- budgeting
+- taxes adapter
+- inventory
+- stock movements
+- warehouse
+- purchasing
+- sales
+- POS
+- barcode
+- product/service
+- fixed assets
+- depreciation
+- payroll integration layer
+- attachments/documents
+- approvals
+- recurring entries
+- bank reconciliation
+- audit trail
+- role/permissions
+- multi-company
+- multi-currency
+- reports
+- P&L
+- balance sheet
+- cash flow
+- receivables/payables aging
+- export/import
+- accountant sharing
+- e-invoice/e-ledger/official-system adapter points
+- API/webhooks
+- mobile/tablet/desktop
+
+**Resmî vergi/e-fatura/e-defter işlemleri yalnız yetkili entegratör/API ve güncel mevzuata uygun bağlantılar üzerinden yapılır.**
+
+---
+
+# 58. MUHASEBE REFERANS LABORATUVARI
+
+Aşağıdaki açık kaynak projeler kodu körlemesine çatallamak için değil, işlev/iş akışı/muhasebe modeli/UX/rapor referansı olarak incelenebilir.
+
+## OPEN-SOURCE REFERENCE PACK — NOW-PASSIVE / REFERENCE-ONLY
+1. **ERPNext / Frappe Framework**
+2. **Odoo Community**
+3. **Dolibarr ERP/CRM**
+4. **Tryton**
+5. **Akaunting**
+6. **LedgerSMB**
+7. **GnuCash**
+8. **Frappe Books**
+9. **Apache OFBiz**
+10. **Axelor Community** — lisans ve açık/kapalı modül sınırları ayrıca kontrol edilerek.
+
+Bu projeler için:
+- repo/docs URL
+- lisans
+- ana modüller
+- veri modeli notları
+- kullanıcı akışları
+- raporlar
+- güçlü/zayıf yönler
+- AnaBeyin muhasebe capability matrix
+çıkarılır.
+
+## TÜRKİYE PAZARI PUBLIC REFERENCE CATALOG
+Kurulum olarak değil, kullanıcının talebi üzerine public özellik/dokümantasyon/ekran referansı:
+- Logo ürün ailesi
+- Mikro Yazılım
+- Luca
+- Paraşüt
+- Zirve Yazılım
+- AKINSOFT WOLVOX
+- ETA
+- Nebim
+- Logo Netsis
+- Bizim Hesap
+ve kullanıcı tarafından verilen diğer programlar.
+
+Üçüncü taraf ticari kod/asset alınmaz; public işlev/akış/terminoloji karşılaştırması yapılır.
+
+---
+
+# 59. TAD TARIM / TARIM MUHASEBE VERTICAL PACK
+
+TAD Tarım'da daha önce elde edilen deneyim genel bir sektör platformuna dönüştürülebilir.
+
+## ORTAK TARIM MODÜLLERİ
+- işletme
+- ortaklar
+- tarla/parsel
+- bölge
+- üretim yılı/sezon
+- ürün
+- çeşit
+- ekim/dikim
+- tarımsal girdi
+- gübre
+- ilaç
+- mazot/yakıt
+- sulama
+- makine
+- işçilik
+- dayıbaşı/ekip
+- yevmiye
+- görev
+- hasat
+- teslim
+- kalite/sınıf
+- kilogram
+- fiyat
+- avans
+- mahsuplaşma
+- alacak/borç
+- ortak payı
+- banka/kasa
+- maliyet
+- dekara maliyet
+- kg maliyeti
+- kâr/zarar
+- tahmini hasat
+- belge
+- sözleşme
+- fotoğraf/tutanak
+- rapor
+- dashboard
+- mobil saha girişi
+- offline saha cache
+- bildirim
+- audit
+
+## SEKTÖR PAKETLERİ
+Aynı muhasebe çekirdeğinden:
+- tütün
+- zeytin
+- üzüm
+- tahıl
+- pamuk
+- sebze
+- meyve
+- sera
+- hayvancılık
+- arıcılık
+gibi vertical modüller üretilebilir.
+
+---
+
+# 60. TÜTÜN / BELGE / ÜRETİCİ VERTICAL PACK
+
+Tütün için özel modül örneği:
+- üretici
+- tarla/parsel
+- sözleşme
+- firma/alıcı
+- avans
+- kırımlar
+- işçi/yevmiyeler
+- kurutma
+- parti
+- teslim
+- kg
+- kalite/sınıf
+- baş fiyat / fiyat listesi
+- kesinti
+- ödeme
+- cari
+- ortak hesapları
+- fotoğraf
+- belge tarama
+- OCR
+- belge sınıflandırma
+- belge ilişkilendirme
+- son tarih/uyarı
+- teslim raporu
+- maliyet
+- sezon karşılaştırması
+- arşiv
+- yetki
+- audit
+- resmî/özel belge entegrasyon noktaları
+
+Mevzuat veya resmî belge formatı hard-code edilmez; güncel resmî gereksinim doğrulanarak ayrı `compliance adapter` içinde tutulur.
+
+---
+
+# 61. SEKTÖR UYGULAMASI ÜRETİCİSİ
+
+Kullanıcı:
+> “Mobilyacı muhasebesi yap”
+> “Market muhasebesi yap”
+> “Tütüncü programı yap”
+> “VIP araç kiralama sistemi yap”
+
+dediğinde sistem:
+
+1. sektör hedefini tanımlar,
+2. referans program/site listesini kabul eder,
+3. public kaynakları araştırır,
+4. ortak capability matrix çıkarır,
+5. eksikleri keşfeder,
+6. ortak muhasebe/Core modüllerini reuse eder,
+7. sektöre özgü entity/iş akışı oluşturur,
+8. bütün PageSpec'leri yazar,
+9. tasarımı sıfırdan AnaBeyin Design System ile üretir,
+10. backend/DB/admin/testleri geliştirir,
+11. gerçek demo dataset oluşturur,
+12. bağımsız denetim yapar.
+
+---
+
+# 62. VIP KİRALAMA — PAGESPEC ÖRNEĞİ
+
+VIP Kiralama yalnız bir statik sayfa olmayacak; PageSpec sistemiyle:
+
+- landing
+- araç filosu
+- araç detay
+- kapasite
+- özellikler
+- sürücülü/sürücüsüz politika
+- lokasyon
+- tarih/saat
+- rota
+- yolcu sayısı
+- bagaj
+- ek hizmet
+- fiyat talebi
+- rezervasyon
+- müsaitlik
+- teklif
+- mesajlaşma
+- favori
+- değerlendirme
+- işletme profili
+- belge/uygunluk alanları
+- admin filo
+- sürücü/personel
+- rezervasyon takvimi
+- operasyon
+- bildirim
+- ödeme mock
+- iptal/iade politikası
+- SEO
+- analytics
+- mobile/tablet/desktop/TV
+- test
+
+başlıklarıyla üretilecek.
+
+Kullanıcı ileride VIP Kiralama için ayrı referans siteler verdiğinde Reference Web Intelligence Factory bunları tarayıp PageSpec'i genişletecek.
+
+---
+
+# 63. EKRAN / NETWORK / UX TERSİNE GEREKSİNİM ÇIKARMA
+
+Referans tarayıcı oturumunda yalnız HTML alınmaz.
+
+## TOPLANACAK KANITLAR
+- screenshot
+- full-page screenshot
+- viewport screenshot
+- DOM snapshot
+- accessibility tree
+- computed styles
+- CSS variables
+- font family/size/weight
+- spacing/radius/layout ölçümleri
+- interaction states
+- network request metadata
+- HAR
+- response content type
+- navigation timing
+- localStorage/sessionStorage key adları (secret değerleri loglanmadan)
+- cookies yalnız yetkili test profile için ve secret redaction ile
+- form fields
+- validation errors
+- modal/drawer/menu states
+- keyboard behavior
+- mobile behavior
+
+## ARAÇLAR
+- Playwright trace viewer
+- Chrome DevTools Protocol
+- HAR recorder
+- Lighthouse
+- axe-core
+- PostCSS
+- CSSTree
+- Chrome accessibility snapshot
+- pixelmatch/OpenCV
+
+Amaç kaynak kod klonlamak değil; **ürünün gözlemlenebilir davranışından gereksinim çıkarmaktır.**
+
+---
+
+# 64. REFERANS SÜRÜM / FARK TAKİBİ
+
+Bir referans site/proje daha sonra tekrar incelendiğinde:
+- önceki snapshot
+- yeni snapshot
+- yeni kategori
+- kaybolan kategori
+- yeni filtre
+- değişen user flow
+- değişen SEO schema
+- yeni responsive davranış
+farkları çıkarılır.
+
+Araçlar:
+- ArchiveBox snapshots
+- WARC
+- JSON taxonomy diff
+- DOM structural diff
+- screenshot visual diff
+- PageSpec semantic diff
+
+Kullanıcı isterse değişiklikler otomatik “AnaBeyin'e ekle” değil, önce `REFERENCE-CHANGE-PROPOSAL.md` olarak çıkarılır.
+
+---
+
+# 65. KAYNAK / LİSANS / PROVENANCE SİCİLİ
+
+Her dış referans ve açık kaynak dependency için:
+- source URL
+- project name
+- version
+- license
+- install method
+- hash/checksum mümkünse
+- downloaded date
+- status
+- intended use
+- redistribution restriction
+- attribution requirement
+tutulur.
+
+Araçlar:
+- ScanCode Toolkit
+- Syft
+- CycloneDX
+- SPDX
+- REUSE
+- license-checker / licensee benzeri paket lisans kontrolü
+
+Bu sicil ileride commercial launch sırasında “hangi açık kaynak ne lisans istiyor?” problemini azaltır.
+
+---
+
+# 66. ARAŞTIRMA KANIT DEPOSU
+
+`/srv/anabeyin/research/`
+
+Her araştırma projesinde:
+- kaynak URL'leri
+- erişim tarihi
+- public/reference flag
+- screenshot
+- WARC/HTML snapshot gerekiyorsa
+- extracted JSON
+- generated MD
+- video keyframes
+- transcript
+- model/ajan çıktısı
+- reviewer sonucu
+saklanır.
+
+Bu dosyalar doğrudan production kullanıcı içeriği değildir; araştırma kanıtıdır.
+
+---
+
+# 67. OTONOM TASARIM DÖNGÜSÜ
+
+Her yeni sayfa için:
+1. PageSpec
+2. referans evidence
+3. design intent
+4. Penpot/tokens
+5. Storybook component
+6. page composition
+7. desktop screenshot
+8. tablet screenshot
+9. mobile screenshot
+10. TV gerekiyorsa TV screenshot
+11. axe
+12. Lighthouse
+13. visual reviewer AI
+14. independent second reviewer
+15. düzeltme
+16. tekrar test
+17. DONE evidence
+
+Tasarımı yapan ajan kendi tasarımını tek başına final onaylayamaz.
+
+---
+
+# 68. OTONOM GELİŞTİRME DÖNGÜSÜ
+
+Her capability için:
+
+```text
+Research
+→ Requirement
+→ PageSpec/Capability Ledger
+→ Architecture
+→ DB/Migration
+→ Backend/API
+→ Worker/Queue
+→ UI
+→ Admin Digital Twin
+→ AI Operation Twin gerekiyorsa
+→ Security/Permission
+→ Unit/Integration
+→ Browser E2E
+→ Mobile/Tablet/Desktop/TV
+→ Independent Audit
+→ Fix Loop
+→ Checkpoint
+→ COMPLETED
+```
+
+Eksik katman varsa görev kapanmaz.
+
+---
+
+# 69. SONRAKİ TOPLU KURULUMA EKLENECEK YENİ ETAPLAR
+
+Mevcut 00–14 kurulum sırasına aşağıdaki alt fazlar eklenecek:
+
+## 03-AI-FACTORY içine
+- Temporal CLI/Server image + SDK
+- OpenHands/Agent SDK
+- SWE-agent / mini-SWE-agent
+- Browser Use
+- persistent supervisor scaffolding
+
+## 04-DESIGN-FACTORY içine
+- PageSpec generator templates
+- Capability Ledger templates
+- visual research tooling
+
+## 07-MEDIA-REALTIME içine
+- PyAV
+- OpenTimelineIO
+- video-reference analyzer
+
+## YENİ **07B-WEB-RESEARCH**
+- Crawlee JS
+- Crawlee Python
+- Crawl4AI
+- Scrapy
+- Firecrawl OSS self-host source/image
+- firecrawl/web-agent
+- Browser Use
+- ArchiveBox
+- HTTrack
+- BeautifulSoup/lxml/selectolax/trafilatura/extruct/warcio
+- site taxonomy extractor
+- reference evidence store
+
+## YENİ **10B-SOFTWARE-FACTORY**
+- accounting/ERP reference catalog
+- ERPNext source/docs reference
+- Odoo Community source/docs reference
+- Dolibarr
+- Tryton
+- Akaunting
+- LedgerSMB
+- GnuCash
+- Frappe Books
+- Apache OFBiz
+- Axelor reference
+- common accounting Core PageSpec templates
+- agriculture/tobacco vertical templates
+- generic sector-app generator templates
+
+**Kural:** büyük ERP uygulamalarının tamamı aynı anda servis olarak çalıştırılmaz. Kaynak/docs/image/reference hazır olabilir; RAM tüketen container'lar PASİF tutulur ve karşılaştırma gerektiğinde açılır.
+
+---
+
+# 70. BU EKİN NİHAİ AMACI
+
+AnaBeyin fabrikasının son hedefi yalnız “site kodlamak” değildir.
+
+Kullanıcı tek bir doğal dil komutuyla:
+- yeni sayfa,
+- yeni kategori,
+- yeni portal,
+- yeni muhasebe uygulaması,
+- yeni sektör uygulaması,
+- referans site araştırması,
+- video referans analizi,
+- tasarım yeniden üretimi,
+- kapsamlı ürün geliştirme
+başlatabilmelidir.
+
+Sistem:
+- referansı araştırmalı,
+- kanıtı saklamalı,
+- kategori/özellik ağacını çıkarmalı,
+- MD/PageSpec üretmeli,
+- özgün tasarlamalı,
+- kodlamalı,
+- test etmeli,
+- denetlemeli,
+- gerekirse haftalarca kaldığı yerden devam etmeli,
+- ancak gerçek kanıtla “tamamlandı” demelidir.
+
+**Bir sonraki toplu kurucu artık bu 49–70 numaralı genişletmeleri de AnaBeyin OMEGA manifestinin parçası olarak kuracak/doğrulayacaktır.**
