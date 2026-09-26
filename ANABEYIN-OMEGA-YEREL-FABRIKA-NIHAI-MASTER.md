@@ -3055,3 +3055,185 @@ Sistem:
 - ancak gerçek kanıtla “tamamlandı” demelidir.
 
 **Bir sonraki toplu kurucu artık bu 49–70 numaralı genişletmeleri de AnaBeyin OMEGA manifestinin parçası olarak kuracak/doğrulayacaktır.**
+
+
+---
+
+# 71. SCREENSHOT / TASARIM GÖRÜNTÜSÜ → ÇALIŞAN UYGULAMA TERSİNE GEREKSİNİM MOTORU
+
+Kullanıcı tek bir ekran görüntüsü veya 20–30 ekran görüntüsü verdiğinde sistem yalnız “aynısını çiz” görevi yapmayacaktır.
+
+Örnek:
+
+> “Şu bakkal/muhasebe programından aldığım 30 screenshot'ı incele. Ekranların davranışını, veri ilişkilerini, olası iş kurallarını ve gerekli backend/veritabanı yapısını çıkar; AnaBeyin Software Factory içinde özgün ve çalışan bir eşdeğer ürün üret.”
+
+## TEMEL KURAL
+
+Ekran görüntüsünden üçüncü tarafın gerçek gizli kaynak kodu, gerçek gizli veritabanı şeması veya gerçek backend uygulaması bilinemez ve “birebir kopyalandı” diye iddia edilmez.
+
+Bunun yerine sistem:
+- gözlemlenebilir ekranları,
+- alanları,
+- tabloları,
+- raporları,
+- menüleri,
+- durumları,
+- kullanıcı akışlarını,
+- iş kurallarını,
+- ilişki ipuçlarını,
+- hata/uyarıları,
+- filtre/sıralamaları,
+- rol/yetki işaretlerini
+çıkarır ve bunları karşılayacak **özgün, mantıksal olarak eşdeğer** veri modeli + backend + frontend + yönetim + test sistemini tasarlar.
+
+Kullanıcının kendi yazılımına veya kullanmaya yetkili olduğu kaynağa ait schema/API/source verilirse bunlar ayrıca gerçek migration/import kaynağı olarak kullanılabilir.
+
+## INPUT TÜRLERİ
+- tek screenshot
+- screenshot serisi
+- mobil screenshot
+- tablet screenshot
+- desktop screenshot
+- TV screenshot
+- PDF kullanıcı kılavuzu
+- tarayıcı HAR
+- export edilmiş HTML
+- API dokümanı
+- örnek CSV/Excel
+- veritabanı dump/schema
+- ekran kaydı/video
+
+## SCREENSHOT ANALYSIS TOOLCHAIN
+- OpenCV
+- Pillow
+- ImageMagick
+- Tesseract
+- PaddleOCR
+- EasyOCR
+- Docling
+- layout detection
+- perceptual hash
+- remote multimodal Kimi/NVIDIA vision modelleri
+- DOM/Playwright evidence varsa screenshot ile eşleştirme
+- Storybook/Penpot/Design Token üretim katmanı
+
+## ÇIKARILACAK NESNELER
+- ekran kimliği
+- page type
+- menüler
+- toolbar
+- sidebar
+- tabs
+- table/list/grid
+- form alanları
+- input type
+- button/action
+- filters
+- sort
+- pagination
+- modal
+- dialog
+- notification
+- error state
+- loading state
+- permissions
+- apparent entity names
+- entity attributes
+- candidate relations
+- required CRUD operations
+- calculated fields
+- reports
+- possible workflow states
+- possible audit requirements
+- inferred API operations
+- inferred background jobs
+- inferred notification rules
+
+## BELİRSİZLİK SİSTEMİ
+
+Her çıkarım:
+- OBSERVED — ekranda doğrudan görüldü
+- STRONGLY_INFERRED — birden fazla kanıtla güçlü çıkarım
+- INFERRED — mantıksal ihtiyaç
+- UNKNOWN — ek kanıt gerekiyor
+
+olarak işaretlenir.
+
+Patron AI UNKNOWN alanlarda sahte kesinlik üretmez; güvenli varsayım yaparsa bunu spec'e açıkça yazar ve daha sonra test/referansla doğrular.
+
+## ÇIKTI DOSYALARI
+
+```text
+docs/software/<project>/reverse-spec/
+├─ SCREEN-INVENTORY.md
+├─ OCR-EVIDENCE.jsonl
+├─ UI-COMPONENT-MAP.md
+├─ USER-FLOWS.md
+├─ ENTITY-CANDIDATES.md
+├─ RELATIONSHIP-GRAPH.mmd
+├─ INFERRED-DATA-MODEL.md
+├─ INFERRED-API.md
+├─ BUSINESS-RULES.md
+├─ PERMISSION-MATRIX.md
+├─ UNCERTAINTIES.md
+├─ SCREEN-TO-ROUTE-MAP.md
+└─ IMPLEMENTATION-PAGESPECS/
+```
+
+## UYGULAMA ÜRETİMİ
+
+Screenshot reverse-spec tamamlandıktan sonra:
+1. normalize edilmiş entity modeli,
+2. PostgreSQL schema/migration,
+3. backend API,
+4. business rule/service layer,
+5. auth/permission,
+6. workers/queue,
+7. özgün Design System ile frontend,
+8. admin yönetim dijital ikizi,
+9. test fixture,
+10. E2E,
+11. görsel screenshot karşılaştırması,
+12. independent functional reviewer
+üretilir.
+
+## ÇOK EKRAN BİRLEŞTİRME
+
+30 screenshot aynı programın farklı bölümlerini gösteriyorsa:
+- tekrar eden component'ler birleştirilir,
+- aynı entity'nin farklı görünüşleri eşleştirilir,
+- form ve liste alanları tek data dictionary'ye dönüştürülür,
+- olası foreign-key ilişkileri çıkarılır,
+- ekranlar state machine/workflow halinde bağlanır,
+- gereksiz duplicate tablo/model üretilmez.
+
+## REFERANS GÖRSELİ → ÖZGÜN TASARIM
+
+İşlev/iş akışı referans alınabilir; üçüncü taraf:
+- logo,
+- marka,
+- telifli görsel,
+- özgün metin kataloğu,
+- özel ikon seti,
+- piksel-piksel trade dress
+kopyalanmaz.
+
+AnaBeyin Design System özgün görsel dili üretir.
+
+## SOFTWARE FACTORY İLE BAĞLANTI
+
+Bu motor:
+- muhasebe,
+- tarım,
+- tütün,
+- bakkal/POS,
+- CRM,
+- VIP kiralama,
+- ilan,
+- e-ticaret,
+- belge takip,
+- rezervasyon,
+- lojistik
+gibi her SoftwareProject için kullanılabilir.
+
+**Bu bölüm 07B-WEB-RESEARCH + 10B-SOFTWARE-FACTORY kurulum fazlarının zorunlu parçasıdır.**
