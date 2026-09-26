@@ -3237,3 +3237,14 @@ Bu motor:
 gibi her SoftwareProject için kullanılabilir.
 
 **Bu bölüm 07B-WEB-RESEARCH + 10B-SOFTWARE-FACTORY kurulum fazlarının zorunlu parçasıdır.**
+
+
+---
+
+# 72. GÜNCEL DURUM CHECKPOINTİ
+
+Bundan sonraki AnaBeyin çalışmalarında önce şu dosya okunur:
+
+**`ANABEYIN-OMEGA-GUNCEL-DURUM.md`**
+
+Bu dosya kurulu araçların, son doğrulanan durumun, ertelenenlerin ve bir sonraki devam noktasının kısa ve güncel kaydıdır. OMEGA master plan kapsamı burada kalır; anlık durum ayrı checkpoint dosyasında tutulur.
