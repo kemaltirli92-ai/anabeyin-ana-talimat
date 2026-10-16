@@ -9,7 +9,7 @@
 
 > **AI MANDATE:** This catalog is a launchpad, **not a research stop condition**. Read the official repo/documentation for each relevant entry, verify live license, release, cost/quota, hardware and integration, **then research beyond this list** for newer and better truly free/open-source alternatives. Record what is confirmed versus estimated, cite links, and recommend additions. Never assume a listed tool is already installed or operational.
 
-**Hızlı arama:** 275 aracın kısa JSON indeksi [KAYNAKLAR_HIZLI_INDEKS.json](./KAYNAKLAR_HIZLI_INDEKS.json) dosyasındadır. Başka AI'lar önce onu tarayıp `K-ID` seçebilir; ardından ana dosyadaki ayrıntılı karta geçebilir. **Ancak bu Markdown dosyası tek başına da tüm açıklamaları ve iş akışını içerir.**
+**Hızlı arama:** Sık taramalar için [275 araçlık kısa içindekiler](./KAYNAKLAR_ICINDEKILER.md), programatik filtreleme için [JSON indeks](./KAYNAKLAR_HIZLI_INDEKS.json) vardır. Başka AI'lar önce onu tarayıp `K-ID` seçebilir; ardından ana dosyadaki ayrıntılı karta geçebilir. **Ancak bu Markdown dosyası tek başına da tüm açıklamaları ve iş akışını içerir.**
 
 ## HIZLI YOL HARİTASI / BU DOSYA NASIL OKUNUR?
 
