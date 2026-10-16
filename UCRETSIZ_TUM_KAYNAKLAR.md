@@ -1,6 +1,6 @@
 # ÜCRETSİZ TÜM KAYNAKLAR
 
-**Sürüm:** 2.0 (ayrıntılı, insan + yapay zekâ ortak başvuru el kitabı)  
+**Sürüm:** 2.1 (ayrıntılı, insan + yapay zekâ ortak başvuru el kitabı)  
 **Tarih:** 16 Ekim 2026  
 **Sahip:** Bu GitHub deposundaki proje. **Ana kaynak:** `UCRETSIZ_TUM_KAYNAKLAR.md`  
 **Hedef:** Sadece isim listesi değil; her kaynağın amacı, yapılabilecek işler, kurulum yeri, yaklaşık donanım gereksinimi, ilişkilendirme biçimi ve otomasyon örneği.
@@ -8,6 +8,8 @@
 > **ZORUNLU YAPAY ZEKÂ NOTU — BU DOSYADAN SONRA ARAŞTIRMAYI BIRAKMA.** Bu envanter başlangıç noktasıdır. İlgili resmî README/API/lisans ve güncel sürümü aç, ardından **GitHub, Hugging Face, üretici belgeleri ve yeni alternatifleri de araştır**. Buradaki bilgiyi güncel doğrulama olmadan kesin sayma. Kullanıcı yeni çözüm arıyorsa bu listeyle kendini sınırlandırma.
 
 > **AI MANDATE:** This catalog is a launchpad, **not a research stop condition**. Read the official repo/documentation for each relevant entry, verify live license, release, cost/quota, hardware and integration, **then research beyond this list** for newer and better truly free/open-source alternatives. Record what is confirmed versus estimated, cite links, and recommend additions. Never assume a listed tool is already installed or operational.
+
+**Hızlı arama:** 275 aracın kısa JSON indeksi [KAYNAKLAR_HIZLI_INDEKS.json](./KAYNAKLAR_HIZLI_INDEKS.json) dosyasındadır. Başka AI'lar önce onu tarayıp `K-ID` seçebilir; ardından ana dosyadaki ayrıntılı karta geçebilir. **Ancak bu Markdown dosyası tek başına da tüm açıklamaları ve iş akışını içerir.**
 
 ## HIZLI YOL HARİTASI / BU DOSYA NASIL OKUNUR?
 
@@ -172,6 +174,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 01 · Merkezi yönlendirme, yerel LLM ve RAG (22 kayıt)
 
+<a id="k001"></a>
+
 ### K001 — FreeLLMAPI
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -186,6 +190,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k002"></a>
 
 ### K002 — LiteLLM
 
@@ -202,6 +208,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k003"></a>
+
 ### K003 — OmniRoute
 
 - **Tür / Ücretsiz durum:** Kullanıcı projesinde planlanan özel bileşen; bağımsız açık kaynak ürün olduğu doğrulanmadı. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
@@ -216,6 +224,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k004"></a>
 
 ### K004 — OpenCode
 
@@ -232,6 +242,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k005"></a>
+
 ### K005 — Ollama
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -246,6 +258,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k006"></a>
 
 ### K006 — llama.cpp
 
@@ -262,6 +276,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k007"></a>
+
 ### K007 — vLLM
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -276,6 +292,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k008"></a>
 
 ### K008 — LocalAI
 
@@ -292,6 +310,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k009"></a>
+
 ### K009 — Open WebUI
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -306,6 +326,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k010"></a>
 
 ### K010 — Jan
 
@@ -322,6 +344,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k011"></a>
+
 ### K011 — LM Studio
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
@@ -336,6 +360,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k012"></a>
 
 ### K012 — GPT4All
 
@@ -352,6 +378,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k013"></a>
+
 ### K013 — text-generation-webui
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -366,6 +394,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k014"></a>
 
 ### K014 — AnythingLLM
 
@@ -382,6 +412,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k015"></a>
+
 ### K015 — Flowise
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -396,6 +428,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k016"></a>
 
 ### K016 — Langflow
 
@@ -412,6 +446,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k017"></a>
+
 ### K017 — LangChain
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -426,6 +462,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k018"></a>
 
 ### K018 — LangGraph
 
@@ -442,6 +480,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k019"></a>
+
 ### K019 — LlamaIndex
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -456,6 +496,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k020"></a>
 
 ### K020 — Haystack
 
@@ -472,6 +514,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k021"></a>
+
 ### K021 — RAGFlow
 
 - **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -486,6 +530,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k022"></a>
 
 ### K022 — Dify
 
@@ -505,6 +551,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 02 · Uzaktan ücretsiz API/kota sağlayıcıları (15 kayıt)
 
+<a id="k023"></a>
+
 ### K023 — OpenCode Console Free modeller
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -519,6 +567,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k024"></a>
 
 ### K024 — OpenRouter :free modeller
 
@@ -535,6 +585,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k025"></a>
+
 ### K025 — NVIDIA Build/NIM
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -549,6 +601,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k026"></a>
 
 ### K026 — Google Gemini API
 
@@ -565,6 +619,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k027"></a>
+
 ### K027 — GroqCloud
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -579,6 +635,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k028"></a>
 
 ### K028 — Cerebras Inference
 
@@ -595,6 +653,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k029"></a>
+
 ### K029 — Cloudflare Workers AI
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -609,6 +669,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k030"></a>
 
 ### K030 — Mistral API
 
@@ -625,6 +687,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k031"></a>
+
 ### K031 — Hugging Face Inference
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -639,6 +703,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k032"></a>
 
 ### K032 — ModelScope
 
@@ -655,6 +721,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k033"></a>
+
 ### K033 — Z.ai GLM API
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -669,6 +737,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k034"></a>
 
 ### K034 — GitHub Models
 
@@ -685,6 +755,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k035"></a>
+
 ### K035 — Cohere API
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -700,6 +772,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k036"></a>
+
 ### K036 — Kimi web sohbeti
 
 - **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -714,6 +788,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k037"></a>
 
 ### K037 — Claude ücretsiz sohbet
 
@@ -733,6 +809,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 03 · OpenCode üzerinden önceki ÜCRETSİZ kod/LLM modelleri (14 kayıt)
 
+<a id="k038"></a>
+
 ### K038 — Big Pickle
 
 - **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -747,6 +825,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k039"></a>
 
 ### K039 — DeepSeek V4.1 Flash Free
 
@@ -763,6 +843,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k040"></a>
+
 ### K040 — Space Bunny Free
 
 - **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -777,6 +859,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k041"></a>
 
 ### K041 — Cat Jam Free
 
@@ -793,6 +877,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k042"></a>
+
 ### K042 — LongCat 2.5 Preview Free
 
 - **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -807,6 +893,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k043"></a>
 
 ### K043 — Step 5 Preview Free
 
@@ -823,6 +911,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k044"></a>
+
 ### K044 — Exo Free
 
 - **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -837,6 +927,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k045"></a>
 
 ### K045 — MiMo-V2.6-Flash Free
 
@@ -853,6 +945,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k046"></a>
+
 ### K046 — MiMo-V2.5 Free
 
 - **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -867,6 +961,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k047"></a>
 
 ### K047 — Nemotron 3 Ultra Free
 
@@ -883,6 +979,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k048"></a>
+
 ### K048 — Nemotron 3.5 Lightning Free
 
 - **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -897,6 +995,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k049"></a>
 
 ### K049 — Nemotron 3.5 Super VL Free
 
@@ -913,6 +1013,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k050"></a>
+
 ### K050 — Muse Spark 1.3 Contributor Free
 
 - **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -927,6 +1029,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k051"></a>
 
 ### K051 — Jev 1.13 Free
 
@@ -946,6 +1050,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 04 · Yerel/açık ağırlıklı LLM aileleri (14 kayıt)
 
+<a id="k052"></a>
+
 ### K052 — Qwen3 küçük boyutlar
 
 - **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -960,6 +1066,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k053"></a>
 
 ### K053 — Qwen Coder serisi
 
@@ -976,6 +1084,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k054"></a>
+
 ### K054 — DeepSeek R1 Distill
 
 - **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -990,6 +1100,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k055"></a>
 
 ### K055 — DeepSeek V3/V4 aileleri
 
@@ -1006,6 +1118,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k056"></a>
+
 ### K056 — GLM açık ağırlıklı aile
 
 - **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1020,6 +1134,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k057"></a>
 
 ### K057 — Kimi K2 açık ağırlıklı aile
 
@@ -1036,6 +1152,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k058"></a>
+
 ### K058 — Kimi K3 API
 
 - **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1050,6 +1168,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k059"></a>
 
 ### K059 — GPT-OSS 20B/120B
 
@@ -1066,6 +1186,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k060"></a>
+
 ### K060 — Mistral / Mixtral açık modeller
 
 - **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1080,6 +1202,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k061"></a>
 
 ### K061 — Gemma ailesi
 
@@ -1096,6 +1220,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k062"></a>
+
 ### K062 — Llama açık ağırlık ailesi
 
 - **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1110,6 +1236,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k063"></a>
 
 ### K063 — IBM Granite aileleri
 
@@ -1126,6 +1254,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k064"></a>
+
 ### K064 — Nemotron açık ağırlıklı aile
 
 - **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1140,6 +1270,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k065"></a>
 
 ### K065 — OLMo ailesi
 
@@ -1159,6 +1291,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 05 · Claude, Kimi ve kodlama ajanları (17 kayıt)
 
+<a id="k066"></a>
+
 ### K066 — Claude Code
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ü` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1173,6 +1307,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k067"></a>
 
 ### K067 — Claude Chat Free
 
@@ -1189,6 +1325,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k068"></a>
+
 ### K068 — Kimi Code CLI
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1203,6 +1341,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k069"></a>
 
 ### K069 — OpenCode
 
@@ -1219,6 +1359,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k070"></a>
+
 ### K070 — Aider
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1233,6 +1375,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k071"></a>
 
 ### K071 — Cline
 
@@ -1249,6 +1393,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k072"></a>
+
 ### K072 — Kilo Code
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1263,6 +1409,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k073"></a>
 
 ### K073 — OpenHands
 
@@ -1279,6 +1427,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k074"></a>
+
 ### K074 — Goose
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1293,6 +1443,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k075"></a>
 
 ### K075 — Qwen Code
 
@@ -1309,6 +1461,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k076"></a>
+
 ### K076 — Codex CLI
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1323,6 +1477,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k077"></a>
 
 ### K077 — Gemini CLI
 
@@ -1339,6 +1495,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k078"></a>
+
 ### K078 — Open Interpreter
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1353,6 +1511,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k079"></a>
 
 ### K079 — Everything Claude Code
 
@@ -1369,6 +1529,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k080"></a>
+
 ### K080 — OmniWrite
 
 - **Tür / Ücretsiz durum:** Kullanıcı projesinde adı geçen özel bileşen; bağımsız doğrulanmış kurulum deposu yok. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1384,6 +1546,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k081"></a>
+
 ### K081 — Roo Code
 
 - **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1398,6 +1562,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k082"></a>
 
 ### K082 — Continue
 
@@ -1417,6 +1583,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 06 · Görsel üretme, düzenleme, kalite yükseltme (23 kayıt)
 
+<a id="k083"></a>
+
 ### K083 — ComfyUI
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1431,6 +1599,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k084"></a>
 
 ### K084 — Stable Diffusion 1.5
 
@@ -1447,6 +1617,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k085"></a>
+
 ### K085 — SDXL
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1461,6 +1633,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k086"></a>
 
 ### K086 — FLUX.1 Schnell
 
@@ -1477,6 +1651,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k087"></a>
+
 ### K087 — FLUX.1 Dev
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1491,6 +1667,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k088"></a>
 
 ### K088 — Qwen-Image
 
@@ -1507,6 +1685,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k089"></a>
+
 ### K089 — Qwen-Image-Edit
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1521,6 +1701,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k090"></a>
 
 ### K090 — Z-Image-Turbo
 
@@ -1537,6 +1719,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k091"></a>
+
 ### K091 — InvokeAI
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1551,6 +1735,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k092"></a>
 
 ### K092 — SD WebUI Forge
 
@@ -1567,6 +1753,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k093"></a>
+
 ### K093 — Diffusers
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1581,6 +1769,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k094"></a>
 
 ### K094 — ControlNet
 
@@ -1597,6 +1787,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k095"></a>
+
 ### K095 — rembg
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1611,6 +1803,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k096"></a>
 
 ### K096 — Real-ESRGAN
 
@@ -1627,6 +1821,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k097"></a>
+
 ### K097 — GFPGAN
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1641,6 +1837,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k098"></a>
 
 ### K098 — SAM 2
 
@@ -1657,6 +1855,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k099"></a>
+
 ### K099 — Krita
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1671,6 +1871,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k100"></a>
 
 ### K100 — GIMP
 
@@ -1687,6 +1889,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k101"></a>
+
 ### K101 — Inkscape
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1701,6 +1905,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k102"></a>
 
 ### K102 — darktable
 
@@ -1717,6 +1923,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k103"></a>
+
 ### K103 — ImageMagick
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1732,6 +1940,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k104"></a>
+
 ### K104 — Sharp
 
 - **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1746,6 +1956,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k105"></a>
 
 ### K105 — libvips
 
@@ -1765,6 +1977,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 07 · Video üretimi, animasyon, kurgu (20 kayıt)
 
+<a id="k106"></a>
+
 ### K106 — Wan2.2
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1779,6 +1993,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k107"></a>
 
 ### K107 — Wan2.1
 
@@ -1795,6 +2011,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k108"></a>
+
 ### K108 — HunyuanVideo 1.5
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1809,6 +2027,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k109"></a>
 
 ### K109 — LTX-Video
 
@@ -1825,6 +2045,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k110"></a>
+
 ### K110 — LTX-2 / LTX-2.x
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1839,6 +2061,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k111"></a>
 
 ### K111 — CogVideoX
 
@@ -1855,6 +2079,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k112"></a>
+
 ### K112 — Mochi 1
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1869,6 +2095,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k113"></a>
 
 ### K113 — FramePack
 
@@ -1885,6 +2113,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k114"></a>
+
 ### K114 — AnimateDiff
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1899,6 +2129,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k115"></a>
 
 ### K115 — LivePortrait
 
@@ -1915,6 +2147,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k116"></a>
+
 ### K116 — RIFE
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1929,6 +2163,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k117"></a>
 
 ### K117 — Video2X
 
@@ -1945,6 +2181,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k118"></a>
+
 ### K118 — FFmpeg / ffprobe
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1959,6 +2197,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k119"></a>
 
 ### K119 — PySceneDetect
 
@@ -1975,6 +2215,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k120"></a>
+
 ### K120 — Kdenlive
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -1989,6 +2231,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k121"></a>
 
 ### K121 — Shotcut
 
@@ -2005,6 +2249,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k122"></a>
+
 ### K122 — Blender Video Sequencer
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2019,6 +2265,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k123"></a>
 
 ### K123 — Natron
 
@@ -2035,6 +2283,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k124"></a>
+
 ### K124 — OBS Studio
 
 - **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2049,6 +2299,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k125"></a>
 
 ### K125 — OpenMontage
 
@@ -2068,6 +2320,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 08 · Ses, konuşma, çeviri, altyazı, müzik (25 kayıt)
 
+<a id="k126"></a>
+
 ### K126 — Whisper
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2082,6 +2336,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k127"></a>
 
 ### K127 — faster-whisper
 
@@ -2098,6 +2354,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k128"></a>
+
 ### K128 — whisper.cpp
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2112,6 +2370,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k129"></a>
 
 ### K129 — Silero VAD
 
@@ -2128,6 +2388,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k130"></a>
+
 ### K130 — WebRTC VAD
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2142,6 +2404,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k131"></a>
 
 ### K131 — Kokoro TTS
 
@@ -2158,6 +2422,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k132"></a>
+
 ### K132 — Piper TTS
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2172,6 +2438,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k133"></a>
 
 ### K133 — Chatterbox Multilingual TTS
 
@@ -2188,6 +2456,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k134"></a>
+
 ### K134 — CosyVoice
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2202,6 +2472,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k135"></a>
 
 ### K135 — MeloTTS
 
@@ -2218,6 +2490,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k136"></a>
+
 ### K136 — OpenVoice
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2232,6 +2506,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k137"></a>
 
 ### K137 — F5-TTS
 
@@ -2248,6 +2524,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k138"></a>
+
 ### K138 — Fish Speech
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2262,6 +2540,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k139"></a>
 
 ### K139 — GPT-SoVITS
 
@@ -2278,6 +2558,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k140"></a>
+
 ### K140 — ACE-Step
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2292,6 +2574,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k141"></a>
 
 ### K141 — ACE-Step 1.5
 
@@ -2308,6 +2592,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k142"></a>
+
 ### K142 — AudioCraft / MusicGen
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2322,6 +2608,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k143"></a>
 
 ### K143 — Stable Audio Open
 
@@ -2338,6 +2626,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k144"></a>
+
 ### K144 — Audacity
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2352,6 +2642,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k145"></a>
 
 ### K145 — Tenacity
 
@@ -2368,6 +2660,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k146"></a>
+
 ### K146 — LMMS
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2382,6 +2676,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k147"></a>
 
 ### K147 — MuseScore Studio
 
@@ -2398,6 +2694,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k148"></a>
+
 ### K148 — Demucs
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2413,6 +2711,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k149"></a>
+
 ### K149 — Ultimate Vocal Remover
 
 - **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2427,6 +2727,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k150"></a>
 
 ### K150 — Subtitle Edit
 
@@ -2446,6 +2748,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 09 · OCR, belge, arama, görüntü anlama (17 kayıt)
 
+<a id="k151"></a>
+
 ### K151 — Tesseract
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2460,6 +2764,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k152"></a>
 
 ### K152 — PaddleOCR
 
@@ -2476,6 +2782,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k153"></a>
+
 ### K153 — EasyOCR
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2490,6 +2798,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k154"></a>
 
 ### K154 — Docling
 
@@ -2506,6 +2816,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k155"></a>
+
 ### K155 — Apache Tika
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2520,6 +2832,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k156"></a>
 
 ### K156 — OpenCV
 
@@ -2536,6 +2850,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k157"></a>
+
 ### K157 — CLIP
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2550,6 +2866,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k158"></a>
 
 ### K158 — SigLIP
 
@@ -2566,6 +2884,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k159"></a>
+
 ### K159 — Sentence Transformers
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2580,6 +2900,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k160"></a>
 
 ### K160 — FAISS
 
@@ -2596,6 +2918,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k161"></a>
+
 ### K161 — Qdrant
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2610,6 +2934,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k162"></a>
 
 ### K162 — Chroma
 
@@ -2626,6 +2952,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k163"></a>
+
 ### K163 — pgvector
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2640,6 +2968,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k164"></a>
 
 ### K164 — Milvus
 
@@ -2656,6 +2986,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k165"></a>
+
 ### K165 — Meilisearch
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2671,6 +3003,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k166"></a>
+
 ### K166 — SearXNG
 
 - **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2685,6 +3019,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k167"></a>
 
 ### K167 — Crawl4AI
 
@@ -2704,6 +3040,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 10 · Otomasyon, sosyal medya, iletişim (20 kayıt)
 
+<a id="k168"></a>
+
 ### K168 — Activepieces
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2718,6 +3056,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k169"></a>
 
 ### K169 — n8n Community
 
@@ -2734,6 +3074,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k170"></a>
+
 ### K170 — Node-RED
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2748,6 +3090,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k171"></a>
 
 ### K171 — Huginn
 
@@ -2764,6 +3108,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k172"></a>
+
 ### K172 — Windmill
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2778,6 +3124,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k173"></a>
 
 ### K173 — Kestra
 
@@ -2794,6 +3142,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k174"></a>
+
 ### K174 — Apache Airflow
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2808,6 +3158,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k175"></a>
 
 ### K175 — Temporal
 
@@ -2824,6 +3176,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k176"></a>
+
 ### K176 — Postiz
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2838,6 +3192,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k177"></a>
 
 ### K177 — Playwright
 
@@ -2854,6 +3210,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k178"></a>
+
 ### K178 — Selenium
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2868,6 +3226,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k179"></a>
 
 ### K179 — Puppeteer
 
@@ -2884,6 +3244,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k180"></a>
+
 ### K180 — AutoHotkey
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2898,6 +3260,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k181"></a>
 
 ### K181 — Power Automate Desktop
 
@@ -2914,6 +3278,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k182"></a>
+
 ### K182 — RSSHub
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2928,6 +3294,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k183"></a>
 
 ### K183 — ntfy
 
@@ -2944,6 +3312,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k184"></a>
+
 ### K184 — Gotify
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2958,6 +3328,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k185"></a>
 
 ### K185 — Asterisk
 
@@ -2974,6 +3346,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k186"></a>
+
 ### K186 — Chatwoot
 
 - **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -2988,6 +3362,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k187"></a>
 
 ### K187 — Traccar
 
@@ -3007,6 +3383,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 11 · Uygulama, oyun, 3D, avatar (18 kayıt)
 
+<a id="k188"></a>
+
 ### K188 — Godot
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3021,6 +3399,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k189"></a>
 
 ### K189 — O3DE
 
@@ -3037,6 +3417,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k190"></a>
+
 ### K190 — Blender
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3051,6 +3433,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k191"></a>
 
 ### K191 — MakeHuman
 
@@ -3067,6 +3451,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k192"></a>
+
 ### K192 — Meshroom
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3081,6 +3467,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k193"></a>
 
 ### K193 — Three.js
 
@@ -3097,6 +3485,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k194"></a>
+
 ### K194 — React Three Fiber
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3111,6 +3501,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k195"></a>
 
 ### K195 — Phaser
 
@@ -3127,6 +3519,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k196"></a>
+
 ### K196 — GDevelop
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3141,6 +3535,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k197"></a>
 
 ### K197 — Defold
 
@@ -3157,6 +3553,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k198"></a>
+
 ### K198 — Hunyuan3D
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3171,6 +3569,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k199"></a>
 
 ### K199 — TRELLIS / TRELLIS.2
 
@@ -3187,6 +3587,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k200"></a>
+
 ### K200 — HunyuanWorld
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3201,6 +3603,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k201"></a>
 
 ### K201 — HY-World 2.0
 
@@ -3217,6 +3621,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k202"></a>
+
 ### K202 — Kenney Game Assets
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3231,6 +3637,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k203"></a>
 
 ### K203 — Poly Haven
 
@@ -3247,6 +3655,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k204"></a>
+
 ### K204 — ambientCG
 
 - **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3261,6 +3671,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k205"></a>
 
 ### K205 — Mixamo
 
@@ -3280,6 +3692,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 12 · Web, mobil, veritabanı, bulut ve güvenlik (41 kayıt)
 
+<a id="k206"></a>
+
 ### K206 — Python
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3294,6 +3708,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k207"></a>
 
 ### K207 — Node.js
 
@@ -3310,6 +3726,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k208"></a>
+
 ### K208 — VSCodium
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3324,6 +3742,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k209"></a>
 
 ### K209 — Git
 
@@ -3340,6 +3760,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k210"></a>
+
 ### K210 — GitHub Free
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3354,6 +3776,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k211"></a>
 
 ### K211 — WSL2
 
@@ -3370,6 +3794,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k212"></a>
+
 ### K212 — Docker Engine / Moby
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3384,6 +3810,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k213"></a>
 
 ### K213 — Podman
 
@@ -3400,6 +3828,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k214"></a>
+
 ### K214 — Flutter
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3414,6 +3844,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k215"></a>
 
 ### K215 — React Native
 
@@ -3430,6 +3862,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k216"></a>
+
 ### K216 — Tauri
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3444,6 +3878,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k217"></a>
 
 ### K217 — Capacitor
 
@@ -3460,6 +3896,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k218"></a>
+
 ### K218 — FastAPI
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3474,6 +3912,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k219"></a>
 
 ### K219 — Django
 
@@ -3490,6 +3930,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k220"></a>
+
 ### K220 — Next.js
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3504,6 +3946,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k221"></a>
 
 ### K221 — PostgreSQL
 
@@ -3520,6 +3964,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k222"></a>
+
 ### K222 — SQLite
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3534,6 +3980,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k223"></a>
 
 ### K223 — Valkey
 
@@ -3550,6 +3998,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k224"></a>
+
 ### K224 — Redis
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3564,6 +4014,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k225"></a>
 
 ### K225 — BullMQ
 
@@ -3580,6 +4032,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k226"></a>
+
 ### K226 — MinIO
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3594,6 +4048,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k227"></a>
 
 ### K227 — Nginx
 
@@ -3610,6 +4066,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k228"></a>
+
 ### K228 — Caddy
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3624,6 +4082,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k229"></a>
 
 ### K229 — Cloudflare Tunnel
 
@@ -3640,6 +4100,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k230"></a>
+
 ### K230 — Cloudflare Workers AI
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3654,6 +4116,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k231"></a>
 
 ### K231 — Google Colab Free
 
@@ -3670,6 +4134,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k232"></a>
+
 ### K232 — Kaggle Notebooks
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3684,6 +4150,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k233"></a>
 
 ### K233 — Hugging Face Spaces CPU Free
 
@@ -3700,6 +4168,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k234"></a>
+
 ### K234 — Streamlit Community Cloud
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3714,6 +4184,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k235"></a>
 
 ### K235 — Vercel Hobby
 
@@ -3730,6 +4202,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k236"></a>
+
 ### K236 — GitHub Pages
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3744,6 +4218,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k237"></a>
 
 ### K237 — CrowdSec
 
@@ -3760,6 +4236,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k238"></a>
+
 ### K238 — Gitleaks
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3774,6 +4252,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k239"></a>
 
 ### K239 — Trivy
 
@@ -3790,6 +4270,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k240"></a>
+
 ### K240 — OWASP ZAP
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3804,6 +4286,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k241"></a>
 
 ### K241 — k6
 
@@ -3820,6 +4304,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k242"></a>
+
 ### K242 — Locust
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3834,6 +4320,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k243"></a>
 
 ### K243 — Glances
 
@@ -3850,6 +4338,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k244"></a>
+
 ### K244 — Prometheus
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3865,6 +4355,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k245"></a>
+
 ### K245 — Grafana
 
 - **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3879,6 +4371,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k246"></a>
 
 ### K246 — Uptime Kuma
 
@@ -3898,6 +4392,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 13 · Borsa/veri analitiği ve belge işleri (15 kayıt)
 
+<a id="k247"></a>
+
 ### K247 — TA-Lib
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3912,6 +4408,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k248"></a>
 
 ### K248 — SciPy
 
@@ -3928,6 +4426,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k249"></a>
+
 ### K249 — scikit-learn
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3942,6 +4442,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k250"></a>
 
 ### K250 — CVXPY
 
@@ -3958,6 +4460,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k251"></a>
+
 ### K251 — pandas
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -3972,6 +4476,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k252"></a>
 
 ### K252 — NumPy
 
@@ -3988,6 +4494,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k253"></a>
+
 ### K253 — yfinance
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4002,6 +4510,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k254"></a>
 
 ### K254 — CCXT
 
@@ -4018,6 +4528,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k255"></a>
+
 ### K255 — Metabase
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4032,6 +4544,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k256"></a>
 
 ### K256 — Apache Superset
 
@@ -4048,6 +4562,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k257"></a>
+
 ### K257 — ERPNext
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4062,6 +4578,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k258"></a>
 
 ### K258 — Frappe HR
 
@@ -4078,6 +4596,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k259"></a>
+
 ### K259 — Documenso
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4093,6 +4613,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k260"></a>
+
 ### K260 — LibreOffice
 
 - **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4107,6 +4629,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k261"></a>
 
 ### K261 — Pandoc
 
@@ -4126,6 +4650,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 
 ## 14 · Önceki projelerden ek kaynaklar
 
+<a id="k262"></a>
+
 ### K262 — Claude Code Router
 
 - **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö/koşullu` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4140,6 +4666,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k263"></a>
 
 ### K263 — Microsoft Agent Framework
 
@@ -4156,6 +4684,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k264"></a>
+
 ### K264 — MetaGPT
 
 - **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4170,6 +4700,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k265"></a>
 
 ### K265 — ChatDev
 
@@ -4186,6 +4718,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k266"></a>
+
 ### K266 — SWE-agent
 
 - **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4200,6 +4734,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k267"></a>
 
 ### K267 — Google AI Studio
 
@@ -4216,6 +4752,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k268"></a>
+
 ### K268 — Google Antigravity
 
 - **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `K/F doğrula` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4230,6 +4768,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k269"></a>
 
 ### K269 — GitHub Copilot Free
 
@@ -4246,6 +4786,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k270"></a>
+
 ### K270 — Cursor Hobby
 
 - **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `K/F` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4260,6 +4802,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k271"></a>
 
 ### K271 — Vercel AI Gateway
 
@@ -4276,6 +4820,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k272"></a>
+
 ### K272 — n8n
 
 - **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4290,6 +4836,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k273"></a>
 
 ### K273 — MCP (Model Context Protocol)
 
@@ -4306,6 +4854,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
+<a id="k274"></a>
+
 ### K274 — AGENTS.md
 
 - **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
@@ -4320,6 +4870,8 @@ Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS
 - **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
 - **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
 - **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+<a id="k275"></a>
 
 ### K275 — yt-dlp
 
@@ -4964,6 +5516,7 @@ Amaç: AnaBeyin geliştirme ortamı, güvenlik, test, medya denetimi, yapay zek�
 
 
 ## DEĞİŞİKLİK GEÇMİŞİ
+- **2026-10-16 / V2.1:** 275 kart için sabit GitHub bağlantı noktaları ve makinece aranabilir hızlı JSON indeksi eklendi.
 - **2026-10-16 / V2:** 275 kaydı uzun kart formatına dönüştürme, her araca bir örnek, kurulum/laptop/VPS/disk/RAM/VRAM açıklaması, TikTok yetki denetimli uçtan uca örnek, PowerShell FFmpeg komutu, yapay zekâ araştırmayı durdurma yasağı ve kalıcı ekleme şablonu. 521 eski envanter aynen tarihsel ek olarak saklandı.
 - **2026-10-16 / V1:** İlk açıklamalı katalog, 261 ana + 14 tamamlayıcı kayıt.
 
