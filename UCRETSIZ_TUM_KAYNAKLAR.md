@@ -1,442 +1,4364 @@
 # ÜCRETSİZ TÜM KAYNAKLAR
 
-> **KALICI ANA KATALOG VE YAPAY ZEKÂ ARAŞTIRMA BAŞLANGIÇ BELGESİ**  
-> Kapsam: LLM, yerel modeller, bulut API'leri, Claude ve kodlama alternatifleri, görsel, video, ses, müzik, otomasyon, web, oyun, 3D, OCR/RAG, veri, sunucu, güvenlik ve yardımcı geliştirici araçları.  
-> Düzenleme tarihi: 16 Ekim 2026. Bu kaynak listesinin tarihsel bir anlık görüntü olduğunu unutma.
+**Sürüm:** 2.0 (ayrıntılı, insan + yapay zekâ ortak başvuru el kitabı)  
+**Tarih:** 16 Ekim 2026  
+**Sahip:** Bu GitHub deposundaki proje. **Ana kaynak:** `UCRETSIZ_TUM_KAYNAKLAR.md`  
+**Hedef:** Sadece isim listesi değil; her kaynağın amacı, yapılabilecek işler, kurulum yeri, yaklaşık donanım gereksinimi, ilişkilendirme biçimi ve otomasyon örneği.
 
-## BAŞTA OKU — İNSAN VE YAPAY ZEKÂ İÇİN ZORUNLU NOT
+> **ZORUNLU YAPAY ZEKÂ NOTU — BU DOSYADAN SONRA ARAŞTIRMAYI BIRAKMA.** Bu envanter başlangıç noktasıdır. İlgili resmî README/API/lisans ve güncel sürümü aç, ardından **GitHub, Hugging Face, üretici belgeleri ve yeni alternatifleri de araştır**. Buradaki bilgiyi güncel doğrulama olmadan kesin sayma. Kullanıcı yeni çözüm arıyorsa bu listeyle kendini sınırlandırma.
 
-**BU LİSTE ARAŞTIRMANIN SONU DEĞİL, BAŞLANGICIDIR. BU KAYNAKLARLA SINIRLI KALMA.**
-Başka bir yapay zekâya veya ajana bu dosya verildiğinde **yalnızca burada yazılı araçları kullanmakla yetinmemeli**; kendi güncel araştırmasını sürdürmeli, yeni ücretsiz/açık kaynak alternatifleri keşfetmeli, karşılaştırmalı değerlendirmeli, gerekiyorsa bu kataloğun güncellenmesini önermelidir.
+> **AI MANDATE:** This catalog is a launchpad, **not a research stop condition**. Read the official repo/documentation for each relevant entry, verify live license, release, cost/quota, hardware and integration, **then research beyond this list** for newer and better truly free/open-source alternatives. Record what is confirmed versus estimated, cite links, and recommend additions. Never assume a listed tool is already installed or operational.
 
-**AI RESEARCH MANDATE (English):** This catalog is a **starting point, not a closed list or a stop condition**. When using it, ALWAYS research beyond the listed links for newer, better, more efficient or safer genuinely free and open-source alternatives. Visit original repositories, release notes, licensing files and official documentation; verify current free-tier quotas, commercial permissions, model weights, GPU/RAM/storage requirements and maintenance status. Identify missing or outdated entries, and propose additions and corrections with URLs and verification dates. **Do not stop researching just because this document contains a tool or claims it is free.**
+## HIZLI YOL HARİTASI / BU DOSYA NASIL OKUNUR?
 
-### Bir yapay zekâ bu belgeyi nasıl kullanmalı?
-1. Kullanıcının istediği görevi ayır: metin / kodlama / görsel / 1080p–4K video / STT–TTS / müzik / montaj / sosyal medya / oyun / web / altyapı.
-2. İlgili tablodaki **resmî kaynak bağlantısını doğrudan aç**; kaynak kodu, README, kurulum kılavuzu, örnek API, sürümler ve lisansı incele. Link bozuksa resmî yeni konumu bul.
-3. **Bu belgedeki seçeneklerle kalma:** GitHub, Hugging Face, model sağlayıcı resmî belgeleri, güncel sürüm notları ve uygun açık kaynak dizinlerinde yeni alternatifleri ara.
-4. Ücretsiz olmanın türünü ayır: **açık kaynak yazılım** / **açık ağırlıklı model** / **kalıcı ücretsiz kota** / **geçici promosyon** / **özel lisans** / **ücretli ya da hariç**. *Ücretsiz API* ≠ *sınırsız API*; *açık ağırlık* ≠ *her koşulda ticari serbestlik*.
-5. Kurulum ve kullanım için **Windows 11 / WSL2 Ubuntu ve yaklaşık 4 GB VRAM–16 GB RAM'li mevcut laptop** ile hedef **96 GB VRAM–128 GB RAM'li gelecekteki kasa** arasındaki farkı açıkla. Henüz satın alınmamış donanımı varmış gibi işlem yapma.
-6. Her aday için: ad, resmî link, ne işe yarar, lisans, maliyet/ücretsiz kota, ticari kullanıma uygunluk, donanım gereksinimi, kurulum/test yöntemi, güvenlik riski, son kontrol tarihi, güçlü/zayıf yanlar yaz.
-7. Gerektiğinde güncel daha iyi alternatif sun; kaynak bulmadan özellik, sürüm, kota veya kesin uyumluluk uydurma. Projeyi kullanmadan önce küçük bir *smoke test* yap.
-8. Yerel sırlar (API anahtarı, parola, erişim tokenı, müşteri verisi, .env) **GitHub'a, loglara veya dış modele** gönderilmez. Uygulamalar kullanıcı izni olmadan canlı yayın, ödeme ve yıkıcı işlem yapmaz.
-9. Başka sohbet veya model bu dosyayı okuduğunda, burada açıklanmayan eski 521 envanterine de bakmalı; eksik araçları çapraz kontrol etmeli.
-10. Yeni bulgu ortaya çıktığında **bu dosyayı kaynak URL'si, doğrulama tarihi, lisans ve açıklama ekleyerek geliştir**; önceki kaydı sessizce silme.
+1. **Kullanıcı:** "Akhisar ile ilgili 45 saniyelik videoyu görselleştir, seslendir, montajını yap, TikTok'ta yayımla." der.
+2. **Yönetici ajan:** Bu dokümandan iş akışını ve ilgili `K001–K275` kayıtlarını bulur; model/API/kota/VRAM/izinlerini doğrular.
+3. **Plan:** Araştırma → kaynaklı senaryo → sahne taslağı → görsel → (uygunsa) video hareketlendirme → Türkçe TTS → müzik → altyazı → FFmpeg → `ffprobe` kontrolü → yayın önizlemesi → hesap ve izin doğrulaması → resmî TikTok API → yayın durumu.
+4. **Yerel:** Ajan, yalnızca kurulu/test edilmiş araçları PowerShell/WSL/CLI ile çağırır; eksikse kaynağa göre kurulum taslağı sunar. Tahmini komutları "çalıştı" diye göstermez.
+5. **Sonuç:** Görev kayıtları, üretilen MP4, SRT, kullanılan kaynaklar, hata ve yayın kimliği (varsa) tek rapor olur.
+6. **Yeni iş:** Aynı yaklaşım web sitesi, mobil oyun, muhasebe, görsel, ses, YouTube/Instagram veya başka iş için de uygulanır. **Uygulama henüz yapılmadıysa kodlanması gerekir; bu rehber tek başına servis kurmaz.**
 
-### Kullanım ilkeleri
-- Öncelik: **Gerçekten ücretsiz, açık kaynak, yerel çalışabilir ve sürdürülebilir** çözümler.
-- Salt deneme süresi, tek seferlik kredi veya model reklamına bakarak “kalıcı ücretsiz” deme.
-- Bilgisayara bütün araçları/model ağırlıklarını yükleme; en uygun olanları seçip kaynak tüketimini izle.
-- Bu dosya **uygulama kurulum talimatı değildir**, otomatik komut yürütme izni de vermez.
-- İstenmeyen servislerden uzak dur: önceki Ana Beyin kararına göre **Pollinations kullanılmayacak**.
-- Geçmiş projelerdeki teknik mimari/zaman kararları tarihsel olabilir; yeni yetki olmadan güncel zorunlu kural sayma.
+### Terimler ve kesinlik
+- **Açık kaynak:** Yazılımın kodu erişilebilir ve ilgili OSI lisansına tabi olabilir; **modellerin ağırlık lisansını ayrıca incele**.
+- **Açık ağırlık:** Model dosyası paylaşılmış olabilir; ticari kullanım serbestliğine eşit değildir.
+- **Kotalı ücretsiz API:** Kimlik/kayıt gerekebilir; **ücretsiz kota değişebilir veya kapanabilir**.
+- **Ücretsiz masaüstü:** Kaynak kodu kapalı olabilir; bu ikisini karıştırma.
+- **Bilinmiyor / doğrula:** Resmî repo veya API bulunmadıysa **asla link, sürüm, donanım veya lisans uydurma**.
+- **Boyutlar:** Aşağıdaki disk/RAM/VRAM aralıkları **kurulum kararı için yaklaşık planlama tahminleridir; tek tek benchmark değildir**. Model varyantı, çözünürlük, quantization, platform ve eşzamanlılık belirleyicidir. Kesin değer resmî README veya ölçümden alınır.
+- **Kurulu durumu:** Burada hiçbir programın şu anda kullanıcının laptopunda çalıştığı iddia edilmez. Kullanıcı izin verirse `Get-Command`, `Test-Path`, `docker ps`, `nvidia-smi` ile doğrulanır.
+- **VPS sorusu:** Bir aracı **kendi laptopunda çalıştırmak için VPS şart değildir**. İnternetten 7/24 erişim istiyorsan yerel tünel veya VPS uygundur. **VPS kiralamak GPU sağlamaz**; ağır üretim için GPU'lu makine gerekir.
 
-### Bağlantılı eski kaynaklar
-- [**Ana Beyin 521 kalemlik tarihsel kurulum envanteri**](./ANABEYIN_ANA_KURULUM_ENVANTERI_521.md): farklı türlerde bileşenler, beceriler, araçlar ve **ileride geliştirilecek özellikler**. **521 açık kaynak programı veya 521 kurulu program demek değildir.**
-- [Bu kataloğun doğrudan ham Markdown bağlantısı](https://raw.githubusercontent.com/kemaltirli92-ai/anabeyin-ana-talimat/main/UCRETSIZ_TUM_KAYNAKLAR.md): başka yapay zekâ/araçlar için kopyalanabilir ve okunabilir sürüm.
-- Her programın ilk araştırması aşağıdaki tablo bağlantısından yapılır; yeni çıkan alternatifler ayrıca keşfedilir.
+### Kullanıcı donanımı için iki ayrı plan
+| Ortam | Yaklaşık özellik | Önerilen görevler | Kaçınılacak beklenti |
+|---|---|---|---|
+| Mevcut Windows 11 laptop | 16 GB RAM; 4 GB VRAM, D: sürücüsü | Yönetici ajan, bulut API'leri, küçük quantize LLM, basit görsel, Whisper küçük modeli, FFmpeg, otomasyon, web/oyun | Büyük AI video, 70B model ve çok sayıda eşzamanlı GPU işi |
+| Gelecekteki güçlü kasa | 128 GB RAM; 96 GB VRAM; 10 TB+ SSD hedefi | Yerel büyük modeller, ComfyUI, uzun video kuyruğu, çoklu servis, 7/24 otomasyon | Tek GPU'da sınırsız paralel 4K video; iş kuyruğu gerekir |
+| CPU'lu ucuz VPS | Değişken CPU/RAM | Dashboard, otomasyon, veritabanı, API, düşük yük | GPU video/LLM performansı |
+| GPU VPS | GPU/VRAM/SLA değişir | Büyük model ve AI video işleri | Hizmetin ücretsiz olduğu varsayımı |
 
 ---
 
-## KATALOG — ÖNCEKİ KONUŞMALARIN AÇIKLAMALI 261 KAYITLIK ENVANTERİ
+## STANDART KAYNAK KARTI (V2) — BUNDAN SONRA EKLENEN HER ŞEY AYNI FORMATTA
 
-# Ücretsiz Yapay Zekâ ve Açık Kaynak ANA ENVANTERİ
+Her kartta **sabit benzersiz K-ID** olmalı. Bir kayıt silinirse ID tekrar kullanılamaz. İlgili kartı güncellerken kanıt eklenmeli; sürüm/ücret değiştiyse güncelleme günlüğüne yazılmalı.
 
-**Tarih:** 15 Ekim 2026  
-**Kapsam:** Ana Beyin, Türkiye VIP Transfer, Tattarim, Parantez Türkiye, mobil oyun ve uygulamalar, ses/video/LLM/kod/otomasyon, bulut ve altyapı.  
-**Durum:** Önceki sohbetlerden geri getirilebilen isimler + birleştirme sırasında eklenen ilgili araçlar; her eski envanterdeki tüm 521 kalemin birebir kurtarılmış dökümü **değildir**. Bu tablo bir seçim kataloğudur; 4GB GPU'ya her şeyi kurma talimatı değildir.
+```yaml
+id: K276                       # Benzersiz; otomatik yeniden numaralama YOK
+ad: "Aracın tam adı"
+tur: "program | model | API | protokol | hizmet | varlık | plan/iç bileşen"
+durum: "açık kaynak | açık ağırlık | ücretsiz kotalı | lisanslı | ücretli | doğrulanmadı"
+aciklama: "Nedir ve hangi problemi çözer? 2-4 açıklayıcı cümle."
+yapilabilecek_isler:
+  - "Somut iş 1"
+  - "Somut iş 2"
+ornek_tek_komut: "Kullanıcının isteği ve ortaya çıkacak sonuç."
+resmi_kaynak: "https://..."
+belgeler_ve_lisans: "README/API/Licence adresleri ayrı doğrula"
+kurulum_yeri: "Windows | WSL2 | Linux | Docker | web/API"
+yerel_disk: "Tahmini GB veya model/varyantına bağlı"
+yerel_ram: "Tahmini GB + çalışma payı"
+yerel_vram: "Tahmini GB, CPU fallback varsa açıkla"
+vps_sart_mi: "Hayır/Evet + neden; GPU VPS ayrı"
+laptop_uygunlugu: "16 GB RAM + 4 GB GPU için"
+hedef_sunucu_uygunlugu: "128 GB RAM + 96 GB GPU için"
+baglanti: "CLI/REST/API/SDK/MCP + input/output"
+dogrulanmis_komut: "Yalnızca gerçekten belgeliyse; aksi halde araştırılacak"
+lisans_ve_ticari_kullanim: "Sürümden güncel resmî belgeyi kontrol et"
+guvenlik: "API key ve erişim, gizlilik, telif, yıkıcı komutlar"
+dogrulama_tarihi: "YYYY-MM-DD veya doğrulanmadı"
+kanit_seviyesi: "resmî doküman | kontrollü test | tahmin"
+alternatif_ara: true
+```
 
-### İşaretler
-- **Ö:** Açık kaynak yazılım; model yükleri ve servisleri ayrıca ücretli olabilir.
-- **M:** Açık ağırlıklı model; ayrıca ağırlık lisansı ve donanım koşulları kontrol edilir.
-- **K:** Kotalı ücretsiz veya süreli promosyon; ticari üretimde garantisi yok.
-- **F:** Ücretsiz yazılım/hizmet/içerik ama açık kaynak olmak zorunda değil.
-- **L:** Özel lisans/ticari kullanım kısıtı.
-- **Ü:** Ücretli veya zorunlu servis ödemeli.
-- **P:** Önceki konuşmalardan gelen doğrulanacak kayıt; otomatik kurulum listesine alınmaz.
+**Önemli:** Aşağıdaki kayıtlarda eski kaynak adı, kısa tanım ve resmî sayfa bağlantısı korunur; kullanım ve donanım açıklamaları bağlamlı **tahmindir**. Henüz yapılmamış canlı testler belgeye test yapılmış gibi yazılmaz.
 
-### Kullanıcı donanımı ve kullanım ilkesi
-- Mevcut laptop yaklaşık **GTX 1650 4GB VRAM, 16GB RAM, 240–250GB SSD**. Hafif STT, TTS, API yönlendirme, OCR, kurgu, çok küçük LLM çalışır. Büyük video, büyük görsel, 70B+ LLM çalıştırmayı planlama.
-- Yeni hedef sistem **32GB+ VRAM (tercihen 48/96 GB), 128GB RAM ve geniş SSD**; henüz alınmış varsayılmaz.
-- Yerel proje klasörleri Windows `D:` üzerindedir. Gerçek veri/API anahtarı `.env` gibi gizli depolama içinde kalır.
-- **Ücretli abonelik, ödeme gerektiren deneme ve kalıcı ücretsiz olduğu ispatlanmamış promosyon ana sisteme bağımlılık olmamalı**.
-- Claude web Free vardır ama **Claude Code ve Claude API için ücretsiz sınırsız kullanım yok**. Claude Code'a Claude harici bir model bağlamak, Claude modelini ücretsiz kullanmak değildir; uyumluluğu test gerekir.
-- FreeLLMAPI yalnızca kişisel deneme/öğrenme amacı; kendi ifadesiyle production için uygun değil.
-- Türkiye VIP Transfer için önceki geliştirme kararları ayrıca geçerlidir; tüm kodlama araçlarını aynı kaynak dosyaları üzerinde paralel koşturmayız.
+## BAŞTAN SONA ÖRNEK: TEK MESAJ → VİDEO → TIKTOK
+
+### Kullanıcının yazacağı örnek
+> "Akhisar'da tarihî bir yer hakkında 45 saniye 1080×1920 video hazırla; resim üret, hareketlendir, Türkçe erkek sesiyle seslendir, özgün müzik ve altyazı ekle, videoyu göster. Kalite ve platform şartları tamamlanırsa açıkça yetkilendirdiğim TikTok hesabımda yayımla. Mümkün olan her aşamada ücretsiz araç kullan."
+
+### Ajanın bağlayacağı işçiler / araçlar
+| Aşama | Girdi → çıktı | Birincil araç | Alternatif | Laptop / VPS |
+|---|---|---|---|---|
+| 1. Kaynak araştırma | Konu → kaynaklı not | İzinli web kaynağı + Crawl4AI, SearXNG | Elle girilen belgeler + Docling | Yerel; VPS gerekmez |
+| 2. Metin/sahne planı | Not → `script.json` | Ollama küçük model / OpenCode Free API | Diğer izinli ücretsiz API | Yerel veya API; VPS gerekmez |
+| 3. Görseller | `scenes.json` → PNG | ComfyUI ve uygun küçük model | Telifçe uygun kullanıcı görselleri / GIMP | Laptop sınırlı; büyük üretimde GPU makine |
+| 4. Video klip | PNG → kısa MP4 | LTX/Wan uygun varyant | FFmpeg zoom/pan hareketi | AI için güçlü GPU; FFmpeg laptopta |
+| 5. Türkçe anlatım | Metin → `voice.wav` | Chatterbox (uyumlu model) | Piper mevcut Türkçe ses varsa / izinli API | Hafif sürümlerde yerel |
+| 6. Müzik | Talimat → `music.mp3` | ACE-Step uyumlu model | Lisansı uygun müzik dosyası | GPU modeli ağır olabilir |
+| 7. Altyazı | `voice.wav` → `subs.srt` | faster-whisper/whisper.cpp | Subtitle Edit | Yerel |
+| 8. Montaj | Dosyalar → `final.mp4` | FFmpeg + ffprobe | Kdenlive/Shotcut | Yerel |
+| 9. Kalite | MP4 → kontrol raporu | ffprobe, kaynak/telif/onay denetimi | Operatör incelemesi | Yerel |
+| 10. Paylaşım | onaylanmış MP4 → TikTok durum/id | TikTok resmî Content Posting API | Taslak yükle + hesap sahibinin uygulamada yayımlaması | **VPS şart değil**; ağ, OAuth, izin ve denetim gerekir |
+
+### İş kuyruğu sözleşmesi
+```json
+{
+  "job_id": "ornek-0001",
+  "hedef": "tiktok_dikey_video",
+  "sure_saniye": 45,
+  "boyut": [1080, 1920],
+  "durum": "planlandi",
+  "adimlar": ["arastir", "senaryo", "gorsel", "hareket", "tts", "muzik", "srt", "montaj", "kalite", "yayina_onay"],
+  "paylasim": {"platform": "tiktok", "hesap_yetkisi": "kontrol_gerekli", "onay": false}
+}
+```
+
+**Ajanın çalışma kuralı:** Her adımın giriş/çıkış dosyasını denetle, küçük testle doğrula, başarısız adımı sınırlı sayıda tekrar et, daha önce başarılı adımları yeniden üretme. Modelin ticari lisansı/ücretsiz kotası biterse yeni alternatif araştır, körlemesine ücretli API çağırma. **Yayınlamadan önce hesap erişimi, platform kuralları, gerekli API onayı ve kullanıcının açık yetkisini kontrol et.**
+
+### PowerShell çalışma örneği — video montajı için *gerçek* bir yerel temel komut
+
+Aşağıdaki komut **AI görseli/sesi kendiliğinden oluşturmaz**; ajan bunları ilgili kaynaklardan oluşturup aynı klasöre `scene.png`, `voice.wav`, `music.mp3` koyduktan sonra **gerçekten çalıştırılabilir FFmpeg montaj aşamasıdır**. FFmpeg'in PATH'te bulunması gerekir.
+
+```powershell
+# Yalnızca kullanıcı onayı ve gerekli dosyalar varsa çalıştır.
+$work = "D:\YEREL_BEYIN\isler\ornek-video"
+New-Item -ItemType Directory -Force -Path $work | Out-Null
+Set-Location $work
+if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) { throw "FFmpeg kurulu değil. Resmî kaynaktan kurulum gerekiyor." }
+foreach ($file in @("scene.png","voice.wav","music.mp3")) {
+    if (-not (Test-Path $file)) { throw "Eksik girdi: $file" }
+}
+ffmpeg -y -loop 1 -framerate 30 -i scene.png -i voice.wav -stream_loop -1 -i music.mp3 `
+  -filter_complex "[1:a]volume=1.0[voice];[2:a]volume=0.12[bg];[voice][bg]amix=inputs=2:duration=first[a]" `
+  -map 0:v -map "[a]" `
+  -vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,format=yuv420p" `
+  -r 30 -t 45 -c:v libx264 -pix_fmt yuv420p -c:a aac -b:a 192k -shortest final.mp4
+if ($LASTEXITCODE -ne 0) { throw "Video montajı başarısız." }
+ffprobe -v error -show_entries format=duration -of default=nw=1 final.mp4
+if ($LASTEXITCODE -ne 0) { throw "Video kontrolü başarısız." }
+```
+
+Altyazı eklenmesi, birden fazla klibin birleştirilmesi ve hareketlendirme için aynı iş hattına ek FFmpeg/ComfyUI adımları gerekir. Dosya yolları örnektir; gerçekten var olduğu iddia edilmez.
+
+### TikTok paylaşımı — lisanslı/izinli API gerçeği
+
+**Resmî kaynaklar (güncel koşulları her işlemde tekrar doğrula):**
+- [Direct Post başlama](https://developers.tiktok.com/docs/en/content-posting-api-get-started)
+- [Direct Post endpoint](https://developers.tiktok.com/docs/en/content-posting-api-reference-direct-post)
+- [Upload taslak endpoint](https://developers.tiktok.com/docs/en/content-posting-api-reference-upload-video)
+- [Paylaşım kuralları ve denetim](https://developers.tiktok.com/docs/en/content-sharing-guidelines)
+
+**Yayınlama iki ayrı moddur:**
+1. **`video.upload` (taslak / inbox):** Kullanıcı TikTok uygulamasında gözden geçirip kendisi yayımlar. Otomatik herkese açık paylaşım değildir.
+2. **`video.publish` (Direct Post):** TikTok geliştirici uygulaması, OAuth erişimi, kullanıcı yetkisi, uygun izin ve **uygulama denetimi** gerekir. Denetlenmemiş istemcilerin yükledikleri içerikler özel görünürlükle sınırlıdır. TikTok API üzerinden erişimi olmayan hesaba otomatik paylaşıldı deme.
+
+**Örnek API sırası:** Kendi uygulamanı kaydet → OAuth'la yetkili hesaba bağlan → gerekli scope'u al → `/v2/post/publish/creator_info/query/` ile kullanıcının izin verilen gizlilik ayarlarını kontrol et → `/v2/post/publish/video/init/` (Direct Post) veya `/v2/post/publish/inbox/video/init/` (taslak) → API'nin döndürdüğü upload URL'sine `FILE_UPLOAD` ile dosyayı gönder veya doğrulanmış `PULL_FROM_URL` kullan → işlem durumunu sorgula → başarılı post kimliğini/logunu kaydet. **Rastgele tarayıcı botuyla platform sınırlamalarını atlatma.**
+
+VPS zorunlu değildir: video Windows'ta üretilir ve resmî HTTPS API'ye gönderilebilir. Dışarıdan sürekli erişilecek webhook/çok kullanıcılı kontrol paneli için VPS veya güvenli tünel tercih edilebilir. **Geçerli API token'ını asla Markdown/GitHub/sohbet metnine yazma.**
+
+### Ajan için bir seferlik görev şablonu
+```text
+UCRETSIZ_TUM_KAYNAKLAR.md dosyasını en baştan sona oku.
+İlgili kayıtların resmî bağlantılarını aç; lisansı, güncel kurulum,
+kota, GPU/RAM/disk gereksinimi ve platform API yetkilerini doğrula.
+Araştırmayı yalnızca bu belgedeki isimlerle ASLA sınırlandırma;
+yeni ve daha uygun ücretsiz/açık kaynak alternatifleri ayrıca bul.
+Önce kullanıcının cihazında gerçekten kurulu araçları TESPİT ET
+(izin olmadan yükleme/silme/hesap bağlama yapma).
+İşi aşamalara ayır, doğrulanmış komutları üret, her çıktıyı denetle,
+yapılmış gibi davranma. Canlı yayımlama, ödeme, silme ve izin gerektiren
+işlemleri sadece kullanıcı tarafından yetkilendirilmiş kapsamda yürüt.
+Yeni faydalı araçları, URL/örnek/yerel RAM VRAM disk/VPS alanlarıyla
+bu dosyanın V2 şablonuna eklemeyi teklif et.
+```
+
+---
+
+## AÇIKLAMALI KAYNAK KARTLARI — 275 KAYIT (SABİT ID)
+
+Her kartta **kullanım senaryosu, resmî bağlantı, kaynak ihtiyacı, yerel/VPS farkı ve bağlantı biçimi** vardır. Tahminler donanım için başlangıç notudur, ürün benchmark sonucu değildir.
+
 
 ## 01 · Merkezi yönlendirme, yerel LLM ve RAG (22 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| FreeLLMAPI | Ö | Yerel | Birden fazla sağlayıcıyı tek API’de toplar; ticari canlı trafik için tavsiye edilmez | [Resmî/repo](https://github.com/tashfeenahmed/freellmapi) |
-| LiteLLM | Ö | Yerel | Model API geçidi, bütçe ve sağlayıcı yönlendirme | [Resmî/repo](https://github.com/BerriAI/litellm) |
-| OmniRoute | P | Yerel | Önceki Ana Beyin konuşmalarındaki özel yönlendirme katmanı; bağımsız resmî ürün/lisans teyit edilmedi | Doğrulanacak |
-| OpenCode | Ö | Yerel+API | Kodlama aracı; model kotası sağlayıcıya bağlı | [Resmî/repo](https://github.com/anomalyco/opencode) |
-| Ollama | Ö | Yerel | Model çalıştırıcı | [Resmî/repo](https://ollama.com/) |
-| llama.cpp | Ö | Yerel | GGUF ve CPU/GPU üzerinden çalıştırma | [Resmî/repo](https://github.com/ggml-org/llama.cpp) |
-| vLLM | Ö | Güçlü GPU | Yüksek kapasiteli model sunumu | [Resmî/repo](https://github.com/vllm-project/vllm) |
-| LocalAI | Ö | Yerel | OpenAI uyumlu yerel sunucu | [Resmî/repo](https://github.com/mudler/LocalAI) |
-| Open WebUI | Ö | Yerel | Sohbet ve model arayüzü | [Resmî/repo](https://github.com/open-webui/open-webui) |
-| Jan | Ö | Yerel | Masaüstü LLM uygulaması | [Resmî/repo](https://github.com/janhq/jan) |
-| LM Studio | F | Yerel | Ücretsiz masaüstü uygulama; tam açık kaynak değil | [Resmî/repo](https://lmstudio.ai/) |
-| GPT4All | Ö | Yerel | Masaüstü yerel modeller | [Resmî/repo](https://github.com/nomic-ai/gpt4all) |
-| text-generation-webui | Ö | Yerel | Yerel model web arayüzü | [Resmî/repo](https://github.com/oobabooga/text-generation-webui) |
-| AnythingLLM | Ö | Yerel | Belge ve RAG asistanı | [Resmî/repo](https://github.com/Mintplex-Labs/anything-llm) |
-| Flowise | Ö | Yerel | Görsel LLM akışları | [Resmî/repo](https://github.com/FlowiseAI/Flowise) |
-| Langflow | Ö | Yerel | Görsel agent/RAG akışı | [Resmî/repo](https://github.com/langflow-ai/langflow) |
-| LangChain | Ö | Yerel | LLM uygulama çatısı | [Resmî/repo](https://github.com/langchain-ai/langchain) |
-| LangGraph | Ö | Yerel | Çok adımlı agent orkestrasyonu | [Resmî/repo](https://github.com/langchain-ai/langgraph) |
-| LlamaIndex | Ö | Yerel | Doküman erişimi ve RAG | [Resmî/repo](https://github.com/run-llama/llama_index) |
-| Haystack | Ö | Yerel | Arama ve RAG iş akışı | [Resmî/repo](https://github.com/deepset-ai/haystack) |
-| RAGFlow | Ö | Yerel | Belge üzerinden RAG | [Resmî/repo](https://github.com/infiniflow/ragflow) |
-| Dify | L | Yerel | LLM uygulama platformu; kendi topluluk lisansı, OSI değil | [Resmî/repo](https://github.com/langgenius/dify) |
+### K001 — FreeLLMAPI
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Birden fazla sağlayıcıyı tek API’de toplar; ticari canlı trafik için tavsiye edilmez. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** 34 sağlayıcı anahtarını tek geçitte deneyip 45 saniyelik senaryoyu uygun kota üzerinden üret.
+- **Girdi → Çıktı / bağlantı:** Yerel proxy ile sağlayıcıların API anahtarlarını saklayarak çoklu endpoint; '7,4 milyar token' kullanıcının kişisel kotası değildir, canlı ticari servis koşulları ayrıca araştırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/tashfeenahmed/freellmapi). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K002 — LiteLLM
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Model API geçidi, bütçe ve sağlayıcı yönlendirme. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Tek uç noktadan Qwen ile senaryo, başka modelle başlık üretip masraf sınırı koy.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/BerriAI/litellm). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K003 — OmniRoute
+
+- **Tür / Ücretsiz durum:** Kullanıcı projesinde planlanan özel bileşen; bağımsız açık kaynak ürün olduğu doğrulanmadı. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Önceki Ana Beyin konuşmalarındaki özel yönlendirme katmanı; bağımsız resmî ürün/lisans teyit edilmedi. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Projeye ait planlanan yönlendirici için önce gerçek kod deposunu belirleyip API failover tasarla; bağımsız ürün olduğu varsayılmasın.
+- **Girdi → Çıktı / bağlantı:** Kullanıcının kendi kod projesindeki gerçek dosyalar bulunmadan kurulum/API komutu verilemez.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır; gerçekten kodlanırsa yerelde çalışır. Kamuya açık sürekli servis için VPS/tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K004 — OpenCode
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kodlama aracı; model kotası sağlayıcıya bağlı. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** D:\OYUN klasöründe basit Godot kodu üret, testleri çalıştır ve değişiklikleri incelemeye sun.
+- **Girdi → Çıktı / bağlantı:** Yerel OpenCode CLI/TUI ve model provider konfigürasyonu; terminal araç izinleri denetlenir.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/anomalyco/opencode). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K005 — Ollama
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Model çalıştırıcı. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Küçük Türkçe LLM'i laptopta çalıştır, yerel /api/generate çağrısıyla açıklama üret.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://ollama.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K006 — llama.cpp
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** GGUF ve CPU/GPU üzerinden çalıştırma. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** GGUF quantize modeli CPU ile açıp yerel sohbet backend'ine bağla.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/ggml-org/llama.cpp). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K007 — vLLM
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yüksek kapasiteli model sunumu. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** 96 GB GPU'da model servisi başlatıp kuyruktaki metin işlerini REST'ten karşıla.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/vllm-project/vllm). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K008 — LocalAI
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenAI uyumlu yerel sunucu. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Tek OpenAI-uyumlu localhost API üzerinden yerel model yanıtı al.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/mudler/LocalAI). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K009 — Open WebUI
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sohbet ve model arayüzü. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Tarayıcıdaki tek sohbet kutusundan yerel Ollama modelini kullan.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/open-webui/open-webui). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K010 — Jan
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Masaüstü LLM uygulaması. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Windows'ta indirilen küçük GGUF modeliyle internetsiz soru-cevap yap.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/janhq/jan). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K011 — LM Studio
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz masaüstü uygulama; tam açık kaynak değil. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Yerel modelin çıktılarını masaüstünde test et, lisansın açık kaynak olmadığını ayırt et.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://lmstudio.ai/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K012 — GPT4All
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Masaüstü yerel modeller. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Dokümanlardan küçük LLM ile soru-cevap üret.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/nomic-ai/gpt4all). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K013 — text-generation-webui
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yerel model web arayüzü. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Tarayıcı arayüzünden quantization parametreleriyle küçük model denemesi yap.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/oobabooga/text-generation-webui). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K014 — AnythingLLM
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Belge ve RAG asistanı. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Şirket PDF'lerini içe aktar ve kaynak gösteren sohbet yanıtı ver.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Mintplex-Labs/anything-llm). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K015 — Flowise
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel LLM akışları. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Sürükle-bırak ile belge al→parçala→embedding→yanıt akışını kur.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/FlowiseAI/Flowise). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K016 — Langflow
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel agent/RAG akışı. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Görsel akış tasarımında LLM→araç→JSON sonuç hattı çiz.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/langflow-ai/langflow). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K017 — LangChain
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** LLM uygulama çatısı. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Farklı LLM istemcilerini tek Python zincirine bağla.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/langchain-ai/langchain). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K018 — LangGraph
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Çok adımlı agent orkestrasyonu. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Video işi için planla→görsel oluştur→seslendir→montaj→onay aşamalarını checkpoint ile sırala.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/langchain-ai/langgraph). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K019 — LlamaIndex
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Doküman erişimi ve RAG. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Belgelerden indeks kurarak sohbet sırasında ilgili bölümleri bul.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/run-llama/llama_index). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K020 — Haystack
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Arama ve RAG iş akışı. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Web kaynaklarını indeksleyip belgeli soru-cevap servisi üret.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/deepset-ai/haystack). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K021 — RAGFlow
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Belge üzerinden RAG. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Tarama belgelerini ayrıştırıp RAG sohbet sistemi oluştur.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/infiniflow/ragflow). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K022 — Dify
+
+- **Tür / Ücretsiz durum:** Uygulama / aracı katman / kütüphane. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** LLM uygulama platformu; kendi topluluk lisansı, OSI değil. Model çalıştırma, ajan yürütme veya birden fazla sağlayıcının araçlarını bağlama.
+- **Somut yapılabilecek iş:** Görsel bir iş akışıyla müşteri destek asistanı prototipi çıkar.
+- **Girdi → Çıktı / bağlantı:** REST/OpenAI-uyumlu API, CLI, Python veya yerel servis; uygulamaya göre README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/langgenius/dify). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım genellikle 0,1–3 GB; indirilen modeller ayrıca 1–500+ GB.
+- **RAM:** Arayüz/proxy 0,5–4 GB; yerel LLM seçilen modelin boyutuna göre 4–128+ GB. **VRAM/GPU:** Çoğu arayüz/proxy için gerekmez; model sunucusunda model boyutuna göre 0–96+ GB.
+- **VPS şart mı?** Hayır: Windows/WSL/Docker ile yerel çalışır. İnternete sürekli açık hizmet istiyorsan VPS veya güvenli tünel seçenek; GPU modeli VPS'de çalıştıracaksan GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Yönetim/CPU küçük model: uygun; büyük LLM: uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Ağır modelleri ve eşzamanlı işleri sunabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 02 · Uzaktan ücretsiz API/kota sağlayıcıları (15 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| OpenCode Console Free modeller | K | Bulut | Bazı modeller 'Free' olarak listeleniyor; bazıları geçici | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| OpenRouter :free modeller | K | Bulut | Ücretsiz model uç noktaları; kota değişir | [Resmî/repo](https://openrouter.ai/models) |
-| NVIDIA Build/NIM | K | Bulut | Prototip amaçlı ücretsiz uç noktalar; dağıtıma uygunluk şartlı | [Resmî/repo](https://build.nvidia.com/) |
-| Google Gemini API | K | Bulut | Yalnız uygun modellerde ücretsiz katman | [Resmî/repo](https://ai.google.dev/gemini-api/docs/pricing) |
-| GroqCloud | K | Bulut | Hızlı LLM servisi; ücretsiz plan sınırlı | [Resmî/repo](https://console.groq.com/) |
-| Cerebras Inference | K | Bulut | Ücretsiz katman / hız limitleri sağlayıcıya göre | [Resmî/repo](https://inference.cerebras.ai/) |
-| Cloudflare Workers AI | K | Bulut | Günlük 10.000 neuron ücretsiz; bazı güçlü modeller ücretli | [Resmî/repo](https://developers.cloudflare.com/workers-ai/platform/pricing/) |
-| Mistral API | K | Bulut | Ücretsiz/deneysel erişim değişken; modele göre şartlar | [Resmî/repo](https://console.mistral.ai/) |
-| Hugging Face Inference | K | Bulut | Ücretsiz kullanım kredisi/limitleri düşük | [Resmî/repo](https://huggingface.co/docs/inference-providers/index) |
-| ModelScope | K | Bulut | Ücretsiz demolar/kotalı inference; bölgesel koşulları doğrula | [Resmî/repo](https://modelscope.cn/) |
-| Z.ai GLM API | K | Bulut | Belirli ücretsiz promosyon/model varsa kullan; sürekli garanti yok | [Resmî/repo](https://open.bigmodel.cn/) |
-| GitHub Models | K | Bulut | Sınırlı ücretsiz deneysel modeller | [Resmî/repo](https://github.com/marketplace/models) |
-| Cohere API | K | Bulut | Deneme/araştırma anahtarı; ticari üretim koşulları ayrı | [Resmî/repo](https://docs.cohere.com/) |
-| Kimi web sohbeti | K | Bulut | Web kullanımı sınırlı; Kimi API ile aynı hak değil | [Resmî/repo](https://www.kimi.com/) |
-| Claude ücretsiz sohbet | K | Bulut | Sohbet sınırlı ücretsiz; Claude Code kullanım hakkı değil | [Resmî/repo](https://claude.com/) |
+### K023 — OpenCode Console Free modeller
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Bazı modeller 'Free' olarak listeleniyor; bazıları geçici. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** OpenCode içinden güncel ücretsiz model listesini seçip kod tamamlama isteği gönder.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K024 — OpenRouter :free modeller
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz model uç noktaları; kota değişir. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** OpenRouter 'free' etiketli erişilebilir modelleri keşfet ve kota dolunca yeniden dene.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://openrouter.ai/models). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K025 — NVIDIA Build/NIM
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Prototip amaçlı ücretsiz uç noktalar; dağıtıma uygunluk şartlı. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** NVIDIA Build üzerindeki uygun modelle senaryo taslağı üret ve limitini ölç.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://build.nvidia.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K026 — Google Gemini API
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yalnız uygun modellerde ücretsiz katman. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Gemini API'den yapılandırılmış JSON sahne planı iste.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://ai.google.dev/gemini-api/docs/pricing). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K027 — GroqCloud
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Hızlı LLM servisi; ücretsiz plan sınırlı. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** GroqCloud'da desteklenen açık modelle hızlı altyazı çevirisi yap.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://console.groq.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K028 — Cerebras Inference
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz katman / hız limitleri sağlayıcıya göre. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Cerebras API'den kısa kod inceleme çıktısı al.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://inference.cerebras.ai/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K029 — Cloudflare Workers AI
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Günlük 10.000 neuron ücretsiz; bazı güçlü modeller ücretli. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Workers AI ile küçük özetleme uç noktası geliştir, günlük neuron tüketimini izle.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://developers.cloudflare.com/workers-ai/platform/pricing/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K030 — Mistral API
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz/deneysel erişim değişken; modele göre şartlar. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Mistral API'yle uzun metni bölüm bölüm özetle.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://console.mistral.ai/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K031 — Hugging Face Inference
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz kullanım kredisi/limitleri düşük. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Hugging Face üzerinde ücretsiz erişime uygun inference örneğini çalıştır.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/docs/inference-providers/index). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K032 — ModelScope
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz demolar/kotalı inference; bölgesel koşulları doğrula. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** ModelScope model sayfasından model koşullarını ve örnek kodu karşılaştır.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://modelscope.cn/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K033 — Z.ai GLM API
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Belirli ücretsiz promosyon/model varsa kullan; sürekli garanti yok. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** GLM API'yi sağlayıcı adaptörüne bağlayıp tool calling test et.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://open.bigmodel.cn/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K034 — GitHub Models
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sınırlı ücretsiz deneysel modeller. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** GitHub Models'de uygun modelle kod üretimini prototiple.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/marketplace/models). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K035 — Cohere API
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Deneme/araştırma anahtarı; ticari üretim koşulları ayrı. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Cohere ile belge sınıflandırma veya embedding özelliğini test et.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://docs.cohere.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K036 — Kimi web sohbeti
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Web kullanımı sınırlı; Kimi API ile aynı hak değil. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Kimi web sohbetine ürün analizi sorusu sor; bunu otomatik API zannetme.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.kimi.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel model ağırlığı 0 GB; sadece istemci/kayıtlar (MB–GB).
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB.
+- **VPS şart mı?** Hayır; laptop doğrudan HTTPS API'ye bağlanır. Kullanıcıya açık uygulama için VPS veya güvenli arka uç isteğe bağlıdır; API anahtarını istemciye gömme.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K037 — Claude ücretsiz sohbet
+
+- **Tür / Ücretsiz durum:** Uzak LLM servis/API sağlayıcısı. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sohbet sınırlı ücretsiz; Claude Code kullanım hakkı değil. Metin, kod veya multimodal yanıtları uzak model altyapısından almak.
+- **Somut yapılabilecek iş:** Claude web arayüzünde kısa metni düzelt; sohbeti programatik API sanma.
+- **Girdi → Çıktı / bağlantı:** HTTPS REST/SDK ve gizli ortam değişkeni; güncel kota, limit ve ticari izin doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://claude.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Sohbet web üzerinden kullanılır, model yerelde depolanmaz.
+- **RAM:** İstemci için çoğunlukla 0,1–1 GB; tarayıcı ek tüketebilir. **VRAM/GPU:** Yerelde 0 GB
+- **VPS şart mı?** Hayır; web arayüzü. Programatik API erişimi aynı şey değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uygun, internet ve kota gerekir. Hedef kasa (128 GB RAM, 96 GB GPU): Kullanılabilir; GPU zorunlu değildir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 03 · OpenCode üzerinden önceki ÜCRETSİZ kod/LLM modelleri (14 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Big Pickle | K | Bulut | OpenCode Free; deneme süreci geçici olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| DeepSeek V4.1 Flash Free | K | Bulut | OpenCode Free; süre/limit değişebilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Space Bunny Free | K | Bulut | OpenCode Free | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Cat Jam Free | K | Bulut | OpenCode Free; ülkeler bazında kısıt olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| LongCat 2.5 Preview Free | K | Bulut | OpenCode Free önizleme | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Step 5 Preview Free | K | Bulut | OpenCode Free önizleme | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Exo Free | K | Bulut | OpenCode Free, geçici olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| MiMo-V2.6-Flash Free | K | Bulut | OpenCode Free, geçici olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| MiMo-V2.5 Free | K | Bulut | OpenCode Free, geçici olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Nemotron 3 Ultra Free | K | Bulut | OpenCode/NVIDIA ücretsiz test; gizli veri gönderme | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Nemotron 3.5 Lightning Free | K | Bulut | OpenCode Free, geçici olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Nemotron 3.5 Super VL Free | K | Bulut | OpenCode Free görsel anlama, geçici olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Muse Spark 1.3 Contributor Free | K | Bulut | Katkı/erişim koşulları geçici olabilir | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
-| Jev 1.13 Free | K | Bulut | Karar/sınıflandırma tipi model; serbest metin LLM değil | [Resmî/repo](https://opencode.ai/v2/docs/console/models/) |
+### K038 — Big Pickle
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free; deneme süreci geçici olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Big Pickle'ı OpenCode'da kod düzeltme isteğiyle test et.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K039 — DeepSeek V4.1 Flash Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free; süre/limit değişebilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** DeepSeek Flash Free modeliyle küçük Python fonksiyonu yazdır.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K040 — Space Bunny Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Space Bunny Free'nin model kimliğinin hâlâ var olup olmadığını kontrol et; örnek SQL sorgusu üret.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K041 — Cat Jam Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free; ülkeler bazında kısıt olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Cat Jam Free modelinin erişimini doğrula, kısa açıklama hazırlat.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K042 — LongCat 2.5 Preview Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free önizleme. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** LongCat Preview modelini uzun kod bloğu açıklamada dene.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K043 — Step 5 Preview Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free önizleme. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Step Preview modeline problem çözme planı ürettir.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K044 — Exo Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free, geçici olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Exo Free ile API endpoint örneği yazdır.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K045 — MiMo-V2.6-Flash Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free, geçici olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** MiMo Flash ile basit JavaScript test dosyası hazırlat.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K046 — MiMo-V2.5 Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free, geçici olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** MiMo Free ile hata ayıklama adımlarını JSON al.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K047 — Nemotron 3 Ultra Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode/NVIDIA ücretsiz test; gizli veri gönderme. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Nemotron Ultra Free'yi uzun talimatlı görev planında sınırlarıyla dene.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K048 — Nemotron 3.5 Lightning Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free, geçici olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Nemotron Lightning Free ile hızlı kod tamamlama yap.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K049 — Nemotron 3.5 Super VL Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OpenCode Free görsel anlama, geçici olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Nemotron Super VL Free üzerinde ekran görüntüsü açıklaması dene (görüntü kabulü varsa).
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K050 — Muse Spark 1.3 Contributor Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Katkı/erişim koşulları geçici olabilir. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Muse Spark Contributor Free'nin katkı şartını doğrula, bir TypeScript fonksiyonu test et.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K051 — Jev 1.13 Free
+
+- **Tür / Ücretsiz durum:** Uzakta sunulan ücretsiz/kotalı model. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Karar/sınıflandırma tipi model; serbest metin LLM değil. Kod yazma, özetleme veya ajan isteklerine ücretsiz kota kapsamında yanıt üretmek.
+- **Somut yapılabilecek iş:** Jev 1.13 Free erişimini doğrula, kısa özet iste.
+- **Girdi → Çıktı / bağlantı:** OpenCode/model sağlayıcısı listesi; güncel model kimliği ve ücretsiz erişim ayrıca test edilmeli.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencode.ai/v2/docs/console/models/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Bulut erişiminde yerelde model dosyası 0 GB.
+- **RAM:** İstemci yaklaşık 0,1–1 GB. **VRAM/GPU:** Yerelde 0 GB; model dosyası varsa yerel uyumluluğu ayrıca araştır.
+- **VPS şart mı?** Hayır; API erişimi için internet yeterli. Web ürününün arka ucunu VPS'ye almak ayrı karardır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): API ile uygun. Hedef kasa (128 GB RAM, 96 GB GPU): API veya mevcutsa uyumlu yerel modelle.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 04 · Yerel/açık ağırlıklı LLM aileleri (14 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Qwen3 küçük boyutlar | M | 4GB/CPU test | 0.6B/1.7B/4B sınıfı quantized; sürüm ve lisansı doğrula | [Resmî/repo](https://huggingface.co/Qwen) |
-| Qwen Coder serisi | M | GPU/Bulut | Kodlama; büyük sürümler güçlü sistem ister | [Resmî/repo](https://huggingface.co/Qwen) |
-| DeepSeek R1 Distill | M | Yerel/Bulut | Damıtılmış sürümler; her boyutun lisansı farklı olabilir | [Resmî/repo](https://huggingface.co/deepseek-ai) |
-| DeepSeek V3/V4 aileleri | M | Uzak/Güçlü GPU | Üst boyutlar ev laptopunda çalışmaz | [Resmî/repo](https://huggingface.co/deepseek-ai) |
-| GLM açık ağırlıklı aile | M | GPU/Bulut | Sürüm bazında lisansı ve açılmış ağırlıkları incele | [Resmî/repo](https://huggingface.co/zai-org) |
-| Kimi K2 açık ağırlıklı aile | M | Uzak/Güçlü GPU | Model sürümü ve Moonshot lisansını ayrı doğrula | [Resmî/repo](https://huggingface.co/moonshotai) |
-| Kimi K3 API | K | Bulut | Kodlama hedefi; açık ağırlıklı olduğunu varsayma | [Resmî/repo](https://www.kimi.com/) |
-| GPT-OSS 20B/120B | M | 20B güçlü GPU/120B sunucu | Açık ağırlık; 4GB laptopa büyük | [Resmî/repo](https://huggingface.co/openai) |
-| Mistral / Mixtral açık modeller | M | GPU/Bulut | Yalnız açık yayımlanmış varyantlar | [Resmî/repo](https://huggingface.co/mistralai) |
-| Gemma ailesi | L | GPU/Bulut | Google model kullanım koşulları geçerli | [Resmî/repo](https://huggingface.co/google) |
-| Llama açık ağırlık ailesi | L | GPU/Bulut | Meta Community License, OSI açık kaynak değil | [Resmî/repo](https://www.llama.com/) |
-| IBM Granite aileleri | M | Yerel/Bulut | Kod, metin ve kurumsal modeller | [Resmî/repo](https://huggingface.co/ibm-granite) |
-| Nemotron açık ağırlıklı aile | L | GPU/Bulut | Modellerin kullanım lisansı ayrı kontrol edilmeli | [Resmî/repo](https://huggingface.co/nvidia) |
-| OLMo ailesi | M | Yerel/Bulut | Açık araştırma modelleri | [Resmî/repo](https://huggingface.co/allenai) |
+### K052 — Qwen3 küçük boyutlar
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** 0.6B/1.7B/4B sınıfı quantized; sürüm ve lisansı doğrula. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Küçük Qwen3 1–4B varyantını GGUF/Ollama ile Türkçe sohbet için dene.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/Qwen). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: 4GB/CPU test. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K053 — Qwen Coder serisi
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kodlama; büyük sürümler güçlü sistem ister. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Qwen Coder'ın uygun quantize sürümüyle otomatik test yaz.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/Qwen). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K054 — DeepSeek R1 Distill
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Damıtılmış sürümler; her boyutun lisansı farklı olabilir. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** DeepSeek R1 Distill küçük modelle adım adım mantık egzersizi çöz.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/deepseek-ai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K055 — DeepSeek V3/V4 aileleri
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Üst boyutlar ev laptopunda çalışmaz. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** DeepSeek V3/V4 modelinin uygun açık ağırlık/API seçeneğiyle kod gözden geçir.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/deepseek-ai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Uzak/Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K056 — GLM açık ağırlıklı aile
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sürüm bazında lisansı ve açılmış ağırlıkları incele. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** GLM'nin açık ağırlık varyantını yerel kurulum koşullarına göre test et.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/zai-org). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K057 — Kimi K2 açık ağırlıklı aile
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Model sürümü ve Moonshot lisansını ayrı doğrula. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Kimi K2 ağırlık lisansını doğrula ve uygun büyük GPU sunucusunda kodlama görevi dene.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/moonshotai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Uzak/Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K058 — Kimi K3 API
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kodlama hedefi; açık ağırlıklı olduğunu varsayma. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Kimi K3'ün mevcut resmî API erişimi üzerinden senaryo ürettir; yerel ağırlığı var sanma.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.kimi.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** API ile model ağırlığı 0 GB. Açık ağırlıklı resmî dağıtım olup olmadığını ayrıca kontrol et.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** API ile 0 GB.
+- **VPS şart mı?** API kullanımı için VPS gerekmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K059 — GPT-OSS 20B/120B
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Açık ağırlık; 4GB laptopa büyük. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** GPT-OSS 20B'yi güçlü RAM/VRAM'de quantize ederek görev yöneticisini çalıştır.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/openai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: 20B güçlü GPU/120B sunucu. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K060 — Mistral / Mixtral açık modeller
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yalnız açık yayımlanmış varyantlar. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Mistral/Mixtral'in lisanslı ve boyuta uygun varyantıyla doküman özetle.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/mistralai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K061 — Gemma ailesi
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Google model kullanım koşulları geçerli. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Gemma'nın küçük sürümüyle dizüstünde içerik başlıkları üret.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/google). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K062 — Llama açık ağırlık ailesi
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Meta Community License, OSI açık kaynak değil. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Llama'nın erişimi izin verilen quantize varyantını özel bilgileri göndermeden kullan.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.llama.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K063 — IBM Granite aileleri
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kod, metin ve kurumsal modeller. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Granite'in küçük kurumsal modelini sınıflandırma için kur.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/ibm-granite). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K064 — Nemotron açık ağırlıklı aile
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Modellerin kullanım lisansı ayrı kontrol edilmeli. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** Nemotron'un açık sürümünü uzun belge işinde karşılaştır.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/nvidia). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K065 — OLMo ailesi
+
+- **Tür / Ücretsiz durum:** LLM modeli/model ailesi. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Açık araştırma modelleri. Metin, kod, akıl yürütme veya çok modlu görevleri yerine getirmek.
+- **Somut yapılabilecek iş:** OLMo açık ağırlık modelini reproducibility odaklı değerlendirme için kullan.
+- **Girdi → Çıktı / bağlantı:** Ollama, llama.cpp, vLLM veya API; dosya biçimi ve lisans modele göre.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/allenai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Modellere göre Q4 ağırlıkları: ~1B=0,6–1 GB; 7–8B=4–6 GB; 20B=11–16 GB; 70B=40–55 GB; büyük MoE daha fazla. Kesin varyanta bak.
+- **RAM:** Ağırlık + KV-cache + çalışma payı; 7–8B Q4 için çoğunlukla ≥8–12 GB, 20B için ~16–32 GB, büyük modellerde 64–128+ GB. **VRAM/GPU:** GPU hızlandırma için mümkünse model ağırlıklarının anlamlı kısmı VRAM'e sığmalı; 4 GB'da küçük Q4 veya CPU paylaşımı; 96 GB'da çok daha fazlası.
+- **VPS şart mı?** Hayır; model yerelde sığarsa VPS gerekmez. Buluttaki hazır API için yerel yükleme gerekmez; uzaktan model barındırmak istersen yeterli RAM/GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük quantize varyantlar/CPU mümkün; büyük modeller uygun değil. Hedef kasa (128 GB RAM, 96 GB GPU): Orta/büyük quantize modeller, model başına uyumluluk ve lisansa göre.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 05 · Claude, Kimi ve kodlama ajanları (17 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Claude Code | Ü | Bulut+CLI | Kodlama aracı ücretsiz sınırsız Claude erişimi sağlamaz | [Resmî/repo](https://claude.com/product/claude-code) |
-| Claude Chat Free | K | Bulut | Ücretsiz sohbet; Claude Code değil | [Resmî/repo](https://claude.com/) |
-| Kimi Code CLI | K | Yerel istemci+bulut | Kimi sağlayıcı erişim ve abonelik şartına bağlı | [Resmî/repo](https://www.kimi.com/) |
-| OpenCode | Ö | Yerel+API | Ücretsiz kodlama istemcisi | [Resmî/repo](https://github.com/anomalyco/opencode) |
-| Aider | Ö | Yerel+API | Terminalden dosya tabanlı kodlama | [Resmî/repo](https://github.com/Aider-AI/aider) |
-| Cline | Ö | Yerel+API | IDE kodlama ajanı; model erişimi ayrıca | [Resmî/repo](https://github.com/cline/cline) |
-| Kilo Code | Ö | Yerel+API | Kodlama ajanı; API maliyeti ayrı | [Resmî/repo](https://github.com/Kilo-Org/kilocode) |
-| OpenHands | Ö | Yerel+API | Agent ile yazılım görevleri | [Resmî/repo](https://github.com/OpenHands/OpenHands) |
-| Goose | Ö | Yerel+API | Genel amaçlı açık agent | [Resmî/repo](https://github.com/aaif-goose/goose) |
-| Qwen Code | Ö | Yerel+API | Qwen tabanlı kodlama CLI, model ücretsiz kotasına bağlı | [Resmî/repo](https://github.com/QwenLM/qwen-code) |
-| Codex CLI | Ö | Yerel+API | İstemci kaynak kodu açık; model çalıştırma ücretsiz değil | [Resmî/repo](https://github.com/openai/codex) |
-| Gemini CLI | Ö | Yerel+API | Ücretsiz Google kotası bulunan CLI; kota değişebilir | [Resmî/repo](https://github.com/google-gemini/gemini-cli) |
-| Open Interpreter | Ö | Yerel+API | Komut/masaüstü işlerini otomatikleştirme | [Resmî/repo](https://github.com/OpenInterpreter/open-interpreter) |
-| Everything Claude Code | P | Yerel | Claude projelerini yapılandırmaya yönelik topluluk şablonları; lisansını kontrol et | Doğrulanacak |
-| OmniWrite | P | Yerel | Önceki görüşmelerde adı geçti; Ana Beyin için daha sonra kullanılmaması kararlaştırılmıştı | Doğrulanacak |
-| Roo Code | P | Yerel | Önceki listede vardı, devamlılık/destek durumunu yeniden doğrula | Doğrulanacak |
-| Continue | P | Yerel | Önceki listede vardı; güncel geliştirme/destek durumu teyit edilmeden çekirdek seçme | Doğrulanacak |
+### K066 — Claude Code
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ü` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kodlama aracı ücretsiz sınırsız Claude erişimi sağlamaz. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Claude Code'a depoyu analiz ettir, değişiklik yapmadan önce plan iste; Claude API/plan maliyeti ayrı.
+- **Girdi → Çıktı / bağlantı:** Claude Code CLI/IDE; uyumlu API/gateway resmi yönergelere göre. Ücretsiz sohbet paketi Claude Code'un sınırsız ücretsiz olduğu anlamına gelmez.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://claude.com/product/claude-code). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut+CLI. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K067 — Claude Chat Free
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz sohbet; Claude Code değil. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Claude ücretsiz sohbet arayüzünde taslağı düzelt; CLI erişimi varsayma.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://claude.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Sohbet web üzerinden kullanılır, model yerelde depolanmaz.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Yerelde 0 GB
+- **VPS şart mı?** Hayır; web arayüzü. Programatik API erişimi aynı şey değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K068 — Kimi Code CLI
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kimi sağlayıcı erişim ve abonelik şartına bağlı. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Kimi Code CLI ile yerel web projesinde dosya testleri üret.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.kimi.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel istemci+bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K069 — OpenCode
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz kodlama istemcisi. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** OpenCode ile dosya düzenle ve git diff'i göster.
+- **Girdi → Çıktı / bağlantı:** Yerel OpenCode CLI/TUI ve model provider konfigürasyonu; terminal araç izinleri denetlenir.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/anomalyco/opencode). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K070 — Aider
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Terminalden dosya tabanlı kodlama. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Aider'a belirli dosyayı değiştirt, git geçmişiyle farkları gör.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Aider-AI/aider). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K071 — Cline
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** IDE kodlama ajanı; model erişimi ayrıca. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Cline IDE ajanına hata düzeltme görevi ver; terminal izinlerini kısıtla.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/cline/cline). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K072 — Kilo Code
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kodlama ajanı; API maliyeti ayrı. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Kilo Code'la alternatif model üzerinden TypeScript testi yaz.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Kilo-Org/kilocode). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K073 — OpenHands
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Agent ile yazılım görevleri. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** OpenHands ajanını güvenli proje çalışma alanında basit issue çözümüne yönlendir.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/OpenHands/OpenHands). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K074 — Goose
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Genel amaçlı açık agent. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Goose ile komut satırından görev yapan otomasyon ajanı kur.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/aaif-goose/goose). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K075 — Qwen Code
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Qwen tabanlı kodlama CLI, model ücretsiz kotasına bağlı. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Qwen Code ile proje README ve test üretimini dene.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/QwenLM/qwen-code). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K076 — Codex CLI
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** İstemci kaynak kodu açık; model çalıştırma ücretsiz değil. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Codex CLI'yi izin verilen plan/modelle kod incelemede kullan.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/openai/codex). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K077 — Gemini CLI
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz Google kotası bulunan CLI; kota değişebilir. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Gemini CLI ile ücretsiz kota varsa refaktör önerisi al.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/google-gemini/gemini-cli). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K078 — Open Interpreter
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Komut/masaüstü işlerini otomatikleştirme. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Open Interpreter'a yalnızca okuma/deneme yetkisiyle CSV analiz ettir.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/OpenInterpreter/open-interpreter). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K079 — Everything Claude Code
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Claude projelerini yapılandırmaya yönelik topluluk şablonları; lisansını kontrol et. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Everything Claude Code komut/skill şablonlarını proje standardına uyarlamadan önce incele.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K080 — OmniWrite
+
+- **Tür / Ücretsiz durum:** Kullanıcı projesinde adı geçen özel bileşen; bağımsız doğrulanmış kurulum deposu yok. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Önceki görüşmelerde adı geçti; Ana Beyin için daha sonra kullanılmaması kararlaştırılmıştı. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** OmniWrite adını bağımsız açık kaynak ürün sanmadan önce kodunu ve işlevini doğrula.
+- **Girdi → Çıktı / bağlantı:** Gerçek repo, README, API ve lisans tespit edilene kadar otomatik kullanım yapılamaz.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Kod ve kurulum yeri netleşmeden karar verilmez; projeye özel.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K081 — Roo Code
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Önceki listede vardı, devamlılık/destek durumunu yeniden doğrula. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Roo Code ile çok adımlı VS Code hata düzeltmesini test et.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K082 — Continue
+
+- **Tür / Ücretsiz durum:** Kodlama yapay zekâ ajanı / CLI. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Önceki listede vardı; güncel geliştirme/destek durumu teyit edilmeden çekirdek seçme. Proje kodu oluşturma, düzenleme, test yazma ve terminal aracılığıyla görev yürütme.
+- **Somut yapılabilecek iş:** Continue ile yerel modelden IDE içinde kod tamamlat.
+- **Girdi → Çıktı / bağlantı:** CLI, VS Code/IDE uzantısı, API, terminal; proje üzerinde yazma/test yetkisi sınırlandırılır.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Araç genellikle 0,1–3 GB; proje, bağımlılıklar ve yerel model ayrıca.
+- **RAM:** Ajan uygulaması yaklaşık 0,5–4 GB; IDE/tarayıcı/proje daha fazla; yerel LLM ayrı. **VRAM/GPU:** Uzak API ile 0 GB; yerel modele geçilirse modele bağlı.
+- **VPS şart mı?** Hayır; Windows/WSL'de proje klasörü üzerinde çalışabilir. Uzak otomasyon için VPS veya CI runner seçenek; API modeli VPS'de kurulmak zorunda değil.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Uzak ücretsiz API kotasıyla uygun; ağır derlemeleri sırala. Hedef kasa (128 GB RAM, 96 GB GPU): Birden çok ajan/görev için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 06 · Görsel üretme, düzenleme, kalite yükseltme (23 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| ComfyUI | Ö | GPU/CPU | Node tabanlı görsel-video üretim arayüzü; model ayrıca | [Resmî/repo](https://github.com/comfy-org/comfyui) |
-| Stable Diffusion 1.5 | L | 4GB test | Düşük çözünürlükte çalışabilir; model lisansı kontrol | Doğrulanacak |
-| SDXL | L | GPU | 4GB'ta çok yavaş/sınırlı; model lisansları ayrı | Doğrulanacak |
-| FLUX.1 Schnell | M | Güçlü GPU | Apache-2.0 görsel modeli; ticari kullanım mümkün | [Resmî/repo](https://github.com/black-forest-labs/flux) |
-| FLUX.1 Dev | L | Güçlü GPU | Non-commercial model lisansı; ticari üretim için ana seçenek değil | [Resmî/repo](https://github.com/black-forest-labs/flux) |
-| Qwen-Image | M | Güçlü GPU | Apache-2.0; resimde yazı üretimi | [Resmî/repo](https://github.com/QwenLM/Qwen-Image) |
-| Qwen-Image-Edit | M | Güçlü GPU | Resim düzenleme; varyantın lisansı kontrol | [Resmî/repo](https://github.com/QwenLM/Qwen-Image) |
-| Z-Image-Turbo | M | GPU | Açık model adayı; ağırlık ve sürüm lisansını kontrol | Doğrulanacak |
-| InvokeAI | Ö | GPU | Görsel üretim/çalışma alanı | [Resmî/repo](https://github.com/invoke-ai/InvokeAI) |
-| SD WebUI Forge | Ö | GPU | SD için optimize web arayüzü | [Resmî/repo](https://github.com/lllyasviel/stable-diffusion-webui-forge) |
-| Diffusers | Ö | Yerel/GPU | Görsel-video inference kütüphanesi | [Resmî/repo](https://github.com/huggingface/diffusers) |
-| ControlNet | M | GPU | Görsel kontrol modelleri, checkpoint koşulları ayrı | [Resmî/repo](https://github.com/lllyasviel/ControlNet) |
-| rembg | Ö | Yerel | Arka plan kaldırma | [Resmî/repo](https://github.com/danielgatis/rembg) |
-| Real-ESRGAN | Ö | Yerel/GPU | Görsel yükseltme | [Resmî/repo](https://github.com/xinntao/Real-ESRGAN) |
-| GFPGAN | Ö | Yerel/GPU | Yüz restorasyonu | [Resmî/repo](https://github.com/TencentARC/GFPGAN) |
-| SAM 2 | M | GPU | Görsel/video nesne segmentasyonu | [Resmî/repo](https://github.com/facebookresearch/sam2) |
-| Krita | Ö | Yerel | Resim çizimi | [Resmî/repo](https://krita.org/) |
-| GIMP | Ö | Yerel | Fotoğraf düzenleme | [Resmî/repo](https://www.gimp.org/) |
-| Inkscape | Ö | Yerel | Vektörel logo/tasarım | [Resmî/repo](https://inkscape.org/) |
-| darktable | Ö | Yerel | RAW fotoğraf düzenleme | [Resmî/repo](https://www.darktable.org/) |
-| ImageMagick | Ö | Yerel | Toplu görsel dönüştürme | [Resmî/repo](https://imagemagick.org/) |
-| Sharp | Ö | Yerel | Node.js görsel işleme | [Resmî/repo](https://sharp.pixelplumbing.com/) |
-| libvips | Ö | Yerel | Yüksek performanslı resim işlemleri | [Resmî/repo](https://www.libvips.org/) |
+### K083 — ComfyUI
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Node tabanlı görsel-video üretim arayüzü; model ayrıca. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** ComfyUI'de görsel üret→upscale→çıktı kaydet düğüm zinciri kur.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/comfy-org/comfyui). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU/CPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K084 — Stable Diffusion 1.5
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Düşük çözünürlükte çalışabilir; model lisansı kontrol. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Stable Diffusion 1.5 ile 512px taslak görsel üret.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: 4GB test. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K085 — SDXL
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** 4GB'ta çok yavaş/sınırlı; model lisansları ayrı. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** SDXL ile Instagram için ayrıntılı kapak görseli üret.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K086 — FLUX.1 Schnell
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Apache-2.0 görsel modeli; ticari kullanım mümkün. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** FLUX Schnell'le lisansa uygun hızlı afiş prototipi oluştur.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/black-forest-labs/flux). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K087 — FLUX.1 Dev
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Non-commercial model lisansı; ticari üretim için ana seçenek değil. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** FLUX Dev lisansını doğrula; ticari işte izin yoksa kullanma.
+- **Girdi → Çıktı / bağlantı:** ComfyUI/Diffusers ve resmi ağırlıklar; ticari iş için ayrı lisans gerekebilir.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/black-forest-labs/flux). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K088 — Qwen-Image
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Apache-2.0; resimde yazı üretimi. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Qwen-Image ile Türkçe metin içeren afiş üretimini dene.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/QwenLM/Qwen-Image). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K089 — Qwen-Image-Edit
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Resim düzenleme; varyantın lisansı kontrol. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Qwen-Image-Edit ile hazır ürün fotoğrafındaki nesneyi düzenle.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/QwenLM/Qwen-Image). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K090 — Z-Image-Turbo
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Açık model adayı; ağırlık ve sürüm lisansını kontrol. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Z-Image-Turbo ile hızlı fotoğraf taslağı çıkar.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K091 — InvokeAI
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel üretim/çalışma alanı. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** InvokeAI ile maskeyle sadece afiş arka planını yeniden boyat.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/invoke-ai/InvokeAI). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K092 — SD WebUI Forge
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** SD için optimize web arayüzü. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** SD WebUI Forge'da düşük VRAM uyumlu parametreleri test et.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/lllyasviel/stable-diffusion-webui-forge). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K093 — Diffusers
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel-video inference kütüphanesi. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Diffusers Python pipeline'ında toplu görsel üretimini programla.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/huggingface/diffusers). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K094 — ControlNet
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel kontrol modelleri, checkpoint koşulları ayrı. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** ControlNet ile çizimi poz ve perspektif rehberi olarak kullan.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/lllyasviel/ControlNet). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K095 — rembg
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Arka plan kaldırma. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** rembg ile ürün fotoğrafının arka planını sil ve PNG üret.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/danielgatis/rembg). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K096 — Real-ESRGAN
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel yükseltme. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Real-ESRGAN ile küçük görselin çözünürlüğünü artır.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/xinntao/Real-ESRGAN). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K097 — GFPGAN
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yüz restorasyonu. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** GFPGAN ile arşiv portresinde yüz restorasyonu dene.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/TencentARC/GFPGAN). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K098 — SAM 2
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel/video nesne segmentasyonu. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** SAM2 ile videodaki kişiyi maskeyle ayır; izinleri gözet.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/facebookresearch/sam2). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K099 — Krita
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Resim çizimi. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Krita'da afiş üzerindeki metni ve katmanları elle düzenle.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://krita.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K100 — GIMP
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Fotoğraf düzenleme. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** GIMP ile görselleri toplu renk düzeltip PNG dışa aktar.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.gimp.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K101 — Inkscape
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Vektörel logo/tasarım. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Inkscape ile vektör logo taslağı çıkar ve SVG sakla.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://inkscape.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K102 — darktable
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** RAW fotoğraf düzenleme. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** darktable ile ham fotoğrafların ışık ve tonunu işle.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.darktable.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K103 — ImageMagick
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Toplu görsel dönüştürme. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** ImageMagick ile 20 resmi 1080×1920 kırp.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://imagemagick.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K104 — Sharp
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Node.js görsel işleme. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** Sharp ile web yüklemelerinde AVIF/WebP dönüştür.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://sharp.pixelplumbing.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K105 — libvips
+
+- **Tür / Ücretsiz durum:** Görsel üretim/düzenleme aracı veya modeli. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yüksek performanslı resim işlemleri. Görsel oluşturma, arka plan çıkarma, kalite artırma, katman düzenleme.
+- **Somut yapılabilecek iş:** libvips ile yüzlerce görselin küçük önizlemelerini hızlı üret.
+- **Girdi → Çıktı / bağlantı:** Python, ComfyUI API, CLI veya masaüstü; görüntüler dosya olarak aktarılır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.libvips.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,2–3 GB; model ağırlıkları ~1–50+ GB/varyant; çıktı başına MB–GB.
+- **RAM:** Basit düzenleme 2–8 GB; büyük model iş akışı 16–64+ GB. **VRAM/GPU:** Klasik editör 0 GB; AI işlemi modele göre ~4–24+ GB, bazı büyük modeller daha fazla.
+- **VPS şart mı?** Hayır; yerelde üretilebilir. GPU'suz VPS ancak klasik resim işlemleri için uygun; ağır difüzyon için GPU'lu VPS gerekir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Klasik editör/arka plan/küçük modeller uygundur; büyük difüzyon sınırlı. Hedef kasa (128 GB RAM, 96 GB GPU): Görsel üretimi, toplu işleme ve kalite yükseltme için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 07 · Video üretimi, animasyon, kurgu (20 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Wan2.2 | M | Güçlü GPU | Apache-2.0 video modeli; 4GB laptopta büyük iş yükü gerçekçi değil | [Resmî/repo](https://github.com/Wan-Video/Wan2.2) |
-| Wan2.1 | M | GPU | Açık video modelleri | [Resmî/repo](https://github.com/Wan-Video/Wan2.1) |
-| HunyuanVideo 1.5 | L | Güçlü GPU | Tencent community lisansı, coğrafi/ticari koşullar | [Resmî/repo](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5) |
-| LTX-Video | M | Güçlü GPU | Sürüme göre lisans koşulları değişir | [Resmî/repo](https://github.com/Lightricks/LTX-Video) |
-| LTX-2 / LTX-2.x | L | Güçlü GPU | Community license; büyük şirketler için ticari ücret eşiği | [Resmî/repo](https://github.com/Lightricks/LTX-2) |
-| CogVideoX | M | Güçlü GPU | Video modeli; checkpoint lisansı kontrol | [Resmî/repo](https://github.com/zai-org/CogVideo) |
-| Mochi 1 | M | Güçlü GPU | Açık video modeli | [Resmî/repo](https://github.com/genmoai/mochi) |
-| FramePack | Ö | GPU | Uzun video üretimi için frame bağlam stratejisi | [Resmî/repo](https://github.com/lllyasviel/FramePack) |
-| AnimateDiff | Ö | GPU | Stable Diffusion ile animasyon | [Resmî/repo](https://github.com/guoyww/AnimateDiff) |
-| LivePortrait | M | GPU | Portre canlandırma; model/ağırlık lisansı kontrol | [Resmî/repo](https://github.com/KwaiVGI/LivePortrait) |
-| RIFE | Ö | GPU | Kare arası interpolasyon | [Resmî/repo](https://github.com/hzwer/ECCV2022-RIFE) |
-| Video2X | Ö | GPU | Video büyütme | [Resmî/repo](https://github.com/k4yt3x/video2x) |
-| FFmpeg / ffprobe | Ö | Yerel | Montaj, kırpma, encode, ses ve altyazı | [Resmî/repo](https://ffmpeg.org/) |
-| PySceneDetect | Ö | Yerel | Videoda sahne tespiti | [Resmî/repo](https://github.com/Breakthrough/PySceneDetect) |
-| Kdenlive | Ö | Yerel | Video editörü | [Resmî/repo](https://kdenlive.org/) |
-| Shotcut | Ö | Yerel | Video editörü | [Resmî/repo](https://shotcut.org/) |
-| Blender Video Sequencer | Ö | Yerel | Video edit ve 3D | [Resmî/repo](https://www.blender.org/) |
-| Natron | Ö | Yerel | Kompozit / VFX | [Resmî/repo](https://natrongithub.github.io/) |
-| OBS Studio | Ö | Yerel | Ekran ve canlı yayın kaydı | [Resmî/repo](https://obsproject.com/) |
-| OpenMontage | P | Yerel | Önceki envanterde adı geçti; gerçek repo/lisans netleşmeden ana araç yapma | Doğrulanacak |
+### K106 — Wan2.2
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Apache-2.0 video modeli; 4GB laptopta büyük iş yükü gerçekçi değil. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Wan2.2 ile uygun GPU'da statik sahneden 5 saniye video oluştur.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Wan-Video/Wan2.2). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K107 — Wan2.1
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Açık video modelleri. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Wan2.1 ile kısa ürün tanıtım sahnesi üret.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Wan-Video/Wan2.1). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K108 — HunyuanVideo 1.5
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Tencent community lisansı, coğrafi/ticari koşullar. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** HunyuanVideo 1.5 ile kısa hareketli sahne dene; lisans kontrolü yap.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K109 — LTX-Video
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sürüme göre lisans koşulları değişir. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** LTX-Video ile hareketli kısa klip oluştur ve hızını ölç.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Lightricks/LTX-Video). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K110 — LTX-2 / LTX-2.x
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Community license; büyük şirketler için ticari ücret eşiği. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** LTX-2.x ile video+ses üretimini uygun lisans ve GPU'da test et.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Lightricks/LTX-2). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K111 — CogVideoX
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Video modeli; checkpoint lisansı kontrol. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** CogVideoX ile prompttan kısa hareketli plan üret.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/zai-org/CogVideo). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K112 — Mochi 1
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Açık video modeli. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Mochi 1 modeliyle hareketli klip dene.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/genmoai/mochi). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K113 — FramePack
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Uzun video üretimi için frame bağlam stratejisi. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** FramePack ile belleği daha verimli kullanarak kare üretimi dene.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/lllyasviel/FramePack). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K114 — AnimateDiff
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Stable Diffusion ile animasyon. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** AnimateDiff ile görseli kısa animasyona dönüştür.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/guoyww/AnimateDiff). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K115 — LivePortrait
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Portre canlandırma; model/ağırlık lisansı kontrol. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** LivePortrait ile izinli portrenin baş hareketini canlandır.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/KwaiVGI/LivePortrait). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K116 — RIFE
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kare arası interpolasyon. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** RIFE ile 15 FPS sahneyi ara kare ekleyerek akıcı hâle getir.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/hzwer/ECCV2022-RIFE). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K117 — Video2X
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Video büyütme. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Video2X ile düşük çözünürlüklü animasyon videosunu yükselt.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/k4yt3x/video2x). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K118 — FFmpeg / ffprobe
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Montaj, kırpma, encode, ses ve altyazı. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** FFmpeg ile dokuz sahne+ses+altyazıyı H.264 MP4 olarak dışa aktar, ffprobe ile denetle.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://ffmpeg.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K119 — PySceneDetect
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Videoda sahne tespiti. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** PySceneDetect ile uzun videodaki sahne sınırlarını CSV'ye çıkar.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Breakthrough/PySceneDetect). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K120 — Kdenlive
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Video editörü. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Kdenlive'da otomatik üretilmiş MP4'ü insan denetiminde düzenle.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://kdenlive.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K121 — Shotcut
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Video editörü. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Shotcut ile video kes ve renk ayarla.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://shotcut.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K122 — Blender Video Sequencer
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Video edit ve 3D. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Blender Video Sequencer'da ses/video kliplerini zaman çizelgesinde birleştir.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.blender.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K123 — Natron
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kompozit / VFX. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** Natron ile yeşil ekranı çıkarıp efekt katmanı ekle.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://natrongithub.github.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K124 — OBS Studio
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ekran ve canlı yayın kaydı. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** OBS ile uygulama eğitim videosunun ekran kaydını al.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://obsproject.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K125 — OpenMontage
+
+- **Tür / Ücretsiz durum:** Video üretim / montaj / animasyon aracı. Önceki sınıflandırma: `P` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Önceki envanterde adı geçti; gerçek repo/lisans netleşmeden ana araç yapma. Görüntüleri hareketlendirme, sahne üretimi, montaj, kurgu ve kodlama.
+- **Somut yapılabilecek iş:** OpenMontage'nin gerçek projesini doğrula; önce otomatik montaj yeteneklerini test et.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, ComfyUI API; giriş görsel/video/ses ve çıktı MP4.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Montaj uygulaması 0,1–5 GB; üretken video model ağırlıkları genellikle 5–100+ GB; render çalışma alanı onlarca/yüzlerce GB olabilir.
+- **RAM:** Montaj 4–16 GB; üretken video ve uzun iş akışı 32–128+ GB. **VRAM/GPU:** Klasik FFmpeg CPU ile çalışır; üretken video yaklaşık 8–96+ GB model/çözünürlüğe göre.
+- **VPS şart mı?** Hayır; yerelde CPU/GPU ile çalışır. Video üretmek için GPU'lu VPS alternatif; yayınlamak için VPS zorunlu değildir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): FFmpeg/montaj/klasik animasyon uygun, büyük AI video pratik değil. Hedef kasa (128 GB RAM, 96 GB GPU): Hızlı ve ağır üretim modellerini tek GPU'da sıraya alarak çalıştırabilir.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 08 · Ses, konuşma, çeviri, altyazı, müzik (25 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Whisper | Ö | Yerel | Konuşmadan metne dönüştürme | [Resmî/repo](https://github.com/openai/whisper) |
-| faster-whisper | Ö | Yerel | Hızlı Whisper STT | [Resmî/repo](https://github.com/SYSTRAN/faster-whisper) |
-| whisper.cpp | Ö | Yerel | CPU odaklı transkripsiyon | [Resmî/repo](https://github.com/ggml-org/whisper.cpp) |
-| Silero VAD | Ö | Yerel | Konuşma/sessizlik algılama | [Resmî/repo](https://github.com/snakers4/silero-vad) |
-| WebRTC VAD | Ö | Yerel | Konuşma algılama | [Resmî/repo](https://github.com/wiseman/py-webrtcvad) |
-| Kokoro TTS | M | Yerel | Hafif TTS; Türkçe desteği/kalitesi sürüme bağlı | [Resmî/repo](https://github.com/hexgrad/kokoro) |
-| Piper TTS | Ö | Yerel | Hafif offline seslendirme; Türkçe sesleri kontrol | [Resmî/repo](https://github.com/rhasspy/piper) |
-| Chatterbox Multilingual TTS | M | GPU | Türkçe destekli, ses taklidi; izinli referans ses kullan | [Resmî/repo](https://github.com/resemble-ai/chatterbox) |
-| CosyVoice | M | GPU | Çok dilli konuşma sentezi; Türkçe kalite testi gerekli | [Resmî/repo](https://github.com/QwenAudio/CosyVoice) |
-| MeloTTS | M | Yerel | TTS seçenekleri; Türkçe desteği kontrol | [Resmî/repo](https://github.com/myshell-ai/MeloTTS) |
-| OpenVoice | M | GPU | Ses klonlama/aktarımı; lisansı ayrı kontrol | [Resmî/repo](https://github.com/myshell-ai/OpenVoice) |
-| F5-TTS | L | GPU | Kod/model ağırlığı lisansları farklı olabilir | [Resmî/repo](https://github.com/SWivid/F5-TTS) |
-| Fish Speech | L | GPU | Özel araştırma/komünite lisansı olabilir; ticari kullanımı kontrol | [Resmî/repo](https://github.com/fishaudio/fish-speech) |
-| GPT-SoVITS | L | GPU | Ses sentezi/klonlama; izin ve lisans kontrol | [Resmî/repo](https://github.com/RVC-Boss/GPT-SoVITS) |
-| ACE-Step | M | GPU | Apache-2.0 açık müzik üretimi | [Resmî/repo](https://github.com/ace-step/ACE-Step) |
-| ACE-Step 1.5 | M | 4GB deneysel/GPU | Düşük VRAM kademeleri belgelenmiş, hız/kaliteyi test et | [Resmî/repo](https://github.com/ace-step/ACE-Step-1.5) |
-| AudioCraft / MusicGen | L | GPU | Kod açık; MusicGen ağırlıkları non-commercial olabilir | [Resmî/repo](https://github.com/facebookresearch/audiocraft) |
-| Stable Audio Open | L | GPU | Model lisansı ve ticari şartları ayrı kontrol | [Resmî/repo](https://huggingface.co/stabilityai) |
-| Audacity | Ö | Yerel | Ses kayıt/düzenleme | [Resmî/repo](https://www.audacityteam.org/) |
-| Tenacity | Ö | Yerel | Açık ses editörü | [Resmî/repo](https://tenacityaudio.org/) |
-| LMMS | Ö | Yerel | Müzik ve beat üretimi | [Resmî/repo](https://lmms.io/) |
-| MuseScore Studio | Ö | Yerel | Nota yazımı | [Resmî/repo](https://musescore.org/) |
-| Demucs | Ö | Yerel/GPU | Ses kanalı/instrument ayrımı | [Resmî/repo](https://github.com/facebookresearch/demucs) |
-| Ultimate Vocal Remover | Ö | Yerel/GPU | Vokal enstrüman ayırma | [Resmî/repo](https://github.com/Anjok07/ultimatevocalremovergui) |
-| Subtitle Edit | Ö | Yerel | Altyazı oluşturma/düzenleme | [Resmî/repo](https://github.com/SubtitleEdit/subtitleedit) |
+### K126 — Whisper
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Konuşmadan metne dönüştürme. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Whisper ile Türkçe konuşmayı yazıya çevir.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/openai/whisper). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K127 — faster-whisper
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Hızlı Whisper STT. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** faster-whisper ile düşük kaynakla altyazı zamanlarını çıkarmayı dene.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/SYSTRAN/faster-whisper). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K128 — whisper.cpp
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** CPU odaklı transkripsiyon. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** whisper.cpp ile CPU'da küçük ses dosyası yazıya dök.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/ggml-org/whisper.cpp). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K129 — Silero VAD
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Konuşma/sessizlik algılama. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Silero VAD ile sessizlikleri kes ve konuşma aralıklarını belirle.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/snakers4/silero-vad). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K130 — WebRTC VAD
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Konuşma algılama. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** WebRTC VAD ile mikrofon sesini konuşma/sessizlik diye ayır.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/wiseman/py-webrtcvad). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K131 — Kokoro TTS
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Hafif TTS; Türkçe desteği/kalitesi sürüme bağlı. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Kokoro TTS ile desteklenen bir dilde kısa ses denemesi üret.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/hexgrad/kokoro). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K132 — Piper TTS
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Hafif offline seslendirme; Türkçe sesleri kontrol. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Piper TTS'de bulunabilen Türkçe ses paketini ve lisansını doğrulayıp yerel okuma yap.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/rhasspy/piper). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K133 — Chatterbox Multilingual TTS
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Türkçe destekli, ses taklidi; izinli referans ses kullan. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Chatterbox Multilingual ile Türkçe seslendirme oluştur.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/resemble-ai/chatterbox). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K134 — CosyVoice
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Çok dilli konuşma sentezi; Türkçe kalite testi gerekli. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** CosyVoice ile desteklenen çok dilli TTS'yi test et.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/QwenAudio/CosyVoice). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K135 — MeloTTS
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** TTS seçenekleri; Türkçe desteği kontrol. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** MeloTTS için Türkçe desteğini doğrulamadan Türkçe sözü verme.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/myshell-ai/MeloTTS). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K136 — OpenVoice
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ses klonlama/aktarımı; lisansı ayrı kontrol. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** OpenVoice ile izinli örnek sesten ses stili aktarımı dene.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/myshell-ai/OpenVoice). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K137 — F5-TTS
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kod/model ağırlığı lisansları farklı olabilir. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** F5-TTS ile konuşma üretim demosu yap; ticari/ses haklarını doğrula.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/SWivid/F5-TTS). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K138 — Fish Speech
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Özel araştırma/komünite lisansı olabilir; ticari kullanımı kontrol. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Fish Speech ile uzun anlatımı sesli çıktıya çevir.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/fishaudio/fish-speech). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K139 — GPT-SoVITS
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ses sentezi/klonlama; izin ve lisans kontrol. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** GPT-SoVITS ile sahibinin onayı bulunan sesleri dönüştür.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/RVC-Boss/GPT-SoVITS). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K140 — ACE-Step
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Apache-2.0 açık müzik üretimi. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** ACE-Step ile özgün 30 saniyelik arka plan müziği dene.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/ace-step/ACE-Step). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K141 — ACE-Step 1.5
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Düşük VRAM kademeleri belgelenmiş, hız/kaliteyi test et. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** ACE-Step 1.5 için düşük VRAM ayarlarında müzik üretimini kıyasla.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/ace-step/ACE-Step-1.5). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: 4GB deneysel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K142 — AudioCraft / MusicGen
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kod açık; MusicGen ağırlıkları non-commercial olabilir. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** MusicGen ile telif ve model lisansına uyarak fon müziği üret.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/facebookresearch/audiocraft). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K143 — Stable Audio Open
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Model lisansı ve ticari şartları ayrı kontrol. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Stable Audio Open ile kısa ambiyans efekti üret.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/stabilityai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K144 — Audacity
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ses kayıt/düzenleme. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Audacity'de ses gürültüsünü azaltıp seviyeyi dengele.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.audacityteam.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K145 — Tenacity
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Açık ses editörü. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Tenacity ile ses parçasını kes ve normalize et.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://tenacityaudio.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K146 — LMMS
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Müzik ve beat üretimi. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** LMMS'de telifsiz elektronik altyapı hazırla.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://lmms.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K147 — MuseScore Studio
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Nota yazımı. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** MuseScore'da beste notalarını düzenleyip MIDI çıkar.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://musescore.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K148 — Demucs
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ses kanalı/instrument ayrımı. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Demucs ile izinden kaynaklanan müziğin vokalini ayır.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/facebookresearch/demucs). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K149 — Ultimate Vocal Remover
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Vokal enstrüman ayırma. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Ultimate Vocal Remover ile ses bileşenlerini ayrıştır.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Anjok07/ultimatevocalremovergui). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K150 — Subtitle Edit
+
+- **Tür / Ücretsiz durum:** Ses/TTS/STT/müzik veya ses editörü. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Altyazı oluşturma/düzenleme. Seslendirme, ses tanıma, altyazı, müzik/ses düzenleme.
+- **Somut yapılabilecek iş:** Subtitle Edit ile SRT zamanlarını düzeltip videoya hazırla.
+- **Girdi → Çıktı / bağlantı:** CLI, Python, API veya masaüstü; ses dosyası WAV/MP3/SRT.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/SubtitleEdit/subtitleedit). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Hafif araç 0,1–2 GB; konuşma/müzik model ağırlıkları 0,1–20+ GB.
+- **RAM:** Hafif ses işleme 1–8 GB; müzik/çok dilli TTS modelleri 8–32+ GB. **VRAM/GPU:** CPU uyumlu STT/TTS için 0 GB; büyük müzik/ses üretiminde ~4–24+ GB.
+- **VPS şart mı?** Hayır; yerelde mikrofon/ses dosyalarıyla çalışır. Dış API istiyorsan yerel kurulum gerekmez; uzak sunma için VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif STT, TTS ve klasik ses editörü uygun; ağır modeller yavaş olabilir. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek kaliteli ve toplu ses üretimi mümkün.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 09 · OCR, belge, arama, görüntü anlama (17 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Tesseract | Ö | Yerel | OCR | [Resmî/repo](https://github.com/tesseract-ocr/tesseract) |
-| PaddleOCR | Ö | Yerel/GPU | OCR ve belge tanıma | [Resmî/repo](https://github.com/PaddlePaddle/PaddleOCR) |
-| EasyOCR | Ö | Yerel | OCR | [Resmî/repo](https://github.com/JaidedAI/EasyOCR) |
-| Docling | Ö | Yerel | PDF/doküman içeriği yapılandırma | [Resmî/repo](https://github.com/docling-project/docling) |
-| Apache Tika | Ö | Yerel | Belge metadatası/metin çıkarma | [Resmî/repo](https://tika.apache.org/) |
-| OpenCV | Ö | Yerel | Görüntü işleme | [Resmî/repo](https://opencv.org/) |
-| CLIP | M | Yerel/GPU | Görsel-metin ortak gömme | [Resmî/repo](https://github.com/openai/CLIP) |
-| SigLIP | M | Yerel/GPU | Görsel-metin embedding; model koşulları ayrı | [Resmî/repo](https://huggingface.co/google) |
-| Sentence Transformers | Ö | Yerel | Embedding ve anlamsal arama | [Resmî/repo](https://www.sbert.net/) |
-| FAISS | Ö | Yerel | Vektör araması | [Resmî/repo](https://github.com/facebookresearch/faiss) |
-| Qdrant | Ö | Yerel | Vektör veritabanı | [Resmî/repo](https://github.com/qdrant/qdrant) |
-| Chroma | Ö | Yerel | Vektör depolama | [Resmî/repo](https://github.com/chroma-core/chroma) |
-| pgvector | Ö | Yerel | PostgreSQL vektör uzantısı | [Resmî/repo](https://github.com/pgvector/pgvector) |
-| Milvus | Ö | Yerel | Vektör veritabanı | [Resmî/repo](https://github.com/milvus-io/milvus) |
-| Meilisearch | Ö | Yerel | Arama sunucusu | [Resmî/repo](https://github.com/meilisearch/meilisearch) |
-| SearXNG | Ö | Yerel | Meta arama servisi | [Resmî/repo](https://github.com/searxng/searxng) |
-| Crawl4AI | Ö | Yerel | Web içerik toplama (izin ve robots.txt koşullarına uygun) | [Resmî/repo](https://github.com/unclecode/crawl4ai) |
+### K151 — Tesseract
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OCR. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Tesseract ile taranmış faturadan metin çıkar.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/tesseract-ocr/tesseract). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K152 — PaddleOCR
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OCR ve belge tanıma. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** PaddleOCR ile tablodaki alanları OCR ile yakala.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/PaddlePaddle/PaddleOCR). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K153 — EasyOCR
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** OCR. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** EasyOCR ile görseldeki kelimeleri çıkar.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/JaidedAI/EasyOCR). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K154 — Docling
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** PDF/doküman içeriği yapılandırma. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Docling ile PDF'yi bölüm/tabloları koruyarak yapılandır.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/docling-project/docling). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K155 — Apache Tika
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Belge metadatası/metin çıkarma. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Apache Tika ile Word/PDF dosyalarından ana metni çıkar.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://tika.apache.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K156 — OpenCV
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görüntü işleme. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** OpenCV ile taranmış fotoğrafı düzeltip OCR'ye hazırla.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://opencv.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K157 — CLIP
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel-metin ortak gömme. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** CLIP ile görselleri metin benzerliğiyle eşleştir.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/openai/CLIP). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K158 — SigLIP
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel-metin embedding; model koşulları ayrı. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** SigLIP ile görsel arama indeksi oluştur.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/google). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K159 — Sentence Transformers
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Embedding ve anlamsal arama. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Sentence Transformers ile doküman embedding'i çıkar.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.sbert.net/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K160 — FAISS
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Vektör araması. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** FAISS ile binlerce embedding içinden yakın sonuçları ara.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/facebookresearch/faiss). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K161 — Qdrant
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Vektör veritabanı. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Qdrant'ta vektör ve filtreli arama endpoint'i kur.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/qdrant/qdrant). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K162 — Chroma
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Vektör depolama. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Chroma'da küçük kişisel bilgi tabanı geliştir.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/chroma-core/chroma). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K163 — pgvector
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** PostgreSQL vektör uzantısı. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** pgvector ile PostgreSQL içinde benzerlik sorgusu çalıştır.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/pgvector/pgvector). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K164 — Milvus
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Vektör veritabanı. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Milvus ile büyük belge koleksiyonu vektörlerini indeksle.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/milvus-io/milvus). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K165 — Meilisearch
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Arama sunucusu. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Meilisearch ile hızlı yazım toleranslı site içi arama ekle.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/meilisearch/meilisearch). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K166 — SearXNG
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Meta arama servisi. Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** SearXNG ile kendi meta-arama arayüzünü oluştur; kaynak kullanım şartlarını gözet.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/searxng/searxng). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K167 — Crawl4AI
+
+- **Tür / Ücretsiz durum:** OCR / RAG / arama / görüntü anlama. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Web içerik toplama (izin ve robots.txt koşullarına uygun). Belgeleri okuma, parçalama, vektör arama ve resim/video içeriğini anlama.
+- **Somut yapılabilecek iş:** Crawl4AI ile izinli sitelerden AI'a uygun sayfa metni çıkar.
+- **Girdi → Çıktı / bağlantı:** Python, REST, SQL, CLI; kaynak gösterme ve erişim yetkisi uygulama katmanında.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/unclecode/crawl4ai). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Kütüphane 0,1–2 GB; vektör veritabanı/belgeler + indeks ayrı (GB–TB).
+- **RAM:** Küçük belge için 2–8 GB; büyük koleksiyon/embedding için 8–64+ GB. **VRAM/GPU:** CPU çoğuna yeter; embedding/görüntü modeli kullanılırsa 0–16+ GB.
+- **VPS şart mı?** Hayır; yerelde çalışır. İnternet üzerinden çok kullanıcılı belge araması için sunucu/VPS seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta dosyalarda uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük indeks ve çok eşzamanlı sorgu için daha rahat.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 10 · Otomasyon, sosyal medya, iletişim (20 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Activepieces | Ö | Yerel | Açık kaynak iş akışı otomasyonu; sürüme göre enterprise parçaları ayrı | [Resmî/repo](https://github.com/activepieces/activepieces) |
-| n8n Community | L | Yerel | Ücretsiz self-host, fair-code/sustainable use license; tam OSI açık kaynak değil | [Resmî/repo](https://n8n.io/) |
-| Node-RED | Ö | Yerel | Görsel akış/otomasyon | [Resmî/repo](https://nodered.org/) |
-| Huginn | Ö | Yerel | Web/RSS olay otomasyonu | [Resmî/repo](https://github.com/huginn/huginn) |
-| Windmill | Ö | Yerel | Script ve iş akışları; kurumsal katman ayrı | [Resmî/repo](https://github.com/windmill-labs/windmill) |
-| Kestra | Ö | Yerel | İş akışı orkestrasyonu | [Resmî/repo](https://github.com/kestra-io/kestra) |
-| Apache Airflow | Ö | Yerel | Zamanlanmış veri iş akışları | [Resmî/repo](https://airflow.apache.org/) |
-| Temporal | Ö | Yerel | Dayanıklı iş akışı yürütme | [Resmî/repo](https://temporal.io/) |
-| Postiz | Ö | Yerel | Sosyal medya planlama; platform API şartları ayrı | [Resmî/repo](https://github.com/gitroomhq/postiz-app) |
-| Playwright | Ö | Yerel | Tarayıcı otomasyonu | [Resmî/repo](https://playwright.dev/) |
-| Selenium | Ö | Yerel | Tarayıcı otomasyonu | [Resmî/repo](https://www.selenium.dev/) |
-| Puppeteer | Ö | Yerel | Chromium otomasyonu | [Resmî/repo](https://pptr.dev/) |
-| AutoHotkey | Ö | Windows | Masaüstü otomasyonu | [Resmî/repo](https://www.autohotkey.com/) |
-| Power Automate Desktop | F | Windows | Yerel katılımlı masaüstü akışları ücretsiz; bulut özellikleri ücretli | [Resmî/repo](https://www.microsoft.com/en-us/power-platform/products/power-automate) |
-| RSSHub | Ö | Yerel | RSS oluşturma | [Resmî/repo](https://github.com/DIYgod/RSSHub) |
-| ntfy | Ö | Yerel | Push bildirim sunucusu | [Resmî/repo](https://github.com/binwiederhier/ntfy) |
-| Gotify | Ö | Yerel | Bildirim sunucusu | [Resmî/repo](https://github.com/gotify/server) |
-| Asterisk | Ö | Yerel | Telefon santrali; operatör/SIP/numara ücretli olabilir | [Resmî/repo](https://www.asterisk.org/) |
-| Chatwoot | Ö | Yerel | Müşteri iletişim paneli | [Resmî/repo](https://github.com/chatwoot/chatwoot) |
-| Traccar | Ö | Yerel | GPS takip sunucusu; harita/veri/cihaz ek maliyet olabilir | [Resmî/repo](https://www.traccar.org/) |
+### K168 — Activepieces
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Açık kaynak iş akışı otomasyonu; sürüme göre enterprise parçaları ayrı. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Activepieces'te yeni video dosyası gelince onay akışını ve yayın kuyruğunu tetikle.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/activepieces/activepieces). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K169 — n8n Community
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz self-host, fair-code/sustainable use license; tam OSI açık kaynak değil. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** n8n ile webhook→video kalite kontrol→API paylaşım taslağı akışı oluştur; lisans sınırına dikkat et.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://n8n.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K170 — Node-RED
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görsel akış/otomasyon. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Node-RED ile klasöre dosya geldiğinde ses dönüştürme komutunu çalıştır.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://nodered.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K171 — Huginn
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Web/RSS olay otomasyonu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Huginn ile takip edilen sitedeki izinli yeni RSS girdilerini izle.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/huginn/huginn). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K172 — Windmill
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Script ve iş akışları; kurumsal katman ayrı. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Windmill ile Python görevini API'den çağrılabilir workflow'a dönüştür.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/windmill-labs/windmill). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K173 — Kestra
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** İş akışı orkestrasyonu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Kestra ile çok aşamalı video üretim job'larını sırala.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/kestra-io/kestra). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K174 — Apache Airflow
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Zamanlanmış veri iş akışları. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Airflow ile her gece çalışan veritabanı/rapor pipeline'ı oluştur.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://airflow.apache.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K175 — Temporal
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Dayanıklı iş akışı yürütme. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Temporal ile yarım kalan görevi kayıp yaşamadan yeniden dene.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://temporal.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K176 — Postiz
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sosyal medya planlama; platform API şartları ayrı. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Postiz ile desteklenen sosyal hesapların yayın takvimini yönet; API/lisansı doğrula.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/gitroomhq/postiz-app). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K177 — Playwright
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Tarayıcı otomasyonu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Playwright ile kendi sitendeki butonları ve yükleme ekranını test et.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://playwright.dev/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K178 — Selenium
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Tarayıcı otomasyonu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Selenium ile web uygulaması regresyon testi çalıştır.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.selenium.dev/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K179 — Puppeteer
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Chromium otomasyonu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Puppeteer ile web sayfasının ekran görüntüsünü üret.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://pptr.dev/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K180 — AutoHotkey
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Masaüstü otomasyonu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** AutoHotkey ile yalnızca yerel masaüstünde izinli tuş/makro görevi çalıştır.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.autohotkey.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Windows. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K181 — Power Automate Desktop
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yerel katılımlı masaüstü akışları ücretsiz; bulut özellikleri ücretli. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Power Automate Desktop ile klasörden dosya alıp Excel'e kaydet.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.microsoft.com/en-us/power-platform/products/power-automate). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Windows. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K182 — RSSHub
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** RSS oluşturma. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** RSSHub ile haber kaynakları için uygun RSS akışı oluştur.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/DIYgod/RSSHub). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K183 — ntfy
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Push bildirim sunucusu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** ntfy ile video işi bittiğinde telefona push gönder.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/binwiederhier/ntfy). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K184 — Gotify
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Bildirim sunucusu. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Gotify ile GPU sıcaklığı kritikse uyarı ilet.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/gotify/server). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K185 — Asterisk
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Telefon santrali; operatör/SIP/numara ücretli olabilir. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Asterisk ile izinli çağrıları şirket içi santralden yönlendir.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.asterisk.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K186 — Chatwoot
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Müşteri iletişim paneli. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Chatwoot ile müşteri mesajlarını tek destek kutusunda topla.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/chatwoot/chatwoot). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K187 — Traccar
+
+- **Tür / Ücretsiz durum:** Otomasyon / entegrasyon / iletişim aracı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** GPS takip sunucusu; harita/veri/cihaz ek maliyet olabilir. Görevleri tetikleme, sıralama, izlemenin ve izinli dış hizmetlere işlem göndermenin altyapısı.
+- **Somut yapılabilecek iş:** Traccar ile izinli araç konumlarını haritada izle.
+- **Girdi → Çıktı / bağlantı:** Webhooks, REST, SDK, görev kuyruğu, platform API'leri; sırlar sunucu tarafında saklanmalı.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.traccar.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yazılım veya container genellikle 0,1–4 GB; otomasyon kayıtları ve iş dosyaları ayrıca.
+- **RAM:** Hafif 0,5–4 GB; çok görev/işçi için 4–16+ GB. **VRAM/GPU:** Genellikle 0 GB; bağlı AI servisleri farklı.
+- **VPS şart mı?** Hayır; yerelde çalışır. 7/24 uzaktan webhook almak için VPS veya güvenli Cloudflare Tunnel kullanılabilir; TikTok API kendi sunucusuna yükleme gerektirmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Hafif iş akışları için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Paralel otomasyon ve kuyruklar için uygundur.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 11 · Uygulama, oyun, 3D, avatar (18 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Godot | Ö | Yerel | 2D/3D oyun motoru MIT | [Resmî/repo](https://godotengine.org/) |
-| O3DE | Ö | Yerel | Gelişmiş 3D oyun motoru Apache-2.0 | [Resmî/repo](https://o3de.org/) |
-| Blender | Ö | Yerel | 3D modelleme, animasyon ve montaj | [Resmî/repo](https://www.blender.org/) |
-| MakeHuman | Ö | Yerel | 3D karakter tasarımı | [Resmî/repo](http://www.makehumancommunity.org/) |
-| Meshroom | Ö | Yerel/GPU | Fotogrametri ve 3D yeniden kurma | [Resmî/repo](https://github.com/alicevision/Meshroom) |
-| Three.js | Ö | Yerel | Tarayıcıda 3D | [Resmî/repo](https://threejs.org/) |
-| React Three Fiber | Ö | Yerel | React tabanlı Three.js | [Resmî/repo](https://github.com/pmndrs/react-three-fiber) |
-| Phaser | Ö | Yerel | HTML5 2D oyun | [Resmî/repo](https://phaser.io/) |
-| GDevelop | Ö | Yerel | Düşük kodlu oyun geliştirme; bulut servisleri ayrı | [Resmî/repo](https://gdevelop.io/) |
-| Defold | Ö | Yerel | Ücretsiz oyun motoru; özel lisansı kontrol | [Resmî/repo](https://defold.com/) |
-| Hunyuan3D | L | Güçlü GPU | Tencent özel lisansı; sürüm bazlı | [Resmî/repo](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) |
-| TRELLIS / TRELLIS.2 | M | Güçlü GPU | Görselden 3D; model ağırlığı lisansını doğrula | [Resmî/repo](https://github.com/microsoft/TRELLIS) |
-| HunyuanWorld | L | Güçlü GPU | 3D dünya üretimi; lisans/sürüm şartlarını doğrula | Doğrulanacak |
-| HY-World 2.0 | L | Güçlü GPU | Büyük 3D dünya modeli; kaynak ve lisans doğrula | Doğrulanacak |
-| Kenney Game Assets | F | Yerel | Çoğu CC0 oyun asset paketi | [Resmî/repo](https://kenney.nl/assets) |
-| Poly Haven | F | Yerel | CC0 HDRI, dokular ve modeller | [Resmî/repo](https://polyhaven.com/) |
-| ambientCG | F | Yerel | CC0 dokular | [Resmî/repo](https://ambientcg.com/) |
-| Mixamo | F | Bulut | Ücretsiz hesap ile animasyon; açık kaynak değil; Adobe şartları | [Resmî/repo](https://www.mixamo.com/) |
+### K188 — Godot
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** 2D/3D oyun motoru MIT. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Godot ile mobil 2D quiz oyunu geliştir.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://godotengine.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K189 — O3DE
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Gelişmiş 3D oyun motoru Apache-2.0. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** O3DE'de yüksek ayrıntılı 3D prototip oluştur.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://o3de.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K190 — Blender
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** 3D modelleme, animasyon ve montaj. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Blender'da bir ürünün 3D animasyonunu üret.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.blender.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K191 — MakeHuman
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** 3D karakter tasarımı. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** MakeHuman ile temel insan 3D modeli tasarla.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](http://www.makehumancommunity.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K192 — Meshroom
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Fotogrametri ve 3D yeniden kurma. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Meshroom ile izinli fotoğraflardan 3D tarama oluştur.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/alicevision/Meshroom). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel/GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K193 — Three.js
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Tarayıcıda 3D. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Three.js ile web sayfasında dönen 3D ürün göster.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://threejs.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K194 — React Three Fiber
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** React tabanlı Three.js. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** React Three Fiber ile React içinde WebGL ürün vitrini kur.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/pmndrs/react-three-fiber). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K195 — Phaser
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** HTML5 2D oyun. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Phaser ile tarayıcıda kelime tahmin oyunu hazırla.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://phaser.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K196 — GDevelop
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Düşük kodlu oyun geliştirme; bulut servisleri ayrı. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** GDevelop ile kod yazmadan basit platform oyunu prototipi kur.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://gdevelop.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K197 — Defold
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz oyun motoru; özel lisansı kontrol. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Defold ile hafif 2D mobil oyun oluştur.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://defold.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K198 — Hunyuan3D
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Tencent özel lisansı; sürüm bazlı. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Hunyuan3D ile uygun modelden basit 3D nesne üret.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/Tencent-Hunyuan/Hunyuan3D-2). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K199 — TRELLIS / TRELLIS.2
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `M` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Görselden 3D; model ağırlığı lisansını doğrula. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** TRELLIS ile görüntüden 3D öğe oluştur; büyük GPU gerekebilir.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/microsoft/TRELLIS). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K200 — HunyuanWorld
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** 3D dünya üretimi; lisans/sürüm şartlarını doğrula. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** HunyuanWorld için gerçek sürüm/lisans doğrulayıp ortam oluşturmayı dene.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K201 — HY-World 2.0
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Büyük 3D dünya modeli; kaynak ve lisans doğrula. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** HY-World 2.0 yayın durumu ve indirme ağırlığını doğrulayarak 3D dünya örneği dene.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** **DOĞRULANACAK — resmî depo uydurma**. Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Güçlü GPU. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K202 — Kenney Game Assets
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Çoğu CC0 oyun asset paketi. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Kenney Game Assets'ten uygun lisanslı oyun ikonları seç.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://kenney.nl/assets). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K203 — Poly Haven
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** CC0 HDRI, dokular ve modeller. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Poly Haven'dan HDRI ortamını 3D sahnede kullan.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://polyhaven.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K204 — ambientCG
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** CC0 dokular. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** ambientCG'den yüzey kaplamasını oyuna uygula.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://ambientcg.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K205 — Mixamo
+
+- **Tür / Ücretsiz durum:** Oyun / 3D / web etkileşimi / varlık kaynağı. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz hesap ile animasyon; açık kaynak değil; Adobe şartları. Oyun geliştirme, modelleme, render, 3D ortam ve tekrar kullanılabilir varlıklar.
+- **Somut yapılabilecek iş:** Mixamo ile 3D karaktere yürüme animasyonu ekle; çevrimiçi hizmet olduğunu unutma.
+- **Girdi → Çıktı / bağlantı:** Editör komutları, script/API, dosyalar; oyun depoları ve build sistemleriyle.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.mixamo.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Editör 0,1–5 GB; varlık paketleri/3D modeller 0,1–50+ GB, AI 3D modelleri daha fazla.
+- **RAM:** Basit 2D 2–8 GB; 3D/render 16–64+ GB. **VRAM/GPU:** 2D için 0–4 GB; ağır 3D/AI üretiminde 8–48+ GB.
+- **VPS şart mı?** Hayır; oyunu geliştirmek/derlemek için yerel bilgisayar yeterli. Çok oyunculu oyun sunucusu gerekiyorsa ayrıca VPS/oyun sunucusu düşünülebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Basit 2D ve hafif 3D uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Yüksek çözünürlüklü 3D/AI üretiminde avantajlı.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 12 · Web, mobil, veritabanı, bulut ve güvenlik (41 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| Python | Ö | Yerel | Genel programlama | [Resmî/repo](https://www.python.org/) |
-| Node.js | Ö | Yerel | JavaScript sunucu | [Resmî/repo](https://nodejs.org/) |
-| VSCodium | Ö | Yerel | Telemetrisiz VS Code kaynak derlemesi | [Resmî/repo](https://vscodium.com/) |
-| Git | Ö | Yerel | Sürüm kontrol | [Resmî/repo](https://git-scm.com/) |
-| GitHub Free | F | Bulut | Ücretsiz depo, Actions/Packages kotaları ayrı | [Resmî/repo](https://github.com/) |
-| WSL2 | F | Windows | Windows üstünde Linux ortamı | [Resmî/repo](https://learn.microsoft.com/windows/wsl/) |
-| Docker Engine / Moby | Ö | Yerel | Konteyner teknolojisi; Docker Desktop farklı lisanslı | [Resmî/repo](https://mobyproject.org/) |
-| Podman | Ö | Yerel | Konteyner alternatifi | [Resmî/repo](https://podman.io/) |
-| Flutter | Ö | Yerel | iOS/Android/web uygulama çatısı | [Resmî/repo](https://flutter.dev/) |
-| React Native | Ö | Yerel | Mobil uygulama çatısı | [Resmî/repo](https://reactnative.dev/) |
-| Tauri | Ö | Yerel | Hafif masaüstü uygulamalar | [Resmî/repo](https://tauri.app/) |
-| Capacitor | Ö | Yerel | Web tabanlı mobil uygulama | [Resmî/repo](https://capacitorjs.com/) |
-| FastAPI | Ö | Yerel | Python API sunucusu | [Resmî/repo](https://fastapi.tiangolo.com/) |
-| Django | Ö | Yerel | Python web çatısı | [Resmî/repo](https://www.djangoproject.com/) |
-| Next.js | Ö | Yerel | React web çatısı | [Resmî/repo](https://nextjs.org/) |
-| PostgreSQL | Ö | Yerel | Veritabanı | [Resmî/repo](https://www.postgresql.org/) |
-| SQLite | Ö | Yerel | Gömülü veritabanı | [Resmî/repo](https://www.sqlite.org/) |
-| Valkey | Ö | Yerel | Redis uyumlu kuyruk/cache alternatifi | [Resmî/repo](https://valkey.io/) |
-| Redis | L | Yerel | Sürüme bağlı lisans; Valkey alternatifini değerlendir | [Resmî/repo](https://redis.io/) |
-| BullMQ | Ö | Yerel | Redis/Valkey temelli kuyruk | [Resmî/repo](https://bullmq.io/) |
-| MinIO | L | Yerel | S3 uyumlu depolama; dağıtım/sürüm lisans durumunu kontrol | [Resmî/repo](https://github.com/minio/minio) |
-| Nginx | Ö | Yerel | Web sunucu/ters proxy | [Resmî/repo](https://nginx.org/) |
-| Caddy | Ö | Yerel | HTTPS ters proxy | [Resmî/repo](https://caddyserver.com/) |
-| Cloudflare Tunnel | K | Yerel+bulut | Ücretsiz kullanım imkanları; ağ ve ticari koşullar kontrol | [Resmî/repo](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) |
-| Cloudflare Workers AI | K | Bulut | Ücretsiz günlük kotası ve ücretli güçlü model ayrımı | [Resmî/repo](https://developers.cloudflare.com/workers-ai/platform/pricing/) |
-| Google Colab Free | K | Bulut | Ücretsiz GPU garantisiz, sınırlı; sürekli sunucu değildir | [Resmî/repo](https://research.google.com/colaboratory/faq.html) |
-| Kaggle Notebooks | K | Bulut | GPU tahsisi ve kullanım politikaları değişken | [Resmî/repo](https://www.kaggle.com/code) |
-| Hugging Face Spaces CPU Free | K | Bulut | Paylaşılan, sınırlı CPU; GPU genellikle ücretli | [Resmî/repo](https://huggingface.co/spaces) |
-| Streamlit Community Cloud | K | Bulut | Kotalı ücretsiz demo barındırma | [Resmî/repo](https://streamlit.io/cloud) |
-| Vercel Hobby | L | Bulut | Ücretsiz ama ticari kullanım yasak; ticari projeler için seçme | [Resmî/repo](https://vercel.com/docs/plans/hobby) |
-| GitHub Pages | L | Bulut | Statik demo, ticari SaaS/online işletme barındırmaya uygun değil | [Resmî/repo](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits) |
-| CrowdSec | Ö | Yerel | Güvenlik, sürüme göre hizmet katmanı ayrı | [Resmî/repo](https://github.com/crowdsecurity/crowdsec) |
-| Gitleaks | Ö | Yerel | Git gizli anahtar tarama | [Resmî/repo](https://github.com/gitleaks/gitleaks) |
-| Trivy | Ö | Yerel | Güvenlik/açık tarama | [Resmî/repo](https://github.com/aquasecurity/trivy) |
-| OWASP ZAP | Ö | Yerel | Web güvenlik testi | [Resmî/repo](https://www.zaproxy.org/) |
-| k6 | Ö | Yerel | Yük testi | [Resmî/repo](https://github.com/grafana/k6) |
-| Locust | Ö | Yerel | Yük testi | [Resmî/repo](https://locust.io/) |
-| Glances | Ö | Yerel | Sistem kaynak izlemesi | [Resmî/repo](https://github.com/nicolargo/glances) |
-| Prometheus | Ö | Yerel | Metrik toplama | [Resmî/repo](https://prometheus.io/) |
-| Grafana | Ö | Yerel | Metrik dashboard | [Resmî/repo](https://grafana.com/oss/grafana/) |
-| Uptime Kuma | Ö | Yerel | Uptime izleme | [Resmî/repo](https://github.com/louislam/uptime-kuma) |
+### K206 — Python
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Genel programlama. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Python ile API'den metin al, FFmpeg görevini başlat ve rapor JSON'u üret.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.python.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K207 — Node.js
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** JavaScript sunucu. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Node.js ile web formundan yerel video kuyruğuna iş gönder.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://nodejs.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K208 — VSCodium
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Telemetrisiz VS Code kaynak derlemesi. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** VSCodium ile Python otomasyon projesini düzenle.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://vscodium.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K209 — Git
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sürüm kontrol. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Git ile yaptığın değişikliği geri alınabilir commit'e kaydet.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://git-scm.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K210 — GitHub Free
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz depo, Actions/Packages kotaları ayrı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** GitHub Free ile özel/kamu kod deposunda sürüm tut; sırları yükleme.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Git istemcisi birkaç yüz MB; depo dosyaları boyutuna bağlı.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** GitHub depolarını kullanmak için VPS şart değil; Actions ve Pages ayrı hizmetlerdir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K211 — WSL2
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Windows üstünde Linux ortamı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** WSL2 ile Windows'ta Ubuntu tabanlı AI komutlarını çalıştır.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://learn.microsoft.com/windows/wsl/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Windows. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K212 — Docker Engine / Moby
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Konteyner teknolojisi; Docker Desktop farklı lisanslı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Docker Engine ile veritabanı ve otomasyon servislerini izole et.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://mobyproject.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K213 — Podman
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Konteyner alternatifi. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Podman ile rootless container çalıştır.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://podman.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K214 — Flutter
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** iOS/Android/web uygulama çatısı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Flutter ile Android ve iOS tek kod tabanlı uygulama taslağı oluştur; iOS build için uygun Apple ortamı gerekebilir.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://flutter.dev/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K215 — React Native
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Mobil uygulama çatısı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** React Native ile mobil bilgi yarışması uygulaması geliştir.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://reactnative.dev/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K216 — Tauri
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Hafif masaüstü uygulamalar. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Tauri ile web tabanlı sohbet arayüzünü Windows masaüstüne paketle.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://tauri.app/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K217 — Capacitor
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Web tabanlı mobil uygulama. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Capacitor ile React web uygulamasını mobil kabukta çalıştır.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://capacitorjs.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K218 — FastAPI
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Python API sunucusu. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** FastAPI ile video oluşturma işini /jobs uç noktası üzerinden başlat.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://fastapi.tiangolo.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K219 — Django
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Python web çatısı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Django ile hesap ve yetkilendirme paneli geliştir.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.djangoproject.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K220 — Next.js
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** React web çatısı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Next.js ile yönetim panelinin web arayüzünü oluştur.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://nextjs.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K221 — PostgreSQL
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Veritabanı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** PostgreSQL'de görevler, kanallar ve çıktı dosyalarının kayıtlarını tut.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.postgresql.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K222 — SQLite
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Gömülü veritabanı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** SQLite ile tek kullanıcılı hafif görev geçmişi sakla.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.sqlite.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K223 — Valkey
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Redis uyumlu kuyruk/cache alternatifi. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Valkey ile anlık kuyruk/önbellek altyapısı kur.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://valkey.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K224 — Redis
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sürüme bağlı lisans; Valkey alternatifini değerlendir. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Redis'in lisansını sürüme göre kontrol edip görev durumunu tut.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://redis.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K225 — BullMQ
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Redis/Valkey temelli kuyruk. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** BullMQ ile Node.js video işlerini kuyrukla.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://bullmq.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K226 — MinIO
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** S3 uyumlu depolama; dağıtım/sürüm lisans durumunu kontrol. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** MinIO ile üretilmiş medya dosyalarını S3 uyumlu depoda sakla.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/minio/minio). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K227 — Nginx
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Web sunucu/ters proxy. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Nginx ile yerel dashboard'a ters proxy oluştur.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://nginx.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K228 — Caddy
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** HTTPS ters proxy. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Caddy ile HTTPS ters proxy kur.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://caddyserver.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K229 — Cloudflare Tunnel
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz kullanım imkanları; ağ ve ticari koşullar kontrol. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Cloudflare Tunnel ile port açmadan yerel dashboard'a güvenli dış erişim ver.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K230 — Cloudflare Workers AI
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz günlük kotası ve ücretli güçlü model ayrımı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Cloudflare Workers AI ile küçük API modelini kota içinde test et.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://developers.cloudflare.com/workers-ai/platform/pricing/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K231 — Google Colab Free
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz GPU garantisiz, sınırlı; sürekli sunucu değildir. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Google Colab Free'de kısa GPU denemesi yap; sürekli sunucu sanma.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://research.google.com/colaboratory/faq.html). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Colab bulut defter hizmetidir; yerel/VPS kurulum gerekmez. GPU süresi garanti edilmez.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K232 — Kaggle Notebooks
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** GPU tahsisi ve kullanım politikaları değişken. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Kaggle Notebook GPU kotasıyla küçük model benchmark'ı yap.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.kaggle.com/code). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K233 — Hugging Face Spaces CPU Free
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Paylaşılan, sınırlı CPU; GPU genellikle ücretli. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Hugging Face Spaces CPU Free ile basit demo web uygulaması göster.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://huggingface.co/spaces). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K234 — Streamlit Community Cloud
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `K` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kotalı ücretsiz demo barındırma. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Streamlit Community Cloud ile ücretsiz deneysel dashboard dağıt.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://streamlit.io/cloud). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K235 — Vercel Hobby
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ücretsiz ama ticari kullanım yasak; ticari projeler için seçme. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Vercel Hobby'de kişisel/non-commercial önizleme barındır; ticari üretimde koşulları kontrol et.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://vercel.com/docs/plans/hobby). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Vercel kendi barındırmasını sağlar; VPS şart değil. Kişisel/non-commercial Hobby koşulları altında ticari uygulama barındırma kısıtlıdır.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K236 — GitHub Pages
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Statik demo, ticari SaaS/online işletme barındırmaya uygun değil. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** GitHub Pages ile statik proje dokümantasyonunu ücretsiz yayımla.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Bulut. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K237 — CrowdSec
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Güvenlik, sürüme göre hizmet katmanı ayrı. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** CrowdSec ile sunucu isteklerindeki kötüye kullanım sinyallerini analiz et.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/crowdsecurity/crowdsec). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K238 — Gitleaks
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Git gizli anahtar tarama. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Gitleaks ile commit geçmişinde yanlışlıkla API anahtarı var mı tara.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/gitleaks/gitleaks). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K239 — Trivy
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Güvenlik/açık tarama. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Trivy ile Docker imajı ve bağımlılık güvenlik açıklarını tara.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/aquasecurity/trivy). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K240 — OWASP ZAP
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Web güvenlik testi. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** OWASP ZAP ile kendi test sitende web güvenlik taraması yap.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.zaproxy.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K241 — k6
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yük testi. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** k6 ile web API'nin yük altında cevap süresini ölç.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/grafana/k6). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K242 — Locust
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Yük testi. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Locust ile birkaç yüz sanal kullanıcının test senaryosunu simüle et.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://locust.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K243 — Glances
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sistem kaynak izlemesi. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Glances ile RAM/CPU/disk durumlarını izle.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/nicolargo/glances). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K244 — Prometheus
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Metrik toplama. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Prometheus ile işlemci ve kuyruk metriklerini topla.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://prometheus.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K245 — Grafana
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Metrik dashboard. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Grafana'da video iş kuyruklarını ve GPU metriklerini göster.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://grafana.com/oss/grafana/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K246 — Uptime Kuma
+
+- **Tür / Ücretsiz durum:** Web / mobil / veritabanı / altyapı / güvenlik. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Uptime izleme. Uygulama geliştirme, veri saklama, servis barındırma, izleme ve test.
+- **Somut yapılabilecek iş:** Uptime Kuma ile site kapandıysa bildirim gönder.
+- **Girdi → Çıktı / bağlantı:** CLI, API, SQL, CI/CD, Docker, HTTPS/SSH; kimlik bilgilerini GitHub'da saklama.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/louislam/uptime-kuma). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Çekirdek 0,05–5 GB; node_modules, imajlar, veri tabanları ve loglar 1 GB–TB ölçeği.
+- **RAM:** Temel servis 0,2–4 GB; browser, derleme ve çoklu container 4–32+ GB. **VRAM/GPU:** Genellikle 0 GB (GPU'lu yapay zekâ servisi hariç).
+- **VPS şart mı?** Hayır; laptopta çalışır. 7/24 herkese açık yüksek erişilebilirlik için VPS önerilebilir; statik hostingde VPS gerekmeyebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Çoğu uygun; paralel servis sayısını sınırla. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok projeyi birlikte geliştirmek ve dağıtmak için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ## 13 · Borsa/veri analitiği ve belge işleri (15 kayıt)
 
-| Araç / model | Durum | Çalıştığı yer | Ne işe yarar / kısıt | Kaynak |
-|---|---|---|---|---|
-| TA-Lib | Ö | Yerel | Teknik analiz göstergeleri | [Resmî/repo](https://ta-lib.org/) |
-| SciPy | Ö | Yerel | İstatistik / sinyal işlemleri | [Resmî/repo](https://scipy.org/) |
-| scikit-learn | Ö | Yerel | Makine öğrenmesi | [Resmî/repo](https://scikit-learn.org/) |
-| CVXPY | Ö | Yerel | Optimizasyon | [Resmî/repo](https://www.cvxpy.org/) |
-| pandas | Ö | Yerel | Tablolar ve veri analitiği | [Resmî/repo](https://pandas.pydata.org/) |
-| NumPy | Ö | Yerel | Sayısal hesaplama | [Resmî/repo](https://numpy.org/) |
-| yfinance | Ö | Yerel+veri | Python paket ücretsiz; Yahoo veri kullanım haklarını kontrol | [Resmî/repo](https://github.com/ranaroussi/yfinance) |
-| CCXT | Ö | Yerel+API | Kripto borsa API istemcisi; servis şartları ayrı | [Resmî/repo](https://github.com/ccxt/ccxt) |
-| Metabase | Ö | Yerel | Raporlama/BI; kurumsal özellikler ayrı | [Resmî/repo](https://www.metabase.com/) |
-| Apache Superset | Ö | Yerel | BI raporlama | [Resmî/repo](https://superset.apache.org/) |
-| ERPNext | Ö | Yerel | ERP/muhasebe çekirdeği; Türkiye mevzuat adaptasyonu gerekir | [Resmî/repo](https://erpnext.com/) |
-| Frappe HR | Ö | Yerel | İK araçları | [Resmî/repo](https://github.com/frappe/hrms) |
-| Documenso | Ö | Yerel | Belge imzalama; hukuki e-imza koşulları ayrı | [Resmî/repo](https://github.com/documenso/documenso) |
-| LibreOffice | Ö | Yerel | Ofis dokümanları | [Resmî/repo](https://www.libreoffice.org/) |
-| Pandoc | Ö | Yerel | Doküman dönüştürme | [Resmî/repo](https://pandoc.org/) |
+### K247 — TA-Lib
 
-## Sıfır bütçeli önceleme ve uyarılar
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Teknik analiz göstergeleri. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** TA-Lib ile OHLC verisinden RSI/MACD hesapla.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://ta-lib.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
 
-1. Önce Windows D: üzerinde API geçidi (FreeLLMAPI kişisel test, LiteLLM yönetim), küçük yerel Ollama, Whisper/faster-whisper, FFmpeg, Activepieces/Postiz gibi araçları **var olan kurulumlarını kontrol ederek** seç. Topluca kurulum SSD'yi tüketebilir.
-2. En ağır render ve ses/video üretimi için mevcut 4GB GPU'yu zorlamadan önce ücretsiz uzak GPU kapasitesinin güvenilir olmadığını kabul et; iş kuyruklarını hazırlamak, video oluşturulduğunu iddia etmek değildir.
-3. Sosyal medya paylaşım API'leri, telefon aramaları, SMS, harita ve BIST gerçek zamanlı veri gibi üçüncü taraf maliyetleri, yazılımın açık kaynak olmasından etkilenmez.
-4. Reklam gelirli uygulamalar için modelin **ticari lisansı**, mağaza kaydı, ağ maliyeti, gizlilik/KVKK ve ticarî kullanım izni ayrı teyit edilecek.
-5. Claude, Kling, Veo, Runway, Seedance, Suno, ElevenLabs gibi kapalı sistemlerde görülen ara sıra ücretsiz kredi/kullanım, kesintisiz ücretsiz API anlamına gelmez. Çekirdek altyapıyı bunlara bağlama.
-6. Önceki **521 kalemlik Ana Beyin envanterinin** tamamı, bu sohbetten erişilen konuşma özetlerinden birebir dökülemiyor. 521 kalemlik eski envanter artık bu GitHub deposunda doğrudan bağlantılanmıştır; onun kalemleri farklı türlerde olduğu için araç kataloguyla tek tek aynı şey sayılmaz.
+### K248 — SciPy
 
-### Özellikle doğrulanmış resmî notlar
-- FreeLLMAPI MIT lisanslı ancak kişisel deney için: https://github.com/tashfeenahmed/freellmapi
-- OpenCode Free model listesi: https://opencode.ai/v2/docs/console/models/
-- Claude Code Pro ve üzeri planlarda: https://claude.com/download
-- Wan2.2 Apache-2.0: https://github.com/Wan-Video/Wan2.2
-- Qwen-Image Apache-2.0: https://github.com/QwenLM/Qwen-Image
-- FLUX.1 Schnell Apache / Dev non-commercial: https://github.com/black-forest-labs/flux
-- ACE-Step Apache-2.0: https://github.com/ace-step/ACE-Step
-- LTX-2 özel ticari lisans: https://github.com/Lightricks/LTX-2/blob/main/LICENSE-2
-- HunyuanVideo 1.5 özel Tencent lisansı: https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5/blob/main/LICENSE
-- Cloudflare Workers AI 10.000 neuron/gün kotası: https://developers.cloudflare.com/workers-ai/platform/pricing/
-- Google Colab ücretsiz GPU garantisiz: https://research.google.com/colaboratory/faq.html
-- Vercel Hobby ticari kullanıma kapalı: https://vercel.com/docs/plans/hobby
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** İstatistik / sinyal işlemleri. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** SciPy ile zaman serisi üzerinde istatistiksel analiz yap.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://scipy.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K249 — scikit-learn
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Makine öğrenmesi. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** scikit-learn ile veri sınıflandırma modeli eğit.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://scikit-learn.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K250 — CVXPY
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Optimizasyon. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** CVXPY ile portföy kısıtları içeren matematiksel optimizasyon kur.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.cvxpy.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K251 — pandas
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Tablolar ve veri analitiği. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** pandas ile CSV emir dosyalarını temizleyip rapor hazırla.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://pandas.pydata.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K252 — NumPy
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sayısal hesaplama. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** NumPy ile fiyat dizisi üzerinde vektörel hesap yap.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://numpy.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K253 — yfinance
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Python paket ücretsiz; Yahoo veri kullanım haklarını kontrol. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** yfinance ile kullanım şartlarına uygun araştırma amaçlı tarihsel veri çek; gerçek zamanlı borsa beslemesi sanma.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/ranaroussi/yfinance). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+veri. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K254 — CCXT
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kripto borsa API istemcisi; servis şartları ayrı. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** CCXT ile borsa API'sinin kamuya açık piyasa verilerini okuyup karşılaştır.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/ccxt/ccxt). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel+API. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K255 — Metabase
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Raporlama/BI; kurumsal özellikler ayrı. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** Metabase ile veritabanına bağlı satış panosu hazırla.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.metabase.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K256 — Apache Superset
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** BI raporlama. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** Apache Superset ile farklı kaynaktan grafik ve dashboard oluştur.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://superset.apache.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K257 — ERPNext
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** ERP/muhasebe çekirdeği; Türkiye mevzuat adaptasyonu gerekir. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** ERPNext ile küçük işletmede stok ve cari takibi yap.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://erpnext.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K258 — Frappe HR
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** İK araçları. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** Frappe HR ile personel izin kayıtlarını yönet.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/frappe/hrms). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K259 — Documenso
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Belge imzalama; hukuki e-imza koşulları ayrı. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** Documenso ile dijital belge imza akışını test et.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/documenso/documenso). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K260 — LibreOffice
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Ofis dokümanları. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** LibreOffice ile XLSX dosyasını yerel dönüştür.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://www.libreoffice.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K261 — Pandoc
+
+- **Tür / Ücretsiz durum:** Veri / finans analitiği / ofis. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Doküman dönüştürme. Veri dönüştürme, istatistik, tablo, rapor veya iş yönetimi.
+- **Somut yapılabilecek iş:** Pandoc ile Markdown dokümanını HTML/DOCX'e çevir.
+- **Girdi → Çıktı / bağlantı:** Python, SQL, CSV, REST, CLI veya masaüstü.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://pandoc.org/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Program 0,05–4 GB; işlenen veri ve yedekler ayrıca.
+- **RAM:** Küçük veri 0,5–8 GB; büyük veri kümeleri 16–64+ GB. **VRAM/GPU:** Genellikle 0 GB.
+- **VPS şart mı?** Hayır; yerel bilgisayarda çalışabilir. İnternette erişilebilir pano/ERP için VPS veya güvenli yerel tünel seçilebilir.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Küçük/orta veri için uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Büyük veri ve paralel görevler için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+
+## 14 · Önceki projelerden ek kaynaklar
+
+### K262 — Claude Code Router
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö/koşullu` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Claude Code'un API isteklerini farklı sağlayıcılara yönlendirmeye yarayan açık kaynak geçit; Claude modeline ücretsiz erişim garantisi değildir.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** Claude Code Router ile Claude Code istemcisinin destekli API çağrılarını alternatif gateway'e yönlendir.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/musistudio/claude-code-router). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K263 — Microsoft Agent Framework
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Çok ajanlı otomasyon ve ajan iş akışı geliştirme; altyapı kütüphanesi ücretsiz, bağlanan model/API ayrı.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** Microsoft Agent Framework ile araştır→üret→onay ajanlarını orkestre et.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/microsoft/agent-framework). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K264 — MetaGPT
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Rol tabanlı çoklu AI ajanlarıyla yazılım görevlerini organize eder; LLM maliyeti ayrıdır.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** MetaGPT ile yazılım gereksinimlerini rol tabanlı iş paketlerine ayır.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/FoundationAgents/MetaGPT). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K265 — ChatDev
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Birden fazla rol tabanlı ajanla yazılım üretimi denemeleri; sonuçları test etmek gerekir.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** ChatDev ile takım ajanlarının kod/inceleme işlerini simüle et.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/OpenBMB/ChatDev). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K266 — SWE-agent
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** GitHub issue'ları üzerinde kod onarma/geliştirme ajanı; çalıştırılan modelin maliyeti ayrı.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** SWE-agent ile bir GitHub issue'sunu izole dalda test ederek çöz.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/SWE-agent/SWE-agent). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K267 — Google AI Studio
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `K/F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Gemini modellerini tarayıcıda test etme ve API anahtarı sağlama arayüzü; ücretsiz kotalar modele/bölgeye bağlı.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** Google AI Studio üzerinden Gemini API JSON cevabını dene.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://aistudio.google.com/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K268 — Google Antigravity
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `K/F doğrula` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** AI ile kodlama çalışma ortamı; ücretsiz erişim ve ürün koşulları tarihe/hesaba göre değişebilir.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** Google Antigravity kodlama ortamının kota/hesap koşullarını doğrulayıp prototip oluştur.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://antigravity.google/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K269 — GitHub Copilot Free
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `K/F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** IDE kod tamamlama ve sohbet için sınırlı ücretsiz plan; kota ve uyumluluk kontrol edilir.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** GitHub Copilot Free üzerinden IDE içinde kısa refaktör önerisi al.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/features/copilot). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K270 — Cursor Hobby
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `K/F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kod editörünün sınırlı ücretsiz planı; ücretli temel modele bağımlılık yaratmamalı.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** Cursor Hobby ile sınırlı ücretsiz AI düzenleme hakkını test et.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://cursor.com/pricing). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K271 — Vercel AI Gateway
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `K/Ü` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Çeşitli model sağlayıcılarına tek geçitten erişim; kredi ve ücretlendirme kontrol edilmeli.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** Vercel AI Gateway'de farklı sağlayıcı maliyetini/kotasını incele.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://vercel.com/docs/ai-gateway). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K272 — n8n
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `L` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Otomasyon iş akışları; kendi sunucunda kaynak erişimli, lisansı ticari yeniden sunumda kısıtlı.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** n8n yerel kurulumda webhook→görev kuyruğu→bildirim akışı hazırla.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/n8n-io/n8n). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K273 — MCP (Model Context Protocol)
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Sohbet ajanlarının araç/veri kaynaklarıyla konuşması için açık bağlantı protokolü; güvenlik/izin denetimi gerekir.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** MCP ile sohbet ajanına sadece okunabilir proje dosyası erişim aracı bağla.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://modelcontextprotocol.io/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K274 — AGENTS.md
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `F` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** Kodlama ajanlarına proje kapsamı, kurallar ve test komutlarını anlatan açıklama dosyası standardı.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** AGENTS.md'ye klasör, güvenlik, izin ve test komutlarını yaz.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://agents.md/). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
+### K275 — yt-dlp
+
+- **Tür / Ücretsiz durum:** Ek kodlama/entegrasyon aracı veya hizmeti. Önceki sınıflandırma: `Ö` (**güncelliği/lisansı ayrıca doğrula**).
+- **Ne işe yarar?** İzinli/kendi medya kaynaklarını indirme ve işleme otomasyonu; telif ve platform şartlarına uyulmalı.. Yazılım üretim, otomasyon, model yönlendirme veya geliştirici deneyimini genişletme.
+- **Somut yapılabilecek iş:** yt-dlp ile yalnızca hakkın olan videoyu indirip FFmpeg işlemesine aktar.
+- **Girdi → Çıktı / bağlantı:** API, CLI, GitHub, MCP/REST veya geliştirici ortamı; resmî README doğrulanır.
+- **Resmî kaynak ve ilk araştırma:** [Resmî proje veya ürün sayfası](https://github.com/yt-dlp/yt-dlp). Açınca `README`, `LICENSE`, örnek kod, sürümler ve API başlıklarını incele.
+- **Nerede çalışır?** Önceki kayıt: Yerel veya API; doğrula. Kurulum sürümüne göre Windows, WSL2/Linux, Docker veya bulut API uyumu resmî kaynaktan kontrol edilir.
+- **Yerel disk/SSD:** Yerel araçsa yaklaşık 0,1–3 GB; bulut hizmetiyse yerel model 0 GB; veri/model ayrıca.
+- **RAM:** Yerel araç çoğunlukla 0,5–4 GB; bağlanan model/IDE ayrı. **VRAM/GPU:** Bulut erişiminde 0 GB; yerel model kullanımında modelin gereksinimi.
+- **VPS şart mı?** Hayır; yerel veya API ile kullanılabilir. Paylaşılan kesintisiz servis için VPS/yerel güvenli tünel seçenek.
+- **Donanım kararı:** Laptop (16 GB RAM, 4 GB GPU): Kotalı API veya hafif ajanla uygun. Hedef kasa (128 GB RAM, 96 GB GPU): Daha çok paralel görev ve yerel model için uygun.
+- **Kurulum ve işlem güvenliği:** Önce resmî kurulum yöntemi ve küçük smoke test; gizli anahtarları kaydetme/yayınlama; lisans, telif, ticari hak, ücretsiz kota ve güncel sürümü kontrol et. **Kullanıcı izin vermeden kurma, silme, ödeme veya herkese açık paylaşım yapma.**
+- **Kanıt durumu:** Açıklama eski envanterden; disk/RAM/VRAM **genel tahmin**. Güncel kaynak testi **bu kayıt için tekil olarak yapılmış değildir**. Araştırmayı burada bitirme.
+
 
 ---
 
-## EK KAYNAKLAR — ÖNCEKİ PROJELERDEN GELEN BAĞLANTILAR (14 kayıt)
+## NASIL YENİ KAYNAK EKLENİR? (K276 VE SONRASI)
 
-Bu tabloda önceki konuşmalarda veya 521 envanterinde geçen ama açıklamalı 261 kayıtlık tabloda birebir isimle bulunmayan araçlar vardır. Lisans/ücretsiz kullanım güncel resmî belgelerden ayrıca doğrulanmalıdır.
+1. Önce aynı isimle kayıt var mı ara; farklı sürümleri yeni kayıt yapmadan önce aynı kart altında karşılaştır.
+2. Güncel resmî URL, README, lisans, API ve indirme boyutu bilgisini mümkünse ilk el kaynaktan bul.
+3. Ücretsiz türünü ve ticari lisansı netleştir; belirsizse "doğrulanmadı" yaz.
+4. **Gerçek kullanım cümlesi kur:** Kullanıcı ne diyecek, ajan hangi girdiyi alıp hangi çıktıyı oluşturacak?
+5. Disk+RAM+VRAM değerlerini ayrı yaz; CPU fallback/quantize ve VPS gerekliliğini belirt. Değer yoksa uydurma sayı yazma.
+6. API anahtarı istemciye veya GitHub'a konmaz; örnek komutta ortam değişkeni kullan.
+7. Ajanın yeni kaynağı keşfetmeye devam etme zorunluluğunu kaldırma. Bu dosyayı tek talimat sanıp araştırmayı kapatma.
+8. Değişiklik için `git diff`/PR incelemesi ve dokümantasyon tarihi yaz. Tarihsel 521 kalemlik arşivi silme.
 
-| Araç | Durum | Ne işe yarar | Kaynak |
-|---|---|---|---|
-| Claude Code Router | Ö/koşullu | Claude Code'un API isteklerini farklı sağlayıcılara yönlendirmeye yarayan açık kaynak geçit; Claude modeline ücretsiz erişim garantisi değildir. | [Resmî proje/kaynak](https://github.com/musistudio/claude-code-router) |
-| Microsoft Agent Framework | Ö | Çok ajanlı otomasyon ve ajan iş akışı geliştirme; altyapı kütüphanesi ücretsiz, bağlanan model/API ayrı. | [Resmî proje/kaynak](https://github.com/microsoft/agent-framework) |
-| MetaGPT | Ö | Rol tabanlı çoklu AI ajanlarıyla yazılım görevlerini organize eder; LLM maliyeti ayrıdır. | [Resmî proje/kaynak](https://github.com/FoundationAgents/MetaGPT) |
-| ChatDev | Ö | Birden fazla rol tabanlı ajanla yazılım üretimi denemeleri; sonuçları test etmek gerekir. | [Resmî proje/kaynak](https://github.com/OpenBMB/ChatDev) |
-| SWE-agent | Ö | GitHub issue'ları üzerinde kod onarma/geliştirme ajanı; çalıştırılan modelin maliyeti ayrı. | [Resmî proje/kaynak](https://github.com/SWE-agent/SWE-agent) |
-| Google AI Studio | K/F | Gemini modellerini tarayıcıda test etme ve API anahtarı sağlama arayüzü; ücretsiz kotalar modele/bölgeye bağlı. | [Resmî proje/kaynak](https://aistudio.google.com/) |
-| Google Antigravity | K/F doğrula | AI ile kodlama çalışma ortamı; ücretsiz erişim ve ürün koşulları tarihe/hesaba göre değişebilir. | [Resmî proje/kaynak](https://antigravity.google/) |
-| GitHub Copilot Free | K/F | IDE kod tamamlama ve sohbet için sınırlı ücretsiz plan; kota ve uyumluluk kontrol edilir. | [Resmî proje/kaynak](https://github.com/features/copilot) |
-| Cursor Hobby | K/F | Kod editörünün sınırlı ücretsiz planı; ücretli temel modele bağımlılık yaratmamalı. | [Resmî proje/kaynak](https://cursor.com/pricing) |
-| Vercel AI Gateway | K/Ü | Çeşitli model sağlayıcılarına tek geçitten erişim; kredi ve ücretlendirme kontrol edilmeli. | [Resmî proje/kaynak](https://vercel.com/docs/ai-gateway) |
-| n8n | L | Otomasyon iş akışları; kendi sunucunda kaynak erişimli, lisansı ticari yeniden sunumda kısıtlı. | [Resmî proje/kaynak](https://github.com/n8n-io/n8n) |
-| MCP (Model Context Protocol) | Ö | Sohbet ajanlarının araç/veri kaynaklarıyla konuşması için açık bağlantı protokolü; güvenlik/izin denetimi gerekir. | [Resmî proje/kaynak](https://modelcontextprotocol.io/) |
-| AGENTS.md | F | Kodlama ajanlarına proje kapsamı, kurallar ve test komutlarını anlatan açıklama dosyası standardı. | [Resmî proje/kaynak](https://agents.md/) |
-| yt-dlp | Ö | İzinli/kendi medya kaynaklarını indirme ve işleme otomasyonu; telif ve platform şartlarına uyulmalı. | [Resmî proje/kaynak](https://github.com/yt-dlp/yt-dlp) |
+## RESMÎ BAŞLANGIÇ REFERANSLARI / HASSAS KURALLAR
 
----
+- TikTok Content Posting (Direct Post): https://developers.tiktok.com/docs/en/content-posting-api-get-started
+- TikTok denetim ve görünürlük: https://developers.tiktok.com/docs/en/content-sharing-guidelines
+- TikTok video upload ve taslak: https://developers.tiktok.com/docs/en/content-posting-api-reference-upload-video
+- Ollama yerel model bellek ölçütleri modele göre: https://ollama.com/library
+- FFmpeg: https://ffmpeg.org/documentation.html
+- ComfyUI: https://github.com/comfyanonymous/ComfyUI
+- GitHub'daki tarihsel ana envanter: [ANABEYIN_ANA_KURULUM_ENVANTERI_521.md](./ANABEYIN_ANA_KURULUM_ENVANTERI_521.md)
 
 ## TARİHSEL 521 KALEMLİK TAM İNDEKS (ARŞİV)
 
@@ -1039,6 +4961,10 @@ Amaç: AnaBeyin geliştirme ortamı, güvenlik, test, medya denetimi, yapay zek�
 
 ---
 
-## GÜNCELLEME KAYDI
-- **2026-10-16:** 261 kayıtlık açıklamalı katalog + 14 tamamlayıcı bağlantı + önceki 521 kalemlik kurulum envanteri + AI araştırmayı burada bırakma talimatı birleştirildi.
-- **Not:** Bir araç kaynak bağlantısının GitHub'a yazılmış olması güncel lisans, ücretsiz kota, erişilebilirlik veya kurulu olma durumunu tek başına doğrulamaz.
+
+
+## DEĞİŞİKLİK GEÇMİŞİ
+- **2026-10-16 / V2:** 275 kaydı uzun kart formatına dönüştürme, her araca bir örnek, kurulum/laptop/VPS/disk/RAM/VRAM açıklaması, TikTok yetki denetimli uçtan uca örnek, PowerShell FFmpeg komutu, yapay zekâ araştırmayı durdurma yasağı ve kalıcı ekleme şablonu. 521 eski envanter aynen tarihsel ek olarak saklandı.
+- **2026-10-16 / V1:** İlk açıklamalı katalog, 261 ana + 14 tamamlayıcı kayıt.
+
+**Uyarı:** Tablolardaki bellek rakamları resmî model bazlı ölçüm değil; yerel planlamaya uygun yaklaşık aralıklardır. Güncel kurulum ve API davranışını resmî belgede doğrula.
