@@ -1,6 +1,6 @@
 # ÜCRETSİZ TÜM KAYNAKLAR — HIZLI İÇİNDEKİLER
 
-**Amaç:** Uzun belgeyi her seferinde okumadan doğru aracı bulmak. 319 kart içerir.
+**Amaç:** Uzun belgeyi her seferinde okumadan doğru aracı bulmak. 425 kart içerir.
 
 > Yapay zekâ için kural: Bir kart seçince [ayrıntılı ana dosyada](./UCRETSIZ_TUM_KAYNAKLAR.md) o kartın **tam açıklamasını**, RAM/VRAM/SSD/VPS koşullarını oku. Sonrasında resmî URL'yi ve **bu katalog dışında yeni alternatifleri de** araştır. Bu dosya araştırmanın sonu değildir.
 
@@ -405,5 +405,181 @@
 | K317 | Prettier | Kod biçimini ekip genelinde aynı düzende tutma. | [Resmî](https://prettier.io/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k317) |
 | K318 | Renovate | NPM/Python bağımlılıkları için otomatik sürüm güncelleme PR'ları hazırlama. | [Resmî](https://github.com/renovatebot/renovate) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k318) |
 | K319 | GitHub Actions | Kod her değiştiğinde testleri otomatik çalıştırma ve Android derleme hattı kurma. | [Resmî](https://docs.github.com/en/actions) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k319) |
+
+
+
+## 2026-10-17 / V3.0 sektörler üstü yeni programlar (106)
+
+
+### Keşif, haber, araştırma
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K320 | [Miniflux](https://github.com/miniflux/v2) | RSS haber ve kaynakları düşük yükle okuyup yeni haberin kimliğini saklama. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k320) |
+| K321 | [FreshRSS](https://github.com/FreshRSS/FreshRSS) | Çok sayıda haber kaynağına RSS aboneliği ve filtreleme. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k321) |
+| K322 | [changedetection.io](https://github.com/dgtlmoon/changedetection.io) | Resmî kurum sayfaları değiştiğinde sadece yeni içerik için uyarı. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k322) |
+| K323 | [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) | Haberin kaynak sayfasını tarihli delil ve arşiv için saklama. | Laptop SSD | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k323) |
+| K324 | [trafilatura](https://github.com/adbar/trafilatura) | İzinli web sayfalarından makale metnini temizce çıkarma. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k324) |
+| K325 | [readability.js](https://github.com/mozilla/readability) | Web sayfasından ana içerik ve başlık çıkarma. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k325) |
+| K326 | [GDELT Project](https://www.gdeltproject.org/) | Dünya haberlerinde olay/trend keşfi; her haberi orijinal kaynaktan doğrula. | Çevrim içi veri | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k326) |
+| K327 | [Perplexity Free](https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you) | Kotalı kaynaklı araştırma ve yeni açık kaynak alternatiflerini keşfetme; otomatik API hakkı değil. | Tarayıcı | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k327) |
+| K328 | [Google Fact Check Tools](https://toolbox.google.com/factcheck/explorer) | Viral iddiaların mevcut teyitlerini araştırma; bütün doğru haberleri kapsamıyor. | Tarayıcı | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k328) |
+| K329 | [OpenAlex](https://openalex.org/) | Bilim, sağlık ve araştırma konularında akademik kaynak keşfetme. | Çevrim içi veri | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k329) |
+| K330 | [Zotero](https://www.zotero.org/) | Araştırma kaynaklarının bibliyografisini ve PDF notlarını toplama. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k330) |
+
+### Yerel sesli komut ve tanıma
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K331 | [openWakeWord](https://github.com/dscripka/openWakeWord) | Uyandırma kelimesini dinle; 'Ana Beyin' benzeri özel sözcük için model testi/eğitimi gerekir. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k331) |
+| K332 | [Wyoming Protocol](https://www.home-assistant.io/integrations/wyoming/) | Yerel Whisper, Piper, wake word servislerini standart protokolle bağlama. | Laptop/yerel ağ | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k332) |
+| K333 | [Home Assistant Assist](https://www.home-assistant.io/voice_control/) | Yerel konuşma komutlarını tetikleyici ve niyet sistemine bağlama. | Laptop/yerel ağ | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k333) |
+| K334 | [Vosk](https://github.com/alphacep/vosk-api) | Çevrimdışı konuşma tanıma alternatifi; Türkçe dil modeli kalitesini test et. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k334) |
+| K335 | [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) | ONNX tabanlı STT/TTS/konuşmacı işleme için taşınabilir runtime. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k335) |
+| K336 | [pyannote.audio](https://github.com/pyannote/pyannote-audio) | Ses kayıtlarında kim konuşuyor bölümlendirmesi; ağırlıkların lisansı ayrı. | Laptop/GPU | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k336) |
+| K337 | [Silero TTS](https://github.com/snakers4/silero-models) | Model desteği bulunan dillerde yerel TTS denemeleri; Türkçe ses uygunluğunu teyit et. | Laptop/GPU | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k337) |
+
+### Görev motoru ve altyapı
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K338 | [Celery](https://github.com/celery/celery) | Yüzlerce işi sıraya al, hata olursa yeniden dene, başarısız işleri kaydet. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k338) |
+| K339 | [Prefect Open Source](https://github.com/PrefectHQ/prefect) | Video ve web görevlerini akışa bağla, günlük iş takibi yap. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k339) |
+| K340 | [Dagster](https://github.com/dagster-io/dagster) | Veri dönüştürme ve düzenli raporlama işlerinin geçmişini tut. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k340) |
+| K341 | [RabbitMQ](https://github.com/rabbitmq/rabbitmq-server) | Görev iletilerini güvenilir kuyrukta taşı. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k341) |
+| K342 | [WireGuard](https://www.wireguard.com/) | GPU sunucusu ile laptop arasına güvenli özel bağlantı kur. | Laptop/GPU sunucusu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k342) |
+| K343 | [Headscale](https://github.com/juanfont/headscale) | Özel mesh ağ kontrol sunucusu; dağıtılmış cihazları güvenli bağlama. | KVM1/laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k343) |
+| K344 | [Forgejo](https://codeberg.org/forgejo/forgejo) | Kod ve otomasyon sürümlerini kendi sunucunda yönetme. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k344) |
+| K345 | [Gitea](https://github.com/go-gitea/gitea) | Git depo, sorun, sürüm ve proje yönetimi için alternatif. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k345) |
+| K346 | [uv](https://github.com/astral-sh/uv) | Python paket ortamlarını hızlı ve tekrar kurulabilir yönet. | Laptop/GPU | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k346) |
+| K347 | [pnpm](https://pnpm.io/) | Web projelerinde ortak bağımlılıkları verimli sakla. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k347) |
+
+### Web, CMS, mağaza
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K348 | [WordPress](https://wordpress.org/) | Müşteri siteleri, içerik yönetimi, resmî REST API ile taslak/yayın. | Laptop/KVM1/barındırma | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k348) |
+| K349 | [Astro](https://astro.build/) | Hızlı, SEO'ya uygun çok sayıda özgün sayfalı web sitesi. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k349) |
+| K350 | [Hugo](https://gohugo.io/) | Statik blog ve katalog sitelerini hızlı derleme. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k350) |
+| K351 | [Eleventy](https://www.11ty.dev/) | Basit HTML içerik sitelerini kodla üretme. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k351) |
+| K352 | [Ghost](https://github.com/TryGhost/Ghost) | İçerik yayını ve bülten sitesi; e-posta maliyetini ayrı tut. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k352) |
+| K353 | [Payload CMS](https://github.com/payloadcms/payload) | Kendi tasarımlı web siteleri için veritabanlı yönetim paneli. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k353) |
+| K354 | [PocketBase](https://github.com/pocketbase/pocketbase) | Prototiplerde tek dosyalı küçük backend, kullanıcı ve dosya sistemi. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k354) |
+| K355 | [Appwrite](https://github.com/appwrite/appwrite) | Web/mobil uygulamalara auth, veritabanı, storage arka ucu. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k355) |
+| K356 | [Medusa](https://github.com/medusajs/medusa) | Özelleştirilebilir e-ticaret arka ucu ve sipariş yönetimi. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k356) |
+| K357 | [Saleor](https://github.com/saleor/saleor) | GraphQL e-ticaret altyapısı; lisansı/sürüm koşullarını ayrıca doğrula. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k357) |
+| K358 | [Keycloak](https://www.keycloak.org/) | Müşteri ve yönetici kimlik doğrulama, OAuth/SSO ve yetkiler. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k358) |
+
+### Web analitik, SEO ve yayın kalitesi
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K359 | [Matomo](https://matomo.org/) | Birden çok sitenin ziyaret ve hedef dönüşüm analitiğini kendimiz barındır. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k359) |
+| K360 | [Umami](https://umami.is/) | Gizlilik odaklı hafif trafik ve dönüşüm ölçümü. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k360) |
+| K361 | [Plausible Community Edition](https://github.com/plausible/community-edition) | Web analitik alternatifini kendi sunucunda çalıştır. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k361) |
+| K362 | [Lunr.js](https://lunrjs.com/) | Küçük içerik sitelerinde istemci taraflı yerel arama. | Laptop/site | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k362) |
+| K363 | [OpenTelemetry](https://opentelemetry.io/) | Ajan, web ve API işlemlerinin performans ve hata izlerini toplama. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k363) |
+
+### Video ve görsel üretim destekleri
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K364 | [LosslessCut](https://github.com/mifi/lossless-cut) | Videonun uygun bölümlerini kalite kaybı olmadan hızlı kes. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k364) |
+| K365 | [HandBrake](https://handbrake.fr/) | Video boyutunu küçült ve farklı cihazlara uygun kodlama yap. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k365) |
+| K366 | [Upscayl](https://github.com/upscayl/upscayl) | Düşük çözünürlüklü görselleri büyüt; VRAM hızını etkiler. | Laptop/GPU | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k366) |
+| K367 | [OpenToonz](https://github.com/opentoonz/opentoonz) | 2D animasyon ve çizgi film üretim sistemi. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k367) |
+| K368 | [Synfig Studio](https://www.synfig.org/) | Vektör tabanlı 2D animasyon ve hareketli tanıtım. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k368) |
+| K369 | [Pencil2D](https://www.pencil2d.org/) | Basit kare kare çizgi animasyonu. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k369) |
+| K370 | [OpenShot](https://www.openshot.org/) | Basit video düzenleme alternatifi; Kdenlive ana tercih. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k370) |
+| K371 | [Flowframes](https://nmkd.itch.io/flowframes) | Kare artırma arayüzü; ücretsiz durumu/lisans ve derleme kaynağını ayrıca denetle. | Laptop/GPU | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k371) |
+
+### Oyun ve 3D
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K372 | [Tiled](https://www.mapeditor.org/) | Godot 2D oyunlarına tilemap, bölümler ve harita düzeni oluştur. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k372) |
+| K373 | [Pixelorama](https://github.com/Orama-Interactive/Pixelorama) | Piksel sanat, animasyonlu karakter ve arayüz öğesi çiz. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k373) |
+| K374 | [LibreSprite](https://github.com/LibreSprite/LibreSprite) | 2D oyunlar için ücretsiz piksel sprite editörü. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k374) |
+| K375 | [Piskel](https://www.piskelapp.com/) | Piksel karakter ve sprite sheet animasyonu oluştur. | Laptop/tarayıcı | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k375) |
+| K376 | [FreeCAD](https://www.freecad.org/) | Teknik 3D parçalar, mobilya ve endüstriyel çizim. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k376) |
+| K377 | [OpenSCAD](https://openscad.org/) | Parametrik 3D modelleri kodla oluştur. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k377) |
+| K378 | [Goxel](https://github.com/guillaumechereau/goxel) | Voxel sanat, düşük poligonlu oyun varlıkları üret. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k378) |
+
+### Muhasebe, ERP, stok
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K379 | [GnuCash](https://www.gnucash.org/) | Küçük işletme defteri, gelir/gider ve çift kayıt muhasebe takibi; Türkiye e-defter değil. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k379) |
+| K380 | [Dolibarr ERP/CRM](https://www.dolibarr.org/) | Stok, teklif, müşteri, fatura, sipariş ve küçük işletme süreçleri. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k380) |
+| K381 | [Odoo Community](https://github.com/odoo/odoo) | CRM, stok, satış ve ERP bileşenleri; Enterprise modülleri ücretli. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k381) |
+| K382 | [Akaunting](https://github.com/akaunting/akaunting) | Ön muhasebe, gelir gider, fatura ve raporlar. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k382) |
+| K383 | [Invoice Ninja](https://github.com/invoiceninja/invoiceninja) | Teklif, müşteriye fatura ve ödeme takip sistemi. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k383) |
+| K384 | [Firefly III](https://github.com/firefly-iii/firefly-iii) | Nakit akışı ve kişisel gider analizi; resmî muhasebe değildir. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k384) |
+| K385 | [Actual Budget](https://github.com/actualbudget/actual) | Yerel odaklı bütçe ve masraf takibi; mali tablolara destek. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k385) |
+| K386 | [InvenTree](https://github.com/inventree/InvenTree) | Stok, ürün ağacı, parça alımı ve küçük imalat depo yönetimi. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k386) |
+| K387 | [OpenBoxes](https://github.com/openboxes/openboxes) | Stok, depo, dağıtım ve tedarik zinciri yönetimi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k387) |
+| K388 | [Ledger CLI](https://ledger-cli.org/) | Metin dosyası tabanlı değişiklik denetlenebilir muhasebe kayıtları. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k388) |
+| K389 | [Beancount](https://github.com/beancount/beancount) | Metin tabanlı finans/portföy ve çift kayıt defterleri. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k389) |
+
+### CRM, randevu, iletişim, satış
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K390 | [Twenty CRM](https://github.com/twentyhq/twenty) | Müşteri, fırsat, anlaşma ve satış görüşmelerini takip et. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k390) |
+| K391 | [SuiteCRM](https://suitecrm.com/) | Satış, müşteri, pazarlama ve servis takibi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k391) |
+| K392 | [EspoCRM](https://github.com/espocrm/espocrm) | Hafif CRM, müşteri kaydı ve satış otomasyonu. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k392) |
+| K393 | [Cal.com](https://github.com/calcom/cal.com) | Randevu ve toplantı takvimi; lisans/özellik farkını kontrol et. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k393) |
+| K394 | [Easy!Appointments](https://github.com/alextselegidis/easyappointments) | Kuaför/servis randevusu için hafif açık kaynak rezervasyon sistemi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k394) |
+| K395 | [Zammad](https://github.com/zammad/zammad) | Müşteri destek talepleri ve e-posta ticket yönetimi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k395) |
+| K396 | [Listmonk](https://github.com/knadh/listmonk) | İzinli e-posta bültenleri ve abone yönetimi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k396) |
+| K397 | [Mautic](https://github.com/mautic/mautic) | İzinli e-posta pazarlaması ve müşteri otomasyonları. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k397) |
+| K398 | [Typebot](https://github.com/baptisteArno/typebot.io) | Web sitesine konuşmalı bilgi toplama ve müşteri formu ekleme. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k398) |
+
+### Belge, PDF, arşiv
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K399 | [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) | Fiş, fatura ve evrakları OCR ile arşivleyip etiketle. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k399) |
+| K400 | [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF) | PDF birleştirme, ayırma, dönüştürme ve redaksiyon. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k400) |
+| K401 | [OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF) | Taranmış PDF dosyalarına aranabilir metin katmanı ekle. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k401) |
+| K402 | [Gotenberg](https://github.com/gotenberg/gotenberg) | HTML/Word/LibreOffice içeriklerini otomatik PDF'ye çevir. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k402) |
+| K403 | [Joplin](https://joplinapp.org/) | Projeler, müşteri notları ve araştırma arşivi. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k403) |
+| K404 | [Memos](https://github.com/usememos/memos) | Hızlı not, karar ve görev günlüklerini Markdown olarak sakla. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k404) |
+
+### Veri, analitik ve iş zekâsı
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K405 | [DuckDB](https://duckdb.org/) | Büyük CSV/Parquet dosyalarında yerel analitik sorgular. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k405) |
+| K406 | [dbt Core](https://github.com/dbt-labs/dbt-core) | Finans, trafik ve CRM verilerinin dönüşüm katmanını sürümle. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k406) |
+| K407 | [Meltano](https://github.com/meltano/meltano) | İzinli veri kaynaklarını raporlama veritabanına çekme. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k407) |
+| K408 | [Apache NiFi](https://nifi.apache.org/) | Farklı sistemlerden gelen veriyi görsel akışla taşıma. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k408) |
+| K409 | [Apache ECharts](https://echarts.apache.org/) | Etkileşimli gelir, trafik ve hisse raporları. | Laptop/web | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k409) |
+
+### Güvenlik, disk, yedek
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K410 | [restic](https://restic.net/) | SSD projelerinin şifreli, sürümlü yedeğini farklı diske/cloud'a al. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k410) |
+| K411 | [Kopia](https://kopia.io/) | Sürüm ve sıkıştırmalı otomatik güvenli yedekleme. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k411) |
+| K412 | [Syncthing](https://syncthing.net/) | Projeleri cihazlar arasında uçtan uca şifreli eşitleme. | Laptop/diğer bilgisayar | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k412) |
+| K413 | [rclone](https://rclone.org/) | Uyumlu bulut ve disk hedeflerine dosya kopyalama ve doğrulama. | Laptop/KVM1 | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k413) |
+| K414 | [Cryptomator](https://cryptomator.org/) | Önemli müşteri dosyalarını dosya düzeyinde şifrele. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k414) |
+| K415 | [VeraCrypt](https://www.veracrypt.fr/) | Harici SSD veya proje diskini şifreli kapsayıcıyla koru. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k415) |
+| K416 | [age encryption](https://github.com/FiloSottile/age) | Gizli yapılandırmaları, API yedeklerini güvenle şifrele. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k416) |
+| K417 | [Bitwarden self-host (Vaultwarden)](https://github.com/dani-garcia/vaultwarden) | API anahtarı ve hesap parolalarını güvenli kasada sakla. | Laptop/sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k417) |
+| K418 | [Authentik](https://github.com/goauthentik/authentik) | İç panellere tek hesapla SSO/MFA erişimi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k418) |
+
+### Harita, turizm, mekanik, diğer
+
+| K-ID | Kaynak | Somut kullanım | Çalışma yeri | Kart |
+|---|---|---|---|---|
+| K419 | [QGIS](https://qgis.org/) | Transfer, emlak, franchise ve tarım lokasyonlarını haritada analiz et. | Laptop | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k419) |
+| K420 | [Leaflet](https://leafletjs.com/) | Web sitelerinde etkileşimli harita arayüzü. | Laptop/web | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k420) |
+| K421 | [MapLibre GL JS](https://maplibre.org/) | Haritada 3D/vektör gösterim, çok sayıda lokasyon sayfası. | Laptop/web | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k421) |
+| K422 | [OSRM](https://project-osrm.org/) | İzinli OpenStreetMap verisiyle yol/mesafe yönlendirmesi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k422) |
+| K423 | [Valhalla](https://github.com/valhalla/valhalla) | Rota, mesafe ve taşıma hesaplamaları için yönlendirme motoru. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k423) |
+| K424 | [OpenProject Community](https://github.com/opf/openproject) | Büyük Ana Beyin modülleri, proje panosu, sürüm ve görev takibi. | Sunucu | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k424) |
+| K425 | [Home Assistant](https://www.home-assistant.io/) | Yerel ses komutlarını otomasyon tetikleyicilerine bağlama. | Laptop/yerel ağ | [Kart](./UCRETSIZ_TUM_KAYNAKLAR.md#k425) |
 
 **Kaynak ayrıntıları:** [Ana Markdown](./UCRETSIZ_TUM_KAYNAKLAR.md) · [JSON indeks](./KAYNAKLAR_HIZLI_INDEKS.json) · [Eski 521 kayıt](./ANABEYIN_ANA_KURULUM_ENVANTERI_521.md)
