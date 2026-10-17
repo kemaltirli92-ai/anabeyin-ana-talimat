@@ -1,7 +1,7 @@
 # ÜCRETSİZ TÜM KAYNAKLAR
 
-**Sürüm:** 2.1 (ayrıntılı, insan + yapay zekâ ortak başvuru el kitabı)  
-**Tarih:** 16 Ekim 2026  
+**Sürüm:** 2.2 (ayrıntılı, insan + yapay zekâ ortak başvuru el kitabı)  
+**Tarih:** 17 Ekim 2026  
 **Sahip:** Bu GitHub deposundaki proje. **Ana kaynak:** `UCRETSIZ_TUM_KAYNAKLAR.md`  
 **Hedef:** Sadece isim listesi değil; her kaynağın amacı, yapılabilecek işler, kurulum yeri, yaklaşık donanım gereksinimi, ilişkilendirme biçimi ve otomasyon örneği.
 
@@ -9,12 +9,12 @@
 
 > **AI MANDATE:** This catalog is a launchpad, **not a research stop condition**. Read the official repo/documentation for each relevant entry, verify live license, release, cost/quota, hardware and integration, **then research beyond this list** for newer and better truly free/open-source alternatives. Record what is confirmed versus estimated, cite links, and recommend additions. Never assume a listed tool is already installed or operational.
 
-**Hızlı arama:** Sık taramalar için [275 araçlık kısa içindekiler](./KAYNAKLAR_ICINDEKILER.md), programatik filtreleme için [JSON indeks](./KAYNAKLAR_HIZLI_INDEKS.json) vardır. Başka AI'lar önce onu tarayıp `K-ID` seçebilir; ardından ana dosyadaki ayrıntılı karta geçebilir. **Ancak bu Markdown dosyası tek başına da tüm açıklamaları ve iş akışını içerir.**
+**Hızlı arama:** Sık taramalar için [319 araçlık kısa içindekiler](./KAYNAKLAR_ICINDEKILER.md), programatik filtreleme için [JSON indeks](./KAYNAKLAR_HIZLI_INDEKS.json) vardır. Başka AI'lar önce onu tarayıp `K-ID` seçebilir; ardından ana dosyadaki ayrıntılı karta geçebilir. **Ancak bu Markdown dosyası tek başına da tüm açıklamaları ve iş akışını içerir.**
 
 ## HIZLI YOL HARİTASI / BU DOSYA NASIL OKUNUR?
 
 1. **Kullanıcı:** "Akhisar ile ilgili 45 saniyelik videoyu görselleştir, seslendir, montajını yap, TikTok'ta yayımla." der.
-2. **Yönetici ajan:** Bu dokümandan iş akışını ve ilgili `K001–K275` kayıtlarını bulur; model/API/kota/VRAM/izinlerini doğrular.
+2. **Yönetici ajan:** Bu dokümandan iş akışını ve ilgili `K001–K319` kayıtlarını bulur; model/API/kota/VRAM/izinlerini doğrular.
 3. **Plan:** Araştırma → kaynaklı senaryo → sahne taslağı → görsel → (uygunsa) video hareketlendirme → Türkçe TTS → müzik → altyazı → FFmpeg → `ffprobe` kontrolü → yayın önizlemesi → hesap ve izin doğrulaması → resmî TikTok API → yayın durumu.
 4. **Yerel:** Ajan, yalnızca kurulu/test edilmiş araçları PowerShell/WSL/CLI ile çağırır; eksikse kaynağa göre kurulum taslağı sunar. Tahmini komutları "çalıştı" diye göstermez.
 5. **Sonuç:** Görev kayıtları, üretilen MP4, SRT, kullanılan kaynaklar, hata ve yayın kimliği (varsa) tek rapor olur.
@@ -5515,7 +5515,648 @@ Amaç: AnaBeyin geliştirme ortamı, güvenlik, test, medya denetimi, yapay zek�
 
 
 
+
+
+---
+
+## EK 2026-10-17 / V2.2 — YENİ BULUNAN VE ÖNCEDEN KONUŞULAN ÜCRETSİZ KAYNAKLAR (44 YENİ KART)
+
+Bu bölüm 275 kaydın üzerindeki **eksik araçlar, model sürümleri, Türkçe ses kaynakları ve web/test yardımcılarını** tamamlar. Resmî kaynaklar ayrı ayrı verilir. Araç/modelin indirilebilmesi, model ticari lisansı veya GPU kiralamasının ücretsiz olduğu anlamına gelmez. Daha önce listelenen **Ollama, OpenCode, ComfyUI, Wan 2.2, Piper ana programı, ACE-Step 1.5, Godot, FFmpeg, Playwright, Hugging Face Inference ve GPT-OSS 120B** gibi kayıtlar tekrar oluşturulmadı.
+
+**Güncel donanım mimarisi:** Mevcut Monster Windows 11 laptop (16 GB RAM/4 GB VRAM) + gelecekte kullanılabilecek hedef **10 TB toplam SSD arşivi** + gerektiğinde kiralık **NVIDIA RTX PRO 6000 96 GB VRAM** + hafif KVM1 görev/yönlendirme katmanı. 10 TB'ın laptopun tek bir dahili SSD yuvasında desteklendiği doğrulanmadı; gelecekteki kasaya aktarılabilir standart SSD/harici kutu seçilecek. GPU, uzakta ayrı sunucudadır; yerel SSD'deki modellerin GPU sunucusuna aktarılması/indirilmesi, orada uygun sürücü ve servisle çalıştırılması gerekir. Ücretli Claude Pro veya kiralık Hostinger GPU, **ücretsiz kaynak sayısına eklenmez**. Hostinger GPU örneği boştayken de ücretlendirilir; kapatmak için silinirse örnek dosyaları kaybolabilir. Kalıcı yedek şart.
+
+**İş hedefi:** Ana Beyin, Türkiye VIP Transfer (yazılımı Kimi ile geliştirme kararı), TATTARIM, Parantez Türkiye, AIBorsam/EKO HOCA ve Godot mobil oyunları için açık kaynak araçları modül modül seç; satış ve maliyet testi olmadan ücretli API/kira açma. 4K video, LTX uygun iş akışı ve GPU deneyiyle doğrulanır; tek komutla otomatik kusursuz üretim garantisi verilmez.
+
+### Video, görsel, medya
+
+<a id="k276"></a>
+
+### K276 — Fooocus
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** SDXL tabanlı görsel üretimini kolaylaştırır; eski 4 GB NVIDIA laptopta düşük VRAM ayarlarıyla denenebilir.
+- **Resmî kaynak:** [Fooocus](https://github.com/lllyasviel/Fooocus).
+- **Nerede çalışır?** Yerel GPU / uzaktaki GPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Açık kaynak; resmî proje kısıtlı bakımda. SDXL model dosyası ayrıca indirilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k277"></a>
+
+### K277 — WanGP (Wan2GP)
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Wan, LTX, Qwen-Image vb. destekleyen düşük VRAM odaklı arayüz ve toplu üretim yöneticisi.
+- **Resmî kaynak:** [WanGP (Wan2GP)](https://github.com/deepbeepmeep/WanGP).
+- **Nerede çalışır?** Windows/WSL veya uzaktan GPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Ücretsiz yerel yazılım; desteklenen her modelin lisansı, CUDA ve VRAM ihtiyacı ayrıdır.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k278"></a>
+
+### K278 — MoviePy
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Python ile videoları birleştirme, başlık, geçiş ve reklam montajını kodla üretme.
+- **Resmî kaynak:** [MoviePy](https://github.com/Zulko/moviepy).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; v2 API değişikliklerini dikkate al. Uzun videolarda FFmpeg daha verimli olabilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k279"></a>
+
+### K279 — Manim Community
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Ekonomi grafiklerini, eğitsel formülleri ve animasyonlu anlatımları üretme.
+- **Resmî kaynak:** [Manim Community](https://github.com/ManimCommunity/manim).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; kendi grafik ve font varlıklarının haklarını ayrıca kontrol et.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k280"></a>
+
+### K280 — Presenton
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Ollama/LLM bağlantısıyla değiştirilebilir sunum ve satış teklifi PPTX oluşturma.
+- **Resmî kaynak:** [Presenton](https://github.com/presenton/presenton).
+- **Nerede çalışır?** Laptop veya KVM1 uygun yapılandırma. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Apache-2.0 kod; seçilen harici LLM API ücretli olabilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k281"></a>
+
+### K281 — Pexels API
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** İzinli stok fotoğraf ve videoları anahtar kullanarak arama; müşterinin reklamına montajlama.
+- **Resmî kaynak:** [Pexels API](https://www.pexels.com/api/documentation/).
+- **Nerede çalışır?** Bulut API + yerel arşiv. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Ücretsiz kotalı API; kredi ve medya lisans/kişilik/marka hakları, olduğu gibi yeniden satmama kuralı.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k282"></a>
+
+### K282 — Mixkit Stock Video
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Ücretsiz lisanslı stok video arşivinden ticari reklamlarda kullanılabilen uygun klipler seçme.
+- **Resmî kaynak:** [Mixkit Stock Video](https://mixkit.co/license/).
+- **Nerede çalışır?** Web indirme + laptop. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Free ve Restricted video lisanslarını karıştırma; her klibin lisansını ayrı denetle.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k283"></a>
+
+### K283 — Mixkit Stock Music
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Lisans izin verdiğinde sosyal medya ve çevrim içi reklamlara müzik ekleme.
+- **Resmî kaynak:** [Mixkit Stock Music](https://mixkit.co/license/).
+- **Nerede çalışır?** Web indirme + laptop. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Ücretsiz müzik lisansı video oyunlarında, TV/radyoda kullanım izni vermez; hak yönetimine kaydetme.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k284"></a>
+
+### K284 — Hugging Face ZeroGPU Spaces
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Küçük GPU denemelerini aboneliksiz paylaşımlı Spaces üzerinde yapma.
+- **Resmî kaynak:** [Hugging Face ZeroGPU Spaces](https://huggingface.co/docs/hub/main/en/spaces-zerogpu).
+- **Nerede çalışır?** Bulut, yerel GPU gerektirmez. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Hesaba göre kotalı; Free hesap için belgede günlük 5 dakika. Kalıcı sınırsız üretim değildir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k285"></a>
+
+### K285 — LTX-2.5
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** 96 GB GPU'da gerçek AI video/ses sahneleri ve uygun 4K iş akışı denemesi.
+- **Resmî kaynak:** [LTX-2.5](https://huggingface.co/Lightricks/LTX-2.5).
+- **Nerede çalışır?** Uzaktaki 96 GB GPU. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Açık ağırlıklı fakat koşullu Community License; yüksek sistem RAM/SSD ister. 4K kalite ve hız test edilmeli.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k286"></a>
+
+### K286 — Piper Türkçe sesleri
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Video, görsel, medya.
+- **Ne işe yarar / örnek:** Piper TTS'yi Türkçe ses paketleriyle internet olmadan seslendirme işlerinde kullanma.
+- **Resmî kaynak:** [Piper Türkçe sesleri](https://huggingface.co/rhasspy/piper-voices/tree/main/tr).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Piper ana araç olarak K kaydında var; burada Türkçe model dosyası seçimi ek kaynak. Ses/model lisansını ayrı kontrol et.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+
+### Açık ağırlıklı dil ve kod modelleri
+
+<a id="k287"></a>
+
+### K287 — Qwen3.5 9B
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Açık ağırlıklı dil ve kod modelleri.
+- **Ne işe yarar / örnek:** Küçük komutlar, görsel anlama ve senaryo/kod yardımı; uygun quantization ile yerelde çalıştırma.
+- **Resmî kaynak:** [Qwen3.5 9B](https://huggingface.co/Qwen/Qwen3.5-9B).
+- **Nerede çalışır?** Laptopta RAM/CPU ile yavaş veya 96 GB GPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Apache-2.0; GGUF Q4 boyutu sürüme göre yaklaşık 6–8 GB, bağlam ve çalışma RAM'i ayrıca.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k288"></a>
+
+### K288 — Qwen3.5 35B-A3B
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Açık ağırlıklı dil ve kod modelleri.
+- **Ne işe yarar / örnek:** Ana Beyin için güçlü yerel LLM, çok adımlı araç kullanımını deneme.
+- **Resmî kaynak:** [Qwen3.5 35B-A3B](https://huggingface.co/Qwen/Qwen3.5-35B-A3B).
+- **Nerede çalışır?** 96 GB GPU. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MoE 35B toplam/3B etkin; nicemlenmiş dosya yaklaşık 20–30 GB olabilir, kesin dosya boyutunu seçilen depoda kontrol et.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k289"></a>
+
+### K289 — Qwen3-Coder-Next 80B
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Açık ağırlıklı dil ve kod modelleri.
+- **Ne işe yarar / örnek:** Büyük yazılım projelerinde çok dosyalı kod geliştirme, test düzeltme ve araç çağrısı.
+- **Resmî kaynak:** [Qwen3-Coder-Next 80B](https://huggingface.co/Qwen/Qwen3-Coder-Next).
+- **Nerede çalışır?** 96 GB GPU. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** 80B ağırlıkları sıkıştırma ile sığabilir; context/KV cache ve runtime ayrıca VRAM ister. Kimi K3 eşdeğeri olduğu varsayılmaz.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k290"></a>
+
+### K290 — Devstral Small 2 24B
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Açık ağırlıklı dil ve kod modelleri.
+- **Ne işe yarar / örnek:** Mistral'ın kodlama ve ajan görevleri için açık ağırlıklı modelini yerel GPU'da deneme.
+- **Resmî kaynak:** [Devstral Small 2 24B](https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512).
+- **Nerede çalışır?** 96 GB GPU. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Resmî FP8 model yaklaşık 51,6 GB; Apache-2.0. Nicemlenmiş kopyalar üçüncü taraf olabilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k291"></a>
+
+### K291 — Qwen2.5-Coder 7B Instruct
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Açık ağırlıklı dil ve kod modelleri.
+- **Ne işe yarar / örnek:** Laptopta kod tamamlama, küçük Godot/Python görevleri ve yerel yardımcı ajan.
+- **Resmî kaynak:** [Qwen2.5-Coder 7B Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct).
+- **Nerede çalışır?** Laptop CPU/4 GB VRAM kısmen veya uzaktaki GPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** GGUF Q4 genellikle ~4–5 GB dosya; RAM ve çalışma bağlamı ayrıca gerekir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k292"></a>
+
+### K292 — Qwen2.5-Coder 3B Instruct
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Açık ağırlıklı dil ve kod modelleri.
+- **Ne işe yarar / örnek:** 4 GB GPU ve 16 GB RAM'li mevcut laptopta küçük kod üretim görevlerini deneme.
+- **Resmî kaynak:** [Qwen2.5-Coder 3B Instruct](https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct).
+- **Nerede çalışır?** Laptop CPU / GPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Nicemlenmiş sürüm seçilmeli; diğer büyük modellerin yerine eş performans bekleme.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k293"></a>
+
+### K293 — Mistral Vibe
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Açık ağırlıklı dil ve kod modelleri.
+- **Ne işe yarar / örnek:** Terminal tabanlı kod ajanı; yerel veya API destekli Mistral modelini proje klasöründe çalıştırma.
+- **Resmî kaynak:** [Mistral Vibe](https://github.com/mistralai/mistral-vibe).
+- **Nerede çalışır?** Laptop + seçilen model sunucusu. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Kod ajanının ücretsiz olması bulut modelinin ücretsiz olduğu anlamına gelmez.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+
+### Web, arayüz ve oyun
+
+<a id="k294"></a>
+
+### K294 — Vite
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Ana Beyin ve transfer panellerinde hızlı yerel ön yüz geliştirme.
+- **Resmî kaynak:** [Vite](https://github.com/vitejs/vite).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; üretim sitesi için ayrı barındırma gerekir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k295"></a>
+
+### K295 — TypeScript
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Büyük projede tür hatalarını derleme anında yakalayıp daha güvenilir modüller yazma.
+- **Resmî kaynak:** [TypeScript](https://www.typescriptlang.org/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Apache-2.0; tarayıcı çalışma ortamı değildir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k296"></a>
+
+### K296 — Tailwind CSS
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Yeniden kullanılabilir responsive arayüzler, panel ve mağaza sayfaları tasarlama.
+- **Resmî kaynak:** [Tailwind CSS](https://tailwindcss.com/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Ücretsiz çekirdek; bazı hazır şablonlar ticari olabilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k297"></a>
+
+### K297 — shadcn/ui
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Ana Beyin yönetim panelinde kaynak kodlu bileşenleri projeye yerel ekleme.
+- **Resmî kaynak:** [shadcn/ui](https://ui.shadcn.com/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT bileşenler; bağımlılıklar ve temalar ayrıca kontrol edilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k298"></a>
+
+### K298 — Radix UI
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Erişilebilir menü, açılır pencere, sekme ve form bileşenleri kurma.
+- **Resmî kaynak:** [Radix UI](https://www.radix-ui.com/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Açık kaynak bileşenler; uygulama tasarımı ve test kullanıcıya ait.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k299"></a>
+
+### K299 — Lucide Icons
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Lisansı uygun ücretsiz SVG ikonlarla web ve uygulama tasarımlarını birleştirme.
+- **Resmî kaynak:** [Lucide Icons](https://lucide.dev/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** ISC lisansı; ad/logo kullanım haklarına dikkat.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k300"></a>
+
+### K300 — Motion (Framer Motion)
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Web arayüz geçişleri, ürün kartı animasyonları, sayfa hareketleri yapma.
+- **Resmî kaynak:** [Motion (Framer Motion)](https://motion.dev/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Kütüphane ücretsiz; ücretli kurumsal servisleri ayrı.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k301"></a>
+
+### K301 — GSAP
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Gelişmiş kaydırmalı animasyonlar ve özel geçişler oluşturma.
+- **Resmî kaynak:** [GSAP](https://gsap.com/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Ücretsiz çekirdeğin ve ticari dağıtımın güncel lisans koşulları kontrol edilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k302"></a>
+
+### K302 — lottie-web
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Logo ve arayüz mikro-animasyonlarını JSON oynatıcıyla webde gösterme.
+- **Resmî kaynak:** [lottie-web](https://github.com/airbnb/lottie-web).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT oynatıcı; animasyon varlıklarının lisansı ayrıca.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k303"></a>
+
+### K303 — Swiper
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Mobil uyumlu ürün ve ilan kaydırma galerileri tasarlama.
+- **Resmî kaynak:** [Swiper](https://swiperjs.com/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Açık kaynak; lisans/sürüm resmî depoda kontrol edilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k304"></a>
+
+### K304 — Embla Carousel
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Hafif dokunmatik ürün galerileri ve ilan slaytları yapma.
+- **Resmî kaynak:** [Embla Carousel](https://www.embla-carousel.com/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; render performansı test edilmeli.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k305"></a>
+
+### K305 — Cropper.js
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Müşterinin yüklediği logo ve ürün fotoğrafını tarayıcıda kırpmasına izin verme.
+- **Resmî kaynak:** [Cropper.js](https://github.com/fengyuanchen/cropperjs).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; sürüm 2 API'si önceki sürümden farklıdır.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k306"></a>
+
+### K306 — Plyr
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Web sitemize erişilebilir video oynatıcı ekleme.
+- **Resmî kaynak:** [Plyr](https://github.com/sampotts/plyr).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; video barındırma maliyeti ayrı.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k307"></a>
+
+### K307 — Video.js
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** Eğitim, reklam ve müşteri paneli videolarını webde oynatma.
+- **Resmî kaynak:** [Video.js](https://videojs.com/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Apache-2.0; trafik/CDN ayrıca masraflı olabilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k308"></a>
+
+### K308 — hls.js
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Web, arayüz ve oyun.
+- **Ne işe yarar / örnek:** HLS adaptif video yayınını desteklenen tarayıcılarda oynatma.
+- **Resmî kaynak:** [hls.js](https://github.com/video-dev/hls.js).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Apache-2.0; video kodlama, CDN ve barındırma ayrıca gerekir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+
+### Kalite, test ve güvenlik
+
+<a id="k309"></a>
+
+### K309 — Pixelmatch
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Eski ve yeni web ekran görüntülerini piksel bazında karşılaştırma.
+- **Resmî kaynak:** [Pixelmatch](https://github.com/mapbox/pixelmatch).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** ISC; tolerans yanlış pozitif üretebilir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k310"></a>
+
+### K310 — BackstopJS
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Ana Beyin ve VIP site görsel regresyon ekranlarını otomatik test etme.
+- **Resmî kaynak:** [BackstopJS](https://github.com/garris/BackstopJS).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; tarayıcı altyapısı ve temel referans ekran gerekir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k311"></a>
+
+### K311 — Lighthouse
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Site performansı, erişilebilirlik, SEO ve iyi uygulama puanlarını test etme.
+- **Resmî kaynak:** [Lighthouse](https://github.com/GoogleChrome/lighthouse).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Apache-2.0; gerçek kullanıcı performansının yerine geçmez.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k312"></a>
+
+### K312 — axe-core
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Web sayfasındaki erişilebilirlik sorunlarını otomatik kontrol etme.
+- **Resmî kaynak:** [axe-core](https://github.com/dequelabs/axe-core).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MPL-2.0; manuel erişilebilirlik incelemesi de gerekir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k313"></a>
+
+### K313 — Pa11y
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Her sürümde erişilebilirlik sorunları raporunu CI üzerinden üretme.
+- **Resmî kaynak:** [Pa11y](https://github.com/pa11y/pa11y).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** LGPL; tarayıcı/Node bağımlılıklarını kontrol et.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k314"></a>
+
+### K314 — Vitest
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** TypeScript/Vite modülleri için hızlı otomatik birim testleri yazma.
+- **Resmî kaynak:** [Vitest](https://vitest.dev/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; test kapsamı ve kabul kriterleri manuel tasarlanır.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k315"></a>
+
+### K315 — Semgrep Community
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Kodda bilinen güvenlik örüntülerini yerel analizle tarama.
+- **Resmî kaynak:** [Semgrep Community](https://github.com/semgrep/semgrep).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Açık kaynak motorun koşullarını ve Semgrep Cloud ücretli özelliklerini ayır.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k316"></a>
+
+### K316 — ESLint
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** JavaScript/TypeScript kod kalite denetimlerini otomatik uygulama.
+- **Resmî kaynak:** [ESLint](https://eslint.org/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; proje kural yapılandırması gerekir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k317"></a>
+
+### K317 — Prettier
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Kod biçimini ekip genelinde aynı düzende tutma.
+- **Resmî kaynak:** [Prettier](https://prettier.io/).
+- **Nerede çalışır?** Laptop CPU. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** MIT; anlamsal doğruluk testi değildir.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k318"></a>
+
+### K318 — Renovate
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** NPM/Python bağımlılıkları için otomatik sürüm güncelleme PR'ları hazırlama.
+- **Resmî kaynak:** [Renovate](https://github.com/renovatebot/renovate).
+- **Nerede çalışır?** Laptop / GitHub. Laptopta kurulup denenebilir; gerekli model, işlemci ve bellek ayrıca kontrol edilir.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Açık kaynak; önerilen güncellemeler test ve insan onayı görmeli.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+<a id="k319"></a>
+
+### K319 — GitHub Actions
+
+- **Durum:** Ücretsiz/açık kaynak/açık ağırlık/kotalı ücretsiz; ayrıntı ve ticari izin aşağıdaki uyarıdadır.
+- **Kategori:** Kalite, test ve güvenlik.
+- **Ne işe yarar / örnek:** Kod her değiştiğinde testleri otomatik çalıştırma ve Android derleme hattı kurma.
+- **Resmî kaynak:** [GitHub Actions](https://docs.github.com/en/actions).
+- **Nerede çalışır?** GitHub barındırmalı / yerel self-hosted runner. KVM1 kontrol katmanından veya uzaktan kullanılabilir; servis erişimi doğrulanır.
+- **SSD/RAM/VRAM:** Uygulama ile indirilen model/veri farklıdır; indirme sayfasındaki kesin boyutu kontrol et. GPU modeli veya ağır video işlemi varsa yalnızca uzaktaki GPU belleği kullanılır; laptop SSD'si GPU VRAM'i değildir.
+- **Ücret/lisans/uyarı:** Ücretsiz kotalar repo türüne ve plana göre değişir; iOS üretim imzası için macOS ve Apple hesabı ayrıca.
+- **Projeye bağlanma:** Görev türüne göre Ana Beyin arayüzü/OpenCode/Kimi + Python API/CLI ile entegre et; entegrasyon yazılmadan tek komutla otomatik çalıştığını varsayma.
+- **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
+
+
 ## DEĞİŞİKLİK GEÇMİŞİ
+- **2026-10-17 / V2.2:** 44 yeni araç/model/kaynak kartı eklendi (276–319). 10 TB SSD + uzaktan 96 GB GPU mimarisi, ücretsiz/ücretli ayrımı ve proje kullanım kuralları kayda alındı. Ayrı hızlı indeksler güncellendi.
 - **2026-10-16 / V2.1:** 275 kart için sabit GitHub bağlantı noktaları ve makinece aranabilir hızlı JSON indeksi eklendi.
 - **2026-10-16 / V2:** 275 kaydı uzun kart formatına dönüştürme, her araca bir örnek, kurulum/laptop/VPS/disk/RAM/VRAM açıklaması, TikTok yetki denetimli uçtan uca örnek, PowerShell FFmpeg komutu, yapay zekâ araştırmayı durdurma yasağı ve kalıcı ekleme şablonu. 521 eski envanter aynen tarihsel ek olarak saklandı.
 - **2026-10-16 / V1:** İlk açıklamalı katalog, 261 ana + 14 tamamlayıcı kayıt.
