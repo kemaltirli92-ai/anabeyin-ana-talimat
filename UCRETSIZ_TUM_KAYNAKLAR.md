@@ -1,6 +1,6 @@
 # ÜCRETSİZ TÜM KAYNAKLAR
 
-**Sürüm:** 2.2 (ayrıntılı, insan + yapay zekâ ortak başvuru el kitabı)  
+**Sürüm:** 3.0 (ayrıntılı, insan + yapay zekâ ortak başvuru el kitabı)  
 **Tarih:** 17 Ekim 2026  
 **Sahip:** Bu GitHub deposundaki proje. **Ana kaynak:** `UCRETSIZ_TUM_KAYNAKLAR.md`  
 **Hedef:** Sadece isim listesi değil; her kaynağın amacı, yapılabilecek işler, kurulum yeri, yaklaşık donanım gereksinimi, ilişkilendirme biçimi ve otomasyon örneği.
@@ -9,12 +9,12 @@
 
 > **AI MANDATE:** This catalog is a launchpad, **not a research stop condition**. Read the official repo/documentation for each relevant entry, verify live license, release, cost/quota, hardware and integration, **then research beyond this list** for newer and better truly free/open-source alternatives. Record what is confirmed versus estimated, cite links, and recommend additions. Never assume a listed tool is already installed or operational.
 
-**Hızlı arama:** Sık taramalar için [319 araçlık kısa içindekiler](./KAYNAKLAR_ICINDEKILER.md), programatik filtreleme için [JSON indeks](./KAYNAKLAR_HIZLI_INDEKS.json) vardır. Başka AI'lar önce onu tarayıp `K-ID` seçebilir; ardından ana dosyadaki ayrıntılı karta geçebilir. **Ancak bu Markdown dosyası tek başına da tüm açıklamaları ve iş akışını içerir.**
+**Hızlı arama:** Sık taramalar için [425 araçlık kısa içindekiler](./KAYNAKLAR_ICINDEKILER.md), programatik filtreleme için [JSON indeks](./KAYNAKLAR_HIZLI_INDEKS.json) vardır. Başka AI'lar önce onu tarayıp `K-ID` seçebilir; ardından ana dosyadaki ayrıntılı karta geçebilir. **Ancak bu Markdown dosyası tek başına da tüm açıklamaları ve iş akışını içerir.**
 
 ## HIZLI YOL HARİTASI / BU DOSYA NASIL OKUNUR?
 
 1. **Kullanıcı:** "Akhisar ile ilgili 45 saniyelik videoyu görselleştir, seslendir, montajını yap, TikTok'ta yayımla." der.
-2. **Yönetici ajan:** Bu dokümandan iş akışını ve ilgili `K001–K319` kayıtlarını bulur; model/API/kota/VRAM/izinlerini doğrular.
+2. **Yönetici ajan:** Bu dokümandan iş akışını ve ilgili `K001–K425` kayıtlarını bulur; model/API/kota/VRAM/izinlerini doğrular.
 3. **Plan:** Araştırma → kaynaklı senaryo → sahne taslağı → görsel → (uygunsa) video hareketlendirme → Türkçe TTS → müzik → altyazı → FFmpeg → `ffprobe` kontrolü → yayın önizlemesi → hesap ve izin doğrulaması → resmî TikTok API → yayın durumu.
 4. **Yerel:** Ajan, yalnızca kurulu/test edilmiş araçları PowerShell/WSL/CLI ile çağırır; eksikse kaynağa göre kurulum taslağı sunar. Tahmini komutları "çalıştı" diye göstermez.
 5. **Sonuç:** Görev kayıtları, üretilen MP4, SRT, kullanılan kaynaklar, hata ve yayın kimliği (varsa) tek rapor olur.
@@ -6155,7 +6155,1329 @@ Bu bölüm 275 kaydın üzerindeki **eksik araçlar, model sürümleri, Türkçe
 - **Test:** Küçük örnekte giriş → çıktı, maliyet, izin ve kaliteyi ölç; geçtiyse iş kuyruğuna dahil et.
 
 
+
+
+---
+
+## 2026-10-17 / V3.0 — ÜCRETSİZ SEKTÖRLER ÜSTÜ KAYNAK EKLERİ (106 yeni)
+
+**ÖNEMLİ:** Bu kayıtlar resmî proje veya dokümantasyon başlangıç bağlantısını içerir. Tek tek Windows kurulumu, canlı fiyat, ticari kullanım, son release ve RAM/SSD ölçümü yapılmış değildir. Kaynakların hiçbiri yüklendi/çalışıyor diye kabul edilmez. Kotalı ücretsiz servis, ticari kullanımı kısıtlı açık ağırlık, ücretsiz stok içerik ve FOSS ayrı statülerdir. Depolama seçimi 10 TB hedefiyle birlikte planlanır, körlemesine toplu indirme yapılmaz. Ana kullanım planı: [BACASIZ_FABRIKA_ANA_ARASTIRMA_2026-10-17.md](./BACASIZ_FABRIKA_ANA_ARASTIRMA_2026-10-17.md).
+
+
+### Keşif, haber, araştırma
+
+<a id="k320"></a>
+
+### K320 — Miniflux
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** RSS haber ve kaynakları düşük yükle okuyup yeni haberin kimliğini saklama.
+- **Resmî ana kaynak:** [Miniflux](https://github.com/miniflux/v2)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k321"></a>
+
+### K321 — FreshRSS
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Çok sayıda haber kaynağına RSS aboneliği ve filtreleme.
+- **Resmî ana kaynak:** [FreshRSS](https://github.com/FreshRSS/FreshRSS)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k322"></a>
+
+### K322 — changedetection.io
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Resmî kurum sayfaları değiştiğinde sadece yeni içerik için uyarı.
+- **Resmî ana kaynak:** [changedetection.io](https://github.com/dgtlmoon/changedetection.io)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k323"></a>
+
+### K323 — ArchiveBox
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Haberin kaynak sayfasını tarihli delil ve arşiv için saklama.
+- **Resmî ana kaynak:** [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox)
+- **Yer:** Laptop SSD
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k324"></a>
+
+### K324 — trafilatura
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** İzinli web sayfalarından makale metnini temizce çıkarma.
+- **Resmî ana kaynak:** [trafilatura](https://github.com/adbar/trafilatura)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k325"></a>
+
+### K325 — readability.js
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Web sayfasından ana içerik ve başlık çıkarma.
+- **Resmî ana kaynak:** [readability.js](https://github.com/mozilla/readability)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k326"></a>
+
+### K326 — GDELT Project
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Dünya haberlerinde olay/trend keşfi; her haberi orijinal kaynaktan doğrula.
+- **Resmî ana kaynak:** [GDELT Project](https://www.gdeltproject.org/)
+- **Yer:** Çevrim içi veri
+- **Ücret/lisans sınıfı:** Ücretsiz veri; kullanım koşullarına bak. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k327"></a>
+
+### K327 — Perplexity Free
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Kotalı kaynaklı araştırma ve yeni açık kaynak alternatiflerini keşfetme; otomatik API hakkı değil.
+- **Resmî ana kaynak:** [Perplexity Free](https://www.perplexity.ai/help-center/en/articles/11187416-which-perplexity-subscription-plan-is-right-for-you)
+- **Yer:** Tarayıcı
+- **Ücret/lisans sınıfı:** Kotalı ücretsiz. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k328"></a>
+
+### K328 — Google Fact Check Tools
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Viral iddiaların mevcut teyitlerini araştırma; bütün doğru haberleri kapsamıyor.
+- **Resmî ana kaynak:** [Google Fact Check Tools](https://toolbox.google.com/factcheck/explorer)
+- **Yer:** Tarayıcı
+- **Ücret/lisans sınıfı:** Ücretsiz web; API ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k329"></a>
+
+### K329 — OpenAlex
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Bilim, sağlık ve araştırma konularında akademik kaynak keşfetme.
+- **Resmî ana kaynak:** [OpenAlex](https://openalex.org/)
+- **Yer:** Çevrim içi veri
+- **Ücret/lisans sınıfı:** Ücretsiz açık veri; API politikası. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k330"></a>
+
+### K330 — Zotero
+
+- **Alan:** Keşif, haber, araştırma
+- **Somut kullanım:** Araştırma kaynaklarının bibliyografisini ve PDF notlarını toplama.
+- **Resmî ana kaynak:** [Zotero](https://www.zotero.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Yerel sesli komut ve tanıma
+
+<a id="k331"></a>
+
+### K331 — openWakeWord
+
+- **Alan:** Yerel sesli komut ve tanıma
+- **Somut kullanım:** Uyandırma kelimesini dinle; 'Ana Beyin' benzeri özel sözcük için model testi/eğitimi gerekir.
+- **Resmî ana kaynak:** [openWakeWord](https://github.com/dscripka/openWakeWord)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k332"></a>
+
+### K332 — Wyoming Protocol
+
+- **Alan:** Yerel sesli komut ve tanıma
+- **Somut kullanım:** Yerel Whisper, Piper, wake word servislerini standart protokolle bağlama.
+- **Resmî ana kaynak:** [Wyoming Protocol](https://www.home-assistant.io/integrations/wyoming/)
+- **Yer:** Laptop/yerel ağ
+- **Ücret/lisans sınıfı:** FOSS bileşenler. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k333"></a>
+
+### K333 — Home Assistant Assist
+
+- **Alan:** Yerel sesli komut ve tanıma
+- **Somut kullanım:** Yerel konuşma komutlarını tetikleyici ve niyet sistemine bağlama.
+- **Resmî ana kaynak:** [Home Assistant Assist](https://www.home-assistant.io/voice_control/)
+- **Yer:** Laptop/yerel ağ
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k334"></a>
+
+### K334 — Vosk
+
+- **Alan:** Yerel sesli komut ve tanıma
+- **Somut kullanım:** Çevrimdışı konuşma tanıma alternatifi; Türkçe dil modeli kalitesini test et.
+- **Resmî ana kaynak:** [Vosk](https://github.com/alphacep/vosk-api)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k335"></a>
+
+### K335 — sherpa-onnx
+
+- **Alan:** Yerel sesli komut ve tanıma
+- **Somut kullanım:** ONNX tabanlı STT/TTS/konuşmacı işleme için taşınabilir runtime.
+- **Resmî ana kaynak:** [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k336"></a>
+
+### K336 — pyannote.audio
+
+- **Alan:** Yerel sesli komut ve tanıma
+- **Somut kullanım:** Ses kayıtlarında kim konuşuyor bölümlendirmesi; ağırlıkların lisansı ayrı.
+- **Resmî ana kaynak:** [pyannote.audio](https://github.com/pyannote/pyannote-audio)
+- **Yer:** Laptop/GPU
+- **Ücret/lisans sınıfı:** Kod açık + ağırlık şartı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k337"></a>
+
+### K337 — Silero TTS
+
+- **Alan:** Yerel sesli komut ve tanıma
+- **Somut kullanım:** Model desteği bulunan dillerde yerel TTS denemeleri; Türkçe ses uygunluğunu teyit et.
+- **Resmî ana kaynak:** [Silero TTS](https://github.com/snakers4/silero-models)
+- **Yer:** Laptop/GPU
+- **Ücret/lisans sınıfı:** Ağırlık lisansı doğrula. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Görev motoru ve altyapı
+
+<a id="k338"></a>
+
+### K338 — Celery
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Yüzlerce işi sıraya al, hata olursa yeniden dene, başarısız işleri kaydet.
+- **Resmî ana kaynak:** [Celery](https://github.com/celery/celery)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k339"></a>
+
+### K339 — Prefect Open Source
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Video ve web görevlerini akışa bağla, günlük iş takibi yap.
+- **Resmî ana kaynak:** [Prefect Open Source](https://github.com/PrefectHQ/prefect)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS; cloud ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k340"></a>
+
+### K340 — Dagster
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Veri dönüştürme ve düzenli raporlama işlerinin geçmişini tut.
+- **Resmî ana kaynak:** [Dagster](https://github.com/dagster-io/dagster)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS; cloud ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k341"></a>
+
+### K341 — RabbitMQ
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Görev iletilerini güvenilir kuyrukta taşı.
+- **Resmî ana kaynak:** [RabbitMQ](https://github.com/rabbitmq/rabbitmq-server)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k342"></a>
+
+### K342 — WireGuard
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** GPU sunucusu ile laptop arasına güvenli özel bağlantı kur.
+- **Resmî ana kaynak:** [WireGuard](https://www.wireguard.com/)
+- **Yer:** Laptop/GPU sunucusu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k343"></a>
+
+### K343 — Headscale
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Özel mesh ağ kontrol sunucusu; dağıtılmış cihazları güvenli bağlama.
+- **Resmî ana kaynak:** [Headscale](https://github.com/juanfont/headscale)
+- **Yer:** KVM1/laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k344"></a>
+
+### K344 — Forgejo
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Kod ve otomasyon sürümlerini kendi sunucunda yönetme.
+- **Resmî ana kaynak:** [Forgejo](https://codeberg.org/forgejo/forgejo)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k345"></a>
+
+### K345 — Gitea
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Git depo, sorun, sürüm ve proje yönetimi için alternatif.
+- **Resmî ana kaynak:** [Gitea](https://github.com/go-gitea/gitea)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k346"></a>
+
+### K346 — uv
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Python paket ortamlarını hızlı ve tekrar kurulabilir yönet.
+- **Resmî ana kaynak:** [uv](https://github.com/astral-sh/uv)
+- **Yer:** Laptop/GPU
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k347"></a>
+
+### K347 — pnpm
+
+- **Alan:** Görev motoru ve altyapı
+- **Somut kullanım:** Web projelerinde ortak bağımlılıkları verimli sakla.
+- **Resmî ana kaynak:** [pnpm](https://pnpm.io/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Web, CMS, mağaza
+
+<a id="k348"></a>
+
+### K348 — WordPress
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Müşteri siteleri, içerik yönetimi, resmî REST API ile taslak/yayın.
+- **Resmî ana kaynak:** [WordPress](https://wordpress.org/)
+- **Yer:** Laptop/KVM1/barındırma
+- **Ücret/lisans sınıfı:** FOSS; eklentiler ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k349"></a>
+
+### K349 — Astro
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Hızlı, SEO'ya uygun çok sayıda özgün sayfalı web sitesi.
+- **Resmî ana kaynak:** [Astro](https://astro.build/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k350"></a>
+
+### K350 — Hugo
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Statik blog ve katalog sitelerini hızlı derleme.
+- **Resmî ana kaynak:** [Hugo](https://gohugo.io/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k351"></a>
+
+### K351 — Eleventy
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Basit HTML içerik sitelerini kodla üretme.
+- **Resmî ana kaynak:** [Eleventy](https://www.11ty.dev/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k352"></a>
+
+### K352 — Ghost
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** İçerik yayını ve bülten sitesi; e-posta maliyetini ayrı tut.
+- **Resmî ana kaynak:** [Ghost](https://github.com/TryGhost/Ghost)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k353"></a>
+
+### K353 — Payload CMS
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Kendi tasarımlı web siteleri için veritabanlı yönetim paneli.
+- **Resmî ana kaynak:** [Payload CMS](https://github.com/payloadcms/payload)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k354"></a>
+
+### K354 — PocketBase
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Prototiplerde tek dosyalı küçük backend, kullanıcı ve dosya sistemi.
+- **Resmî ana kaynak:** [PocketBase](https://github.com/pocketbase/pocketbase)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k355"></a>
+
+### K355 — Appwrite
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Web/mobil uygulamalara auth, veritabanı, storage arka ucu.
+- **Resmî ana kaynak:** [Appwrite](https://github.com/appwrite/appwrite)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS; hosting ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k356"></a>
+
+### K356 — Medusa
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Özelleştirilebilir e-ticaret arka ucu ve sipariş yönetimi.
+- **Resmî ana kaynak:** [Medusa](https://github.com/medusajs/medusa)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k357"></a>
+
+### K357 — Saleor
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** GraphQL e-ticaret altyapısı; lisansı/sürüm koşullarını ayrıca doğrula.
+- **Resmî ana kaynak:** [Saleor](https://github.com/saleor/saleor)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** Lisans doğrula. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k358"></a>
+
+### K358 — Keycloak
+
+- **Alan:** Web, CMS, mağaza
+- **Somut kullanım:** Müşteri ve yönetici kimlik doğrulama, OAuth/SSO ve yetkiler.
+- **Resmî ana kaynak:** [Keycloak](https://www.keycloak.org/)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Web analitik, SEO ve yayın kalitesi
+
+<a id="k359"></a>
+
+### K359 — Matomo
+
+- **Alan:** Web analitik, SEO ve yayın kalitesi
+- **Somut kullanım:** Birden çok sitenin ziyaret ve hedef dönüşüm analitiğini kendimiz barındır.
+- **Resmî ana kaynak:** [Matomo](https://matomo.org/)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS çekirdek; premium ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k360"></a>
+
+### K360 — Umami
+
+- **Alan:** Web analitik, SEO ve yayın kalitesi
+- **Somut kullanım:** Gizlilik odaklı hafif trafik ve dönüşüm ölçümü.
+- **Resmî ana kaynak:** [Umami](https://umami.is/)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k361"></a>
+
+### K361 — Plausible Community Edition
+
+- **Alan:** Web analitik, SEO ve yayın kalitesi
+- **Somut kullanım:** Web analitik alternatifini kendi sunucunda çalıştır.
+- **Resmî ana kaynak:** [Plausible Community Edition](https://github.com/plausible/community-edition)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS community; cloud ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k362"></a>
+
+### K362 — Lunr.js
+
+- **Alan:** Web analitik, SEO ve yayın kalitesi
+- **Somut kullanım:** Küçük içerik sitelerinde istemci taraflı yerel arama.
+- **Resmî ana kaynak:** [Lunr.js](https://lunrjs.com/)
+- **Yer:** Laptop/site
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k363"></a>
+
+### K363 — OpenTelemetry
+
+- **Alan:** Web analitik, SEO ve yayın kalitesi
+- **Somut kullanım:** Ajan, web ve API işlemlerinin performans ve hata izlerini toplama.
+- **Resmî ana kaynak:** [OpenTelemetry](https://opentelemetry.io/)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Video ve görsel üretim destekleri
+
+<a id="k364"></a>
+
+### K364 — LosslessCut
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** Videonun uygun bölümlerini kalite kaybı olmadan hızlı kes.
+- **Resmî ana kaynak:** [LosslessCut](https://github.com/mifi/lossless-cut)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k365"></a>
+
+### K365 — HandBrake
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** Video boyutunu küçült ve farklı cihazlara uygun kodlama yap.
+- **Resmî ana kaynak:** [HandBrake](https://handbrake.fr/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k366"></a>
+
+### K366 — Upscayl
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** Düşük çözünürlüklü görselleri büyüt; VRAM hızını etkiler.
+- **Resmî ana kaynak:** [Upscayl](https://github.com/upscayl/upscayl)
+- **Yer:** Laptop/GPU
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k367"></a>
+
+### K367 — OpenToonz
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** 2D animasyon ve çizgi film üretim sistemi.
+- **Resmî ana kaynak:** [OpenToonz](https://github.com/opentoonz/opentoonz)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k368"></a>
+
+### K368 — Synfig Studio
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** Vektör tabanlı 2D animasyon ve hareketli tanıtım.
+- **Resmî ana kaynak:** [Synfig Studio](https://www.synfig.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k369"></a>
+
+### K369 — Pencil2D
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** Basit kare kare çizgi animasyonu.
+- **Resmî ana kaynak:** [Pencil2D](https://www.pencil2d.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k370"></a>
+
+### K370 — OpenShot
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** Basit video düzenleme alternatifi; Kdenlive ana tercih.
+- **Resmî ana kaynak:** [OpenShot](https://www.openshot.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k371"></a>
+
+### K371 — Flowframes
+
+- **Alan:** Video ve görsel üretim destekleri
+- **Somut kullanım:** Kare artırma arayüzü; ücretsiz durumu/lisans ve derleme kaynağını ayrıca denetle.
+- **Resmî ana kaynak:** [Flowframes](https://nmkd.itch.io/flowframes)
+- **Yer:** Laptop/GPU
+- **Ücret/lisans sınıfı:** Ücretsiz olabilir; kapalı kısımlar. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Oyun ve 3D
+
+<a id="k372"></a>
+
+### K372 — Tiled
+
+- **Alan:** Oyun ve 3D
+- **Somut kullanım:** Godot 2D oyunlarına tilemap, bölümler ve harita düzeni oluştur.
+- **Resmî ana kaynak:** [Tiled](https://www.mapeditor.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k373"></a>
+
+### K373 — Pixelorama
+
+- **Alan:** Oyun ve 3D
+- **Somut kullanım:** Piksel sanat, animasyonlu karakter ve arayüz öğesi çiz.
+- **Resmî ana kaynak:** [Pixelorama](https://github.com/Orama-Interactive/Pixelorama)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k374"></a>
+
+### K374 — LibreSprite
+
+- **Alan:** Oyun ve 3D
+- **Somut kullanım:** 2D oyunlar için ücretsiz piksel sprite editörü.
+- **Resmî ana kaynak:** [LibreSprite](https://github.com/LibreSprite/LibreSprite)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k375"></a>
+
+### K375 — Piskel
+
+- **Alan:** Oyun ve 3D
+- **Somut kullanım:** Piksel karakter ve sprite sheet animasyonu oluştur.
+- **Resmî ana kaynak:** [Piskel](https://www.piskelapp.com/)
+- **Yer:** Laptop/tarayıcı
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k376"></a>
+
+### K376 — FreeCAD
+
+- **Alan:** Oyun ve 3D
+- **Somut kullanım:** Teknik 3D parçalar, mobilya ve endüstriyel çizim.
+- **Resmî ana kaynak:** [FreeCAD](https://www.freecad.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k377"></a>
+
+### K377 — OpenSCAD
+
+- **Alan:** Oyun ve 3D
+- **Somut kullanım:** Parametrik 3D modelleri kodla oluştur.
+- **Resmî ana kaynak:** [OpenSCAD](https://openscad.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k378"></a>
+
+### K378 — Goxel
+
+- **Alan:** Oyun ve 3D
+- **Somut kullanım:** Voxel sanat, düşük poligonlu oyun varlıkları üret.
+- **Resmî ana kaynak:** [Goxel](https://github.com/guillaumechereau/goxel)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Muhasebe, ERP, stok
+
+<a id="k379"></a>
+
+### K379 — GnuCash
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Küçük işletme defteri, gelir/gider ve çift kayıt muhasebe takibi; Türkiye e-defter değil.
+- **Resmî ana kaynak:** [GnuCash](https://www.gnucash.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k380"></a>
+
+### K380 — Dolibarr ERP/CRM
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Stok, teklif, müşteri, fatura, sipariş ve küçük işletme süreçleri.
+- **Resmî ana kaynak:** [Dolibarr ERP/CRM](https://www.dolibarr.org/)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS; ülke mevzuatı için ayrı uyarlama. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k381"></a>
+
+### K381 — Odoo Community
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** CRM, stok, satış ve ERP bileşenleri; Enterprise modülleri ücretli.
+- **Resmî ana kaynak:** [Odoo Community](https://github.com/odoo/odoo)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** Community FOSS + ücretli eklentiler. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k382"></a>
+
+### K382 — Akaunting
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Ön muhasebe, gelir gider, fatura ve raporlar.
+- **Resmî ana kaynak:** [Akaunting](https://github.com/akaunting/akaunting)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** Açık çekirdek; premium özellikler ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k383"></a>
+
+### K383 — Invoice Ninja
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Teklif, müşteriye fatura ve ödeme takip sistemi.
+- **Resmî ana kaynak:** [Invoice Ninja](https://github.com/invoiceninja/invoiceninja)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS sürüm; barındırma ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k384"></a>
+
+### K384 — Firefly III
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Nakit akışı ve kişisel gider analizi; resmî muhasebe değildir.
+- **Resmî ana kaynak:** [Firefly III](https://github.com/firefly-iii/firefly-iii)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k385"></a>
+
+### K385 — Actual Budget
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Yerel odaklı bütçe ve masraf takibi; mali tablolara destek.
+- **Resmî ana kaynak:** [Actual Budget](https://github.com/actualbudget/actual)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k386"></a>
+
+### K386 — InvenTree
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Stok, ürün ağacı, parça alımı ve küçük imalat depo yönetimi.
+- **Resmî ana kaynak:** [InvenTree](https://github.com/inventree/InvenTree)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k387"></a>
+
+### K387 — OpenBoxes
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Stok, depo, dağıtım ve tedarik zinciri yönetimi.
+- **Resmî ana kaynak:** [OpenBoxes](https://github.com/openboxes/openboxes)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k388"></a>
+
+### K388 — Ledger CLI
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Metin dosyası tabanlı değişiklik denetlenebilir muhasebe kayıtları.
+- **Resmî ana kaynak:** [Ledger CLI](https://ledger-cli.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k389"></a>
+
+### K389 — Beancount
+
+- **Alan:** Muhasebe, ERP, stok
+- **Somut kullanım:** Metin tabanlı finans/portföy ve çift kayıt defterleri.
+- **Resmî ana kaynak:** [Beancount](https://github.com/beancount/beancount)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### CRM, randevu, iletişim, satış
+
+<a id="k390"></a>
+
+### K390 — Twenty CRM
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** Müşteri, fırsat, anlaşma ve satış görüşmelerini takip et.
+- **Resmî ana kaynak:** [Twenty CRM](https://github.com/twentyhq/twenty)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS çekirdek; bulut ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k391"></a>
+
+### K391 — SuiteCRM
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** Satış, müşteri, pazarlama ve servis takibi.
+- **Resmî ana kaynak:** [SuiteCRM](https://suitecrm.com/)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k392"></a>
+
+### K392 — EspoCRM
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** Hafif CRM, müşteri kaydı ve satış otomasyonu.
+- **Resmî ana kaynak:** [EspoCRM](https://github.com/espocrm/espocrm)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS çekirdek; eklentiler ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k393"></a>
+
+### K393 — Cal.com
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** Randevu ve toplantı takvimi; lisans/özellik farkını kontrol et.
+- **Resmî ana kaynak:** [Cal.com](https://github.com/calcom/cal.com)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS/fair-code bileşenler; doğrula. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k394"></a>
+
+### K394 — Easy!Appointments
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** Kuaför/servis randevusu için hafif açık kaynak rezervasyon sistemi.
+- **Resmî ana kaynak:** [Easy!Appointments](https://github.com/alextselegidis/easyappointments)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k395"></a>
+
+### K395 — Zammad
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** Müşteri destek talepleri ve e-posta ticket yönetimi.
+- **Resmî ana kaynak:** [Zammad](https://github.com/zammad/zammad)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k396"></a>
+
+### K396 — Listmonk
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** İzinli e-posta bültenleri ve abone yönetimi.
+- **Resmî ana kaynak:** [Listmonk](https://github.com/knadh/listmonk)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS; SMTP ve KVKK ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k397"></a>
+
+### K397 — Mautic
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** İzinli e-posta pazarlaması ve müşteri otomasyonları.
+- **Resmî ana kaynak:** [Mautic](https://github.com/mautic/mautic)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k398"></a>
+
+### K398 — Typebot
+
+- **Alan:** CRM, randevu, iletişim, satış
+- **Somut kullanım:** Web sitesine konuşmalı bilgi toplama ve müşteri formu ekleme.
+- **Resmî ana kaynak:** [Typebot](https://github.com/baptisteArno/typebot.io)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS çekirdek; bulut ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Belge, PDF, arşiv
+
+<a id="k399"></a>
+
+### K399 — Paperless-ngx
+
+- **Alan:** Belge, PDF, arşiv
+- **Somut kullanım:** Fiş, fatura ve evrakları OCR ile arşivleyip etiketle.
+- **Resmî ana kaynak:** [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k400"></a>
+
+### K400 — Stirling-PDF
+
+- **Alan:** Belge, PDF, arşiv
+- **Somut kullanım:** PDF birleştirme, ayırma, dönüştürme ve redaksiyon.
+- **Resmî ana kaynak:** [Stirling-PDF](https://github.com/Stirling-Tools/Stirling-PDF)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS çekirdek; ticari özellikler ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k401"></a>
+
+### K401 — OCRmyPDF
+
+- **Alan:** Belge, PDF, arşiv
+- **Somut kullanım:** Taranmış PDF dosyalarına aranabilir metin katmanı ekle.
+- **Resmî ana kaynak:** [OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k402"></a>
+
+### K402 — Gotenberg
+
+- **Alan:** Belge, PDF, arşiv
+- **Somut kullanım:** HTML/Word/LibreOffice içeriklerini otomatik PDF'ye çevir.
+- **Resmî ana kaynak:** [Gotenberg](https://github.com/gotenberg/gotenberg)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k403"></a>
+
+### K403 — Joplin
+
+- **Alan:** Belge, PDF, arşiv
+- **Somut kullanım:** Projeler, müşteri notları ve araştırma arşivi.
+- **Resmî ana kaynak:** [Joplin](https://joplinapp.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k404"></a>
+
+### K404 — Memos
+
+- **Alan:** Belge, PDF, arşiv
+- **Somut kullanım:** Hızlı not, karar ve görev günlüklerini Markdown olarak sakla.
+- **Resmî ana kaynak:** [Memos](https://github.com/usememos/memos)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Veri, analitik ve iş zekâsı
+
+<a id="k405"></a>
+
+### K405 — DuckDB
+
+- **Alan:** Veri, analitik ve iş zekâsı
+- **Somut kullanım:** Büyük CSV/Parquet dosyalarında yerel analitik sorgular.
+- **Resmî ana kaynak:** [DuckDB](https://duckdb.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k406"></a>
+
+### K406 — dbt Core
+
+- **Alan:** Veri, analitik ve iş zekâsı
+- **Somut kullanım:** Finans, trafik ve CRM verilerinin dönüşüm katmanını sürümle.
+- **Resmî ana kaynak:** [dbt Core](https://github.com/dbt-labs/dbt-core)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k407"></a>
+
+### K407 — Meltano
+
+- **Alan:** Veri, analitik ve iş zekâsı
+- **Somut kullanım:** İzinli veri kaynaklarını raporlama veritabanına çekme.
+- **Resmî ana kaynak:** [Meltano](https://github.com/meltano/meltano)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k408"></a>
+
+### K408 — Apache NiFi
+
+- **Alan:** Veri, analitik ve iş zekâsı
+- **Somut kullanım:** Farklı sistemlerden gelen veriyi görsel akışla taşıma.
+- **Resmî ana kaynak:** [Apache NiFi](https://nifi.apache.org/)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS; orta RAM. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k409"></a>
+
+### K409 — Apache ECharts
+
+- **Alan:** Veri, analitik ve iş zekâsı
+- **Somut kullanım:** Etkileşimli gelir, trafik ve hisse raporları.
+- **Resmî ana kaynak:** [Apache ECharts](https://echarts.apache.org/)
+- **Yer:** Laptop/web
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Güvenlik, disk, yedek
+
+<a id="k410"></a>
+
+### K410 — restic
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** SSD projelerinin şifreli, sürümlü yedeğini farklı diske/cloud'a al.
+- **Resmî ana kaynak:** [restic](https://restic.net/)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k411"></a>
+
+### K411 — Kopia
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** Sürüm ve sıkıştırmalı otomatik güvenli yedekleme.
+- **Resmî ana kaynak:** [Kopia](https://kopia.io/)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k412"></a>
+
+### K412 — Syncthing
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** Projeleri cihazlar arasında uçtan uca şifreli eşitleme.
+- **Resmî ana kaynak:** [Syncthing](https://syncthing.net/)
+- **Yer:** Laptop/diğer bilgisayar
+- **Ücret/lisans sınıfı:** FOSS; yedek yerine geçmez. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k413"></a>
+
+### K413 — rclone
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** Uyumlu bulut ve disk hedeflerine dosya kopyalama ve doğrulama.
+- **Resmî ana kaynak:** [rclone](https://rclone.org/)
+- **Yer:** Laptop/KVM1
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k414"></a>
+
+### K414 — Cryptomator
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** Önemli müşteri dosyalarını dosya düzeyinde şifrele.
+- **Resmî ana kaynak:** [Cryptomator](https://cryptomator.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS; mobil sürüm fiyatını ayır. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k415"></a>
+
+### K415 — VeraCrypt
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** Harici SSD veya proje diskini şifreli kapsayıcıyla koru.
+- **Resmî ana kaynak:** [VeraCrypt](https://www.veracrypt.fr/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k416"></a>
+
+### K416 — age encryption
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** Gizli yapılandırmaları, API yedeklerini güvenle şifrele.
+- **Resmî ana kaynak:** [age encryption](https://github.com/FiloSottile/age)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k417"></a>
+
+### K417 — Bitwarden self-host (Vaultwarden)
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** API anahtarı ve hesap parolalarını güvenli kasada sakla.
+- **Resmî ana kaynak:** [Bitwarden self-host (Vaultwarden)](https://github.com/dani-garcia/vaultwarden)
+- **Yer:** Laptop/sunucu
+- **Ücret/lisans sınıfı:** FOSS; yetki ve ağ erişimi kritik. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k418"></a>
+
+### K418 — Authentik
+
+- **Alan:** Güvenlik, disk, yedek
+- **Somut kullanım:** İç panellere tek hesapla SSO/MFA erişimi.
+- **Resmî ana kaynak:** [Authentik](https://github.com/goauthentik/authentik)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS çekirdek. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
+### Harita, turizm, mekanik, diğer
+
+<a id="k419"></a>
+
+### K419 — QGIS
+
+- **Alan:** Harita, turizm, mekanik, diğer
+- **Somut kullanım:** Transfer, emlak, franchise ve tarım lokasyonlarını haritada analiz et.
+- **Resmî ana kaynak:** [QGIS](https://qgis.org/)
+- **Yer:** Laptop
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k420"></a>
+
+### K420 — Leaflet
+
+- **Alan:** Harita, turizm, mekanik, diğer
+- **Somut kullanım:** Web sitelerinde etkileşimli harita arayüzü.
+- **Resmî ana kaynak:** [Leaflet](https://leafletjs.com/)
+- **Yer:** Laptop/web
+- **Ücret/lisans sınıfı:** FOSS; harita tile API kullanım şartı ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k421"></a>
+
+### K421 — MapLibre GL JS
+
+- **Alan:** Harita, turizm, mekanik, diğer
+- **Somut kullanım:** Haritada 3D/vektör gösterim, çok sayıda lokasyon sayfası.
+- **Resmî ana kaynak:** [MapLibre GL JS](https://maplibre.org/)
+- **Yer:** Laptop/web
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k422"></a>
+
+### K422 — OSRM
+
+- **Alan:** Harita, turizm, mekanik, diğer
+- **Somut kullanım:** İzinli OpenStreetMap verisiyle yol/mesafe yönlendirmesi.
+- **Resmî ana kaynak:** [OSRM](https://project-osrm.org/)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS; harita verisi/hosting ayrı. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k423"></a>
+
+### K423 — Valhalla
+
+- **Alan:** Harita, turizm, mekanik, diğer
+- **Somut kullanım:** Rota, mesafe ve taşıma hesaplamaları için yönlendirme motoru.
+- **Resmî ana kaynak:** [Valhalla](https://github.com/valhalla/valhalla)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k424"></a>
+
+### K424 — OpenProject Community
+
+- **Alan:** Harita, turizm, mekanik, diğer
+- **Somut kullanım:** Büyük Ana Beyin modülleri, proje panosu, sürüm ve görev takibi.
+- **Resmî ana kaynak:** [OpenProject Community](https://github.com/opf/openproject)
+- **Yer:** Sunucu
+- **Ücret/lisans sınıfı:** FOSS community. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+<a id="k425"></a>
+
+### K425 — Home Assistant
+
+- **Alan:** Harita, turizm, mekanik, diğer
+- **Somut kullanım:** Yerel ses komutlarını otomasyon tetikleyicilerine bağlama.
+- **Resmî ana kaynak:** [Home Assistant](https://www.home-assistant.io/)
+- **Yer:** Laptop/yerel ağ
+- **Ücret/lisans sınıfı:** FOSS. Sürüm, dağıtım lisansı, API sınırı, ticari kullanım ve üçüncü taraf eklenti lisanslarını doğrula.
+- **SSD/RAM/VRAM:** Hafif CLI/masaüstü araçlar genelde MB–birkaç GB; sunucu sistemlerinde Docker imajı+veritabanı birden fazla GB olabilir; yerel büyük modelin on–yüzlerce GB ağırlığı ayrıca kaydedilir. Bu kaynak için **tekil donanım testi yapılmadı**.
+- **Örnek entegrasyon:** Ana Beyin görev kuyruğu ilgili servis/CLI/API'ye girdi verir → çıktının doğruluğu, sürüm, zaman, dosya ve varsa maliyet kaydı tutulur. Güvenlik/para/yayın işlemleri tanımlanmış yetkilere uyar.
+
+
 ## DEĞİŞİKLİK GEÇMİŞİ
+- **2026-10-17 / V3.0:** Sektörler üstü 106 yeni ücretsiz/açık kaynak/ücretsiz kotalı araç kaydı; toplam 425. Yerel sesli ajan, ERP, çoklu kanal, web, veri, yedek ve araştırma araçları eklendi. Flowise EOL uyarısı ve resmi lisans kaynakları ana araştırmada.
+
 - **2026-10-17 / V2.2:** 44 yeni araç/model/kaynak kartı eklendi (276–319). 10 TB SSD + uzaktan 96 GB GPU mimarisi, ücretsiz/ücretli ayrımı ve proje kullanım kuralları kayda alındı. Ayrı hızlı indeksler güncellendi.
 - **2026-10-16 / V2.1:** 275 kart için sabit GitHub bağlantı noktaları ve makinece aranabilir hızlı JSON indeksi eklendi.
 - **2026-10-16 / V2:** 275 kaydı uzun kart formatına dönüştürme, her araca bir örnek, kurulum/laptop/VPS/disk/RAM/VRAM açıklaması, TikTok yetki denetimli uçtan uca örnek, PowerShell FFmpeg komutu, yapay zekâ araştırmayı durdurma yasağı ve kalıcı ekleme şablonu. 521 eski envanter aynen tarihsel ek olarak saklandı.
