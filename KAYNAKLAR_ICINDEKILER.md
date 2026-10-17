@@ -1,6 +1,6 @@
 # ÜCRETSİZ TÜM KAYNAKLAR — HIZLI İÇİNDEKİLER
 
-**Amaç:** Uzun belgeyi her seferinde okumadan doğru aracı bulmak. 275 kart içerir.
+**Amaç:** Uzun belgeyi her seferinde okumadan doğru aracı bulmak. 319 kart içerir.
 
 > Yapay zekâ için kural: Bir kart seçince [ayrıntılı ana dosyada](./UCRETSIZ_TUM_KAYNAKLAR.md) o kartın **tam açıklamasını**, RAM/VRAM/SSD/VPS koşullarını oku. Sonrasında resmî URL'yi ve **bu katalog dışında yeni alternatifleri de** araştır. Bu dosya araştırmanın sonu değildir.
 
@@ -337,5 +337,73 @@
 | K274 | AGENTS.md | AGENTS.md'ye klasör, güvenlik, izin ve test komutlarını yaz. | [Resmî](https://agents.md/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k274) |
 | K275 | yt-dlp | yt-dlp ile yalnızca hakkın olan videoyu indirip FFmpeg işlemesine aktar. | [Resmî](https://github.com/yt-dlp/yt-dlp) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k275) |
 
+
+
+
+## 2026-10-17 / V2.2 yeni eklenen kaynaklar (44 kayıt)
+
+### Video, görsel, medya
+
+| ID | Araç/model | Somut kullanım | Kaynak | Ayrıntı |
+|---|---|---|---|---|
+| K276 | Fooocus | SDXL tabanlı görsel üretimini kolaylaştırır; eski 4 GB NVIDIA laptopta düşük VRAM ayarlarıyla denenebilir. | [Resmî](https://github.com/lllyasviel/Fooocus) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k276) |
+| K277 | WanGP (Wan2GP) | Wan, LTX, Qwen-Image vb. destekleyen düşük VRAM odaklı arayüz ve toplu üretim yöneticisi. | [Resmî](https://github.com/deepbeepmeep/WanGP) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k277) |
+| K278 | MoviePy | Python ile videoları birleştirme, başlık, geçiş ve reklam montajını kodla üretme. | [Resmî](https://github.com/Zulko/moviepy) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k278) |
+| K279 | Manim Community | Ekonomi grafiklerini, eğitsel formülleri ve animasyonlu anlatımları üretme. | [Resmî](https://github.com/ManimCommunity/manim) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k279) |
+| K280 | Presenton | Ollama/LLM bağlantısıyla değiştirilebilir sunum ve satış teklifi PPTX oluşturma. | [Resmî](https://github.com/presenton/presenton) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k280) |
+| K281 | Pexels API | İzinli stok fotoğraf ve videoları anahtar kullanarak arama; müşterinin reklamına montajlama. | [Resmî](https://www.pexels.com/api/documentation/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k281) |
+| K282 | Mixkit Stock Video | Ücretsiz lisanslı stok video arşivinden ticari reklamlarda kullanılabilen uygun klipler seçme. | [Resmî](https://mixkit.co/license/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k282) |
+| K283 | Mixkit Stock Music | Lisans izin verdiğinde sosyal medya ve çevrim içi reklamlara müzik ekleme. | [Resmî](https://mixkit.co/license/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k283) |
+| K284 | Hugging Face ZeroGPU Spaces | Küçük GPU denemelerini aboneliksiz paylaşımlı Spaces üzerinde yapma. | [Resmî](https://huggingface.co/docs/hub/main/en/spaces-zerogpu) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k284) |
+| K285 | LTX-2.5 | 96 GB GPU'da gerçek AI video/ses sahneleri ve uygun 4K iş akışı denemesi. | [Resmî](https://huggingface.co/Lightricks/LTX-2.5) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k285) |
+| K286 | Piper Türkçe sesleri | Piper TTS'yi Türkçe ses paketleriyle internet olmadan seslendirme işlerinde kullanma. | [Resmî](https://huggingface.co/rhasspy/piper-voices/tree/main/tr) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k286) |
+
+### Açık ağırlıklı dil ve kod modelleri
+
+| ID | Araç/model | Somut kullanım | Kaynak | Ayrıntı |
+|---|---|---|---|---|
+| K287 | Qwen3.5 9B | Küçük komutlar, görsel anlama ve senaryo/kod yardımı; uygun quantization ile yerelde çalıştırma. | [Resmî](https://huggingface.co/Qwen/Qwen3.5-9B) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k287) |
+| K288 | Qwen3.5 35B-A3B | Ana Beyin için güçlü yerel LLM, çok adımlı araç kullanımını deneme. | [Resmî](https://huggingface.co/Qwen/Qwen3.5-35B-A3B) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k288) |
+| K289 | Qwen3-Coder-Next 80B | Büyük yazılım projelerinde çok dosyalı kod geliştirme, test düzeltme ve araç çağrısı. | [Resmî](https://huggingface.co/Qwen/Qwen3-Coder-Next) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k289) |
+| K290 | Devstral Small 2 24B | Mistral'ın kodlama ve ajan görevleri için açık ağırlıklı modelini yerel GPU'da deneme. | [Resmî](https://huggingface.co/mistralai/Devstral-Small-2-24B-Instruct-2512) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k290) |
+| K291 | Qwen2.5-Coder 7B Instruct | Laptopta kod tamamlama, küçük Godot/Python görevleri ve yerel yardımcı ajan. | [Resmî](https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k291) |
+| K292 | Qwen2.5-Coder 3B Instruct | 4 GB GPU ve 16 GB RAM'li mevcut laptopta küçük kod üretim görevlerini deneme. | [Resmî](https://huggingface.co/Qwen/Qwen2.5-Coder-3B-Instruct) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k292) |
+| K293 | Mistral Vibe | Terminal tabanlı kod ajanı; yerel veya API destekli Mistral modelini proje klasöründe çalıştırma. | [Resmî](https://github.com/mistralai/mistral-vibe) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k293) |
+
+### Web, arayüz ve oyun
+
+| ID | Araç/model | Somut kullanım | Kaynak | Ayrıntı |
+|---|---|---|---|---|
+| K294 | Vite | Ana Beyin ve transfer panellerinde hızlı yerel ön yüz geliştirme. | [Resmî](https://github.com/vitejs/vite) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k294) |
+| K295 | TypeScript | Büyük projede tür hatalarını derleme anında yakalayıp daha güvenilir modüller yazma. | [Resmî](https://www.typescriptlang.org/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k295) |
+| K296 | Tailwind CSS | Yeniden kullanılabilir responsive arayüzler, panel ve mağaza sayfaları tasarlama. | [Resmî](https://tailwindcss.com/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k296) |
+| K297 | shadcn/ui | Ana Beyin yönetim panelinde kaynak kodlu bileşenleri projeye yerel ekleme. | [Resmî](https://ui.shadcn.com/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k297) |
+| K298 | Radix UI | Erişilebilir menü, açılır pencere, sekme ve form bileşenleri kurma. | [Resmî](https://www.radix-ui.com/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k298) |
+| K299 | Lucide Icons | Lisansı uygun ücretsiz SVG ikonlarla web ve uygulama tasarımlarını birleştirme. | [Resmî](https://lucide.dev/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k299) |
+| K300 | Motion (Framer Motion) | Web arayüz geçişleri, ürün kartı animasyonları, sayfa hareketleri yapma. | [Resmî](https://motion.dev/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k300) |
+| K301 | GSAP | Gelişmiş kaydırmalı animasyonlar ve özel geçişler oluşturma. | [Resmî](https://gsap.com/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k301) |
+| K302 | lottie-web | Logo ve arayüz mikro-animasyonlarını JSON oynatıcıyla webde gösterme. | [Resmî](https://github.com/airbnb/lottie-web) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k302) |
+| K303 | Swiper | Mobil uyumlu ürün ve ilan kaydırma galerileri tasarlama. | [Resmî](https://swiperjs.com/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k303) |
+| K304 | Embla Carousel | Hafif dokunmatik ürün galerileri ve ilan slaytları yapma. | [Resmî](https://www.embla-carousel.com/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k304) |
+| K305 | Cropper.js | Müşterinin yüklediği logo ve ürün fotoğrafını tarayıcıda kırpmasına izin verme. | [Resmî](https://github.com/fengyuanchen/cropperjs) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k305) |
+| K306 | Plyr | Web sitemize erişilebilir video oynatıcı ekleme. | [Resmî](https://github.com/sampotts/plyr) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k306) |
+| K307 | Video.js | Eğitim, reklam ve müşteri paneli videolarını webde oynatma. | [Resmî](https://videojs.com/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k307) |
+| K308 | hls.js | HLS adaptif video yayınını desteklenen tarayıcılarda oynatma. | [Resmî](https://github.com/video-dev/hls.js) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k308) |
+
+### Kalite, test ve güvenlik
+
+| ID | Araç/model | Somut kullanım | Kaynak | Ayrıntı |
+|---|---|---|---|---|
+| K309 | Pixelmatch | Eski ve yeni web ekran görüntülerini piksel bazında karşılaştırma. | [Resmî](https://github.com/mapbox/pixelmatch) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k309) |
+| K310 | BackstopJS | Ana Beyin ve VIP site görsel regresyon ekranlarını otomatik test etme. | [Resmî](https://github.com/garris/BackstopJS) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k310) |
+| K311 | Lighthouse | Site performansı, erişilebilirlik, SEO ve iyi uygulama puanlarını test etme. | [Resmî](https://github.com/GoogleChrome/lighthouse) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k311) |
+| K312 | axe-core | Web sayfasındaki erişilebilirlik sorunlarını otomatik kontrol etme. | [Resmî](https://github.com/dequelabs/axe-core) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k312) |
+| K313 | Pa11y | Her sürümde erişilebilirlik sorunları raporunu CI üzerinden üretme. | [Resmî](https://github.com/pa11y/pa11y) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k313) |
+| K314 | Vitest | TypeScript/Vite modülleri için hızlı otomatik birim testleri yazma. | [Resmî](https://vitest.dev/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k314) |
+| K315 | Semgrep Community | Kodda bilinen güvenlik örüntülerini yerel analizle tarama. | [Resmî](https://github.com/semgrep/semgrep) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k315) |
+| K316 | ESLint | JavaScript/TypeScript kod kalite denetimlerini otomatik uygulama. | [Resmî](https://eslint.org/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k316) |
+| K317 | Prettier | Kod biçimini ekip genelinde aynı düzende tutma. | [Resmî](https://prettier.io/) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k317) |
+| K318 | Renovate | NPM/Python bağımlılıkları için otomatik sürüm güncelleme PR'ları hazırlama. | [Resmî](https://github.com/renovatebot/renovate) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k318) |
+| K319 | GitHub Actions | Kod her değiştiğinde testleri otomatik çalıştırma ve Android derleme hattı kurma. | [Resmî](https://docs.github.com/en/actions) | [Tam kart](https://github.com/kemaltirli92-ai/anabeyin-ana-talimat/blob/main/UCRETSIZ_TUM_KAYNAKLAR.md#k319) |
 
 **Kaynak ayrıntıları:** [Ana Markdown](./UCRETSIZ_TUM_KAYNAKLAR.md) · [JSON indeks](./KAYNAKLAR_HIZLI_INDEKS.json) · [Eski 521 kayıt](./ANABEYIN_ANA_KURULUM_ENVANTERI_521.md)
