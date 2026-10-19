@@ -1,5 +1,5 @@
 # ANA BEYİN — YAPAY ZEKÂ SOHBETİ ARAÇLARI
-**Sürüm:** 1.4 — Kategori 02 Tur 1 kısmi bulguları eklendi  
+**Sürüm:** 1.5 — Kategori 02 Tur 2 ve bağımsız lisans kontrolleri eklendi  
 **Tarih:** 20.10.2026  
 **Proje:** anabeyin.com  
 **Durum:** ADAY ENVANTERİ — kurulum ve ticari lisans onayı henüz yapılmadı.
@@ -563,3 +563,189 @@ Müşteri sohbeti (repo / screenshot / istek)
 - SWE-bench sonuçları gerçek ürünün tam site üretme güvenilirliğini kanıtlamaz; kullanıcıya sürekli başarı garantisi verilmez.
 
 **Kategori 02 Tur 1:** `KISMİ AKTARIM / ikinci tur araştırması hazır`. Tam ilk rapor sağlanırsa bu kısım eksik kategorilerle genişletilecektir; **kategori kapanmış sayılmaz**.
+
+
+---
+
+# 13 — KATEGORİ 02: KODLAMA / WEB / MOBİL / OYUN — TUR 2 BULGULARI
+
+**Tarih:** 20.10.2026  
+**Kaynak:** Kullanıcının paylaştığı *ANA BEYİN — KATEGORİ 02 / DERİN ARAŞTIRMA TURU 2* (646 satır).  
+**Araştırma durumu:** Kategori 02 için 2. tur teslim alındı; 1. turun yalnız son parçası gelmiş olduğundan ilk turdaki tüm bulguların alındığı iddia edilmez. Yeni farklar kaydedildi; kopya teknoloji kayıtları oluşturulmadı.  
+**Güven düzeyi:** Bazı yazılım lisansları doğrudan resmî depolardan çapraz denetlendi. Geri kalan teknik değerler ve maliyetler kaynak rapor iddiasıdır; gerçek test yapılmadı.
+
+## 13.1 Çok önemli: resmî kaynakla saptanan lisans/ürün düzeltmeleri
+
+| Teknoloji | Perplexity iddiası | Bağımsız kontrol / Ana Beyin kararı |
+|---|---|---|
+| **AutoCodeRover** | AGPL-3.0 (ticari olmayan) + ticari çift lisans | **ÇELİŞİYOR.** 20.10.2026 tarihinde doğrudan ana depo \`AutoCodeRoverSG/auto-code-rover/blob/main/LICENSE\` incelendiğinde **SONAR Source-Available License v1.0** metni gösteriyor; bu AGPL değildir, hatta SonarQube ile ilgili çok özel rekabet/AI kısıtları içerir. Fork veya başka depodaki AGPL lisansından ana depoya sonuç taşınamaz. **TİCARİ KULLANIMA KAPALI / SAĞLAYICIDAN YAZILI AÇIKLAMA GEREKLİ.** Kanıt: https://github.com/AutoCodeRoverSG/auto-code-rover/blob/main/LICENSE . Tarihi ve commit SHA ile lisans arşivlenmeli. |
+| **OpenHands çekirdeği** | MIT | **DOĞRULANDI:** https://github.com/OpenHands/OpenHands/blob/main/LICENSE — MIT; korunan telif/izin bildirimi gerekir. Çekirdeğin kullanımı LLM maliyetini karşılamaz. |
+| **OpenHands Cloud** | PolyForm Free Trial, 30 gün/yıl | **DOĞRULANDI:** https://github.com/OpenHands/OpenHands-Cloud/blob/main/README.md açık kaynak olmadığını ve takvim yılı başına 30 günlük ücretsiz lisans dönemini bildiriyor; ticari Cloud paketini MIT çekirdeğiyle karıştırma. |
+| **Agentless** | MIT | **DOĞRULANDI:** https://github.com/OpenAutoCoder/Agentless/blob/main/LICENSE . Resmî README üç aşamalı \`localization → repair → patch validation\` akışı ve Claude 3.5 Sonnet + Agentless benchmark referansı bildiriyor: https://github.com/OpenAutoCoder/Agentless . |
+| **RepoAgent** | Apache-2.0 | **DOĞRULANDI:** https://github.com/OpenBMB/RepoAgent/blob/main/LICENSE . Çok dilliliği ve yeni repo boyutunda ölçeği ayrıca test edilecek. |
+| **GPT Engineer** | MIT + arşiv | **DOĞRULANDI:** https://github.com/AntonOsika/gpt-engineer — ana depo **22.04.2026'da arşivlenmiş**; MIT lisansı bulunsa bile üretimde aktif bakım motoru olarak seçilmez. |
+| **Godot MCP Full Control** | MIT, 157 araç | **DOĞRULANDI:** https://github.com/tugcantopaloglu/godot-mcp ve https://github.com/tugcantopaloglu/godot-mcp/blob/main/LICENSE ; Node.js >=18, Godot >=4.4, C#/.NET opsiyonel, runtime TCP 127.0.0.1:9090; aşırı araç yetkileri ayrıştırılmalı. |
+
+### 13.1.1 Lisans kanıt ve sürüm saklama standardı
+Lisans kayıtları GitHub deposu **tam owner/repo**, commit SHA, alt bileşen yolu, tarih, LICENSE metni, model checkpoint URL'si ve SaaS senaryosu ile saklanacaktır. İlgili depo/lisans çatışması çözülmeden \`ONAYLI\` verilmez. Özellikle **AutoCodeRover** için Perplexity iddiasını doğrudan kabul etmeyip çelişki kaydı tutmak zorunludur.
+
+## 13.2 Yeni kod ajanı ve yardımcı teknoloji kartları
+
+### AGENTLESS — yazılım hatasını denetlenebilir sabit akışla düzeltme
+- **Resmî depo/lisans:** https://github.com/OpenAutoCoder/Agentless ; MIT.
+- **Kullanıcıya yetenek:** Projedeki bir hatayı tespit etme, ilgili dosya/fonksiyonu daraltma, birden fazla patch üretme, mevcut regresyon ve yeni hata yeniden üretme testleriyle yama seçme.
+- **Nasıl çalışır:** (1) Ağaç/tabanlı hiyerarşik arama ile hatalı yer bulunur; (2) Diff biçiminde aday yamalar çıkarılır; (3) test ve yeniden üretme sonuçlarıyla adaylar sıralanır. Genel sınırsız otonom ürün üreticisi değildir.
+- **Entegrasyon:** Ana Beyin coding task router → müşteri repo snapshot → izole Python kod sandbox → LLM adapter → test runner → diff ve kanıt → müşteri onayı → PR. Agentless ile LLM farklı servislerdir; arka plan modelinin ticari hakkı ayrıca incelenir.
+- **Kurulum:** GitHub README Python/conda ortamını açıklar; görev başına izole Python image oluşturulması uygun. Gerçek kurulum komutları repo sürümüne göre sabitlenecek.
+- **Donanım:** Ajan CPU/RAM/SSD **ÖLÇÜLMEDİ**; yerel LLM'nin VRAM'i checkpoint + context + batch'e bağlı; gerçek GPU başına iş sayısı **ÖLÇÜLMEDİ**.
+- **Benchmark:** Resmî README, Claude 3.5 Sonnet ile **2 Aralık 2024** duyurusunda SWE-bench Lite %40,7 ve Verified %50,8 bildiriyor. **Bu sonuç, kendi Qwen modelimizle aynı başarıyı garanti etmez**. Model, harness, örnek sayısı ve tekrar deneme konfigürasyonu arşivlenmeli.
+- **Riskler:** Hatalı lokalizasyon, test yüzeyselliği, eksik kapsam, uzun repo, bağımlılık uyumsuzluğu. Çözüm: test eşikleri, kullanıcı onayı, değişiklik sınırı, temiz sandbox, bağımsız regresyon testi.
+
+### AUTOCODEROVER — lisans çelişkisi yüzünden bloke
+- **Resmî ana depo:** https://github.com/AutoCodeRoverSG/auto-code-rover
+- **Nasıl çalışır:** Kod yapısını/AST'yi kullanarak issue ilişkili sınıf/fonksiyonları bulur, LLM ile yama önerir, uygun testleri kullanabilir.
+- **Bağımsız lisans kontrolü:** Ana LICENSE dosyası **SONAR Source-Available License v1.0** metni gösteriyor; dış raporda AGPL/ticari çift lisans yazıyor. GitHub'da **başka bir owner/fork lisansı ana projenin yerine kullanılamaz**.
+- **Karar:** \`TİCARİ KULLANIM BLOKLU\`. Üretim SaaS'ında yükleme/yayınlama yok. Resmî geliştiriciden imzalı lisans açıklaması ve tam commit-denetimi şart.
+- **Benchmark (sağlayıcı raporu):** SWE-bench Lite %37,3; Verified %46,2. Sürüm ve veri kümesi bağımsız ölçümle doğrulanmalı.
+- **Donanım:** Program CPU/RAM/SSD; entegre LLM VRAM/token ve 100K trafik **ÖLÇÜLMEDİ**.
+
+### REPOAGENT — repo haritası ve dokümantasyon
+- **Resmî depo:** https://github.com/OpenBMB/RepoAgent ; Apache-2.0 LICENSE kontrol edildi.
+- **Çalışma:** Python AST ile kod objelerini (modül, fonksiyon, sınıf, çağrı ilişkileri) çıkarır; modelle her parçanın işlevini anlatan dokümantasyon oluşturur; dokümanı kodla eşleştirir.
+- **Kullanım:** Büyük yazılım görevinden önce müşteri reposunun mimarisini ve API dokümanını çıkartma. Derleme/test veya tam yazılım ajanı olarak vaat edilmez.
+- **Entegrasyon:** İzinli repo snapshot → repo index worker → LLM özetleri → kullanıcı proje hafızası/RAG ve arama indeksi.
+- **Kaynak:** AST taraması CPU, doküman oluşturma modelin GPU/API masrafı; dosya başına indeks GB ve 100/1K/10K dosya ölçümü **ÖLÇÜLMEDİ**.
+- **Risk:** Python ağırlığı, bozuk AST, üçüncü taraf telifli kod, özel repo gizliliği. Kodun kendisini model sağlayıcısına izinsiz gönderme.
+
+### GPT ENGINEER — arşivli tarihi yardımcı kaynak
+- **Depo:** https://github.com/AntonOsika/gpt-engineer ; MIT, **22.04.2026 arşiv** (resmî depo).
+- **Ne yapar:** İstekten proje iskeleti/kod üretimi, eski projeyi yeni prompt ile iyileştirme. Ana üretim ajanı olmayacak; yalnız prototip fikirleri incelenebilir.
+- **Risk:** Güvenlik yamaları ve model/API uyumluluğu güncelliği; aktif bakım yerine OpenHands/SWE-agent/Aider gibi seçeneklere öncelik.
+
+### GODOT MCP ÜÇLÜSÜ — alternatifler, gereksiz kopya kurulum yok
+| Teknoloji | Kaynak | Görev | SaaS kontrolü |
+|---|---|---|---|
+| Open Godot MCP | https://godotengine.org/asset-library/asset/5360 | Godot sahne/script/editor erişimi, deneysel entegrasyon | Raporda MIT; repo LICENSE ve sürüm uyumu yeniden teyit |
+| Godot MCP Toolkit | https://github.com/NPGameDev/godot-mcp-toolkit | Godot MCP köprüsü alternatif | Raporda MIT; model, plugin ve Godot sürümü ayrı test |
+| Godot MCP — Full Control | https://github.com/tugcantopaloglu/godot-mcp | 157 araç, Godot 4.x, GDScript + C#/.NET, debug/scene/runtime | **MIT doğrulandı**; riskli run/eval araçlarına dar yetki |
+
+**Godot MCP Full Control güvenlik ayrıntısı:** Depo README Node.js >=18, Godot >=4.4; oyun çalışırken TCP autoload 127.0.0.1:9090 gösteriyor. MCP istemcisi dosya yolları ve script yürütme istekleri için scoped workspace, deny-by-default ağ, tool allowlist, timeout, izlenebilir log kullanılmalı. \`GODOT_MCP_ALLOWED_DIRS\` gibi path sınırları yapılandırılmalı; localhost dinleme tek başına yeterli güvenlik sınırı değil.
+
+### FLUTTER AI — ajan değil, örnek/enstrümantasyon deposu
+- https://github.com/flutter/ai
+- Flutter AI uygulama örnekleri/SDK entegrasyon referansı; tek başına doğal dilde tam mobil uygulama üreticisi diye sunulmaz.
+- Android build, iOS code signing ve mağaza yayını ayrı işçiler/kimlik bilgileridir. SDK ve modele ait lisans ayrı.
+
+## 13.3 Mevcut kod modeli kayıtlarına TUR 2 ek farklar
+
+| Checkpoint | Raporun iddiası | Doğrulama / kapasite |
+|---|---|---|
+| Qwen3-Coder-Next | Yaklaşık 79,7B toplam / 3B aktif, 262K context, MLX 4-bit ~44,8 GB | **Resmî checkpoint LICENSE, sürüm ve sayılar DOĞRULANMADI**; MLX indirme boyutu **NVIDIA VRAM değildir** |
+| Qwen3-Coder-30B-A3B | Kod ajanı birincil adayı | RTX PRO 6000 96GB VRAM, tok/sn, TTFT, paralel görev **ÖLÇÜLMEDİ** |
+| DeepSeek-V3.2 | Rapor 671B toplam / 37B aktif, MIT ve 128K context diyor | Tam model ağırlığı, quantization ve çoklu GPU **DOĞRULANMADI/ÖLÇÜLMEDİ**. Tek 96GB tam BF16 dağıtım varsayma |
+| GLM-4.7 | Raporda MIT | Resmî tekil checkpoint LICENSE ve Türkçe/kod benchmark **DOĞRULANMADI** |
+| Devstral | Kod modeli adayı | Tam sürüm, model lisansı, 96GB kart perf. **ÖLÇÜLMEDİ** |
+| Kimi K2 Code / K2.7 Code | Raporda model adları geçiyor | **Tam model checkpoint ve resmî yayın kanıtı gerekli**; isimsiz aileden üretim modeli doğmaz |
+
+**Karar:** Bir tek modelin en güçlü olması garanti değil. Farklı iş türlerinde küçük hızlı, geniş repo/context, reasoning ve premium fallback ayrı kapasiteler gerektirir. Model+ajan+test ortamı birlikte benchmark edilir.
+
+## 13.4 Müşteri ürün yetenekleri: web, mobil ve oyun
+
+### Web
+- İstek → erişilebilir responsive tasarım → React/Next.js/Astro/SvelteKit/Vue-Nuxt frontend → FastAPI/NestJS/Django/Laravel backend → PostgreSQL + migration → oturum/ödeme/paylaşım → dockerized preview.
+- **Test ve teslim şartı:** build, type-check, lint, unit/integration, Playwright E2E, güvenlik taraması, kullanıcı onaylı deployment, çalışan indirme artefaktı.
+- **Screenshot-to-Code** yalnız taslak arayüz üretir; responsive, mantık, API, güvenlik, WCAG düzeltmeleri ayrı.
+- **Kod çalışma modeli:** LLM GPU işçisi kod üretir; ayrı sandbox CPU worker üretimi test eder. Kullanıcı hesabı ve kod repo metadata kendi sunucumuzda.
+
+### Mobil
+- Flutter veya React Native; Android için Gradle/Android SDK ile APK/AAB, manifest, imza ve cihaz testi.
+- **iOS build:** Xcode, Apple macOS worker, Apple Developer hesabı, provisioning ve signing şart; Linux GPU sunucusu tek başına iOS build yapamaz.
+- Emülatör/test farm, depo/yayın anahtarlarının müşteri yetkisinde kalması, mağaza koşulları.
+
+### Oyun
+- Godot, Phaser/GDevelop, Blender+varlık üretimi. Godot MCP köprüsü yalnız ayrı sandbox ve limitli sahne/node/script komutlarıyla.
+- Sahne yüklenmesi, input/fizik, FPS, asset formatı, export, headless smoke test, gerekirse görüntülü oynanış testi.
+- Büyük profesyonel oyun tek seferde hatasız tamamlanacak diye reklam yapılmaz.
+
+## 13.5 Çok ajanlı kodlama kadrosu (tek tek satın alınacak ürün değil, görev rolleri)
+1. Planner: hedef/kapsam/PRD/kabul kriterleri.
+2. Architect: modül, veri modeli, risk.
+3. Repo Analyst: AST ve repo haritası.
+4. Frontend / Backend / Database işçileri: ayrılmış branch, diff, migration.
+5. QA: test, lint, build, E2E.
+6. Security: Trivy/Gitleaks/Semgrep/CodeQL benzeri tarama ve raporlama.
+7. Review: kod inceleme, test raporu ve değişiklik kıyası.
+8. Fixer: sınırlı otomatik patch.
+9. DevOps: Docker/CI/CD paketleri, imzalı çıkış; **yayına alma için insan onayı**.
+
+**Akış:** chatbot → proje/izin → model router → plan + izole sandbox → repo branch → kod patch → test → security scan → preview → diff ve kullanıcı onayı → export/PR/deploy.
+
+## 13.6 Rapor kaynaklı SWE-bench kıyası ve güvenilirlik sınırı
+
+| Sistem | Veri seti | Raporlanan sonuç | Kaynak türü | Ana Beyin yorumu |
+|---|---|---:|---|---|
+| Agentless + Claude 3.5 Sonnet | SWE-bench Lite | %40,7 | Resmî Agentless README / 02.12.2024 duyurusu | **Tarihsel sağlayıcı sonucu** |
+| Agentless + Claude 3.5 Sonnet | SWE-bench Verified | %50,8 | Aynı | Başka LLM ile aynı çıkmaz |
+| AutoCodeRover | SWE-bench Lite | %37,3 | Proje açıklamasındaki pass@1 | Belirli sürüm/harness |
+| AutoCodeRover | SWE-bench Verified | %46,2 | Proje açıklamasındaki pass@1 | **Lisans nedeniyle üretime bloke** |
+
+Resmî kaynaklar: https://github.com/OpenAutoCoder/Agentless ; https://github.com/AutoCodeRoverSG/auto-code-rover . Toplam benchmark başarısı müşteri başına tam yazılım üretimi, ödeme, güvenlik veya mobil mağaza yayını garantisi değildir.
+
+## 13.7 100.000 kayıtlı kullanıcı — Ajan, GPU, CPU/RAM/SSD kapasitesi
+
+### 13.7.1 Raporda kullanılan tüm rakamlar VARSAYIMDIR
+- Ortalama kod görevi başına **20 LLM çağrısı**, toplam **16.000 giriş + 8.000 çıkış token** varsayılmış; kullanıcı iş yükü ölçülmeden bu değerler sabit fiyat yapılamaz.
+- **1.000 görev/gün:** 20.000 çağrı/gün, 16 milyon giriş + 8 milyon çıkış token/gün **(hesap doğrulaması)**.
+- **10.000 görev/gün:** 200.000 çağrı/gün, 160 milyon giriş + 80 milyon çıkış token/gün **(aynı varsayım)**.
+- **DİKKAT — kaynak raporun aritmetik tutarsızlığı:** Raporda 1.000 görev için 320 milyon giriş / 160 milyon çıkış token yazılmıştır; bunlar **16K/8K token'ın GÖREV başına değil, ÇAĞRI başına kullanılması halinde** doğrudur. Tek birim tanımı seçilmeden gerçek maliyet hesaplanamaz. Yukarıdaki düzeltilmiş satırlar 16K/8K **görev başına** kabul eder.
+- Ajanın zamanının **%20–40'ında LLM sonucu beklediği** de varsayımdır, ölçüm değil.
+
+### 13.7.2 Eşzamanlı kod ajanı çalışma havuzu (kaynak varsayımları)
+| Aktif ajan | LLM istekleri eşzamanlı (ajan başına %20–40 varsayımı) | Sandbox CPU vCPU ihtiyacı | Sandbox RAM ihtiyacı | Geçici SSD | Tümü ölçüldü mü? |
+|---:|---:|---:|---:|---:|---|
+| 100 | 20–40 | 100–250 | 200–600 GB | 0,5–2 TB | **HAYIR — VARSAYIM** |
+| 500 | 100–200 | 500–1.250 | 1–3 TB | 2–10 TB | **HAYIR — VARSAYIM** |
+| 1.000 | 200–400 | 1.000–2.500 | 2–6 TB | 5–20 TB | **HAYIR — VARSAYIM** |
+| 5.000 | 1.000–2.000 | 5.000–12.500 | 10–30 TB | 25–100 TB | **HAYIR — VARSAYIM** |
+
+**Not:** Eşzamanlı GPU çıkarım adedi, eşzamanlı ajan sayısına veya toplam hesap sayısına eşit değildir. GPU ihtiyacı modelin gerçek tok/sn, batch/prefill, KV-cache, p95 TTFT ve bağlama göre ölçülür. Kod sandbox CPU/RAM/NVMe tüketimi GPU'nun dışında planlanmalıdır. Tek GPU için doğrulanmış eşzamanlı yük değeri: **ÖLÇÜLMEDİ**.
+
+### 13.7.3 GPU bellek/performans kaydı
+Qwen3-Coder-30B-A3B, Qwen3-Coder-Next, DeepSeek-V3.2, GLM-4.7 ve Devstral için RTX PRO 6000 Blackwell 96GB üzerinde **model ağırlık gerçek VRAM GB / KV-cache / token/s / TTFT / p95 latency / eşzamanlı görev** hâlen **ÖLÇÜLMEDİ**. Her model için quant, context ve inference motoru ayrı ölçülecek; \`1 GPU = 100 kullanıcı\` gibi oran kullanılmayacak.
+
+### 13.7.4 Saklama alanı
+- **Kalıcı:** kullanıcı repo kaynakları, commit geçmişi, build çıktısının sahiplik/metadata'sı, kullanıcı izinleri ve proje hafızası kendi kalıcı depoda.
+- **Geçici:** sandbox workspace, Node modules, Python venv, Android Gradle cache, Docker layer, Godot import cache, APK/AAB derleme scratch; TTL ve temizleme politikası.
+- **Denetim:** kalıcı loglar, build/test çıktısı ve artifact hash. Kullanıcı içeriğini sınırsız saklamak yerine plana göre depolama kotası.
+- **Toplam:** kendi uygulama SSD, LLM ağırlıkları GPU sunucusunda cache, kullanıcı dosyaları, geçici build scratch ve offsite yedek **ayrı** bütçe.
+
+## 13.8 Risk haritası ve somut kontroller
+| Risk | Önlem / izleme |
+|---|---|
+| Ajan yanlış dosyayı sildi veya kod tabanını bozdu | Her görev ayrı Git branch, immutable repo snapshot, diff, restore |
+| Prompt injection ve kötü niyetli repo talimatı | Dosya/web metni güvenilmeyen veri; sistem yönergesi değil; izinli araç şeması |
+| Sandbox kaçışı / konteyner yönetim soketi istismarı | Rootless, kısa ömürlü sandbox/VM, docker.sock yok, capabilities azalt, seccomp/apparmor, ağ deny-by-default |
+| GitHub OAuth/PAT kötüye kullanım | Repo bazında minimum yetki ve süreli token, otomatik iptal, hassas işlemlere kullanıcı onayı |
+| npm/PyPI kötü amaçlı paket | Sürüm kilidi, hash kontrolü, SCA/SBOM, gitleaks/trivy/semgrep |
+| Fatura/tokensuz sonlanmayan ajan | Token, adım, süre, vCPU, GPU dakika, gün/ay bütçe üst sınırı + kill switch |
+| İnsan onaysız yayınlama | Ayrı deploy servisi, imzalı artefakt, üretim secret'ı ajan sandbox'ına verilmez |
+| Müşteriler arası veri sızıntısı | Tenant izolasyonu, project scoped storage, path traversal sınırı, çapraz hesap penetrasyon testi |
+| Hatalı benchmark vaadi | Model+agent+harness+test seti birlikte kayıt; kendi golden görev seti |
+| Lisans/kod telif ihlali | Her bağımlılığın SPDX ve upstream LICENSE kontrolü; mevcut açık kaynak/özel lisans ayrımı |
+| Platforma özgü iOS/Unity maliyeti | Gerçek build çalışanı ve mağaza şartları; ücretli ücretsiz diye gösterilmez |
+| Ajan güncellenmedi | Paket sürümü sabitleme, CVE tarama, bakım durumu ve güvenli fallback |
+
+## 13.9 Kategori 02 çıktı ve ürün seçimi
+**Birincil aday:** MIT OpenHands çekirdeği/SDK + uygun kod modeli + izole sandbox + çok aşamalı test.  
+**Hata düzeltme uzmanı:** Agentless (MIT) ve SWE-agent (lisans güncel checkpoint bazında onaylanacak).  
+**Repo anlama:** RepoAgent Apache-2.0.  
+**UI taslak:** Screenshot-to-Code, çıktısı gerçek responsive ve erişilebilir web teste girecek.  
+**Oyun MCP:** Godot MCP Full Control (MIT doğrulandı) veya yalnız bir Godot MCP alternatif işçisi.  
+**Mobil:** Flutter/Android Linux işçisi, iOS için ayrı macOS worker.  
+**Eski/riski yüksek:** GPT Engineer arşivli, AutoCodeRover lisans çelişkili/bloklu, OpenHands Cloud Free Trial ticari üretim hizmeti değildir.  
+**Premium adaptör:** resmî Claude/OpenAI/Gemini/Mistral/DeepSeek ticari API; 2026 güncel fiyat ve depolama şartları **ayrıca doğrulanacak**.
+
+## 13.10 Kategori 02 kapanış / açık doğrulamalar
+**Keşif:** Tur 1 son parça + Tur 2 sonuçları kaydedildi. Kategori 02 keşif döngüsü iki tur olarak işlendi, fakat kullanıcının tam Tur 1 belgesi elimize gelmediğinden **eksiksiz aktarım iddiası yoktur**.  
+**Açık:** Qwen/DeepSeek/GLM/Devstral için tam checkpoint lisansı ve 96GB benchmark, Agentless/RepoAgent'ın gerçek sandbox CPU/RAM/SSD, mobil/iOS test altyapısı, Godot MCP plugin uyumluluğu, GPU+CPU toplam maliyeti, Tam Tur 1 kaynaklarının birleşmesi, AutoCodeRover ana repo lisans çelişkisi.  
+**Bir sonraki kategori:** Kategori 03 — internet/akademik derin araştırma, crawling, kaynak doğrulama, gerçek zamanlı veri ve research ajanları. Tur 1 komutu kullanıcıya verildi, sonuç bekleniyor.
