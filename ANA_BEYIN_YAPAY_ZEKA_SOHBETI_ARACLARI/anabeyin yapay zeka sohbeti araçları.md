@@ -1,5 +1,5 @@
 # ANA BEYİN — YAPAY ZEKÂ SOHBETİ ARAÇLARI
-**Sürüm:** 1.3 — Kategori 01 Tur 1 ve Tur 2 kaydedildi  
+**Sürüm:** 1.4 — Kategori 02 Tur 1 kısmi bulguları eklendi  
 **Tarih:** 20.10.2026  
 **Proje:** anabeyin.com  
 **Durum:** ADAY ENVANTERİ — kurulum ve ticari lisans onayı henüz yapılmadı.
@@ -499,3 +499,67 @@ Tur 2 **yeni ölçülmüş kapasite benchmarkı sunmadı**; aşağıdaki tablola
 - **Henüz eksik:** gerçek sürüm bazlı VRAM, RAM ve SSD boyutu; RTX PRO 6000 Blackwell/H200/B200 tok/s, TTFT ve uzun bağlam testleri; Türkçe benchmark, karşılaştırmalı kalite, resmî lisans hash ve API maliyeti. Bunlar sonraki ayrı deney/denetim evresinde tamamlanacak.
 - **Karar:** Kategori 01 `TUR 1 + TUR 2 TAMAMLANDI / TEKNİK VE HUKUKİ DOĞRULAMA AÇIK`. Eksik verileri kesinmiş gibi üretime kabul etme.
 - **Sıradaki araştırma:** Kategori 02 / Tur 1 — kodlama modelleri, yazılım ajanları, web/mobil/oyun ve izolasyonlu test araçları. Aynı iki tur + yalnız yeni veri standardı uygulanacak.
+
+
+---
+
+# 12 — KATEGORİ 02: KODLAMA, YAZILIM AJANLARI, WEB/MOBİL/OYUN — TUR 1 KISMİ AKTARIM
+**Tarih:** 20.10.2026  
+**Durum:** **TUR 1'DEN ALINAN SON BÖLÜM / KISMİ METİN**. Kullanıcının gönderdiği Perplexity sonuç parçası yalnız resmî bağlantılar ve ikinci tur eksikleri içeriyor; tam Tur 1 raporu bu aşamada sağlanmadığından rapordaki bütün bulgular aktarılmış sayılmaz. Aşağıdaki lisans ve performans ifadeleri bağımsız doğrulanmadıkça `DOĞRULANMADI` statüsünde kalır.
+
+## 12.1 Yeni veya mevcut araçlara işlenecek farklar
+| Araç | Kullanıcı tarafından aktarılan kaynak | Nasıl çalışır / ne için? | Ticari lisans statüsü | Donanım / 100K kullanıcı | Ayrıntılı teknik kayıt durumu |
+|---|---|---|---|---|---|
+| OpenHands (MEVCUT) | https://github.com/OpenHands/OpenHands | İzole ortamda repo tarama, komut çalıştırma, dosya düzenleme ve test için kod ajanı adayı; OpenHands'un farklı modülleri ve sürümleri ayrı kontrol edilmeli | Raporda MIT; doğrudan resmi LICENSE teyidi gerekli | LLM serving ayrı, sandbox CPU/RAM/SSD **ÖLÇÜLMEDİ** | MEVCUT KAYDA EK ARAŞTIRMA |
+| OpenHands SDK (OpenHands alt bileşeni) | https://docs.openhands.dev/sdk | Modelden bağımsız geliştirici SDK, Python/REST ile kod ajanı bağlama adayı | SDK repo/dağıtım lisansı DOĞRULANMADI | **ÖLÇÜLMEDİ** | OPENHANDS ALT KAYDI |
+| OpenHands Cloud (farklı ürün) | https://github.com/OpenHands/openhands-cloud | Hosted/Cloud ürün; yerel açık kaynak çekirdeğinden ayrıştırılacak | Dış rapor PolyForm Free Trial ve 30 gün sınırı söylüyor; **doğrulanana kadar ücretsiz açık kaynak sayma** | **ÖLÇÜLMEDİ** | TİCARİ KISIT KONTROLÜ |
+| SWE-agent (YENİ) | https://github.com/SWE-agent/SWE-agent | Repo issue → komut/patch → test → PR adayı iş akışı; gerçek ajan/harness sürümünü sabitle | Dış rapor MIT; resmî LICENSE tekrar kontrol | LLM VRAM ve sandbox kaynakları ayrı; **ÖLÇÜLMEDİ** | TEKNİK KART AÇILACAK |
+| Screenshot-to-Code (YENİ) | https://github.com/abi/screenshot-to-code | Görselden HTML/Tailwind/React/Vue benzeri frontend kod taslağı; çıktı gerçek build, responsive ve a11y testinden geçmeli | Dış rapor MIT; resmî LICENSE teyidi gerekli | Kullanılan VLM/API'ye bağlı; **ÖLÇÜLMEDİ** | TEKNİK KART AÇILACAK |
+| Design2Code (YENİ ARAŞTIRMA ADAYI) | https://dev.co/ai/coding-agents/design2code | Görselden koda teknoloji/araç adı; belirtilen URL ürün/tanıtım sayfası olabilir | **Resmî kod deposu ve LICENSE bulunmadan MIT kabul edilmez** | **ÖLÇÜLMEDİ** | ÖNCE KAYNAK KİMLİĞİ DOĞRULA |
+| Qwen3-Coder-30B-A3B-Instruct (MEVCUT AİLEYE checkpoint) | Dış raporda üçüncü taraf: https://fast.io/resources/top-open-source-llms-agents/ | MoE kod/ajan görevleri için model adayı, resmî checkpoint araştırılacak | Resmî model kartı/lisans DOĞRULANMADI | RTX PRO 6000 96GB tok/s, TTFT, KV cache, gerçek SSD/VRAM **ÖLÇÜLMEDİ** | CHECKPOINT ALT KAYDI |
+| Qwen3-Coder-Next (MEVCUT AİLEYE checkpoint adayı) | Tam resmî model kartı henüz yok | Kod ajanları performans kıyası | DOĞRULANMADI | **ÖLÇÜLMEDİ** | TAM CHECKPOINT/KAYNAK BUL |
+| DeepSeek-V3.2, GLM-4.7, Devstral (MEVCUT MODEL AİLELERİNDEN ayrı kod sürümü adayları) | Model sürümlerinin resmî sayfaları Tur 2'de bulunacak | Kod/ajan kıyası, model+ajan+harness ayrımı | DOĞRULANMADI | Gerçek GPU/SSD/throughput **ÖLÇÜLMEDİ** | ÜÇ AYRI CHECKPOINT KARTI GEREK |
+
+**Tekrar önleme:** OpenHands, Qwen-Coder, DeepSeek, GLM gibi aileleri mevcut kayıtları kopyalayıp yeniden oluşturma. SDK ve Cloud'u aynı ticari lisanslı ürün gibi değerlendirme. 3. parti kıyas yazısı ürünün LICENSE veya benchmark kanıtı değildir.
+
+## 12.2 Nasıl çalışır? Müşteriye sunulacak iş akışı
+```
+Müşteri sohbeti (repo / screenshot / istek)
+ -> yetkilendirme ve proje alanı
+ -> coding model router (self-host GPU / kiralık GPU / izinli premium API)
+ -> izolasyonlu agent sandbox (kısa ömürlü konteyner / VM)
+ -> repo clone ve branch açma (kısıtlı token)
+ -> plan / patch / test / build / lint / security scan
+ -> gerçek tarayıcı önizleme ve gerekiyorsa screenshot karşılaştırma
+ -> kod değişiklikleri ve log özeti -> müşteri onayı
+ -> PR / export / izinli deployment
+```
+- **Ajan programının kendi GPU ihtiyacı ile konuştuğu LLM'nin GPU ihtiyacı farklıdır.**
+- Android Gradle derlemesi, Flutter/Android emülatörü, Godot export ve tarayıcı testi çoğu zaman CPU/RAM/SSD ağırlıklıdır. iOS yerel derlemesi/imzalama için Apple/macOS şartları ayrıca incelenir.
+- Paralel ajanlar GPU'da yanıt beklemedikleri sırada CPU build, test veya kullanıcı onayı bekleyebilir. GPU sayısı ajan sayısına eşitlenmez.
+
+## 12.3 100.000 kayıtlı kullanıcı — ölçüm planı
+- Yük senaryoları: **günde 1.000 / 10.000 kod görevi; eşzamanlı 100 / 500 / 1.000 / 5.000 ajan**.
+- Gerekli alanlar: ajan başına istek/LLM token, model token/s, LLM çağrı eşzamanlılığı, GPU adedi ve GPU başına VRAM; sandbox başına CPU/RAM, derleme süresi, SSD working set, cache, çıkış bant genişliği, tam iş birim maliyeti.
+- Bu araştırma kesitinde gerçek ölçülmüş CPU-saniye, SSD, VRAM, token/s, görev başına maliyet veya model+ajan benchmark rakamı **YOK**; tümü **ÖLÇÜLMEDİ**. Doğrulanmayan `X GPU 100K kullanıcıya yeter` ifadesi kurulmaz.
+
+## 12.4 Perplexity Kategori 02 / Tur 2 eksik araştırma listesi
+1. RTX PRO 6000 Blackwell 96GB üzerinde **Qwen3-Coder-30B-A3B**, **Qwen3-Coder-Next**, **DeepSeek-V3.2**, **GLM-4.7**, **Devstral**: quantization, VRAM, SSD, tok/s, p95 TTFT, concurrency.
+2. Gerçek **SWE-bench Verified**: model + agent + harness + benchmark tarihi + görev sayısı; reklam skoru ve bilimsel kıyas ayrımı.
+3. **Sandbox**: Python, Node, Flutter, Android, Godot ve Docker build başına CPU-saniye, RAM, IOPS, SSD, süre, izolasyon maliyeti.
+4. **Yeni ajanlar**: Agentless, AutoCodeRover, RepoAgent, GPT Engineer, Sweep benzerleri ve çok ajan frameworkleri; bakım/lisans testi.
+5. **Screenshot-to-Code ve Design2Code**: resmî kaynak, gerçek frontend build, responsive, WCAG erişilebilirlik, pixel-fidelity ve tasarım sınırı.
+6. **Mobil**: Android build cache, macOS/iOS zorunlulukları, emulator farm, imzalama, CI lisansı.
+7. **Oyun**: Godot MCP, Phaser ajanları, Unity lisans/fiyat ayrımı, 3D asset üretimi.
+8. **Saldırı senaryoları**: prompt injection, dependency saldırısı, sandbox escape, GitHub token kötüye kullanımı.
+9. **Ekonomi**: token + GPU-saniye + sandbox CPU-saniye + SSD + depolama + internet birim maliyeti.
+10. Her teknoloji için iki ayrı kayıt: **gerçek açık kaynak çekirdek** ve varsa **ücretli Cloud/SaaS paketi**.
+
+## 12.5 Yayın öncesi risk kuralları
+- Model ve ajan için **AYRI ticari SaaS lisans kontrolü**; ayrıca cloud ürünü ile SDK çekirdeği aynı lisans değildir.
+- Kullanıcı repo veya .env sırları üretim ajanına verilmez; secret masking, kısa ömürlü token, allowlist, ağ izolasyonu.
+- Ajan sınırsız görev, token, GPU veya compute harcayamaz; hard budget/timeout, dead-letter queue ve insan onaylı deploy.
+- Kod ajanı root yetkisiyle uygulama/DB sunucusunda çalışmaz; ephemeral sandbox/VM, sınırlandırılmış ağ, imzalı çıktı.
+- SWE-bench sonuçları gerçek ürünün tam site üretme güvenilirliğini kanıtlamaz; kullanıcıya sürekli başarı garantisi verilmez.
+
+**Kategori 02 Tur 1:** `KISMİ AKTARIM / ikinci tur araştırması hazır`. Tam ilk rapor sağlanırsa bu kısım eksik kategorilerle genişletilecektir; **kategori kapanmış sayılmaz**.
