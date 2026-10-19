@@ -1,5 +1,5 @@
 # ANA BEYİN — YAPAY ZEKÂ SOHBETİ ARAÇLARI
-**Sürüm:** 1.2 — Kategori 01 Tur 1 içeriği eklendi  
+**Sürüm:** 1.3 — Kategori 01 Tur 1 ve Tur 2 kaydedildi  
 **Tarih:** 20.10.2026  
 **Proje:** anabeyin.com  
 **Durum:** ADAY ENVANTERİ — kurulum ve ticari lisans onayı henüz yapılmadı.
@@ -420,3 +420,82 @@ Her kategori için en az 5 uygun aday, güncel repo ve checkpoint lisansları, T
 7. **Kaynak kalitesi:** ilk raporda bağlanan her iddia için **doğrudan resmî URL + sürüm + yayın tarihi**; üçüncü taraf model listeleri lisans kanıtı sayılmaz.
 
 **Kategori 01 Tur 1 durumu: `AKTARILDI / DOĞRULAMA BEKLİYOR`. Tur 2 tamamlanmadan ve model bazında lisans+VRAM+SSD+benchmark alanları dolmadan hiçbir model ONAYLI sayılmayacaktır.**
+
+
+---
+
+# 11 — KATEGORİ 01: TUR 2 SONUÇLARI — YENİ ARAŞTIRMA FARKLARI
+**Kaynak:** Kullanıcının paylaştığı Perplexity `Kategori 01 / Derin Araştırma Turu 2` metni, 20.10.2026.  
+**Durum:** DIŞ ARAŞTIRMA AKTARILDI; model kartı, checkpoint, ticari lisans ve benchmark **bağımsız teyit bekliyor**. Eski Kategori 01 / Tur 1 kayıtları korunmuştur.
+
+## 11.1 Tur 2'de bildirilen YENİ modeller / checkpointler
+| Kimlik | Model | Araştırmada bildirilen açıklama | Ticari lisans bildirimi | Resmî aday kaynak | Doğrulama |
+|---|---|---|---|---|---|
+| LLM-APERTUS15-8B | Apertus 1.5 8B | İsviçre; 262K bağlam, çok dilli ve multimodal iddiası | Apache 2.0 + AUP | https://huggingface.co/swiss-ai/Apertus-v1.5-8B | DOĞRULANMADI |
+| LLM-APERTUS15-70B | Apertus 1.5 70B | Büyük model; raporda 4-GPU vLLM örneği | Apache 2.0 + AUP | https://huggingface.co/swiss-ai/Apertus-v1.5-70B | DOĞRULANMADI |
+| LLM-LFM25-26B | Liquid LFM2.5-2.6B | Küçük dense model adayı | Gelir eşikli LFM Open License iddiası | https://docs.liquid.ai/lfm/help/model-license | KOŞULLU / DOĞRULANMADI |
+| LLM-LFM25-8B-A1B | Liquid LFM2.5-8B-A1B | MoE ekonomik inference adayı | LFM Open License iddiası | https://www.liquid.ai/lfm-license | KOŞULLU / DOĞRULANMADI |
+| LLM-LFM25-24B-A2B | Liquid LFM2.5-24B-A2B | 24B toplam, 2B aktif MoE iddiası | LFM Open License iddiası | https://www.liquid.ai/lfm-license | KOŞULLU / DOĞRULANMADI |
+| LLM-STEP3 | StepFun Step-3 | Metin/çok modlu aile | Apache 2.0 bildirimi | https://huggingface.co/stepfun-ai | CHECKPOINT LİSANSI BELİRSİZ |
+| LLM-STEP35 | Step-3.5-Flash | Hızlı/ekonomik model adayı | Apache 2.0 bildirimi | https://huggingface.co/stepfun-ai | CHECKPOINT BELİRSİZ |
+| LLM-STEP37 | Step-3.7-Flash-NVFP4 | NVFP4 optimize sürüm iddiası | Apache 2.0 bildirimi | https://huggingface.co/stepfun-ai | CHECKPOINT BELİRSİZ |
+| LLM-STEP3VL | Step3-VL-10B | Çok modlu aile: Kategori 05 için de işaretlendi | Apache 2.0 bildirimi | https://huggingface.co/stepfun-ai | CHECKPOINT BELİRSİZ |
+| LLM-GRANITE42 | IBM Granite 4.2 | Granite ailesinin yeni checkpoint iddiası | Apache 2.0 bildirimi | Resmî IBM checkpoint bulunacak | DOĞRULANMADI |
+| LLM-NEMO35 | Nemotron 3.5 Lightning | NVIDIA optimize model iddiası | OpenMDW-1.1 bildirimi | https://huggingface.co/nvidia | DOĞRULANMADI |
+| LLM-EUROLLM9 | EuroLLM-9B | Avrupa çok dilli model iddiası | Apache 2.0 bildirimi | Resmî checkpoint bulunacak | DOĞRULANMADI |
+| LLM-EUROLLM22 | EuroLLM-22B | Avrupa çok dilli model iddiası | Apache 2.0 bildirimi | Resmî checkpoint bulunacak | DOĞRULANMADI |
+| LLM-TEUKEN04 | Teuken-7B v0.4 | Almanya/AB dil modeli | Apache 2.0 bildirimi | Resmî model kartı bulunacak | DOĞRULANMADI |
+| LLM-TEUKEN06 | Teuken-7B v0.6 | Ayrı sürüm | CC BY-NC bildirimi | Resmî model kartı bulunacak | SELF-HOST TİCARİ KULLANIM BLOKLU |
+| LLM-PORO-VIKING | Poro/Viking modelleri | Nordik dil modelleri; olası Llama türevi | Üst ağırlık lisansı riski | Resmî checkpoint bulunacak | DOĞRULANMADI |
+| LLM-CROISSANT | CroissantLLM 1.3B | Fransızca/İngilizce küçük yardımcı model | MIT bildirimi | Resmî checkpoint bulunacak | DOĞRULANMADI |
+
+**Tekrar önleme:** İlk turdaki genel `Nemotron` ve `Granite` aile kayıtları silinmedi; Tur 2'deki spesifik sürümler bunların alt kayıtları olarak düşünülür. `Apertus`, `LFM2.5` ve `StepFun` Kategori 01 Tur 1'de kayıtlı değildi. Çok modlu Step3-VL-10B ayrıca Kategori 05'e **referans** olarak aktarılır, ikinci kopya teknik dosya açılmaz.
+
+## 11.2 Nasıl çalışırlar ve Ana Beyin'e nasıl bağlanırlar?
+- **Apertus 1.5 8B/70B:** Rapora göre transformer/dense, çok dilli ve uzun bağlam. LLM girişini tokenizer → model inference → streaming token yanıtı yoluyla işler. Araştırmada 70B için `vllm serve swiss-ai/Apertus-v1.5-70B --chat-template-content-format string --tensor-parallel-size 4 --gpu-memory-utilization 0.8 --max-model-len 262144 --enable-auto-tool-choice --tool-call-parser apertus` komutu önerilmiş; **kurulmadan önce model kartı/komut uyumu doğrulanmalı**, 262K bağlam üretimde varsayılan olmamalı.
+- **Liquid LFM2.5:** Raporda hibrit ve MoE mimariler, düşük gecikme iddiaları var; checkpoint bazlı motor/quant doğrulaması gerektirir. Ayrı küçük-model inference endpoint'i → Ana Beyin router'ın `low-cost` seçeneği → yük testi.
+- **StepFun Step:** Bazı checkpointler text, bazıları vision+text; özellikleri ayrılmalı. Model kartı ve OpenAI uyumlu API motoru doğrulanmadan endpoint oluşturulmaz.
+- **Granite 4.2, Nemotron 3.5 Lightning:** Önce resmî model adı/README/LICENSE netleştirilir, sonra inference uyumluluğu ve Türkçe benchmark. Nvidia optimizasyonunu tek GPU'da garantili performans sayma.
+- **EuroLLM, Teuken, Poro/Viking, CroissantLLM:** Dil özelleşmesi nedeniyle kullanıcı dili tespit edilerek çağrılabilir; **Türkçe üretim motoru** sayılmaları insan değerlendirmesi şartına bağlı.
+- **Model standardı:** Model router → sürüm/checkpoint kilidi → izinli inference backend (vLLM / SGLang / llama.cpp) → tenant izole sohbet oturumu → cevap streaming. Tool calls, JSON şeması ve Türkçe biçim tutarlılığı ayrı test edilir.
+
+## 11.3 Donanım: model bazında doğrulanması gerekenler
+| Model grubu | İndirilen GB | Kurulu SSD | CPU RAM | BF16/FP8/INT4 VRAM | 96GB GPU | Token/s, TTFT |
+|---|---|---|---|---|---|---|
+| Apertus 8B/70B | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+| LFM2.5 2.6B/8B/24B | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+| StepFun checkpointleri | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+| Granite/Nemotron | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+| EuroLLM/Teuken/Poro/Croissant | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+
+Yalnız parametre sayısından kaba teorik ağırlık alt sınırı çıkarılabilir; **model dosyası + working set + KV cache** ile aynı değildir. BF16 yaklaşık parametre başına 2 byte; INT4 yaklaşık 0,5 byte + ek ölçek/metadata yükü, fakat gerçek quant dosyası ve motor dağıtımı kontrol edilmeden donanım kesinleştirilemez. Özellikle 70B BF16 ağırlıklar çıplak olarak yaklaşık 140 GB olduğundan tek 96GB karta tam hassasiyetli ağırlık sığmaz; FP8/INT4 + KV cache durumu ayrıca ölçülecek.
+
+## 11.4 100.000 kullanıcı kapasitesine TUR 2 katkısı
+Tur 2 **yeni ölçülmüş kapasite benchmarkı sunmadı**; aşağıdaki tablolar dış araştırmadaki `2.000 input + 800 output token / 20 sn hedef` varsayımından türetilmiştir.
+
+| Eşzamanlı inference isteği | Teorik istek/s | Gerekli toplam output token/s | Ölçülmüş GPU sayısı | Ölçülmüş VRAM |
+|---:|---:|---:|---|---|
+| 100 | 5 | 4.000 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+| 500 | 25 | 20.000 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+| 1.000 | 50 | 40.000 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+| 5.000 | 250 | 200.000 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ |
+
+**96GB VRAM**, eşzamanlı kişi sayısı anlamına gelmez. Ortak throughput, prefill, batching, uzun bağlam KV-cache, gecikme, CPU-RAM-SSD-ağ kısıtları test edilmelidir. Tur 2'nin “100 eşzamanlıya tek GPU başlangıç olabilir” ifadesi de **ölçülmüş garanti değildir**.
+
+## 11.5 Tur 2'den yeni ticari lisans ve operasyon riskleri
+| Konu | Dış raporun iddiası | Ana Beyin kontrolü |
+|---|---|---|
+| Liquid LFM lisansı | Yıllık 10 milyon USD eşiği | Resmî koşul ve lisans metni; gelir izleme; hukuki değerlendirme |
+| Teuken-7B v0.6 | CC BY-NC 4.0 | Bu checkpoint self-host ticari SaaS yoluna alınmaz |
+| Poro2/Llama türevi | Üst model Meta koşulları devam edebilir | Üst model lisansı ve türev lisansını birleştirerek doğrula |
+| Apertus AUP | Apache olsa da ayrı AUP/erişim koşulu bildirimi | Model kartı / kullanım politikası sakla |
+| Nemotron OpenMDW | Ticari hak henüz net değil | Üretim açılışından önce resmî LICENSE incelemesi |
+| Uzun bağlam (262K) | KV cache yüksek | Varsayılan context limit, ayrı uzun bağlam GPU havuzu |
+| Hibrit modeller | KV-cache/attention uygulanışı değişir | Motor sürüm matrisi, test ve fallback |
+| Ücretsiz API | Ücretsiz kota değişken | Ücretsiz API'yi ticari SLA kabul etme; sağlama koşulu doğrula |
+
+## 11.6 Kategori 01 kapanış ve açık işler
+- **İki araştırma turu kayda geçirildi.** Mevcut isimler tekrar edilmeden yeni checkpointler ve lisans/altyapı ayrıntıları eklendi.
+- **Henüz eksik:** gerçek sürüm bazlı VRAM, RAM ve SSD boyutu; RTX PRO 6000 Blackwell/H200/B200 tok/s, TTFT ve uzun bağlam testleri; Türkçe benchmark, karşılaştırmalı kalite, resmî lisans hash ve API maliyeti. Bunlar sonraki ayrı deney/denetim evresinde tamamlanacak.
+- **Karar:** Kategori 01 `TUR 1 + TUR 2 TAMAMLANDI / TEKNİK VE HUKUKİ DOĞRULAMA AÇIK`. Eksik verileri kesinmiş gibi üretime kabul etme.
+- **Sıradaki araştırma:** Kategori 02 / Tur 1 — kodlama modelleri, yazılım ajanları, web/mobil/oyun ve izolasyonlu test araçları. Aynı iki tur + yalnız yeni veri standardı uygulanacak.
