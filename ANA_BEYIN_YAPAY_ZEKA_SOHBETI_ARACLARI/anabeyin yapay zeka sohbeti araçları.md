@@ -1,5 +1,5 @@
 # ANA BEYİN — YAPAY ZEKÂ SOHBETİ ARAÇLARI
-**Sürüm:** 1.1 — kategori bazlı çift araştırma standardı  
+**Sürüm:** 1.2 — Kategori 01 Tur 1 içeriği eklendi  
 **Tarih:** 20.10.2026  
 **Proje:** anabeyin.com  
 **Durum:** ADAY ENVANTERİ — kurulum ve ticari lisans onayı henüz yapılmadı.
@@ -333,3 +333,90 @@ Her kategori için en az 5 uygun aday, güncel repo ve checkpoint lisansları, T
 - Her iddia kaynağıyla, erişim tarihiyle ve iddia sahibinin araştırma turuyla etiketlenir. Doğrulanan ile doğrulanmayan ayrılır.
 - Tek kategori bitmeden başka kategoriye geçilmez. İkinci tur, ilk turdaki boşluklara göre yeniden hazırlanır.
 - Gerekiyorsa dosya sürümleme ve kısa değişiklik günlüğü tutulur; eski sürümler Git geçmişinde kalır.
+
+
+---
+
+# 10 — KATEGORİ 01: SOHBET / MUHAKEME / ÇOK DİLLİ LLM — TUR 1 BULGULARI
+**Kaynak:** Kullanıcının paylaştığı `ANA BEYİN — KATEGORİ 01 / ARAŞTIRMA TURU 1` Perplexity metni (20.10.2026, 681 satır).  
+**İnceleme statüsü:** ARAŞTIRMA AKTARIMI; kaynak metnindeki iddialar bağımsız doğrulanmadı. Bu bölüm mevcut kategori kayıtlarına **delta** ekler, daha önce listelenen Qwen3/DeepSeek/gpt-oss vb. adayları yeniden tanıtmaz. **Ticari kullanımı kesin onaylı model yoktur.**
+
+## 10.1 Yeni aday kayıtları — benzersiz model/checkpoint
+| Kimlik | Model/checkpoint | Geliştirici | Araştırmada bildirilen lisans | Önerilen rol | Resmî başlangıç | Lisans doğrulama durumu |
+|---|---|---|---|---|---|---|
+| LLM-GLM45-AIR | GLM-4.5-Air | Z.ai | MIT olarak bildirilmiş | MoE, araç çağırma ve 128K araştırma adayı | https://huggingface.co/zai-org/GLM-4.5-Air | DOĞRULANMADI |
+| LLM-KIMI-K2 | Kimi K2 Instruct | Moonshot AI | Modified MIT, MAU/gelir koşulları iddiası | Büyük MoE/ajan modeli | https://huggingface.co/moonshotai/Kimi-K2-Instruct | DOĞRULANMADI |
+| LLM-KIMI-K2-THINK | Kimi K2 Thinking | Moonshot AI | Modified MIT, koşullu | Uzun muhakeme, INT4 ve tool calling adayı | https://huggingface.co/moonshotai/Kimi-K2-Thinking | DOĞRULANMADI |
+| LLM-MINIMAX-M1 | MiniMax-M1 | MiniMax | Apache 2.0 iddiası | Uzun bağlam muhakeme | Resmî checkpoint URL ÖLÇÜLMEDİ | DOĞRULANMADI |
+| LLM-MINIMAX-M2 | MiniMax-M2 | MiniMax | Modified MIT ve atıf eşiği iddiası | MoE/ajan alternatifi | Resmî checkpoint URL ÖLÇÜLMEDİ | DOĞRULANMADI |
+| LLM-LLAMA4-SCOUT | Llama 4 Scout | Meta | Meta Llama Community | Çok dilli deneysel alternatif | https://www.llama.com/ | KOŞULLAR DOĞRULANMADI |
+| LLM-LLAMA4-MAV | Llama 4 Maverick | Meta | Meta Llama Community | Çok dilli deneysel alternatif | https://www.llama.com/ | KOŞULLAR DOĞRULANMADI |
+| LLM-JAMBA | Jamba Large 1.7 | AI21 | Model bazlı | Hibrit SSM-Transformer uzun bağlam | RESMÎ CHECKPOINT BULUNACAK | DOĞRULANMADI |
+| LLM-NEMOTRON | NVIDIA Nemotron ailesi | NVIDIA | Sürüm bazlı | Optimize GPU inference | https://huggingface.co/nvidia | CHECKPOINT BELİRSİZ |
+| LLM-FALCON | Falcon ailesi | TII | Sürüm bazlı | Çok dilli yardımcı alternatif | https://huggingface.co/tiiuae | CHECKPOINT BELİRSİZ |
+| LLM-INTERNLM | InternLM ailesi | Shanghai AI Lab | Sürüm bazlı | Alternatif | https://github.com/InternLM | CHECKPOINT BELİRSİZ |
+| LLM-ERNIE | ERNIE açık ağırlıklı ailesi | Baidu | Sürüm bazlı | Alternatif | RESMÎ CHECKPOINT BULUNACAK | CHECKPOINT BELİRSİZ |
+| LLM-COMMAND-A | Cohere Command A / Command R7B | Cohere | Non-commercial bildirimi | Ticari SaaS self-host için **bloklu aday** | Resmî LICENSE bulunacak | DOĞRULANMADI |
+| LLM-AYA-EXPANSE | Aya Expanse 8B / 32B | Cohere For AI | CC BY-NC bildirimi | Ticari SaaS self-host için **bloklu aday** | Resmî LICENSE bulunacak | DOĞRULANMADI |
+
+**Aile ile checkpoint ayrımı:** Nemotron, Falcon, InternLM ve ERNIE aileleri tek üretim modeli olarak tanımlanamaz; Tur 2'de tam checkpoint adı/sürümü bulunmadan donanım ve lisans kararı verilemez. **Kimi K2 Thinking**, Kimi K2'den ayrı sürümdür; tekrar değil, ayrı checkpoint olarak tutulur. **MiniMax M1/M2** ayrı nesillerdir.
+
+## 10.2 Mevcut model kayıtlarına yeni *delta*
+- **Qwen3-4B ve Qwen3-32B:** dış araştırma Apache 2.0, doğal 32.768 token / YaRN ile 131.072 token ve özel tool-calling parser notu bildirdi. Kontrol: https://huggingface.co/Qwen/Qwen3-4B ; https://huggingface.co/Qwen/Qwen3-32B . *Resmî kart yeniden doğrulanacak; YaRN uygulama kalitesi test edilecek.*
+- **DeepSeek-R1 ve R1-Distill-Qwen-32B:** dış rapor model ağırlıklarının MIT ve distillation/ticari kullanım izni olduğunu bildirdi. https://huggingface.co/deepseek-ai/DeepSeek-R1 ; https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B . *Model bazlı doğrulanmalı.*
+- **gpt-oss-20b / gpt-oss-120b:** dış araştırma Apache 2.0 ve ayrı kullanım politikası uygulandığını bildirdi. https://github.com/openai/gpt-oss . *Politika sürümü denetlenmeli.*
+- **LiteLLM Proxy:** Araç mevcut genel envanterde zaten **adıyla kayıtlıdır**; ayrı ikinci kopya açılmadı. Dış araştırma router alias/fallback/retry/timeout/rate-limit kullanımlarını öne çıkarıyor. Proxy ölçeklenebilirliği, yüksek erişilebilirlik ve lisans doğrulaması gereklidir.
+
+## 10.3 Yeni adayların teknik inceleme kartları — eksik ölçüm ve riskler
+| Model | Nasıl çalışır / teknik rol | Ana Beyin dağıtımı adayı | GPU / SSD / RAM | Ana risk ve azaltma |
+|---|---|---|---|---|
+| GLM-4.5-Air | MoE, hibrit reasoning, araç çağrıları; uzun bağlam iddiası | vLLM/SGLang test konteyneri → model router | **ÖLÇÜLMEDİ**, tek 96GB çalışma **DOĞRULANMADI** | MoE dağıtım, KV-cache; benchmark ve quant gerekli |
+| Kimi K2 Instruct | Büyük MoE, çok adımlı ajan ve araç çağrısı | SGLang/vLLM uyumu kontrol | **ÖLÇÜLMEDİ**, tek 96GB varsayılmayacak | Çoklu GPU, lisans eşiği ve yüksek GPU kira maliyeti |
+| Kimi K2 Thinking | Thinking + dinamik araç çağrısı, araştırmada 256K ve native INT4 iddiası | Ayrı thinking endpoint, kredi/thinking bütçesi | **ÖLÇÜLMEDİ** | Çok uzun düşünme maliyeti, tool parser ve çoklu GPU |
+| MiniMax M1 / M2 | MoE muhakeme ve agent adayı | Önce checkpoint/lisans/uyum doğrulama | **ÖLÇÜLMEDİ** | Lisans atıf koşulları, sürüm takibi |
+| Llama 4 Scout / Maverick | MoE modelleri, farklı uzman sayısı | Ayrı lisans denetimli test | **ÖLÇÜLMEDİ** | Meta community lisansı ve GPU ihtiyacı |
+| Jamba Large 1.7 | Transformer + SSM hibrit mimari iddiası | Model motoru desteği kontrol | **ÖLÇÜLMEDİ** | Resmî checkpoint lisansı ve altyapı uyumsuzluğu |
+| Nemotron / Falcon / InternLM / ERNIE | Farklı mimarilere sahip **model aileleri** | Tam checkpoint seçildikten sonra | **ÖLÇÜLMEDİ** | Genelleştirilmiş aile iddiası, belirsiz lisans ve yetersiz Türkçe ölçümü |
+| Cohere Command A/R7B, Aya Expanse | Çok dilli özel lisanslı açık ağırlık adayları | Self-host ticari SaaS için **karantinada** | **ÖLÇÜLMEDİ** | Non-commercial lisans olasılığı; hukuki belge olmadan asla müşteriye sunma |
+
+**Ortak uygulanacak model kartı kuralları:** Model ağırlık GB, tokenizer/quant/cache GB, Linux kurulum komutları, BF16/FP8/INT4 VRAM, gerçek GPU ve tok/sn/TTFT, Türkçe test, tam ticari lisans **Tur 2'de ayrı resmî kaynak ve benchmarkla doldurulacak**. Bu bölümdeki adayların hiçbirinde bu şartların tamamı sağlanmış değil.
+
+## 10.4 100.000 kullanıcı / GPU kapasite analizi — dış araştırma aktarımı
+**100.000 kayıt = 100.000 aynı anda konuşma değildir.** Dış rapor şu **varsayımları** kullandı: ortalama **2.000 input + 800 output token**, tam cevap hedefi **20 saniye**, 5.000 veya 20.000 DAU; farklı anlık istek yoğunlukları. Bunlar gerçek trafik ölçümü değildir.
+
+| Eşzamanlı aktif istek | 20 sn hedefi varsayımıyla RPS | 800 token/cevap varsayımıyla gereken aggregate output tok/s | Gerçek ölçülmüş GPU sayısı | GPU başına VRAM |
+|---:|---:|---:|---|---|
+| 100 | 5 | 4.000 | **ÖLÇÜLMEDİ** | **ÖLÇÜLMEDİ** |
+| 500 | 25 | 20.000 | **ÖLÇÜLMEDİ** | **ÖLÇÜLMEDİ** |
+| 1.000 | 50 | 40.000 | **ÖLÇÜLMEDİ** | **ÖLÇÜLMEDİ** |
+| 5.000 | 250 | 200.000 | **ÖLÇÜLMEDİ** | **ÖLÇÜLMEDİ** |
+
+**Uyarı:** İlk araştırmada geçen `1×96GB 100 isteğe yetebilir`, `2–4 GPU 500'e yeter` veya `4–8 GPU 1.000'e yeter` sayıları **benchmarka dayanmadığı için kabul edilmiş kapasite hedefi değildir**. Gereken tok/sn çıkışı, TTFT + toplam yanıt hedefi, KV-cache, batch, GPU bellek bant genişliği ve prefill ayrıca ölçülmelidir. **20 sn'de 800 token = akış başına 40 çıktı tok/sn** ortalamadır; ilk-token zamanını da içerdiği için salt sabit hız modeli iyimser olabilir.
+
+**Dış raporun kıyas GPU'ları:** RTX PRO 6000 Blackwell Server 96GB, NVIDIA H200 141GB, B200 (tam varyant doğrulanmalı); GPU bellek miktarı, bant genişliği, interconnect ve işlem gücü ayrı değerlendirilmeli. Araştırmanın GPU teknik kıyas iddiaları resmî NVIDIA özellik sayfasından doğrulanacak.
+- https://www.nvidia.com/en-us/data-center/rtx-pro-6000-blackwell-server-edition/
+- https://www.nvidia.com/en-us/data-center/h200/
+
+## 10.5 Yeni/önemli risk ve işletme ayrıntıları
+| Risk | Hangi modeller | Koruma / kontrol |
+|---|---|---|
+| MoE GPU dağıtım başarısızlığı | GLM, Kimi, MiniMax, Llama4 | Tensor/expert/pipeline parallel benchmark, node bağlantısı, fallback |
+| Ağırlıkların VRAM'e sığmaması / OOM | Büyük modellerin tamamı | Model + KV-cache + buffer rezervi; kuyruk, admission control |
+| Uzun reasoning token maliyeti | Kimi Thinking, DeepSeek-R1 vb. | Maksimum reasoning token, kredi limitleri, görev durdurma |
+| Non-commercial modeli yanlışlıkla müşteriye açma | Cohere açık checkpointleri ve diğerleri | LICENSE kanıtı ve manuel ONAY olmadan üretim router'ına kayıt yok |
+| Yüzeysel Türkçe desteği | Tüm LLM | Türkçe doğal dil, argüman takibi, diyalekt, format, güvenlik benchmark'ı |
+| Tenant veri sızıntısı | Tüm sistem | Tenant scope, izolasyon, audit, cross-user test |
+| Hatalı/eskimiş lisans iddiası | Her güncellenen checkpoint | Checkpoint URL, lisans hash/kayıt, yayın öncesi tekrar doğrula |
+| Kapasiteye göre yanlış GPU alımı | Tüm LLM | Gerçek RTX PRO 6000 / kiralık GPU throughput + maliyet bench |
+| GPU fatura patlaması | Otomatik kiralama/API | GPU adedi ve saatlik harcama tavanı, alarm, stop-switch |
+
+## 10.6 TUR 2 için kapatılması gereken açık işler (aynı konuyu yeniden anlatma)
+1. **Gerçek 2026 checkpoint taraması:** StepFun Step, Liquid LFM, Avrupa/Japonya/Kore modelleri, yeni Qwen/DeepSeek/Kimi/GLM/MiniMax/Nemotron/OLMo/Granite **önceden kayıtlı ada kopya açmadan**.
+2. **Lisans kontrolü:** MiniMax M1/M2, Jamba, Nemotron, Falcon, InternLM, ERNIE, Meta Llama ve Cohere checkpointlerinin **resmî LICENSE** metinleri.
+3. **Boyut/VRAM:** model ağırlıkları, quantization, 8K/32K/128K/256K KV-cache; 96GB kart/çoklu GPU testi.
+4. **Throughput:** RTX PRO 6000 96GB, H200 ve B200 ile aynı model/quant/bağlam testlerini kaynaklı kıyasla.
+5. **Fiyat:** güncel GPU kira, kurulum depolaması ve ücretli token API maliyetleri; ücretsiz kota ve SaaS koşulları.
+6. **Güvenlik:** akış bazlı token sınırı, model güncelleme güvenliği, giriş filtreleri, tenant izolasyonu, prompt injection, DDoS.
+7. **Kaynak kalitesi:** ilk raporda bağlanan her iddia için **doğrudan resmî URL + sürüm + yayın tarihi**; üçüncü taraf model listeleri lisans kanıtı sayılmaz.
+
+**Kategori 01 Tur 1 durumu: `AKTARILDI / DOĞRULAMA BEKLİYOR`. Tur 2 tamamlanmadan ve model bazında lisans+VRAM+SSD+benchmark alanları dolmadan hiçbir model ONAYLI sayılmayacaktır.**
