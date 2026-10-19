@@ -1,5 +1,5 @@
 # ANA BEYİN — YAPAY ZEKÂ SOHBETİ ARAÇLARI
-**Sürüm:** 1.0 — araştırma ve ürün envanteri  
+**Sürüm:** 1.1 — kategori bazlı çift araştırma standardı  
 **Tarih:** 20.10.2026  
 **Proje:** anabeyin.com  
 **Durum:** ADAY ENVANTERİ — kurulum ve ticari lisans onayı henüz yapılmadı.
@@ -234,3 +234,102 @@ Her kategori için en az 5 uygun aday, güncel repo ve checkpoint lisansları, T
 - Docling: https://github.com/docling-project/docling
 
 **Not:** Link verilmiş olması tekil model checkpointlerinin güncel lisans ve benchmark'larının doğrulandığı anlamına gelmez. Platformu SaaS olarak açmadan önce kategori bazlı hukuki/teknik onay zorunludur.
+
+
+---
+
+# 9 — ZORUNLU DERİN ARAŞTIRMA PROTOKOLÜ (20.10.2026)
+
+> **Yeni kalıcı kural:** Katalog artık yalnız ad listesi değildir. Yukarıdaki eski kısa kayıtlar **özet/araştırılacak aday** statüsündedir; her biri aşağıdaki formatta doğrulanıp genişletilecektir. Doğrulanmamış değerler uydurulmayacak. Mevcut bilgileri silme; yalnız doğrulanan yeni veriyi ilgili kayda işle. Bu standardı geçmiş tüm kategoriler ve bundan sonra eklenecek her model için uygula.
+
+## 9.1 Araştırma döngüsü
+1. **Tek kategori / iki derin tur:** Her seferinde yalnız 1 kategoriye odaklan. Tur 1 mevcut envanteri tarayıp **yalnız yeni adayları ve mevcut satırlardaki yeni bilgileri** bulur. Tur 2, Tur 1'de **araştırılmamış** adayları/eksik test ve kaynakları araştırır. Turlar kopya/parafraz tekrar içermez.
+2. Tur başlamadan: mevcut dosya, önceki tur çıktısı, kategoriye ait kaynaklar ve aynı checkpoint'in alternatif isimleri karşılaştırılır; tekrar önleme listesi oluşturulur.
+3. Sonuçlar `YENİ MODEL` / `MEVCUT KAYIT GÜNCELLEMESİ` / `EKSİK DOĞRULAMA` / `KULLANIMA UYGUN DEĞİL` olarak etiketlenir.
+4. Ücretsiz açık kaynak → ücretsiz açık ağırlık → ücretsiz kotası olan API → ticari API sırası korunur. Lisanslar her model sürümü için **ayrı** incelenir.
+5. Sonunda kaynaklar, açık sorunlar, araştırılmamış adaylar ve ikinci turun hariç tutma listesi verilir.
+6. Perplexity bir GitHub dosyasını güncellediğini iddia edemez; araştırma çıktısını kullanıcı buraya getirir, mevcut GitHub belgesiyle karşılaştırılarak **gerçek GitHub yazma işlemi** yapılır.
+7. Dış araştırma metnindeki `kesin öneri`, lisans, fiyat, donanım ve benchmark iddiaları **bağımsız doğrulanmadan ONAYLI işaretlenmez**.
+
+## 9.2 Bütün mevcut/yeni araçlar için zorunlu kayıt kartı
+**Her farklı checkpoint/sürüm için ayrı kart veya alt kayıt.**
+| Alan | Zorunlu içerik |
+|---|---|
+| ID/kategori | Kalıcı benzersiz kimlik, etiket ve görev |
+| İsim | Geliştirici, ülke, tam model/checkpoint/sürüm, tarih |
+| Resmî kaynaklar | Ürün, repo, Hugging Face, model card, lisans URL; erişim tarihi |
+| Maliyet statüsü | OS-PERMISSIVE / OS-COPYLEFT / OW-PERMISSIVE / OW-CONDITIONAL / NONCOMMERCIAL / API-FREE-TIER / API-PAID / BELİRSİZ |
+| Ticari SaaS hakkı | EVET / KOŞULLU / HAYIR / DOĞRULANMADI; atıf, MAU, ülke ve kullanım politikaları |
+| Tam olarak ne yapar? | Müşteriye somut özellikler, girişler, çıktılar, Türkçe, bilinen kısıtlar |
+| Nasıl çalışır? | Model mimarisi, workflow, token/latent/audio/video işlem aşamaları ve kullanılan yardımcı bileşenler |
+| Kurulum | Linux, Docker, Python, driver/CUDA, model indirme; **doğrulanmış** komutlar ve versiyon sabitleme |
+| API bağlantısı | Endpoint, protokol, örnek request/response, router, auth, streaming, hata/fallback |
+| Donanım | CPU çekirdek/RAM, GPU mimarisi, CUDA gereksinimi, BF16/FP8/GGUF/INT4, tek/çoklu GPU |
+| Gerçek disk | Ağırlık GB + ek modeller/encoder + Docker ve çalışma cache GB + üretim scratch GB; toplam SSD |
+| Gerçek VRAM | Minimum/önerilen GB; model ağırlığı + KV cache/aktivasyon + batch/context + eşzamanlı istek |
+| Ölçülen performans | Kullanılan GPU, sürüm, quant, istek boyutu, batch, tok/s veya sn/görsel-video; kaynak ve test tarihi |
+| 100K kullanıcı | DAU senaryoları ve 100/500/1000/5000 eşzamanlı **istek** için throughput, GPU adedi, kart başına VRAM, toplam VRAM, SLA/gecikme ve aylık maliyet |
+| Maliyet ve ölçekleme | Yerel GPU elektrik/amortisman, kiralık GPU/saat, premium API/token, sıcak/soğuk işçi |
+| Risk ve kontroller | Lisans, telif, gizlilik, içerik güvenliği, abuse, sürüm, güncelleme, GPU OOM, kuyruk, veri sızıntısı, fiyat patlaması |
+| Karar | ADAY / TEST / TİCARİ LİSANS KONTROLÜ / ONAYLI / ELENDİ; primary/fallback/ekonomik/premium |
+| Araştırma izi | Tur 1 bulgusu, Tur 2 yalnız yeni farklar, çelişen kaynaklar, araştırma açığı |
+
+**Ölçülmemiş her alanın tam değeri: `ÖLÇÜLMEDİ`.** Kaynak yoksa `DOĞRULANMADI`. Sayısal tahmin yalnız matematiksel **varsayım** başlığıyla ve formülle verilebilir; benchmark diye sunulamaz.
+
+## 9.3 100.000 kullanıcılık GPU kapasite standardı
+- 100K **kayıtlı hesap** GPU bellek gereksinimini belirlemez. 5K/20K günlük aktif kullanıcı ve aynı anda 100/500/1000/5000 **aktif çıkarım isteği** ayrı analiz edilir.
+- Bir sohbet oturumu başka sekmede açık olsa bile istek göndermiyorsa GPU'da KV-cache tutulması gerekmez; kalıcı sohbet hafızası PostgreSQL/disk üzerinde bulunur.
+- **Throughput:** ihtiyaç output tok/sn ≈ eşzamanlı aktif akış × hedef output tok/sn/akış; prefill token/s ve model ayrımı ayrıca hesaplanır.
+- **GPU sayısı:** yük testi throughput'unun kapasite/satın alma ile birlikte değerlendirilmesi; hedef p95 ilk token, yanıt süresi, overload koruması ve kuyruk şart.
+- **VRAM:** kart başına ağırlıklar + KV-cache + aktivasyon + ara tamponlar ve güvenlik rezervi. Çoklu kart VRAM'i salt toplanıp birleşik bellek sayılmaz; data/tensor/pipeline parallel yöntemi ayrıdır.
+- GPU dışında ayrıca CPU/RAM, sunucular arası ağ, depolama IOPS, veri çıkışı, reverse proxy, ödeme sistemi ve yedekleme darboğazları belirtilir.
+- Giriş/çıkış token dağılımı, istek/dakika, pik katsayısı, batching, quantization, bağlam uzunluğu ve GPU mimarisi verilmeden `X GB GPU 100K kullanıcıya yeter` hükmü kurulmaz.
+
+### Senaryo hesap şablonu
+| Senaryo | Kayıt | Günlük aktif (vars.) | Aktif eşzamanlı istek | Giriş/çıkış token | GPU başına ölçülmüş tok/s | GPU adedi | GPU başına VRAM | Toplam fiziksel VRAM | p95 gecikme | TL/ay | Ölçüm durumu |
+|---|---:|---:|---:|---|---|---|---|---|---|---|---|
+| Normal | 100.000 | 5.000 | 100 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | BENCHMARK GEREK |
+| Yoğun | 100.000 | 20.000 | 500 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | BENCHMARK GEREK |
+| Pik | 100.000 | 20.000 | 1.000 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | BENCHMARK GEREK |
+| Aşırı pik | 100.000 | 20.000 | 5.000 | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | ÖLÇÜLMEDİ | BENCHMARK GEREK |
+
+## 9.4 Kategori araştırma kuyruğu — her biri Tur 1 + Tur 2
+01. Genel LLM, muhakeme, Türkçe/multilingual
+02. Kodlama, yazılım ajanı, IDE, web/mobil/oyun
+03. Derin web/akademik araştırma ve kaynak doğrulama
+04. Kişisel hafıza, embedding, RAG, bilgi grafı
+05. VLM, görüntü anlama, OCR
+06. Görsel üretimi, ürün fotoğrafı, vektör, inpainting
+07. Video: T2V/I2V/V2V, karakter, avatar, kurgu
+08. Sesli sohbet, STT, TTS, çeviri, dublaj
+09. Müzik, şarkı, sound design
+10. 3D, CAD, animasyon, spatial computing
+11. PDF, Word, Excel, PowerPoint, dijital belge
+12. Matematik, veri bilimi, bilim, finans, haritalar
+13. Eğitim, öğretim, çeviri ve erişilebilirlik
+14. Sosyal medya, reklam, e-ticaret, CRM, ERP
+15. Otonom ajan, MCP, tarayıcı ve bilgisayar kullanımı
+16. Moderasyon, güvenlik, telif, KVKK ve uyum
+17. Model serving, inference, scheduler, GPU orchestration
+18. Üyelik, kredi, ödeme, çok kiracılı altyapı
+19. Depolama, yedekleme, iki lokasyon, felaket kurtarma
+20. İzleme, kalite değerlendirme, maliyet ve yönetişim
+21. Yeni keşfedilen eksik kategoriler — araştırmayla genişletilecek
+
+## 9.5 Araştırma 0: Kullanıcının sunduğu Perplexity genişletilmiş envanterinden değişiklik notları
+**Kaynak:** 'ANA BEYİN — YAPAY ZEKA SOHBETİ ARAÇLARI — GENİŞLETİLMİŞ ENVANTER 2026' (20.10.2026, kullanıcı tarafından paylaşılan metin).  
+**Durum:** Dış araştırma iddiaları **bağımsız doğrulama bekliyor**; bu kayıtlar lisans onayı veya benchmark değildir.
+
+- İlk katalogda yüzeysel kalan: gerçek zamanlı çok dilli sesli sohbet, toplantı asistanı, belge imza/onay akışı, müşteri destek ajanı, veri görselleştirme stüdyosu, web yayınlama, mobil prototip, oyun prototip, erişilebilirlik, değerlendirme stüdyosu.
+- Dış raporun ileri sürdüğü kontrol gerektiren lisans bulguları: **FLUX.1 dev ticari olmama koşulu; HunyuanVideo bölgesel ve MAU koşulları; LTX 2.x community lisansı ve türev/fine-tune şartları; ACE-Step 1.5 MIT; gpt-oss Apache 2.0; Wan2.2 Apache 2.0.** Kararlar tam sürümün resmî ağırlık lisansından yeniden incelenecek.
+- Dış raporun önerdiği bazı model eşleşmeleri: Qwen3 (genel sohbet), DeepSeek-R1 (muhakeme), gpt-oss (alternatif), Qwen-Image (görsel), Wan2.2 (video), ACE-Step (müzik), faster-whisper/Piper/Kokoro (ses), PostgreSQL/pgvector/BGE (RAG). Bunlar **ADAY**, otomatik seçilmiş üretim modelleri değildir.
+- Dış rapor hiçbir model için güvenilir ve kurulum koşulları tam belirtilmiş 100K kullanıcı başına GPU/VRAM kapasite ölçümü vermedi. Bu alanlar araştırma kuyruğuna eklendi.
+- Dış rapordaki kategori/teknoloji isimleri önceki kısa kayıtlarla örtüştüğünde kopya ekleme yapılmaz; yalnız doğrulanmış **delta** yazılır.
+- Dış rapordaki 'A — kesin önerilen' sınıflaması teknik ve hukuki onay anlamında kabul edilmez; `ÖNERİLEN ADAY` olarak değerlendirilir.
+
+## 9.6 Sonraki güncelleme kuralı
+- Kullanıcı Perplexity'den **kategori bazlı Tur 1 veya Tur 2** sonucunu bu sohbete yapıştırdığında, mevcut GitHub Markdown dosyası önce okunur.
+- Aynı model/checkpoint için kopya kayıt oluşturulmaz; yalnız yeni veriler ayrıntılı model kartına işlenir.
+- Her iddia kaynağıyla, erişim tarihiyle ve iddia sahibinin araştırma turuyla etiketlenir. Doğrulanan ile doğrulanmayan ayrılır.
+- Tek kategori bitmeden başka kategoriye geçilmez. İkinci tur, ilk turdaki boşluklara göre yeniden hazırlanır.
+- Gerekiyorsa dosya sürümleme ve kısa değişiklik günlüğü tutulur; eski sürümler Git geçmişinde kalır.
