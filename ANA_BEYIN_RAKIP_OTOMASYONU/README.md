@@ -10,23 +10,23 @@ Abacus.AI ChatLLM gibi rakiplerin **herkese açık ürün ve doküman sayfaları
 
 Ana Beyin kodunu D: sürücüsünde tutuyorsan bu klasörü oraya indir veya depoyu klonla. Python 3.10+ dışında bağımlılık yok.
 
-\`\`\`powershell
+```powershell
 cd D:\ANA_BEYIN\ANA_BEYIN_RAKIP_OTOMASYONU
 py -3 scan.py
 # Çıktı: reports\audit.md ve reports\audit.json
 py -3 scan.py --fixture sample.html
 py -3 skills_catalog.py "D:\GUVENLI_SKILLS" --output reports\skills_index.csv
-\`\`\`
+```
 
-**Kritik:** D: klasörü örnektir, mevcut yerel dosyalara dokunulmaz. \`skills_catalog.py\` yalnız eldeki SKILL.md dosyalarını indeksler, hiçbirini yüklemez veya çalıştırmaz.
+**Kritik:** D: klasörü örnektir, mevcut yerel dosyalara dokunulmaz. `skills_catalog.py` yalnız eldeki SKILL.md dosyalarını indeksler, hiçbirini yüklemez veya çalıştırmaz.
 
 ## Modüller
 
-- \`targets.json\` — İncelenecek Abacus resmî sayfaları, host izinleri ve özellik eşleme kuralları.
-- \`scan.py\` — HTTPS/robots.txt kontrolüyle metin temelli özellik sinyali tarama; kaynaklı JSON + Markdown raporu.
-- \`skills_catalog.py\` — SKILL.md kimlik, açıklama, lisans ve risk sinyalleri CSV çıktısı.
-- \`sample.html\` — Ağ gerekmeden temel smoke-test.
-- \`reports/\` — Çalıştırmada oluşur; kaynaklardan çıkarılan bulgular inceleme gerektirir.
+- `targets.json` — İncelenecek Abacus resmî sayfaları, host izinleri ve özellik eşleme kuralları.
+- `scan.py` — HTTPS/robots.txt kontrolüyle metin temelli özellik sinyali tarama; kaynaklı JSON + Markdown raporu.
+- `skills_catalog.py` — SKILL.md kimlik, açıklama, lisans ve risk sinyalleri CSV çıktısı.
+- `sample.html` — Ağ gerekmeden temel smoke-test.
+- `reports/` — Çalıştırmada oluşur; kaynaklardan çıkarılan bulgular inceleme gerektirir.
 
 ## Kendi veri/kaynak güvenliği
 
