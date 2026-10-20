@@ -1,0 +1,131 @@
+{
+  "target": "Abacus.AI ChatLLM",
+  "allowed_hosts": [
+    "chatllm.abacus.ai",
+    "api.abacus.ai",
+    "abacus.ai",
+    "deepagent.abacus.ai"
+  ],
+  "pages": [
+    {
+      "name": "ChatLLM",
+      "url": "https://chatllm.abacus.ai/"
+    },
+    {
+      "name": "Modeller",
+      "url": "https://api.abacus.ai/teams/chatllm/"
+    },
+    {
+      "name": "RouteLLM",
+      "url": "https://api.abacus.ai/help/route-llm/"
+    },
+    {
+      "name": "AI Agent",
+      "url": "https://deepagent.abacus.ai/faq"
+    },
+    {
+      "name": "Krediler",
+      "url": "https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing"
+    }
+  ],
+  "features": [
+    [
+      "Sohbet ve çoklu model",
+      [
+        "chatllm",
+        "models",
+        "llms"
+      ],
+      "LibreChat / özgün UI"
+    ],
+    [
+      "Model otomatik seçimi",
+      [
+        "route-llm",
+        "routellm",
+        "routing"
+      ],
+      "Kendi router + gateway"
+    ],
+    [
+      "Skills",
+      [
+        "skills"
+      ],
+      "Agent Skills kayıt sistemi"
+    ],
+    [
+      "Araç çağırma",
+      [
+        "tool calling",
+        "tools"
+      ],
+      "MCP ve OpenAPI"
+    ],
+    [
+      "Araştırma",
+      [
+        "research",
+        "web search"
+      ],
+      "Arama + kaynak denetimi"
+    ],
+    [
+      "Kod/uygulama",
+      [
+        "coding agent",
+        "build apps",
+        "create apps"
+      ],
+      "Sandbox kod işçisi"
+    ],
+    [
+      "Görsel",
+      [
+        "images",
+        "image generation"
+      ],
+      "Gerektiğinde medya API"
+    ],
+    [
+      "Video",
+      [
+        "video",
+        "video generation"
+      ],
+      "Gerektiğinde video API"
+    ],
+    [
+      "Dosyalar",
+      [
+        "documents",
+        "pdf"
+      ],
+      "Docling + Office"
+    ],
+    [
+      "Kullanım kredisi",
+      [
+        "credits",
+        "billing"
+      ],
+      "Kredi ledger + maliyet limiti"
+    ],
+    [
+      "Entegrasyonlar",
+      [
+        "connect",
+        "connectors"
+      ],
+      "OAuth ve MCP"
+    ],
+    [
+      "Ajanlar",
+      [
+        "agent",
+        "multi-agent"
+      ],
+      "İzinli görev yöneticisi"
+    ]
+  ]
+}
