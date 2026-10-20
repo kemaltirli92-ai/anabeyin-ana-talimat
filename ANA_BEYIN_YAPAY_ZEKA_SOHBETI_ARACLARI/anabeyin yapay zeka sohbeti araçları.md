@@ -1,5 +1,5 @@
 # ANA BEYİN — YAPAY ZEKÂ SOHBETİ ARAÇLARI
-**Sürüm:** 1.5 — Kategori 02 Tur 2 ve bağımsız lisans kontrolleri eklendi  
+**Sürüm:** 1.6 — Hafif API-first mimari ve rakip özellik tarama MVP  
 **Tarih:** 20.10.2026  
 **Proje:** anabeyin.com  
 **Durum:** ADAY ENVANTERİ — kurulum ve ticari lisans onayı henüz yapılmadı.
@@ -749,3 +749,48 @@ Qwen3-Coder-30B-A3B, Qwen3-Coder-Next, DeepSeek-V3.2, GLM-4.7 ve Devstral için 
 **Keşif:** Tur 1 son parça + Tur 2 sonuçları kaydedildi. Kategori 02 keşif döngüsü iki tur olarak işlendi, fakat kullanıcının tam Tur 1 belgesi elimize gelmediğinden **eksiksiz aktarım iddiası yoktur**.  
 **Açık:** Qwen/DeepSeek/GLM/Devstral için tam checkpoint lisansı ve 96GB benchmark, Agentless/RepoAgent'ın gerçek sandbox CPU/RAM/SSD, mobil/iOS test altyapısı, Godot MCP plugin uyumluluğu, GPU+CPU toplam maliyeti, Tam Tur 1 kaynaklarının birleşmesi, AutoCodeRover ana repo lisans çelişkisi.  
 **Bir sonraki kategori:** Kategori 03 — internet/akademik derin araştırma, crawling, kaynak doğrulama, gerçek zamanlı veri ve research ajanları. Tur 1 komutu kullanıcıya verildi, sonuç bekleniyor.
+
+
+---
+
+# 14 — STRATEJİK MİMARİ GÜNCELLEMESİ: YÜZLERCE MODELİ KURMA, GEREKTİĞİNDE BAĞLA
+**Tarih:** 21.10.2026 — Rakip özellik taraması ve Skills katalog stratejisi.
+
+> **Yeni karar:** Ana Beyin, başlangıçta büyük fiziksel sunucu veya 96GB GPU alma şartına bağlı değildir. Öncelik, API-first çok sağlayıcılı sohbet ve görev platformudur. Açık modeller yalnız yeterli kullanım/daha düşük birim maliyet kanıtlandığında kiralık GPU'da çalıştırılır. Kullanıcının gereksinimi olmadan bütün modeller indirilmeyecek.
+
+## 14.1 Abacus.AI ChatLLM kamuya açık dokümantasyondan alınan prensipler
+- **RouteLLM:** modeli görev, hız/kalite/maliyete göre yönlendiren OpenAI uyumlu model routing. https://api.abacus.ai/help/route-llm/
+- **Çoklu model:** GPT/Claude/Gemini/Grok/Qwen/Kimi/DeepSeek/GLM gibi model aileleri, görüntü/video üretim araçları; tek UI. https://api.abacus.ai/teams/chatllm/
+- **Ajan, Skills, MCP/araç ve bağlantılar:** araştırma, uygulama geliştirme, bilgisayar/tarayıcı işleri, kurumsal servis entegrasyonu. https://api.abacus.ai/help/chatllm-ai-super-assistant/deepagent
+- **Kredi:** aylık paket ve tüketim defteri; her modelin operasyon maliyeti farklı. https://api.abacus.ai/help/chatllm-ai-super-assistant/faqs/billing
+- Rakibin özel kaynak kodunu, gizli sunucu altyapısını veya ticari sağlayıcı erişim haklarını **kopyalamıyoruz**; sadece gözlemlenebilir özellikleri ve açık dokümantasyonu temel alan özgün uygulama geliştiriyoruz.
+- Abacus fiyat/credit ayrıntıları tarih ve promosyonla değişir; resmî güncel fiyat yeniden kontrol edilecek. Bireysel kullanıcı aboneliği başka platform müşterilerinin API kullanımına izin vermez.
+
+## 14.2 Skill mimarisi — topluca çalıştırma yok
+- Resmî Agent Skills standardı: `SKILL.md` manifesti + gerekirse `scripts/`, `references/`, `assets/`. https://agentskills.io/specification
+- İlk aşamada yalnız manifest metadata tarama, isim/amaç/lisans/sürüm/araç izinleri ve risk işaretleri; **çalıştırma, araç indirme, otomatik install yok**.
+- Tekilleştirme, hedef göreve semantik uygunluk, açık lisans, bakım durumu, test sonucu, maliyet ve güvenlik skoru ile sırala.
+- Her skill varsayılan `KARANTİNA`; Cisco Skill Scanner https://github.com/cisco-ai-defense/skill-scanner , manuel review, kısıtlı sandbox, geriye alınabilir sürüm ve izole yetki sonrası onay.
+- İstekte seçilen skill'in metadata'sı hafif; asıl talimat dosyası sadece gerektiğinde yüklenir (**progressive disclosure**). Tüm skill dosyaları ile tüm modeller daima RAM/GPU'da bulunmaz.
+- '1.600.000 Claude Skill' ifadesi resmî kaynaklarda doğrulanmadı; miktar bilinmiyor ve hedef sayı değil, seçili görevde güvenilir performanstır.
+
+## 14.3 Eyleme geçilen ilk otomasyon
+GitHub'da ayrı alt klasör oluşturuldu:
+`ANA_BEYIN_RAKIP_OTOMASYONU/`
+- `scan.py`: rakibin belirtilmiş resmi, kamuya açık sayfalarını sadece izinli HTTPS + robots kontrolüyle **okur**, özellik anahtar kelime eşleşmelerini kaynak bağlantısı ve sayfa SHA-256 ile `reports/audit.md` + `audit.json` çıktısına yazar.
+- `skills_catalog.py`: **yerel** SKILL.md klasörlerinden risk sinyaline dayalı CSV katalog yapar; script çalıştırmaz.
+- `targets.json`: başlangıç hedefi Abacus ChatLLM; her hedef için explicit URL/host izin listesi.
+- `README.md`: Windows 11/Python3 çalışma yönergesi.
+- **Gerçek durum:** Temel metadata tarayıcı kodu GitHub'a yüklendi. Abacus'ın şifreli/giriş gerektiren uygulama içi arayüzü taranmadı. HTML'de bulunan kelime işlevin çalıştığını ispatlamaz. Otomatik UI kodu yazma/deploy veya tam rakip klonlama **henüz uygulanmadı**.
+- İkinci aşama: ürün özelliği kanıtı → insan kontrolü → özgün işlev şartnamesi → kaynak lisansı uygun chat altyapısı → testli PR → onaylı yayın.
+
+## 14.4 Açık kaynak sohbet çatallama adayları ve lisans
+- **LibreChat:** MIT lisanslı, çoklu sağlayıcı/MCP/Skills/ajan destekli hazır iskelet; yeni modüller lisans ve sürüm incelemesiyle denenebilir. https://github.com/LibreChat-AI/LibreChat/blob/main/LICENSE
+- **Open WebUI:** güncel lisansı **50'den fazla kullanıcılı yeniden markalamada** Open WebUI markasının kaldırılmasını sınırlandırıyor; Ana Beyin markalı büyük SaaS'a doğrudan beyaz etiket olarak kullanılamaz, uygun özel lisans veya mevcut lisans şartlarına uygun kullanım gerekir. https://github.com/open-webui/open-webui/blob/main/LICENSE
+- **Birincil ön çalışma:** açık lisans ve mevcut özellikleri nedeniyle LibreChat teknik keşif adayı; ancak ana ürünün lisansı, tenant-izolasyonu ve çoklu abone ölçek testleri ayrıca yapılacak.
+
+## 14.5 Kapasite ve maliyet
+- Sistemin en başında kendi GPU'sunu satın almak **zorunlu değil**.
+- Model/router ve araç manifestleri yalnız metadata; donanım maliyeti çok az. Asıl değişken maliyet **AI çıkarımı, video oluşturma, kod sandbox, depolama ve bant genişliği**.
+- 100K kayıtlı kullanıcı kapasitesini belirleyen tek metrik hesap adedi değil, aktif kullanım ve SLA'dır. Gerçek birim ekonomi çıkmadan toplu GPU/disk yatırımı yapılmayacak.
+- Ayrı maliyet bütçesi: aylık uygulama barındırma + API token + medya üretimi + kullanıcı dosyası saklama + sandbox CPU + yedek.
