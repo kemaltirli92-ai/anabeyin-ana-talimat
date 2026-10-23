@@ -7484,3 +7484,49 @@ Bu bölüm 275 kaydın üzerindeki **eksik araçlar, model sürümleri, Türkçe
 - **2026-10-16 / V1:** İlk açıklamalı katalog, 261 ana + 14 tamamlayıcı kayıt.
 
 **Uyarı:** Tablolardaki bellek rakamları resmî model bazlı ölçüm değil; yerel planlamaya uygun yaklaşık aralıklardır. Güncel kurulum ve API davranışını resmî belgede doğrula.
+
+
+---
+
+## 2026-10-24 / EK KAYITLAR — TERSİNE MÜHENDİSLİK (SADECE REA VE ERA)
+
+**Kullanım kararı:** Aşağıdaki iki araç Ana Beyin'in **geliştirme/inceleme adaylarıdır**; canlı müşteri sitesine zorunlu servis olarak kurulmaz. Bu kayıtlar, önceki 425 kartın içeriğini değiştirmez. Ana Beyin'de yapay zekâ üretiminin **harici API'lerle yapılması** kararını değiştirmez. Resmî lisans, sürüm, uyumluluk ve izinli kullanım koşulları kurulum öncesi yeniden doğrulanır. GitHub'daki hızlı içindekiler/JSON indeksi bu değişiklikle güncellenmemiştir.
+
+<a id="k426"></a>
+
+### K426 — REA (Reverse Engineer Anything)
+
+- **Tür / Ücretsiz durum:** Açık kaynak tersine mühendislik ve yazılım inceleme aracı; **MIT lisanslı**. REA motoru ücretsizdir; isteğe bağlı başka servisler/ücretli çözümleyiciler ayrıca ücretlendirilmiş olabilir.
+- **Ne işe yarar?** Sahip olduğumuz veya inceleme hakkımız bulunan JavaScript/Electron uygulamaları, uygulama dosyaları ve uygun başka yazılım türlerinde yapı, modül, davranış ve bağlantıları kanıta dayalı incelemek için CLI ve MCP arayüzü sunar. Kaynak kodu veya özel erişim hakkı verilmeyen hizmetlerin gizli sunucu kodunu otomatik elde etmez.
+- **Somut yapılabilecek iş:** Ana Beyin için LibreChat'in izinli kod yapısını veya incelenmesine izin verilen örnek uygulamaları analiz et; ilgili modül, giriş noktası ve davranışları Claude Code'a kanıtlı raporla; özgün Ana Beyin arayüzü geliştirilirken gereksiz kod kopyalamadan mimari karar vermeye yardımcı ol.
+- **Girdi → çıktı / bağlantı:** İzinli yerel proje klasörü, uygulama paketi veya analiz hedefi → analiz bulguları/rapor; CLI ve MCP ile kodlama ajanına bağlanabilir.
+- **Resmî kaynak ve ilk araştırma:** [REA ana GitHub deposu](https://github.com/morluto/rea), [Türkçe README](https://github.com/morluto/rea/blob/main/docs/readme/README_tr.md), [Lisans](https://github.com/morluto/rea/blob/main/LICENSE). Benzer isimli üçüncü taraf kopyalardan kurulum yapılmaz.
+- **Nerede çalışır / kurulum yeri:** Desteklediği Node.js ortamında geliştirici bilgisayarı veya ayrılmış analiz ortamı. Resmî yönergede başlangıç komutu \`npx rea-agents setup\` olarak sunulur; bu bir **kurulum/ajan kaydı** işlemidir, kullanıcı onayı ve ortam kontrolünden sonra yürütülür.
+- **Güncel gözlenen sürüm ve uyumluluk:** İnceleme sırasında ana depodaki paket sürümü **rea-agents 6.7.0** görünüyordu. Kullanılacak Node.js sürümü, platform desteği, analiz sağlayıcıları ve MCP uyumu güncel README ile doğrulanır. ERA'nın geçmiş testi REA **6.4.0** üzerindedir; birlikte kullanılırken sürüm uyuşması ayrıca test edilir.
+- **SSD / RAM / VRAM:** CLI'nin kendi donanım ihtiyacı analiz edilen projeye ve seçilen motorlara bağlıdır; **resmî ölçüm olmadan sayı uydurulmaz**. Temel statik kod incelemesi için yerel büyük LLM veya GPU zorunlu değildir; Ghidra/Hopper gibi isteğe bağlı bileşenler farklı kaynak ister.
+- **VPS şart mı?** Hayır. İlk değerlendirme geliştirme ortamında yapılmalı; sürekli açık müşteri API sunucusunda zorunlu servis değildir.
+- **Mevcut laptop uygunluğu:** Hafif JavaScript analizi için denenebilir; tüm platform ve hız senaryolarının doğrulandığı varsayılmaz.
+- **Hedef sunucu uygunluğu:** Ana Beyin API sunucusu için zorunlu değil; yalnızca ayrı izinli analiz işçisi planlanırsa değerlendirilir.
+- **Kurulum ve işlem güvenliği:** Yalnız hakkımız olan yazılımı/izinli örnekleri incele; üçüncü şahıs sırlarını çıkarma, erişim kontrollerini aşma veya kod/lisans ihlali amacıyla kullanma. İnceleme sonuçlarını ve kaynak delillerini proje ile ilişkilendir. Çalışan müşteri sistemini koru, gizli API anahtarlarını ajan analizine sızdırma.
+- **Kanıt / durum:** Depo README'si, package.json ve MIT LICENSE incelendi (2026-10-24). **Ana Beyin'e kurulmadı, sistemimizle uçtan uca test edilmedi.**
+- **Alternatifleri araştır:** İzinli web davranış incelemesi için tarayıcı geliştirici araçları ve katalogdaki Playwright; ağır yerel binary analizde yalnız ihtiyaç varsa Ghidra. Bunları bu turda yeni K-ID olarak ekleme.
+
+<a id="k427"></a>
+
+### K427 — ERA (Evolve & Reverse Engineer Anything)
+
+- **Tür / Ücretsiz durum:** REA üzerine kurulmuş açık kaynak yazılım mühendisliği ve tersine mühendislik çalışma masası; **MIT lisanslı**. Kodlama ajanının veya model API'sinin ücretini karşılamaz.
+- **Ne işe yarar?** REA analizine ek olarak incele → değişiklik öner → izole kopyada uygula → test et → diff incele → onayla/geri al iş akışı sağlar. ERA Studio ile editör, fark karşılaştırma, proje laboratuvarı ve ajan koordinasyonu arayüzü sunar.
+- **Somut yapılabilecek iş:** İzinli LibreChat proje kopyasında Ana Beyin'e özgü sol menü ve dinamik form tasarımlarını inceleme planı çıkar; değişiklikleri ayrı çalışma kopyasında değerlendirmek, test etmek ve yalnız kullanıcı onayıyla birleştirmek için geliştiriciye yardımcı ol. **431 işlemi veya siteyi kendiliğinden bitirdiği iddia edilmez.**
+- **Girdi → çıktı / bağlantı:** İzinli proje/depo ve görev tanımı → REA kanıtları, değişiklik planı, test raporu ve onaylanabilir kod farkı. CLI, Studio tarayıcı arayüzü ve desteklenen ajan bağlayıcıları kullanılır.
+- **Resmî kaynak ve ilk araştırma:** [ERA GitHub](https://github.com/dav1dngy/era-agent), [Kurulum belgesi](https://github.com/dav1dngy/era-agent/blob/main/docs/installation.md), [Test/destek matrisi](https://github.com/dav1dngy/era-agent/blob/main/docs/SUPPORT_AND_VALIDATION.md), [Lisans](https://github.com/dav1dngy/era-agent/blob/main/LICENSE).
+- **Nerede çalışır / kurulum yeri:** **Geliştirici çalışma ortamı**. ERA Studio'nun doğrulanmış ortamı **macOS ARM64**; Windows ve Linux Studio doğrulanmamış/desteklenmeyen durumdadır. Kullanıcının Windows bilgisayarına ya da Cloudflare Workers'a doğrudan kurulabilir varsayılmaz.
+- **Kurulum yöntemi:** Resmî depodaki \`v0.2.0\` etiketi, Node.js/npm ve Studio bağımlılıklarıyla geliştirici tarafından değerlendirilir. Kurulumdan önce \`installation.md\` kontrol edilir; bu kayıt otomatik kurulum yetkisi vermez.
+- **Sürüm / gerçek test durumu:** Repo **ERA v0.2.0** bildiriyor. Resmî matriste macOS ARM64 üzerinde **REA 6.4.0** ile test edilmiş; analiz ve iş akışının bir bölümü gerçek, **Claude Code adaptörü ve çok ajanlı kod üretimi uçtan uca gerçek CLI ile doğrulanmamış**. Güvenlik düzeltmelerinin bağımsız yeniden incelemesi bulunmadığı belirtiliyor. REA'nın daha yeni sürümüyle uyumluluk ayrıca test edilmelidir.
+- **SSD / RAM / VRAM:** Gerçek iş yükü ve kullanılan ayrı REA/ajan/IDE süreçlerine bağlıdır; resmî ölçüm yoksa sabit miktar yazma. Kodlama ajanı için model hesabı/API ücreti ayrıca olabilir. Büyük GPU modeli zorunlu değildir.
+- **VPS şart mı?** Hayır. Üretim sunucusu yerine kontrollü geliştirme/test ortamına daha uygundur.
+- **Mevcut laptop uygunluğu:** Windows'ta ERA Studio desteklenmiş sayılmıyor; **şimdi kur** kararı verilmedi.
+- **Hedef sunucu uygunluğu:** Canlı müşteri sisteminde sürekli servis olmamalı; yalnız ileride ayrı, kontrollü analiz ortamında değerlendirilebilir.
+- **Güvenlik:** Önce yedek ve ayrı Git dalı, sonra erişim sınırı, izole işlem, test sonuçları ve insan onayı. Gizli müşteri dosyaları/sırları ayrıştırılmadan uzak ajana iletilmez. Bu proje güvenlik sertifikalı ürün değildir.
+- **Kanıt / durum:** Resmî README, SUPPORT_AND_VALIDATION ve MIT LICENSE incelendi (2026-10-24). **Ana Beyin'e kurulmadı, Windows'ta doğrulanmadı.**
+- **Alternatif / tamamlayıcı:** Doğrudan REA analizi, Git+Playwright ile kontrollü geliştirme ve mevcut Claude Code iş akışı. Bu alternatifler katalogda zaten varsa yeniden kayıt açılmaz.
