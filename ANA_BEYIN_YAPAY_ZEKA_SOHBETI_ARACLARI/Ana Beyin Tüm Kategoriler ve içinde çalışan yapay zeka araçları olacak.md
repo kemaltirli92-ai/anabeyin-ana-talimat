@@ -187,6 +187,35 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Sohbet ve Yazı: 20 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Sohbet API servisi, Conversation Store, AI Router; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 01-001 | Yeni sohbet | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-002 | Sohbeti GPT/Claude/Gemini arasında sürdür | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-003 | İki modelden ikinci görüş al | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-004 | Modelleri yan yana karşılaştır | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-005 | Yüklenen dosyayla sohbet | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-006 | Fotoğraf/grafik üzerinden soru sor | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-007 | Canlı sesli sohbet | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-008 | Yazıyı kısalt ve özetle | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-009 | Yazıyı yeniden yaz/dilini düzelt | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-010 | E-posta ve iş mesajı yaz | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-011 | Dilekçe/mektup oluştur | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-012 | Blog ve makale hazırla | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-013 | Hikâye/roman/senaryo yaz | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-014 | İçerik fikirleri üret | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-015 | Toplantıdan özet ve görev çıkar | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-016 | Kişisel notları düzenle | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-017 | Karşılaştırmalı karar tablosu oluştur | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-018 | İş ilanı ve özgeçmiş metni yaz | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-019 | Marka üslubuyla yaz | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+| 01-020 | Projeye bağlı uzun süreli sohbet | Model yanıtı akış olarak gösterilir; aynı sohbet kimliğinde geçmiş ve proje hafızası saklanır. |
+
 ### 2. Araştırma ve Bilgi — 18 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -213,6 +242,33 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 18 | Rakip özellik matrisi hazırlama | Araştırma sorusu, ülke, tarih aralığı ve kaynak tercihi. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli, Grok, DeepSeek<br>**İnternet araştırması:** Tavily, Exa, Brave Search, SerpAPI, Perplexity | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY`; `XAI_API_KEY`; `DEEPSEEK_API_KEY`; `TAVILY_API_KEY`; `EXA_API_KEY`; `BRAVE_SEARCH_API_KEY`; `SERPAPI_API_KEY`; `PERPLEXITY_API_KEY` | Arama API’sinden gerçek kaynaklar gelir; sohbet modeli bağlantılı araştırma sonucu hazırlar. **Sunucu araçları:** Kaynakları karşılaştırma, Rapor/PDF hazırlama. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Araştırma ve Bilgi: 18 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Araştırma işçisi, SearXNG, Crawl4AI, arama API; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 02-001 | Web üzerinde kaynaklı araştırma | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-002 | Derin çok adımlı araştırma | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-003 | Rakip işletme/ürün analizi | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-004 | Fiyat ve özellik karşılaştırma | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-005 | Pazar/sektör araştırması | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-006 | Akademik makale arama | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-007 | Bilimsel literatür özeti | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-008 | Patent araştırması | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-009 | Mevzuat ve resmî belge tarama | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-010 | Şirket/marka geçmişi araştırma | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-011 | Gündem/haber derlemesi | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-012 | Haber kaynaklarını çapraz kontrol | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-013 | Ürün/hizmet sağlayıcı bulma | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-014 | Kaynaklı rapor oluşturma | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-015 | Web sayfasını açıklama/özetle | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-016 | Araştırmadan sunum/PDF üret | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-017 | Sürekli konu takibi (izinli) | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
+| 02-018 | Rakip özellik matrisi hazırlama | İzinli arama, kaynak adresleri, doğrulama ve rapor/proje arşivi oluşturulur. |
 
 ### 3. Görsel ve Tasarım — 36 alt işlem
 
@@ -258,6 +314,51 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 36 | Marka renkleriyle varyasyon | Ürün listesi/CSV, fotoğraflar, şablon ve üretim sayısı. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli<br>**Görsel düzenleme:** OpenAI GPT, Google Gemini / ilgili Google modeli, FLUX (Black Forest Labs), Adobe Firefly, Runway | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY`; `BFL_API_KEY`; `ADOBE_CLIENT_ID`; `ADOBE_CLIENT_SECRET`; `RUNWAY_API_KEY` | Ürün listesi ve şablon birleştirilerek her ürün için tekrarlanabilir görseller üretilir. **Sunucu araçları:** Sunucuda görseli uygun boyuta ve dosya biçimine dönüştürme, csv oku, toplu gorev kuyrugu. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Görsel ve Tasarım: 36 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici görsel API, Sharp/libvips, medya işçisi; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 03-001 | Metinden görsel üret | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-002 | Referans fotoğrafla görsel üret | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-003 | Fotoğrafın bir bölümünü değiştir | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-004 | Fotoğraf arka planını kaldır | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-005 | Arka planı başka mekâna taşı | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-006 | Nesne ekle veya kaldır | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-007 | Fotoğrafı genişlet (outpainting) | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-008 | Eski fotoğraf onarımı | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-009 | Netleştir/çözünürlük yükselt | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-010 | Renklendir/siyah-beyaza dönüştür | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-011 | Yüz değiştirme (izinli) | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 03-012 | Çok kişili grup fotoğrafı dönüştür | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 03-013 | Portre/vesikalık/kart fotoğrafı | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 03-014 | Profesyonel profil fotoğrafı | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-015 | Çizgi film/anime/karikatür | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-016 | Çocuk kitabı illüstrasyonu | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-017 | Logo tasarla | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-018 | Kurumsal kimlik ve marka kiti | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-019 | Afiş/poster oluştur | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-020 | Reklam banner'ı | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-021 | Instagram gönderisi | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-022 | Instagram Story tasarımı | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-023 | YouTube küçük resim (thumbnail) | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-024 | YouTube kanal kapağı | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-025 | Ürün e-ticaret fotoğrafı | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-026 | Ürün arka plan/sahne değiştirme | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-027 | Sanal kıyafet deneme (izinli) | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-028 | İç mekân dekorasyon önizlemesi | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-029 | Dış cephe/gayrimenkul görseli | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-030 | Davetiye/kartvizit/menü | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-031 | İnfografik/grafik poster | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-032 | Toplu ürün görseli (CSV) | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-033 | Kolaj/fotoğraf albümü | Orijinali sakla → image-edit API → Sharp/libvips → kayıpsız/sıkıştırılmış iki ayrı sürüm |
+| 03-034 | Görseldeki yazıyı düzenle | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-035 | Şeffaf PNG/ikon/set üret | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
+| 03-036 | Marka renkleriyle varyasyon | Kaynak orijinal saklanır; düzenleme API sonucu ve optimize önizleme ayrı saklanır. |
 
 ### 4. Video Stüdyosu (Avatar Dahil) — 66 alt işlem
 
@@ -334,6 +435,81 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Video Stüdyosu (Avatar Dahil): 66 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici video API, FFmpeg/ffprobe, video iş kuyruğu; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 04-001 | Tam otomatik video — fikirden MP4'e | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-002 | Instagram Reels oluştur | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-003 | TikTok videosu oluştur | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-004 | YouTube Shorts oluştur | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-005 | YouTube yatay uzun video oluştur | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-006 | Facebook Reels/video gönderisi | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-007 | Instagram Story video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-008 | WhatsApp Status video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-009 | LinkedIn ürün/iş videosu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-010 | X için kısa video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-011 | Ürün reklam filmi | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-012 | E-ticaret ürün tanıtımı | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-013 | Mağaza/kafe/otel tanıtımı | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-014 | Emlak ilanı/gezi videosu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-015 | Otomobil ilan/tanıtım videosu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-016 | Seyahat/gezi videosu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-017 | Haber metninden video haber | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-018 | Blog yazısından video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-019 | Metinden video (text-to-video) | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-020 | Fotoğraftan video (image-to-video) | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-021 | Eski fotoğrafı canlandır | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-022 | Çoklu fotoğraftan slayt/video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-023 | Referans videodan yeni video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-024 | Video stilini değiştir | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-025 | Video arka planını değiştir | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-026 | Video nesnesi sil/değiştir | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-027 | Videoda ürünü/ambalajı değiştir | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-028 | Kişi yüzü değiştirme (rıza ile) | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-029 | İki kişilik videoda iki yüzü değiştir | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-030 | Üç kişilik videoda üç yüzü değiştir | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-031 | Kalabalık videoda kişi-rol eşle | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-032 | Kendi yüzümle film sahnesi oluştur | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-033 | Kendimi farklı kıyafet/mekânda göster | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-034 | Kendimi dans videosuna yerleştir | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-035 | Kendimi tarihi/fantastik sahneye yerleştir | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-036 | İzinli konuşan fotoğraf oluştur | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-037 | Sanal sunucu/haber spikeri | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-038 | Konuşan karakter/mascot | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-039 | Konuşan evcil hayvan animasyonu | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-040 | Kurumsal eğitim avatarı | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-041 | Avatarlı ürün anlatımı | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-042 | Sesle dudak eşleme (lip-sync) | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 04-043 | Video dili değiştir / dublaj | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 04-044 | Videoya çok dilli altyazı ekle | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 04-045 | Uzun videodan 5–20 Shorts çıkar | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-046 | Podcastten kısa kesitler çıkar | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-047 | Canlı yayın öne çıkan anları kes | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-048 | Sosyal medya trendine uyarlanmış kurgu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-049 | Video otomatik altyazı | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 04-050 | Videodan sessizlik/dolgu sözü temizle | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-051 | Tek tık otomatik montaj | Dış video API ve/veya FFmpeg montaj → ffprobe kontrol → orijinal + yeni sürüm |
+| 04-052 | Video intro/outro/logo ekle | Dış video API ve/veya FFmpeg montaj → ffprobe kontrol → orijinal + yeni sürüm |
+| 04-053 | Sahne sahne storyboarddan video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-054 | İki videoyu birleştir | Dış video API ve/veya FFmpeg montaj → ffprobe kontrol → orijinal + yeni sürüm |
+| 04-055 | Dikey/yatay/kare yeniden kadrajla | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-056 | Sinematik renk/ışık düzeltme | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-057 | Video süresini uzat | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-058 | Video çözünürlüğünü yükselt | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-059 | Aynı videonun 3–10 varyasyonunu yap | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-060 | Ürün fotoğraflarından katalog videosu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-061 | Referans karakteri tüm sahnelerde koru | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-062 | Şarkıya otomatik klip oluştur | PySceneDetect → FFmpeg sahne seç/kes/yeniden kadrajla → MP4 kalite testi |
+| 04-063 | Düğün/doğum günü kutlama videosu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-064 | İş başvurusu video sunumu | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-065 | Eğitim/how-to video | Sahne ve ses üretimi, düzenleme, kalite denetimi, orijinal ve MP4 çıktısı yapılır. |
+| 04-066 | Otomatik müzik+seslendirme+altyazı+montaj | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+
 ### 5. Ses ve Dublaj — 20 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -363,6 +539,35 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Ses ve Dublaj: 20 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici STT/TTS API, FFmpeg ses işçisi; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 05-001 | Metinden ses oluştur (TTS) | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-002 | Doğal Türkçe seslendirme | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-003 | Sesli kitap seslendirme | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-004 | Reklam seslendirmesi | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-005 | Podcast anlatıcı sesi | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-006 | Ses kaydını yazıya çevir | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 05-007 | Video konuşmalarını yazıya çevir | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 05-008 | Sesli notları özetle | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-009 | Ses kaydını başka dile çevir | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 05-010 | Çok dilli dublaj | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 05-011 | Toplantıyı metne ve kararlara dök | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-012 | Arka plan gürültüsünü kaldır | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-013 | Sesi temizle ve seviyeyi eşitle | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-014 | İzinli kişisel ses klonu | Rıza ve hak denetimi → uygun dış avatar/yüz/ses API → güvenli QC ve arşiv |
+| 05-015 | İki/çok konuşmacılı konuşma | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-016 | Telefona otomatik karşılama sesi | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-017 | Telaffuz ve aksan çalışması | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-018 | Metni farklı duyguyla seslendir | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+| 05-019 | Sözcük/zaman kodlu SRT altyazı | STT → çeviri/TTS → FFmpeg eşleme → zamanlama ve ses QC |
+| 05-020 | Sesi konuşmacılara ayır | Çeviri/ses tanıma/dublaj, süre-ses-seviye kontrolü ve arşiv yapılır. |
+
 ### 6. Müzik ve Ses Efektleri — 18 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -389,6 +594,33 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 18 | Ses seviyelerini master et | Ses dosyası, hangi seslerin ayrılacağı/düzeltileceği, çıktı biçimi. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli<br>**Ses isleme:** Runway, fal.ai, Replicate | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY`; `RUNWAY_API_KEY`; `FAL_KEY`; `REPLICATE_API_TOKEN` | Yüklenen ses analiz edilir; ses ayrıştırma, düzeltme veya biçim dönüştürme yapılır. **Sunucu araçları:** ffmpeg ses isleme. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Müzik ve Ses Efektleri: 18 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici müzik API, ses işçisi, FFmpeg; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 06-001 | Metinden özgün müzik üret | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-002 | Reklam jingle'ı oluştur | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-003 | YouTube giriş/çıkış müziği | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-004 | Podcast jeneriği | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-005 | Vokalli şarkı oluştur | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-006 | Enstrümantal fon müziği | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-007 | Sinema/fragman müziği | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-008 | Oyun müziği | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-009 | Meditasyon/ambiyans müziği | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-010 | Lo-fi/elektronik/pop/rock türleri | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-011 | Kısa sosyal medya fon müziği | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-012 | Söz yaz ve bestele | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-013 | Sesten vokal ayır | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-014 | Enstrümanları ayır (stems) | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-015 | Gürültü/ses efekti oluştur | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-016 | Videoya otomatik müzik yerleştir | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-017 | Müziği kısalt/döngüye al | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
+| 06-018 | Ses seviyelerini master et | Müzik hakları kontrol edilir; parça üretilir, mix edilir ve saklanır. |
 
 ### 7. Kodlama ve Yazılım — 22 alt işlem
 
@@ -420,6 +652,37 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 22 | İzinli proje için incele-değiştir-test et | GitHub bağlantısı veya kod dosyaları, yapılacak değişiklik, dil ve test onayı. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli, Grok, DeepSeek | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY`; `XAI_API_KEY`; `DEEPSEEK_API_KEY`; `GITHUB_CLIENT_ID`; `GITHUB_CLIENT_SECRET`; **hesap bağlantısı:** GitHub (kullanıcı OAuth onayı) | İzinli kod projesi incelenir; istenen değişiklik ayrı kopyada hazırlanır, testten sonra kullanıcıya onay için sunulur. **Sunucu araçları:** İzole kod çalıştırma ve test, GitHub/Git işlemleri ve testler, Değişiklik için kullanıcı onayı. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Kodlama ve Yazılım: 22 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici kod modeli, izole sandbox, Git/test; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 07-001 | Sıfırdan kod üret | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-002 | Mevcut kodu açıkla | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-003 | Kod hatası bul ve düzelt | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-004 | GitHub deposunu incele | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-005 | Pull request taslağı hazırla | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-006 | Birim/entegrasyon testi yaz | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-007 | Testleri çalıştır ve hataları açıkla | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-008 | Kod güvenlik taraması | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-009 | Performans iyileştirme | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-010 | API endpoint oluştur | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-011 | API dokümantasyonu yaz | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-012 | Veritabanı şeması oluştur | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-013 | SQL sorgusu yaz/düzelt | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-014 | Python betiği oluştur | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-015 | JavaScript/TypeScript projesi | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-016 | Kod başka dile dönüştürme | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-017 | Kodu açıklamalı öğret | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-018 | Ekran görüntüsünden arayüz kodu | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-019 | Kod refactor/temizleme | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-020 | Docker/CI ayarlarını hazırla | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
+| 07-021 | Sürüm karşılaştırması | Yetkili kaynakta diff, derleme, test, tarama ve proje çıktısı hazırlanır. |
+| 07-022 | İzinli proje için incele-değiştir-test et | İzole repo → kod modeli → diff, unit/E2E/güvenlik tarama → indirme |
 
 ### 8. Web Sitesi, Mobil Uygulama ve Oyun — 26 alt işlem
 
@@ -456,6 +719,41 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Web Sitesi, Mobil Uygulama ve Oyun: 26 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici kod modeli, web/mobil/oyun sandbox; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Uygulama geliştir, önizleme/test ve izinli dışa aktarım yap. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 08-001 | Kurumsal web sitesi oluştur | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-002 | E-ticaret sitesi oluştur | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-003 | Landing page/kampanya sayfası | Uygulama geliştir, önizleme/test ve izinli dışa aktarım yap. |
+| 08-004 | Portföy/kişisel site | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-005 | Blog/haber sitesi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-006 | Rezervasyon/randevu sitesi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-007 | Üyelik/abonelik sitesi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-008 | SaaS yönetim paneli | Uygulama geliştir, önizleme/test ve izinli dışa aktarım yap. |
+| 08-009 | Online kurs/eğitim platformu | Uygulama geliştir, önizleme/test ve izinli dışa aktarım yap. |
+| 08-010 | Pazaryeri web sitesi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-011 | Figma/görselden web sayfası | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-012 | Mevcut siteyi mobil uyumlu yap | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-013 | SEO ve hız iyileştirme | Uygulama geliştir, önizleme/test ve izinli dışa aktarım yap. |
+| 08-014 | Android uygulaması prototipi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-015 | iOS uygulaması prototipi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-016 | Tek kodla Android/iOS | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-017 | Uygulama ekran tasarımı | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-018 | Bildirim/oturum/ödeme entegrasyonu | Uygulama geliştir, önizleme/test ve izinli dışa aktarım yap. |
+| 08-019 | Mobil uygulama test paketi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-020 | Basit 2D oyun oluştur | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-021 | Basit 3D oyun oluştur | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-022 | Bulmaca/kelime oyunu | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-023 | Hiper casual mobil oyun | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-024 | Oyun karakter ve bölüm üretimi | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-025 | Oyun test ve hata düzeltme | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+| 08-026 | Uygulama mağazası görselleri | İzole proje → kod API → build/önizleme/Playwright → sürüm arşivi |
+
 ### 9. Belgeler, PDF, Word, Sunum — 24 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -489,6 +787,39 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Belgeler, PDF, Word, Sunum: 24 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında LLM/vision API, LibreOffice/Pandoc/PDF motoru; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 09-001 | Sıfırdan PDF oluştur | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-002 | PDF düzenle/birleştir/böl | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-003 | Taranmış PDF'yi okunur hale getir | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-004 | PDF'yi Word'e dönüştür | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-005 | Word belgesi oluştur | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-006 | Word'ü PDF'ye dönüştür | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-007 | PowerPoint sunumu oluştur | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-008 | Metinden 10–30 slayt sunum | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-009 | Sunum tasarımını yenile | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-010 | Excel çalışma kitabı oluştur | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-011 | Tablodan rapor hazırla | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-012 | Fatura/teklif şablonu | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-013 | CV/özgeçmiş | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-014 | Ön yazı/motivasyon mektubu | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-015 | İş planı/proje teklifi | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-016 | Toplantı tutanağı | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-017 | Sözleşme taslak şablonu | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-018 | Form/anket oluştur | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-019 | E-kitap/e-dergi hazırla | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-020 | Belge çevirisi ve biçimi koru | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-021 | Belge karşılaştırması | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+| 09-022 | PDF'den tablo çıkar | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-023 | Tarama/fişten Excel tablosu | Girdi/OCR → model API → LibreOffice/PDF işçisi → gerçek dosyayı açarak test |
+| 09-024 | Dijital imzaya hazır belge | Gerçek belge üretimi, format ve açılabilirlik doğrulaması yapılır. |
+
 ### 10. Veri, Grafik ve Analiz — 22 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -520,6 +851,37 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Veri, Grafik ve Analiz: 22 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Dış analiz API, pandas/DuckDB, grafik işçisi; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 10-001 | CSV/Excel dosyası analiz et | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-002 | Veri temizle/eksikleri düzelt | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-003 | Pivot tablo oluştur | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-004 | Grafik/dashboards oluştur | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-005 | KPI gösterge paneli | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-006 | Satış analizi | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-007 | Ürün kârlılığı analizi | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-008 | Gelir-gider/bütçe senaryosu | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-009 | Nakit akışı tablosu | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-010 | Müşteri segmentasyonu | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-011 | Stok ve sipariş analizi | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-012 | Talep tahmini | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-013 | Anket analizi | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-014 | Pazar karşılaştırma tablosu | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-015 | Web/API verisini rapora bağla | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-016 | SQL/veritabanı analitiği | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-017 | İstatistiksel testler | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-018 | Finansal veri görselleştirme | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-019 | Harita üzerinde veri gösterimi | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+| 10-020 | Tekrarlayan rapor otomasyonu | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-021 | Matematik/denklem çözme | Kaynak veri doğrulanır, hesaplama tekrarlanabilir biçimde yapılır ve raporlanır. |
+| 10-022 | Bilimsel hesaplama | Tablo/CSV doğrula → pandas/DuckDB → grafik/rapor → projeye kaydet |
+
 ### 11. 3D, Mimari ve CAD — 20 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -548,6 +910,35 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 20 | Basit mekanik parça modeli | Metin, eskiz/fotoğraf, ölçüler, malzeme ve 3D çıktı türü. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli<br>**3D üretimi:** Meshy 3D | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY`; `MESHY_API_KEY` | 3D API’si uygun olduğunda taslak mesh üretebilir; ölçülü CAD ve format dönüşümleri ayrı araçlarla yapılır. **Sunucu araçları:** 3D dosyalarını Blender/FreeCAD ile dönüştürme. **Önemli:** AI 3D mesh ile ölçü hassasiyetli CAD aynı değildir; mekanik doğruluk kullanıcı tarafından denetlenmeli. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — 3D, Mimari ve CAD: 20 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Dış 3D API, Blender/FreeCAD/OpenSCAD; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → 3D model üretiminden sonra geometri, dosya formatı ve önizleme test edilir. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 11-001 | Metinden 3D model | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-002 | Fotoğraftan 3D model | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-003 | Ürün 3D mockup | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-004 | 3D karakter oluştur | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-005 | 3D avatar/mascot modelle | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-006 | Mobilya 3D tasarımı | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-007 | İç mekân 3D yerleşimi | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-008 | Ev planını 3D'ye çevir | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-009 | Dış cephe görselleştirme | 3D model üretiminden sonra geometri, dosya formatı ve önizleme test edilir. |
+| 11-010 | Peyzaj/bahçe tasarımı | 3D model üretiminden sonra geometri, dosya formatı ve önizleme test edilir. |
+| 11-011 | Stand/mağaza tasarımı | 3D model üretiminden sonra geometri, dosya formatı ve önizleme test edilir. |
+| 11-012 | Ambalaj/kutu 3D tasarım | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-013 | 3D baskıya uygun STL | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-014 | CAD teknik çizim taslağı | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-015 | GLB/OBJ/STL dosya dönüştürme | 3D model üretiminden sonra geometri, dosya formatı ve önizleme test edilir. |
+| 11-016 | 3D ışıklandırma/render | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-017 | 3D ürün döndürme videosu | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-018 | Oyun için 3D varlık | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-019 | 3D model optimize et | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
+| 11-020 | Basit mekanik parça modeli | Dış 3D API → Blender/FreeCAD → STL/GLB/OBJ doğrula |
 
 ### 12. Eğitim, Dil ve Öğrenme — 20 alt işlem
 
@@ -578,6 +969,35 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Eğitim, Dil ve Öğrenme: 20 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Dış sohbet/ses API, eğitim motoru; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 12-001 | Kişisel öğretmen/konu anlatımı | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-002 | Adım adım soru çözümü | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-003 | Test/çoktan seçmeli soru oluştur | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-004 | Deneme sınavı oluştur | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-005 | Flashcard/hafıza kartları | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-006 | Özet ders notları | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-007 | PDF'den öğrenme planı | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-008 | Dil öğrenme sohbeti | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-009 | İngilizce/Türkçe konuşma pratiği | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-010 | Telaffuz kontrolü | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-011 | Metin çevirisi | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-012 | Belge çevirisi | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-013 | Kelime çalışma programı | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-014 | Çocuklar için hikâyeli öğrenme | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-015 | Matematik ve fen deney simülasyonu taslağı | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-016 | Ders sunumu oluştur | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-017 | Eğitim videosu hazırlama | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-018 | Soru bankasından quiz | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-019 | Mülakat/sertifika sınavı pratiği | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+| 12-020 | Konuya göre öğrenme takvimi | Seviye/konu/öğrenci hafızasına göre içerik, test ve ilerleme oluşturulur. |
+
 ### 13. Ajanlar ve Özel Asistanlar — 16 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -602,6 +1022,31 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 16 | Ajan rol ve erişim yönetimi | Ajanın görevi, kullanılmasına izin verilen araçlar, belgeler, bütçe. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli, Grok, DeepSeek | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY`; `XAI_API_KEY`; `DEEPSEEK_API_KEY` | Kullanıcının seçtiği sohbet modeli ve izin verdiği araçlarla çok aşamalı ajan çalışır. **Sunucu araçları:** ajan orkestrasyon, izin yonetimi. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Ajanlar ve Özel Asistanlar: 16 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında AI Orchestrator, ajan izin motoru, dış model API; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 13-001 | Kişisel asistan oluştur | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-002 | Müşteri destek ajanı oluştur | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-003 | Satış temsilcisi ajanı | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-004 | Araştırmacı ajan | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-005 | Kodlama ajanı | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-006 | İçerik üretim ajanı | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-007 | Sosyal medya yöneticisi ajan | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-008 | E-ticaret ürün ajanı | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-009 | Ofis/yönetici sekreter ajanı | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-010 | E-posta sınıflandırma ajanı | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-011 | Belgelere dayalı bilgi asistanı | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-012 | Web tarama ajanı (izinli) | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-013 | Birden çok ajanla iş tamamlama | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-014 | Kendi şirketime özel ajan | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-015 | Paylaşılabilir ajan/skill paketi | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
+| 13-016 | Ajan rol ve erişim yönetimi | Araç erişimi kontrol edilir; çok aşamalı görev, maliyet ve onay kaydedilir. |
 
 ### 14. Otomasyon ve Zamanlananlar — 20 alt işlem
 
@@ -631,6 +1076,35 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 20 | Otomasyon şablonunu paylaş/sat | Görev, tetikleyici/saat, bağlı hesap ve işlem-onay adımları. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY` | Zamanlayıcı görevi başlatır; seçilen API’lerle aşamalar yürütülür; dış hesaba işlem için izin gerekir. **Sunucu araçları:** zamanlayici, kuyruk, durum kayitlari. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Otomasyon ve Zamanlananlar: 20 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Job Scheduler, webhook, BullMQ, dış API; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 14-001 | Tek tık çok adımlı iş akışı | Tetikleyici → BullMQ/iş akışı → dış API → iş günlüğü/bildirim |
+| 14-002 | Her gün/hafta zamanlanmış görev | Tetikleyici → BullMQ/iş akışı → dış API → iş günlüğü/bildirim |
+| 14-003 | Gelen e-postayı özetle | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-004 | Yanıta göre takip hatırlatması | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-005 | RSS/haberden video oluştur | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-006 | Blogdan sosyal medya postu üret | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-007 | Video → Shorts → altyazı → yayın hazırlığı | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-008 | Ürün kataloğundan reklam seti | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-009 | Form doldurulunca CRM kaydı | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-010 | Randevu/etkinlik hatırlatması | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-011 | Fiyat değişince bilgilendir | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-012 | Site içeriği güncelleme takibi | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-013 | Dosya gelince PDF/Excel işle | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-014 | Takvimden görev listesi çıkar | Tetikleyici → BullMQ/iş akışı → dış API → iş günlüğü/bildirim |
+| 14-015 | Onayla ve yayınla akışı | Tetikleyici → BullMQ/iş akışı → dış API → iş günlüğü/bildirim |
+| 14-016 | Webhook/API bağlama | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-017 | Çoklu platform otomatik paylaşım | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-018 | Başarısız adımı yeniden dene/raporla | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-019 | Toplu dosya dönüşümü | Olay/zaman tetikler; durum, tekrar deneme ve kullanıcıya bildirim yazılır. |
+| 14-020 | Otomasyon şablonunu paylaş/sat | Tetikleyici → BullMQ/iş akışı → dış API → iş günlüğü/bildirim |
 
 ### 15. Sosyal Medya Stüdyosu — 23 alt işlem
 
@@ -663,6 +1137,38 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 23 | Yayın öncesi onay takvimi | Görev, tetikleyici/saat, bağlı hesap ve işlem-onay adımları. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY` | Zamanlayıcı görevi başlatır; seçilen API’lerle aşamalar yürütülür; dış hesaba işlem için izin gerekir. **Sunucu araçları:** zamanlayici, kuyruk, durum kayitlari. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Sosyal Medya Stüdyosu: 23 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici yazı/görsel/video API, OAuth yayın adaptörü; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 15-001 | Instagram içerik takvimi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-002 | Instagram Reels paketi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-003 | Instagram Story paketi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-004 | Instagram kaydırmalı gönderi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-005 | TikTok video paketi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-006 | YouTube Shorts paketi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-007 | YouTube video başlık/açıklama | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-008 | YouTube thumbnail paketi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-009 | Facebook gönderisi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-010 | LinkedIn gönderisi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-011 | X/Twitter konu dizisi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-012 | Pinterest pin seti | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-013 | WhatsApp Status paketi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-014 | Platformlara otomatik boyut uyarlama | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-015 | Gönderi açıklaması/hashtag | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-016 | A/B başlık/kapak oluştur | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-017 | Haftalık/aylık toplu paylaşım planı | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-018 | Yorumlara yanıt taslağı | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-019 | Rakip içerik format analizi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-020 | Marka içerik kiti | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-021 | Trendden özgün içerik fikri | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-022 | Gönderiyi farklı dillere uyarlama | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
+| 15-023 | Yayın öncesi onay takvimi | İçerik üretimi, önizleme, kullanıcı onayı, platforma izinli yayın kaydı. |
 
 ### 16. Pazarlama ve E-Ticaret — 24 alt işlem
 
@@ -697,6 +1203,39 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — Pazarlama ve E-Ticaret: 24 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harici yazı/görsel/video API, pazarlama motoru; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 16-001 | Ürün açıklaması yaz | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-002 | Ürün fotoğrafını reklama çevir | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-003 | Ürün satış videosu oluştur | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-004 | Meta reklam metni/yaratıcı | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-005 | Google reklam metni | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-006 | TikTok reklam kreatifi | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-007 | Reklam A/B varyasyonları | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-008 | E-posta kampanya serisi | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-009 | SMS/WhatsApp kampanya metni | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-010 | Kampanya landing page | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-011 | SEO ürün ve kategori metinleri | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-012 | Amazon/Trendyol pazaryeri listeleme metni | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-013 | Dropshipping ürün sayfası | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-014 | Katalog PDF oluştur | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-015 | Broşür/menü/fiyat listesi | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-016 | Marka sloganı ve kimliği | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-017 | Müşteri persona çıkar | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-018 | Rakip fiyat karşılaştırması | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-019 | Ürün paketleme/mockup | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-020 | Kupon/indirim kampanyası | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-021 | Kampanya takvimi | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-022 | Toplu ürün reklamı (CSV) | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-023 | Satış hunisi taslağı | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+| 16-024 | Müşteri yorumlarını özetle | Marka/ürün girdisinden kampanya, varyant, maliyet ve ölçüm üretilir. |
+
 ### 17. İş, Ofis ve Verimlilik — 20 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -726,6 +1265,35 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
 
+
+
+##### EK — İş, Ofis ve Verimlilik: 20 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Dış sohbet API, belge/iş planı işçisi; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 17-001 | İş planı oluştur | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-002 | Proje yol haritası | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-003 | Gantt/görev planı | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-004 | Toplantı gündemi/tutanağı | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-005 | Teklif ve fiyat dosyası | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-006 | Bütçe planı | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-007 | Kâr/zarar senaryosu | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-008 | Raporlama paneli | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-009 | İnsan kaynakları ilan taslağı | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-010 | Mülakat soru seti | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-011 | Çalışan eğitim sunumu | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-012 | Müşteri yanıt merkezi | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-013 | CRM veri düzenleme | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-014 | Ürün/hizmet karşılaştırması | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-015 | Operasyon kontrol listesi | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-016 | Kurumsal bilgi bankası | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-017 | Çeviri ve çok dilli doküman | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-018 | Aylık faaliyet raporu | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-019 | Takvim/posta otomasyonu | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+| 17-020 | Firma sunum dosyası | İş bilgisi analiz edilir; gerçek Office/PDF veya görev listesi doğrulanır. |
+
 ### 18. Harita, Seyahat ve Konum — 16 alt işlem
 
 **Sayfa düzeni:** Sohbet kutusu → bu bölümün hazır işlem kartları → seçilen kartın sohbet içi formu ve model seçicisi → işlem sonucu → bu kategorinin pazaryeri.
@@ -750,6 +1318,31 @@ Bir kartın sağında yazılan **Form tipi**, seçildiğinde otomatik açılacak
 | 16 | Konum bazlı saha planı | Başlangıç/varış konumları, duraklar, tarih, ulaşım türü ve bütçe. | **Sohbet / senaryo:** OpenAI GPT, Claude, Google Gemini / ilgili Google modeli<br>**Harita / rota:** Google Maps, Mapbox, openrouteservice | `OPENAI_API_KEY`; `ANTHROPIC_API_KEY`; `GOOGLE_AI_API_KEY`; `GOOGLE_MAPS_API_KEY`; `MAPBOX_ACCESS_TOKEN`; `ORS_API_KEY` | Harita API’si gerçek yer/rota verisi verir; sohbet modeli planı hazırlar; harita veya PDF sunulur. **Sunucu araçları:** Harita ve rota gösterimi, Rapor/PDF hazırlama. |
 
 **Bu kategorinin pazaryeri:** Kullanıcı hak sahibi olduğu sonucu veya tekrar kullanılabilir şablonu açık izniyle yayımlar. Başkası ücretli şablonu başarıyla çalıştırırsa kararlaştırılan koşullara göre üretici payı hesaplanır.
+
+
+
+##### EK — Harita, Seyahat ve Konum: 16 işlem için gerçek çalışma hatları
+
+**Orijinal işlemlerin adları, sırası, kullanıcı alanları, mevcut API/model seçenekleri ve üstteki tablolar DEĞİŞMEDEN geçerlidir.** Bu ek, her `subcategory_id` için çalışma hattını açıklar. **Çalışacağı yer:** Ana Beyin özel sunucu alanında Harita/geocoding API, planlama modeli, rota motoru; üretken AI yalnız lisanslı **haricî API** üstünde. Ortak akış: kullanıcı yetkisi + dinamik form doğrulaması → desteklenen API eşlemesi → gerçek kredi tahmini/onay → özel kuyruk ve kayıt → Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. → kalite denetimi → sohbet/proje/arşiv → izinli pazaryeri. Gerçek API yoksa kart “bağlantı bekliyor” durumundadır.
+
+| İşlem ID | MD'deki mevcut alt kategori/işlem | Bu işlemde hangi araçlar nasıl çalışır? |
+|---|---|---|
+| 18-001 | Rota ve durak planı | Gerçek harita API → koordinat/rota → harita/PDF ve kaynak kontrolü |
+| 18-002 | Çok duraklı gezi güzergâhı | Gerçek harita API → koordinat/rota → harita/PDF ve kaynak kontrolü |
+| 18-003 | Yakındaki işletme/yer arama | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-004 | Seyahat gün gün program | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-005 | Ulaşım alternatifleri | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-006 | Bütçeli tatil planı | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-007 | Otel/konaklama karşılaştırması | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-008 | Restoran keşfi | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-009 | Tur/transfer planlama | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-010 | Haritaya CSV adres yükleme | Gerçek harita API → koordinat/rota → harita/PDF ve kaynak kontrolü |
+| 18-011 | Bölge/pazar yer analizi | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-012 | Mesafe/süre hesaplama | Gerçek harita API → koordinat/rota → harita/PDF ve kaynak kontrolü |
+| 18-013 | Etkinlik/ziyaret ajandası | Gerçek koordinat, mesafe ve süre sağlayıcıdan alınarak sunulur. |
+| 18-014 | İşletme konum tanıtım görseli | Gerçek harita API → koordinat/rota → harita/PDF ve kaynak kontrolü |
+| 18-015 | Müşteriye rota PDF'i | Gerçek harita API → koordinat/rota → harita/PDF ve kaynak kontrolü |
+| 18-016 | Konum bazlı saha planı | Gerçek harita API → koordinat/rota → harita/PDF ve kaynak kontrolü |
 
 ## 4. ÖZEL DİNAMİK FORM ÖRNEKLERİ
 
@@ -4777,3 +5370,131 @@ LibreChat mevcut sohbet/mesaj, model değişimi, dosya yükleme, kullanıcı otu
 - **Model/API seçimleri:** Üstteki **Konum bazlı saha planı** satırındaki API'ler geçerlidir. Gerekli aşamalarda Otomatik ve Elle seçim açılır. Aşama seçenekleri: Metin Ve Planlama: openai, anthropic, google_gemini, xai; Harita Yer Ve Rota Servisi: google_maps, mapbox, openrouteservice; bağlantısız modeller pasiftir.
 - **İşlem sonunda:** Önizleme, çıktı dosyası, projeye kaydetme, geri dönerek değiştirme, kullanılan kredi/işlem durumu ve ilgili alanlardaki hata açıkça görünür.
 - **Pazaryeri şablonu:** Satıcı **Konum bazlı saha planı** için zorunlu dosya sayısını, değiştirilebilir alanları, örnek çıktıyı ve kullanım koşullarını tanımlar. Alıcı şablon kartına bastığında bu form otomatik açılır; kişisel dosyalar karışmaz ve ancak başarılı ücretli kullanımdan sonra satıcıya pay yazılır.
+
+
+
+
+# EK — ANA BEYİN 431 KARTIN CANLI ÇALIŞMA SÖZLEŞMESİ VE CLAUDE CODE GELİŞTİRME SINIRLARI (24.10.2026)
+
+**Ana değişmez kurallar:** Bu ek orijinal metin ve bütün 431 kartın üstüne yazılmaz; bunların tümünü tamamlayıcı teknik yürütme sözleşmesidir. Mevcut kategori, giriş, işlem akışı, sağlayıcı, anahtar, pazaryeri ve özgün açıklama satırları hiçbir şekilde silinemez, taşınamaz veya değiştirilmez.
+
+**En son mimari:** Üretken metin/görsel/video/ses/müzik/3D AI modelleri sunucuya veya D: sürücüsüne indirilmez; yalnız ticari izni ve endpoint erişimi doğrulanan harici API kullanılır. CPU'da dosya/media/Office dönüştürme, veritabanı ve güvenlik araçları ayrı çalışabilir.
+
+**YEREL ÖN HAZIRLIK:** Claude Code başlamadan önce kullanıcı ve asistan geliştirme araçlarını, LibreChat temelini, diğer lisanslı açık kaynak sistemleri ve test servislerini Windows 11 D: yerel proje/çalışma ortamına ayrı süreçte önceden hazırlar. Gerçek D: klasörleri incelenip kullanılmadan belirli bir yol varmış gibi varsayılmaz.
+
+**CLAUDE CODE SINIRI:** Claude Code'a herhangi bir yardımcı program, paket, repo, model, ağırlık veya servis İNDİRME/KLONLAMA/KURMA TALİMATI VERİLMEZ. Ağdan git clone, curl/script, apt, npm/pip install, model pull gibi eksik araç yükleme işlerine girişmez. Yalnız hazırlanan ve doğrulanan bileşenleri kullanıp uygulamayı geliştirir; eksikleri kullanıcıya listeleyip hazır kısımları testli geliştirir.
+
+**Tek ana görev ve devamlılık:** Bir ana talimat, modül bazında geliştirme→test→güvenlik→Git kontrol noktası→sonraki modül akışını başlatır. Harici sağlayıcı API anahtarı/izin, kullanım kotası veya terminal oturumu eksikliği varsa sahte başarı bildirilmez. Gerçek ödeme/yayın/kalıcı silme ayrıca kullanıcı onaylıdır.
+
+**Geliştirme ajanı ayrımı:** Claude Code'daki geliştirme Skills/Subagents/MCP yalnız geliştirme ortamındadır, son kullanıcıya açık değildir. Canlı Ana Beyin ajanları ayrı izin/kredi/bütçe/sandbox ile çalışır.
+
+
+## EK-1: Claude Code siteyi geliştirirken kullanılan hazır araçlar ve yerleri
+
+| Araç / grup | Çalışma yeri | Ne yapar? |
+|---|---|---|
+| Claude Code, CLAUDE.md, AGENTS.md, Rules | D: geliştirme oturumu | MD'yi çalışılabilir sisteme çevirir; proje sınırları ve izinleri her görevde uygular |
+| Claude Skills, Subagents, Agent Teams, Hooks, Plugins | D: geliştirme | Architecture, Frontend, Backend, Database, API, Security, QA, DevOps, Performance, Accessibility, Code Review, Media/Archive alanlarında iş dağıtır; test başarısızsa bitmiş saymaz |
+| Everything Claude Code, Superpowers, Find Skills, Anthropic Frontend Design | Hazır geliştirici beceri kataloğu | Gerekli mimari, plan, tasarım, analiz becerisini çağırır; kullanıcı ürünü veya model servisi değildir |
+| Replica Skill, REA, ERA, Wakaru, Ghidra | İzinli/sandbox inceleme | Referans arayüzü ve izinli kaynak/kod/ikili analiz; telifli kapalı kodu kopyalamaz |
+| Serena MCP, Context7, GitHub MCP, Filesystem MCP, PostgreSQL MCP, MCP Inspector | D: kısıtlı araç erişimi | Kod sembolü bulma, güncel dokümantasyon, Git, izinli proje dosyaları ve test amaçlı DB denetimi |
+| Playwright MCP/CLI/Test, Chromium, Firefox, WebKit | D: test tarayıcıları | Sohbet, 431 form, medya, mobil, login, ödeme sandbox, yönetim ekranı ve güvenlik hatalarını test eder |
+| Git, Git LFS, GitHub CLI, Git Worktree, GitHub Actions | Sürüm deposu ve CI | İzolasyon, küçük commit, kod inceleme, otomatik lint/build/test/güvenlik ve geriye alma |
+| PowerShell, Bash, WSL2, ripgrep, fd, fzf, curl, wget, jq, yq | D: terminal | Hazır kodu ve konfigürasyonu analiz; üçüncü taraf araç indirmek için kullanılmaz |
+| Node.js, pnpm, npm, Corepack, TypeScript strict, React, Vite | Hazır frontend build ortamı | LibreChat uyumu ve Ana Beyin arayüz geliştirme/derleme |
+| Python 3, uv, venv, pip, FastAPI | Hazır servis/test ortamı | CPU işçileri, veri/pandas, belge dönüştürücüler; her değişiklik test edilir |
+| Docker, Docker Compose, Make, gcc/g++, build-essential | Önceden hazır yerel altyapı | Servisleri çalıştırma, izole işçiler, taşınabilir geliştirme; eksikse kullanıcıya bildirilir |
+| Tailwind, shadcn/ui, Radix UI, Lucide, Motion, GSAP, Three.js, WebGL, Lottie, Rive | Ön yüz kaynak kodu | Responsive, erişilebilir ve gerektiğinde animasyonlu özgün UI; mobil performansı |
+| JSON Forms, React Hook Form, Zod, Zustand, TanStack Query, i18next | Ön yüz ve form motoru | Mevcut input_schema'dan gerçek kullanıcı alanları, validasyon, durdurma/ilerleme, çoklu dil |
+| Uppy, react-dropzone, Cropper.js, Plyr, Video.js, hls.js | Ön yüz medya bileşenleri | Yükleme/kırpma, sohbet eki, video preview, indirme kalite seçimi |
+| Storybook, MSW, Vitest/Jest, Testing Library, user-event | D: kalite testi | Bileşen ve API kontratı, unit/integration test, gerçek form davranışı |
+| ESLint, Prettier, oxlint, Stylelint, Knip, depcheck, Madge | D: kod denetimi | Tip, stil, ölü paket, dairesel bağımlılık kontrolleri |
+| Playwright, pixelmatch, BackstopJS, axe-core, Pa11y, Lighthouse, web-vitals | D: E2E ve görsel kalite | Ekran karşılaştırma, responsive, erişilebilirlik, yükleme hızı ölçümü |
+| k6, Autocannon, Artillery | İzole yük testi | Kuyruk, ödeme, medya yükleme, API hızı ve eşzamanlı kullanım ölçümü |
+| Semgrep, CodeQL, Bandit, Gitleaks, detect-secrets | D: güvenlik ve CI | Kod açıkları ile gizli anahtar/parola sızıntılarını engeller |
+| Trivy, OSV-Scanner, Grype, Syft, Checkov, Hadolint, npm audit, pip-audit | D: paket/container denetimi | SBOM, bilinen açıklar, yapılandırma ve görüntü/container açık taraması |
+| OWASP ZAP, ASVS, API Security testleri, Lynis | Yetkili test/staging | Auth, tenant, admin, SSRF, upload, şema, hata ve izin testleri |
+| Dependabot veya Renovate, Husky, lint-staged, commitlint | Depo/CI | Bağımlılık güncelleme önerisi, otomatik format/test ve commit kalite kapısı |
+
+## EK-2: Ana Beyin canlı platformunun servisleri ve çalışma yerleri
+
+| Sistem / araç | Çalışma yeri | Gerçek çalışma biçimi |
+|---|---|---|
+| LibreChat + özgün Ana Beyin frontend | Web uygulaması | Sohbet, sol menü, 18 kategori, 431 kart; Avatar yalnız Video Stüdyosu kartıdır |
+| MongoDB | Özel sunucu ağı | LibreChat'in kendi sohbet altyapısı; mevcut veriyi koru |
+| PostgreSQL / pgvector | Özel ağ | Kullanıcı/proje/kredi/pazaryeri/komisyon metadata ve semantik hafıza |
+| Meilisearch / RAG index | Özel ağ | Kullanıcı sohbeti/dosyası/projelerinde yetkili arama; asıl kayıt burada tutulmaz |
+| Redis + BullMQ | Özel ağ | Görev, cache, hız sınırı, gecikme, retry, başarısız iş ve iptal; worker'lar |
+| Celery / FastAPI (gerektiğinde) | İzole CPU işçileri | Python belge/media/analiz işçileri; BullMQ aynı işi iki kere yönetmez |
+| Docker/Compose, Nginx veya Caddy, TLS | Sunucu | Web/API/worker ayrımı, özel ağ, reverse proxy, HTTPS |
+| Ana Beyin AI Orchestrator + LiteLLM | Sunucu özel ağı | Doğrulanmış harici LLM/video/görsel/ses/3D sağlayıcılarını seçme ve çağırma |
+| Provider/Model/Capability/Tool Registry | PostgreSQL + backend | Gerçek API özelliği, sürüm, izin, model, maliyet; erişilemeyen kart pasif |
+| Auto/Manual Router, Cost/Quality/Speed Router, Fallback | Backend | Görev yeterliliği, kullanıcı seçimi, bütçe, hız ve hata durumuna göre uygun model |
+| API Key Vault/KMS, Token/Cost Meter, Credit/Quota Manager | Backend özel ağı | Anahtarları sakla; maliyeti ve kullanım haklarını kontrol et; istemciye secret gönderme |
+| LangGraph/iş akışı, Prompt/Schema Registry, Job Scheduler | Backend + kuyruk | 431 işlem şemasını adımlara bağla, tool call, insan onayı, zamanlanan görev |
+| SearXNG, GPT Researcher, Crawl4AI, Scrapy, trafilatura, RSSHub | İzole araştırma işçisi | İzinli web/akademik kaynak toplama, URL ve tarih doğrulaması; dış kaynakları sistem komutu sanma |
+| LlamaIndex, LangChain, Haystack (gerektikçe) | Özel RAG işçisi | Dosya parçalama, yetkili arama, kaynaklı konuşma hafızası |
+| FFmpeg, ffprobe, PySceneDetect, MediaInfo | İzole CPU medya işçisi | Harici video/ses API çıktılarını kes, birleştir, süre/codec/bitrate ölç; orijinali sakla |
+| Sharp, libvips, ImageMagick, ExifTool | İzole CPU görsel işçisi | Resim önizleme/format/ICC/metadata; orijinali değiştirme |
+| LibreOffice headless, Pandoc, Poppler, Ghostscript, qpdf | İzole belge işçisi | PDF/DOCX/XLSX/PPTX gerçek dosya üretme, dönüştürme ve okuma |
+| PyMuPDF, pypdf, pdfplumber, OCRmyPDF, Tesseract | İzole belge/OCR işçisi | Taramayı okuma ve gerçek indirilebilir belgeyi doğrulama |
+| python-docx, python-pptx, PptxGenJS, openpyxl, ExcelJS, ReportLab, WeasyPrint | İzole belge işçisi | Doğru formatta Word/Excel/PPTX/PDF çıktı oluşturma |
+| pandas, NumPy, SciPy, SymPy, DuckDB, ECharts, Plotly | İzole veri işçisi | Doğru sayısal hesap, grafik, tablo ve rapor |
+| Blender, FreeCAD, OpenSCAD, Godot | İzole 3D/oyun işçisi | Harici AI çıktısından STL/GLB/OBJ/oyun paket dosyası oluşturma/test; GPU AI modeli değil |
+| MapLibre, GeoPandas, Google Maps/Mapbox/openrouteservice adapter | Backend + harita UI | Gerçek kaynaklı koordinat, rota, süre, saha planı |
+| n8n, Activepieces, Node-RED, Windmill (seçileni) | Özel otomasyon ortamı | OAuth, webhook, zamanlama ve bildirim; aynı işi yapan hepsini zorunlu paralel çalıştırma |
+| OAuth Connector Registry | Backend | Gmail, Drive, Calendar, YouTube, GitHub, Slack, Meta, TikTok, X, LinkedIn, Pinterest izinli erişim |
+| Subscription, Credit Wallet, Payment, Marketplace, Creator Royalty | Backend + ödeme sağlayıcısı | Abonelik/üyelik, kredi, ödeme webhook doğrulama, idempotency, şablon/ürün satışı ve üretici telifi |
+| Moderation, Report, Human Review, Consent & Rights | Backend+izole denetim işçisi | Yüz/ses rızası, içerik moderasyonu, telif, şikâyet; özel sohbeti asla otomatik yayınlama |
+| Cloudflare WAF, DDoS, Turnstile, CrowdSec/fail2ban | Ağ/giriş güvenliği | Bot, DDoS, kötüye kullanım, kaba kuvvet saldırılarının sınırlandırılması |
+| UFW/nftables, OpenSSH, auditd, AppArmor, Wazuh | Sunucu güvenlik katmanı | Özel ağ, SSH, denetim, host olayları, güvenlik alarmı |
+| Sentry, Uptime Kuma, Prometheus, Grafana, Loki, Alloy, Netdata | İzleme katmanı | API, gecikme, kuyruk, CPU/disk, hata, maliyet, güvenlik uyarısı; kişisel veri loglanmaz |
+| restic/Kopia, BorgBackup, rclone | Depolama/yedek işçisi | Şifreli farklı lokasyon yedeği, sürüm, bütünlük ve gerçek geri yükleme testi |
+
+## EK-3: Görüntü, video, ses, arşiv ve kayıpsızlık şartları
+
+| Bileşen | Nasıl işleyecek? |
+|---|---|
+| Orijinal dosya store | S3 uyumlu özel bucket; kaynak görüntü/video/ses/dosya bayt bayt değiştirilmeden saklanır; SHA-256 ve metadata kaydedilir. |
+| Önizleme/teslim store | Başka bucket/prefix; küçük önizleme, streaming ve indirme sürümleri asıldan türetilir, asıl üstüne asla yazılmaz. |
+| Sıkıştırma | Metin/JSON/proje/yedek için zstd, gzip, Brotli kayıpsız; görüntüde PNG/WebP lossless/AVIF lossless ve oxipng/optipng; ses FLAC/WAV. Video zaten sıkışmışsa kayıpsız küçültme garanti edilmez. |
+| Video kodekleri | FFmpeg stream copy/remux varsa kalite kaybı olmadan; yeniden kodlama gerekli ise libx264, libx265, SVT-AV1, AAC, Opus ayrı çıktı üretir. Profesyonel ara biçimler ProRes/FFV1/MKV ihtiyaç bazlı. |
+| Video web gösterimi | Video.js/hls.js/Plyr, HLS/DASH ve gerektiğinde Bento4/Shaka Packager; web akışı düşük bitrate olabilir ancak orijinal dosya saklı. |
+| Görüntü kalite yönetimi | Sharp/libvips/ImageMagick, libavif, JPEG araçları, ICC profili, alfa, EXIF yönü, renk alanı; JPEG veya kayıplı pngquant orijinalin yerine geçmez. |
+| Video kalite ölçümü | FFprobe/MediaInfo ile FPS, çözünürlük, codec, bitrate, HDR/BT.709/BT.2020, ses kanalı; VMAF/SSIM/PSNR referanslı kalite kıyasları; yanlış formatlı çıktı tamamlandı olmaz. |
+| Sahne ve altyazı | PySceneDetect, FFmpeg, STT API, SRT/VTT, zaman kodu ve ses-video senkronizasyonu; otomatik Shorts/Reels montajı. |
+| Büyük dosya yükleme | Multipart/tus resumable, parça checksum, rate/storage kotası, kırılan yüklemeyi sürdürme, upload karantinası. |
+| Arşiv metadata | owner_id, project_id, conversation_id, job_id, object_key, original_object_key, version, hash, mime, file_size, width, height, fps, bitrate, duration, color_profile, rights, retention_policy. |
+| Erişim | Sahiplik ve tenant doğrulama, Signed URL, saklama şifreleme, TLS, ayrı izinli eser paylaşımı, tam arşiv arama/indirme/veri dışa aktarımı. |
+| Nesne depolama adayı | MinIO, Cloudflare R2, Amazon S3, Backblaze B2 alternatif; orijinal MD'de seçilmediği için birini kesin seçilmiş diye dayatma yok. |
+| Veri kalıcılığı | Object Versioning, immutable ayrı yedek/Object Lock gerektiğinde, lifecycle ve silme politikası, restic/Kopia+Borg/rclone seçenekleri, geri yükleme doğrulaması. |
+
+## EK-4: Güvenlik, içerik ve telif koruması
+
+| Katman | Nasıl işleyecek? |
+|---|---|
+| Karantina ve malware | ClamAV, libmagic/file, oletools, PDFiD, pdf-parser; içerik onaylanmadan webroot dışındaki karantinadan çıkmaz. |
+| Görsel/ses/video moderasyonu | Harici API veya gerekirse küçük CPU denetimi; örnek video kareleri, STT metni, çıplaklık/spam/risk, ihbar ve insan incelemesi. |
+| Kişisel bilgi ve tekrar içerik | Microsoft Presidio, langdetect, RapidFuzz, RE2, ImageHash/pHash; gizlilik ve kullanıcı beyanlarıyla beraber. |
+| İzole çalıştırma | Webroot dışı dosyalar, sandbox, sıkı kaynak/zaman sınırı, yüklenen dosyayı kod gibi yürütmeme. |
+| Saldırı savunması | WAF/DDoS, CSP/HSTS, authz/MFA/RBAC, XSS/CSRF/SSRF/SQLi korumaları, gizli anahtar kasası, brute-force/abuse engelleri. |
+| Prompt injection ve ajan yetkisi | Web sayfası, yüklenen belge ve model çıktısı sistem talimatı sayılmaz; kullanıcı adına dış işlem için yetki ve onay gerekir. |
+| Telif ve üretici hakları | Pazaryerinde gerçek satış, örnek medya ve eser lisansı; yalnız izinli satışa açma, başarılı iş sonrasında komisyon/kredi kaydı. |
+
+## EK-5: 431 kart için durum makinesi ve teslim ölçütleri
+
+| Kontrol | Şart |
+|---|---|
+| Kart durumları | catalogued → form_ready → provider_pending → sandbox_verified → enabled / disabled; hiçbir aday API sınanmadan enabled olmaz. |
+| İş durumları | created → validated → awaiting_credit_approval → queued → running → postprocessing → quality_check → completed; failed/cancelled yolları ve retry kayıtlı. |
+| Dosya akışı | auth → upload quarantine → type+virus → job → external API → local CPU postprocess → quality/rights → original + preview objects → archive + conversation_id. |
+| Kredi maliyeti | API çağrısı öncesi tahmini maliyet göster; sağlayıcı gerçek kullanımına göre kesinleştir; ödeme/webhook çifte kayıt olmasın; başarısız işte politika gereği iade. |
+| Ekran doğrulaması | Ana menü özgün belgeye uygun; 431 kart sohbetin altında; form kart seçilince aynı sohbet içinde; pazaryeri daha altta; mobilde alanlar kaybolmaz. |
+| Güvenlik denetimi | Bir kullanıcının projeleri, dosyası, sohbeti ve API anahtarları diğer kullanıcının hesabında okunamaz; ödeme ve özel veri erişim testleri zorunludur. |
+| Canlı üretim kabulü | Gerçek yanıt/dosya üretimi, kalite/format/hash testi, sahiplik ve arşiv kaydı, kullanıcıya önizleme/indirme ve maliyet kaydı varsa başarılı. |
+| Bağlanmamış API | Kart ve sağlayıcı listesi korunur, fakat kullanıcıya ‘bağlantı bekliyor’ gösterilir; sahte video, sahte link, sahte ‘tamamlandı’ üretilmez. |
+
+**Kullanıcıya görünen harici yapay zekâ API listesi:** Üstteki mevcut ana MD'de adı geçen OpenAI GPT/Görsel/Ses, Anthropic Claude, Google Gemini/görsel/video/müzik, xAI Grok, DeepSeek, Mistral, Cohere, Perplexity, Tavily, Exa, Brave, SerpAPI, OpenAlex, Crossref, arXiv, PubMed, FLUX, Recraft, Ideogram, Adobe Firefly, fal.ai, Replicate, Runway, Kling, MiniMax/Hailuo, Luma, HeyGen, Hedra, ElevenLabs, Deepgram, AssemblyAI, Azure, Google Speech, Lyria, Meshy, harita, sosyal OAuth, GitHub/Slack ve ödeme sistemlerinin **özgün seçimleri değiştirilmez**. Ayrıca tek modelin desteklemediği aşamalar için bu listede doğrulanan farklı API'ler ardışık çalıştırılabilir. Hiçbir sağlayıcının API özelliği, lisansı, fiyatı veya entegrasyonu sırf adı listede diye hazır varsayılmaz.
+
+**Tam ürün kabul kontrolü:** On sekiz kategori, 431 işlem, dinamik formlar, Auto/Elle seçim, aynı sohbetin model değiştirerek sürdürülmesi, orijinal kalite arşivi ve türetilmiş dosyalar, kredi/abonelik, her kategori pazaryeri, hesap izolasyonu, mobil uyum, ödeme sandbox, gerçek sağlayıcı adaptörü testi, Git sürümleme, izleme, şifreli yedek/geri yükleme eksiksiz doğrulanır.
+
